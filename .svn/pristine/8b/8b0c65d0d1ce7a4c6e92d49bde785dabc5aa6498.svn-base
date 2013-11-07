@@ -1,0 +1,73 @@
+﻿Imports WeifenLuo.WinFormsUI.Docking
+Imports ShamanClases
+Public Class frmVistaEntidades
+
+    Private vCli As Decimal
+
+    Private Sub frmVistaEntidades_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Escape Or e.KeyCode = Keys.Return Then
+            Me.Close()
+        End If
+    End Sub
+
+    Private Sub frmVistaEntidades_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Me.FormatScreen()
+    End Sub
+
+    Private Sub FormatScreen()
+        Dim objClientes As New VentasC.Clientes
+        Dim objAsociados As VentasC.Asociados
+        Dim objPlanes As Ventas.Planes
+        Dim objIntegrantes As VentasC.ClientesIntegrantes
+
+        SetFormatGrid(Me.grdIntegrantes, 6)
+        With Me.grdIntegrantes
+
+            .Columns(0).Visible = False
+            '-----> Nro.Afiliado
+            .Columns(1).HeaderText = "Nro.Afiliado"
+            .Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(1).Width = 30
+            '-----> Apellid
+            .Columns(2).HeaderText = "Apellido"
+            .Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+            .Columns(2).Width = 55
+
+        End With
+
+        If objClientes.Abrir(vCli) Then
+            Me.txtCodigo.Text = objClientes.ClienteId
+            Me.txtRazonSocial.Text = objClientes.titRazonSocial
+            Me.rtfObservaciones.Rtf = objClientes.rtfObservacionesOpe.RTF
+            If objClientes.TipoClienteId.TipoClienteId = "S" Then
+                objAsociados = New VentasC.Asociados
+                If objAsociados.Abrir(vCli) Then
+                    objPlanes = New Ventas.Planes
+
+                    If objPlanes.Abrir(objAsociados.opePlanId.ID) Then
+                        Me.rtfObservaciones.Rtf = objPlanes.rtfDetalle.RTF
+                    End If
+                    objIntegrantes = New VentasC.ClientesIntegrantes
+                    objIntegrantes.GetIntegrantesToGrid(vCli, shamanConexion.PID, Me.grdIntegrantes)
+
+                    objIntegrantes = Nothing
+                    objPlanes = Nothing
+                End If
+                objAsociados = Nothing
+            End If
+        End If
+
+        objClientes = Nothing
+
+    End Sub
+
+    Public Sub New(Optional ByVal pCli As Decimal = 0)
+
+        ' Llamada necesaria para el Diseñador de Windows Forms.
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        vCli = pCli
+
+    End Sub
+End Class

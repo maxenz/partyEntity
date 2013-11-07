@@ -1,0 +1,311 @@
+'-----> Cache
+Imports InterSystems.Data.CacheClient
+Imports InterSystems.Data.CacheTypes
+Imports ShamanClases
+'-----> Dock
+Imports WeifenLuo.WinFormsUI.Docking
+Public Class Mapa
+    Inherits DockContent
+
+    Private objPath As New ShamanClases.PanelC.PathsConfiguracion
+
+    Private Sub Mapa_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+        If e.KeyData = (Keys.Control Or Keys.Z) Then
+            If Me.Cursor = Cursors.Cross Then
+                If glbZonas.UndoLastPoint(Me.getMapaActiveId, Me.picMapa) Then
+                    Me.RefreshMapa(False)
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub Mapa_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Me.WindowState = FormWindowState.Maximized
+        Me.InicializacionCompumap()
+        Me.RefreshMapa()
+    End Sub
+    Private Sub InicializacionCompumap()
+
+        aplMap = New CompumapCom.CCompumap
+        aplRend = New CompumapCom.CRenderContext
+        aplRend.Ancho = Me.Width
+        aplRend.Alto = Me.Height
+        aplRend.Latitud = aplMap.MinLat + ((aplMap.MaxLat - aplMap.MinLat) / 2)
+        aplRend.Longitud = aplMap.MinLon + ((aplMap.MaxLon - aplMap.MinLon) / 2)
+        aplZoom = 2
+
+    End Sub
+    Public Sub DoRender(Optional ByVal pCen As Boolean = False)
+
+        ' Ajustamos el nivel de zoom
+        aplRend.Zoom = 2 ^ aplZoom
+        If pCen Then
+            Dim lat As Double, lon As Double
+            aplRend.LatLonFromPixel(lat, lon, picMapa.Width / 2, picMapa.Height / 2)
+            aplRend.Latitud = lat
+            aplRend.Longitud = lon
+        End If
+        ' Le decimos al motor que tenemos un contexto de
+        ' de visualizacion a mostrar
+        aplMap.SetRenderContext(aplRend)
+        ' Imformamos al motor que hemos terminado
+        ' Y queremos que dibuje las consultas y el mapa
+        aplMap.DoRender()
+        ' Guardamos la imagen en algun lugar del disco
+        aplMap.Save(objPath.GetPath("MPT") & aplFileName)
+
+    End Sub
+    Public Sub RefreshMapa(Optional ByVal pPaintPolygons As Boolean = True)
+
+        Try
+
+            Dim vMapObject() As String, vRow As Integer
+            Dim X As Double, Y As Double
+            Dim xMax As Double, yMax As Double
+            Dim xMin As Double, yMin As Double
+
+            If Not glbZonas Is Nothing Then
+                glbZonas.ClearPoints()
+            Else
+                glbZonas = New sysCompuMapC.Zonificadores
+            End If
+
+            '----> Parametros de Query
+            CoordenadasToPixel(aplMap.MaxLat, aplMap.MaxLon, xMax, yMax)
+            CoordenadasToPixel(aplMap.MinLat, aplMap.MinLon, xMin, yMin)
+
+            DoRender(True)
+
+            Using bmp As New Bitmap(objPath.GetPath("MPT") & aplFileName)
+
+                '----> Conexión
+                Dim vDat As CacheArrayOfStrings
+
+                Dim mtdSignature As CacheMethodSignature = makeCacheMethodSignature(cnnsCache(cnnDftStatic), GetType(InterSystems.Data.CacheTypes.CacheArrayOfStrings), _
+                shamanConexion.PID, getMapaActiveId, SingleToCache(aplMap.ViewMaxLat), SingleToCache(aplMap.ViewMinLat), SingleToCache(aplMap.ViewMaxLon), SingleToCache(aplMap.ViewMinLon))
+
+                CacheObject.RunClassMethodS(cnnsCache(cnnDftStatic), "CompuMapC.MapaSesion", "GetAllObjects", mtdSignature)
+
+                Debug.Print(getCacheDebug("CompuMapC.MapaSesion", "GetAllObjects", mtdSignature))
+
+                vDat = CType(CType(mtdSignature.ReturnValue, CacheObjReturnValue).Value, CacheArrayOfStrings)
+
+                If vDat.Count > 0 Then
+
+                    For vRow = 1 To vDat.Count
+
+                        vMapObject = Split(vDat.Item(vRow), vSeparator)
+
+                        CoordenadasToPixel(CacheToSingle(vMapObject(2)), CacheToSingle(vMapObject(3)), X, Y)
+
+                        Dibujar(bmp, vMapObject(0), vMapObject(1), Val(vMapObject(4)), X, Y, vMapObject(5))
+
+                        If Val(vMapObject(4)) = refPoint Then
+                            glbZonas.AddPoint(getMapaActiveId, CacheToSingle(vMapObject(2)), CacheToSingle(vMapObject(3)), Y, X, bmp, False)
+                        End If
+
+                    Next vRow
+
+                End If
+
+                If pPaintPolygons Then glbZonas.Pintar(bmp)
+
+                bmp.Save("C:\Prueba.bmp")
+
+                Me.picMapa.ImageLocation = "C:\Prueba.bmp"
+
+
+            End Using
+
+        Catch ex As Exception
+
+            MsgBox(Err.Description, MsgBoxStyle.Critical, "RefreshMapa")
+
+        End Try
+
+    End Sub
+    Private Sub Dibujar(ByVal bmp As Bitmap, ByVal pOid As Decimal, ByVal pTxt As String, ByVal pTip As Integer, ByVal X As Double, ByVal Y As Double, Optional ByVal pGdo As String = "")
+
+        Dim g As Graphics = Graphics.FromImage(bmp)
+
+        Dim curBitmap As Bitmap
+        Dim vFont As Font
+        Dim vBrush As SolidBrush
+
+        '-----> Icono a Bitmap
+
+        Select Case pTip
+            Case refBaseOperativa
+                curBitmap = New Bitmap(My.Resources.Recursos.Lugar)
+                g.DrawImage(curBitmap, New System.Drawing.PointF(Y + 1, X))
+
+            Case refSanatorio
+                curBitmap = New Bitmap(My.Resources.Recursos.Lugar)
+                g.DrawImage(curBitmap, New System.Drawing.PointF(Y + 1, X))
+
+            Case refPrestador
+                curBitmap = New Bitmap(My.Resources.Recursos.Lugar)
+                g.DrawImage(curBitmap, New System.Drawing.PointF(Y + 1, X))
+
+            Case refCentroAtencion
+                curBitmap = New Bitmap(My.Resources.Recursos.Lugar)
+                g.DrawImage(curBitmap, New System.Drawing.PointF(Y + 1, X))
+
+            Case refMovil
+                curBitmap = New Bitmap(My.Resources.Recursos.AmbuWhite.ToBitmap)
+                g.DrawImage(curBitmap, New System.Drawing.PointF(Y + 1, X))
+
+                vFont = New Font("Arial", 8, FontStyle.Bold)
+                vBrush = New SolidBrush(Color.Black)
+
+                Select Case pTxt.Length
+                    Case 0 To 2
+                        g.DrawString(pTxt, vFont, vBrush, Y + 4, X + 6)
+                    Case 3
+                        g.DrawString(pTxt, vFont, vBrush, Y + 2, X + 6)
+                    Case Else
+                        g.DrawString(pTxt, vFont, vBrush, Y, X + 6)
+                End Select
+
+            Case refIncidente
+
+                Select Case pGdo
+                    Case "1"
+                        curBitmap = New Bitmap(My.Resources.Recursos.IncRojo)
+                    Case "2"
+                        curBitmap = New Bitmap(My.Resources.Recursos.IncAmarillo)
+                    Case "3"
+                        curBitmap = New Bitmap(My.Resources.Recursos.IncVerde)
+                    Case Else
+                        curBitmap = New Bitmap(My.Resources.Recursos.IncAzul)
+                End Select
+
+                g.DrawImage(curBitmap, New System.Drawing.PointF(Y + 1, X))
+
+            Case refPoint
+
+
+
+        End Select
+
+        '-----> Dispose
+        g.Dispose()
+        g = Nothing
+
+        '-----> A db
+        Dim objMapaObjeto As New sysCompuMapC.MapaObjects
+        objMapaObjeto.SetPixels(pOid, Y, Y + 20, X, X + 20)
+        objMapaObjeto = Nothing
+
+    End Sub
+
+    Private Sub CoordenadasToPixel(ByVal pLat As Single, ByVal pLon As Single, ByRef x As Double, ByRef y As Double)
+
+        Dim maxLat As Double = Math.Max(aplMap.ViewMinLat, aplMap.ViewMaxLat)
+        Dim minLat As Double = Math.Min(aplMap.ViewMinLat, aplMap.ViewMaxLat)
+
+        Dim maxLon As Double = Math.Max(aplMap.ViewMinLon, aplMap.ViewMaxLon)
+        Dim minLon As Double = Math.Min(aplMap.ViewMinLon, aplMap.ViewMaxLon)
+
+        x = ((pLat - minLat) * Me.picMapa.Height) / (maxLat - minLat)
+        x = Me.picMapa.Height - x
+
+        y = ((pLon - minLon) * Me.picMapa.Width) / (maxLon - minLon)
+
+    End Sub
+
+    Private Sub picMapa_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles picMapa.MouseDown
+
+        Dim lat As Single
+        Dim lon As Single
+        Dim vFnd As Boolean = False
+
+        aplRend.LatLonFromPixel(lat, lon, e.X, e.Y)
+
+        Select Case Me.Cursor
+            Case Cursors.Default
+                If e.Button = Windows.Forms.MouseButtons.Left Then
+
+                    '-----> Reviso si hay objetos
+                    Dim objItemClicked As New sysCompuMapC.MapaObjects
+                    Dim vItm As Decimal = objItemClicked.GetIDByPixel(CInt(Val(Me.AccessibleName)), e.X, e.Y)
+
+                    If objItemClicked.Abrir(vItm) Then
+                        vFnd = True
+                        Select Case objItemClicked.TipoObjeto
+                            Case refMovil
+                                Dim frm As New frmVistaMoviles(objItemClicked.ObjetoId)
+                                ShowChildFormFloat(frm, Main.DockPanel)
+                            Case refIncidente
+                                Dim frm As New frmVistaIncidentes(objItemClicked.ObjetoId)
+                                ShowChildFormFloat(frm, Main.DockPanel)
+                        End Select
+                    End If
+
+                    objItemClicked = Nothing
+
+                End If
+
+                aplRend.Latitud = lat
+                aplRend.Longitud = lon
+
+                If Not vFnd Then
+                    If e.Button = Windows.Forms.MouseButtons.Left Then
+                        aplZoom = aplZoom + 1
+                        Me.RefreshMapa()
+                    Else
+                        If aplZoom > 0 Then
+                            aplZoom = aplZoom - 1
+                            Me.RefreshMapa()
+                        End If
+                    End If
+                End If
+
+            Case Cursors.Cross
+
+                If e.Button = Windows.Forms.MouseButtons.Left Then
+
+                    glbZonas.AddPoint(Me.getMapaActiveId, lat, lon, e.X, e.Y, Me.picMapa)
+
+                Else
+
+                    glbZonas.Pintar(Me.picMapa)
+
+                    Me.Cursor = Cursors.Default
+
+                End If
+
+        End Select
+
+    End Sub
+
+    Private Sub picMapa_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles picMapa.MouseMove
+        Dim lat As Single
+        Dim lon As Single
+
+        aplRend.LatLonFromPixel(lat, lon, e.X, e.Y)
+
+        Main.stbCooLatitud.Text = ShowCoordenadaStr(lat)
+        Main.stbCooLongitud.Text = ShowCoordenadaStr(lon, False)
+
+        Main.stbLatitud.Text = lat
+        Main.stbLongitud.Text = lon
+
+        Main.stbPixelX.Text = e.X
+        Main.stbPixelY.Text = e.Y
+
+    End Sub
+
+    Private Function getMapaActiveId() As Integer
+        Try
+            If Not Me.AccessibleName Is Nothing Then
+                getMapaActiveId = Val(Me.AccessibleName)
+            Else
+                getMapaActiveId = 0
+            End If
+        Catch
+            getMapaActiveId = 0
+        End Try
+    End Function
+
+End Class

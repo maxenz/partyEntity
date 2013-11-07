@@ -1,0 +1,176 @@
+﻿Imports WeifenLuo.WinFormsUI.Docking
+Imports DevExpress.XtraPivotGrid
+Public Class frmTablerosResultados
+    Inherits DockContent
+
+    'Private Sub grdResultados_CustomAppearance(ByVal sender As Object, ByVal e As DevExpress.XtraPivotGrid.PivotCustomAppearanceEventArgs) Handles grdResultados.CustomAppearance
+    '    Select Case frmTablerosArbol.objTableros.OrdenId
+    '        Case 20
+    '            '-----> Tablero Minorista
+    '            If e.ColumnField.FieldName = "Valor" Then
+    '                e.ColumnField.Appearance.Cell.BackColor = Color.Azure
+    '                e.ColumnField.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+    '                e.ColumnField.CellFormat.FormatString = "n0"
+    '            End If
+    '    End Select
+    'End Sub
+
+    'Private Sub grdResultados_CustomDrawCell(ByVal sender As Object, ByVal e As DevExpress.XtraPivotGrid.PivotCustomDrawCellEventArgs) Handles grdResultados.CustomDrawCell
+    '    Select Case frmTablerosArbol.objTableros.OrdenId
+    '        Case 20
+    '            '-----> Tablero Minorista
+    '            If e.RowValueType = PivotGridValueType.Value Then
+
+    '            End If
+    '    End Select
+    'End Sub
+
+    'Private Sub grdResultados_CustomDrawFieldValue(ByVal sender As Object, ByVal e As DevExpress.XtraPivotGrid.PivotCustomDrawFieldValueEventArgs) Handles grdResultados.CustomDrawFieldValue
+    '    Select Case frmTablerosArbol.objTableros.OrdenId
+    '        Case 20
+    '            '-----> Tablero Minorista
+    '            If Not e.Field Is Nothing Then
+    '                If e.Value = "Cantidad" Then
+    '                    e.Field.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+    '                    e.Field.CellFormat.FormatString = "n0"
+    '                End If
+    '            End If
+    '    End Select
+    'End Sub
+
+
+    'Private Sub grdResultados_CustomSummary(ByVal sender As Object, ByVal e As DevExpress.XtraPivotGrid.PivotGridCustomSummaryEventArgs) Handles grdResultados.CustomSummary
+    '    Dim ds As PivotDrillDownDataSource = e.CreateDrillDownDataSource()
+    '    Dim i As Integer
+    '    Dim vVal As Decimal
+
+    '    For i = 0 To ds.RowCount - 1
+    '        Dim row As PivotDrillDownDataRow = ds(i)
+
+    '        If row(4) = "4) Rentabilidad" Then
+    '            CDec(row(5))
+    '        End If
+
+    '        Select Case row(2)
+    '            Case "1) Incidentes", "2) Traslados"
+    '                If row(4) = "Cantidad" Then
+    '                    If CDec(row(5)) > 0 Then
+    '                        'vVal = CDec(row(5)) * Me.getPrecioUnitario(ds, row(0), row(1), row(2), row(3))
+    '                    Else
+    '                        vVal = 0
+    '                    End If
+    '                ElseIf row(4) <> "Importe" Then
+    '                    vVal = CDec(row(5))
+    '                End If
+    '            Case Else
+    '                vVal = CDec(row(5))
+    '        End Select
+    '    Next
+    '    If ds.RowCount > 0 Then
+    '        e.CustomValue = vVal
+    '    End If
+
+
+    '    '' A variable which counts the number of orders whose sum exceeds $500.
+    '    'Dim order500Count As Integer = 0
+    '    '' Get the record set corresponding to the current cell.
+
+    '    '' Iterate through the records and count the orders.
+    '    'Dim i As Integer
+    '    'For i = 0 To ds.RowCount - 1
+    '    '    Dim row As PivotDrillDownDataRow = ds(i)
+    '    '    ' Get the order's total sum.
+    '    '    Dim orderSum As Decimal = row(fieldExtendedPrice)
+    '    '    If orderSum >= minSum Then order500Count = order500Count + 1
+    '    'Next
+    '    '' Calculate the percentage.
+    '    'If ds.RowCount > 0 Then
+    '    '    e.CustomValue = order500Count / ds.RowCount
+    '    'End If
+    'End Sub
+    'Private Function getPrecioUnitario(ByVal ds As PivotDrillDownDataSource, ByVal pPer As String, ByVal pCli As String, ByVal pGrp As String, ByVal pGdo As String) As Double
+    '    Dim vFnd As Boolean = False
+    '    Dim vIdx As Integer = 0
+
+    '    getPrecioUnitario = 0
+
+    '    Do Until vIdx = ds.RowCount Or vFnd
+    '        Dim row As PivotDrillDownDataRow = ds(vIdx)
+
+    '        If row(0) = pPer And row(1) = pCli And row(2) = pGrp And row(3) = pGdo And row(4) = "Importe" Then
+    '            getPrecioUnitario = CDbl(row(5))
+    '            vFnd = True
+    '        Else
+    '            vIdx = vIdx + 1
+    '        End If
+    '    Loop
+
+    'End Function
+
+    'Private Sub grdResultados_CustomCellValue(ByVal sender As Object, ByVal e As DevExpress.XtraPivotGrid.PivotCellValueEventArgs) Handles grdResultados.CustomCellValue
+    '    Select Case frmTablerosArbol.objTableros.OrdenId
+    '        Case 20
+    '            '-----> Tablero Minorista
+    '            If Not e.ColumnField Is Nothing Then
+    '                If e.ColumnField.FieldName = "TipoValor" Then
+    '                    e.ColumnField.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+    '                    e.ColumnField.CellFormat.FormatString = "n0"
+    '                End If
+    '            End If
+    '            If Not e.RowField Is Nothing Then
+    '                e.RowField.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+    '                e.RowField.CellFormat.FormatString = "n0"
+    '            End If
+    '    End Select
+
+    'End Sub
+
+    'Private Sub grdResultados_CustomCellDisplayText(ByVal sender As Object, ByVal e As DevExpress.XtraPivotGrid.PivotCellDisplayTextEventArgs) Handles grdResultados.CustomCellDisplayText
+    '    Select Case frmTablerosArbol.objTableros.OrdenId
+    '        Case 20
+    '            If Not e.DataField Is Nothing Then
+    '                If e.DataField.FieldName = "Valor" Then
+    '                    e.DataField.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+    '                    e.DataField.CellFormat.FormatString = "n0"
+
+    '                End If
+    '            End If
+    '    End Select
+    'End Sub
+
+    Private Sub grdResultados_CustomFieldSort(ByVal sender As Object, ByVal e As DevExpress.XtraPivotGrid.PivotGridCustomFieldSortEventArgs) Handles grdResultados.CustomFieldSort
+
+        Select frmTablerosArbol.objTableros.OrdenId
+            Case 20
+
+                If e.Field.FieldName = "Grupo" Then
+
+                    If e.Value1 Is Nothing OrElse e.Value2 Is Nothing Then
+                        Return
+                    End If
+
+                    e.Handled = True
+
+                    Dim vVal1 As Integer = getOrderGrupo(e.Value1)
+                    Dim vVal2 As Integer = getOrderGrupo(e.Value2)
+
+                    If vVal1 > vVal2 Then
+                        e.Result = 1
+                    ElseIf vVal1 = vVal2 Then
+                        e.Result = 0
+                    Else
+                        e.Result = -1
+                    End If
+
+                End If
+        End Select
+    End Sub
+    Private Function getOrderGrupo(ByVal pVal As String) As Integer
+        Select Case pVal
+            Case "AC" : getOrderGrupo = 1
+            Case "CM" : getOrderGrupo = 2
+            Case "BC" : getOrderGrupo = 3
+            Case "SC" : getOrderGrupo = 4
+        End Select
+    End Function
+End Class

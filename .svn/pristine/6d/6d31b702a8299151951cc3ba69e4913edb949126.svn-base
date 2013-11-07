@@ -1,0 +1,143 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmIncidentesEstadisticas
+    Inherits WeifenLuo.WinFormsUI.Docking.DockContent
+
+    'Form reemplaza a Dispose para limpiar la lista de componentes.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Requerido por el Diseñador de Windows Forms
+    Private components As System.ComponentModel.IContainer
+
+    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
+    'Se puede modificar usando el Diseñador de Windows Forms.  
+    'No lo modifique con el editor de código.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Dim SideBySideBarSeriesLabel1 As DevExpress.XtraCharts.SideBySideBarSeriesLabel = New DevExpress.XtraCharts.SideBySideBarSeriesLabel
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
+        Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton
+        Me.TiemposOperativosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
+        Me.cmbGrados = New System.Windows.Forms.ToolStripComboBox
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator
+        Me.cmbZonas = New System.Windows.Forms.ToolStripComboBox
+        Me.ChartControl1 = New DevExpress.XtraCharts.ChartControl
+        Me.ToolStrip1.SuspendLayout()
+        CType(Me.ChartControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(SideBySideBarSeriesLabel1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripDropDownButton1, Me.ToolStripLabel1, Me.ToolStripSeparator1, Me.cmbGrados, Me.ToolStripSeparator2, Me.cmbZonas})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(475, 25)
+        Me.ToolStrip1.TabIndex = 3
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'ToolStripDropDownButton1
+        '
+        Me.ToolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TiemposOperativosToolStripMenuItem})
+        Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
+        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(13, 22)
+        Me.ToolStripDropDownButton1.Text = "ToolStripDropDownButton1"
+        '
+        'TiemposOperativosToolStripMenuItem
+        '
+        Me.TiemposOperativosToolStripMenuItem.Name = "TiemposOperativosToolStripMenuItem"
+        Me.TiemposOperativosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TiemposOperativosToolStripMenuItem.Text = "Tiempos Operativos"
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(113, 22)
+        Me.ToolStripLabel1.Text = "Tiempos Operativos"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'cmbGrados
+        '
+        Me.cmbGrados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbGrados.Name = "cmbGrados"
+        Me.cmbGrados.Size = New System.Drawing.Size(120, 25)
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        '
+        'cmbZonas
+        '
+        Me.cmbZonas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbZonas.Name = "cmbZonas"
+        Me.cmbZonas.Size = New System.Drawing.Size(100, 25)
+        '
+        'ChartControl1
+        '
+        Me.ChartControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ChartControl1.Location = New System.Drawing.Point(0, 25)
+        Me.ChartControl1.Name = "ChartControl1"
+        Me.ChartControl1.SeriesSerializable = New DevExpress.XtraCharts.Series(-1) {}
+        SideBySideBarSeriesLabel1.LineVisible = True
+        Me.ChartControl1.SeriesTemplate.Label = SideBySideBarSeriesLabel1
+        Me.ChartControl1.Size = New System.Drawing.Size(475, 357)
+        Me.ChartControl1.TabIndex = 5
+        '
+        'frmIncidentesEstadisticas
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(475, 382)
+        Me.Controls.Add(Me.ChartControl1)
+        Me.Controls.Add(Me.ToolStrip1)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Name = "frmIncidentesEstadisticas"
+        Me.Text = "frmIncidentesEstadisticas"
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
+        CType(SideBySideBarSeriesLabel1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ChartControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+
+    Protected Overrides Sub Finalize()
+        MyBase.Finalize()
+    End Sub
+
+    Public Sub New()
+
+        ' Llamada necesaria para el Diseñador de Windows Forms.
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+
+    End Sub
+    Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
+    Friend WithEvents ToolStripDropDownButton1 As System.Windows.Forms.ToolStripDropDownButton
+    Friend WithEvents TiemposOperativosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripLabel1 As System.Windows.Forms.ToolStripLabel
+    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents cmbGrados As System.Windows.Forms.ToolStripComboBox
+    Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents cmbZonas As System.Windows.Forms.ToolStripComboBox
+    Friend WithEvents ChartControl1 As DevExpress.XtraCharts.ChartControl
+End Class

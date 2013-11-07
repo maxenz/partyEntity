@@ -1,0 +1,193 @@
+Imports System.IO
+Imports System.Windows.Forms
+Imports ShamanClases
+
+Public Class Main
+
+    Private Sub Main_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+
+        Me.CloseDockPanels()
+        Me.DockPanel.Visible = False
+
+        shamanConexion.Cerrar(shamanConexion.PID)
+
+        Global.System.Windows.Forms.Application.Exit()
+
+    End Sub
+
+    Private Sub MDIMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        Me.Visible = False
+
+        Init()
+
+        Me.Visible = True
+
+    End Sub
+
+    Private Sub InitDateVars()
+
+        'ShamanClases.MaxFecha = CDate("31/12/2999")
+        'ShamanClases.SQLNullDate = "1899-12-30"
+        'ShamanClases.NullDateTime = ShamanClases.SetToDateTime(CDate("30/12/1899"), "00:00", True)
+
+    End Sub
+
+    Private Sub Init()
+
+        Me.InitDateVars()
+        Me.LoadIconos(Me.imlIconos, 16, 16)
+        Me.CreateDockPanel()
+
+        '-----> Solo Tableros de Control
+        If vTabMode = 1 Then
+            'Me.modEmergencias.Enabled = False
+            Me.modGpShaman.Enabled = False
+            Me.modMonitoreo.Enabled = False
+            Me.tbrMain.Enabled = False
+            Me.ShowTablerosLayout()
+        End If
+
+        Me.WindowState = FormWindowState.Maximized
+
+    End Sub
+
+    Private Sub LoadIconos(ByVal pIml As ImageList, ByVal pImgW As Integer, ByVal pImgH As Integer)
+        Dim runTimeResourceSet As Object
+        Dim dictEntry As DictionaryEntry
+
+        pIml.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
+        pIml.ImageSize = New System.Drawing.Size(pImgW, pImgH)
+
+        runTimeResourceSet = My.Resources.ResourceManager.GetResourceSet(Globalization.CultureInfo.CurrentCulture, True, True)
+        For Each dictEntry In runTimeResourceSet
+            If (dictEntry.Value.GetType() Is GetType(Bitmap)) Then
+                pIml.Images.Add(dictEntry.Key, dictEntry.Value)
+            End If
+        Next
+    End Sub
+
+    Private Sub CreateDockPanel()
+
+        Me.WindowState = FormWindowState.Maximized
+
+        Me.DockPanel.Visible = True
+        Me.DockPanel.Parent = Me
+        Me.DockPanel.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingMdi
+        Me.DockPanel.DockLeftPortion = 260
+        Me.DockPanel.DockRightPortion = 300
+
+        Me.DockPanel.Visible = False
+
+    End Sub
+
+    Private Sub modEmergencias_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles modEmergencias.Click
+
+        Me.CloseDockPanels()
+
+        callInfo = ""
+        DockPanel.Visible = True
+
+        Me.DockPanel.DockRightPortion = 460
+        Me.DockPanel.DockBottomPortion = 160
+
+        configEmergencias = New ShamanClases.EmergencyC.DespachoScreen
+
+        frmIncidentesEstadisticas.Show(DockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockRight)
+        frmGpShaman.Show(DockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockRight)
+        frmDespachoSpace.Show(DockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document)
+        frmRecepcionSpace.Show(DockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document)
+        frmTrasladosSpace.Show(DockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document)
+
+        Me.modEmergencias.Checked = True
+
+        frmDespachoSpace.Focus()
+
+    End Sub
+
+    Private Sub modSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles modSalir.Click
+
+        Me.Close()
+
+    End Sub
+
+    Private Sub modTableros_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles modTableros.Click
+
+        ShowTablerosLayout()
+
+    End Sub
+
+    Private Sub ShowTablerosLayout()
+
+        Me.CloseDockPanels()
+
+        callInfo = ""
+        DockPanel.Visible = True
+
+        Me.DockPanel.DockRightPortion = 380
+        Me.DockPanel.DockBottomPortion = 560
+
+        frmTablerosFiltros.Show(Me.DockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockTop)
+        frmTablerosArbol.Show(Me.DockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockLeft)
+        frmTablerosResultados.Show(Me.DockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document)
+        frmTablerosGraficos.Show(Me.DockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document)
+
+        Me.modTableros.Checked = True
+
+        frmTablerosArbol.DockState = WeifenLuo.WinFormsUI.Docking.DockState.DockLeftAutoHide
+
+    End Sub
+
+    Private Sub modGpShaman_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles modGpShaman.Click
+
+        Me.CloseDockPanels()
+
+        Me.DockPanel.Visible = True
+        Me.DockPanel.Parent = Me
+        Me.DockPanel.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingMdi
+        Me.DockPanel.DockLeftPortion = 260
+        Me.DockPanel.DockRightPortion = 300
+
+        frmLogErrores.Show(Me.DockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockBottom)
+        frmLogErrores.DockState = WeifenLuo.WinFormsUI.Docking.DockState.DockBottomAutoHide
+        MainTree.Show(Me.DockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockLeft)
+        Mapa.Show(Me.DockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document)
+
+        Me.modGpShaman.Checked = True
+
+    End Sub
+
+    Private Sub CloseDockPanels()
+
+        If Me.modEmergencias.Checked Then
+            frmGpShaman.Close()
+            frmIncidentesEstadisticas.Close()
+            frmDespachoSpace.Close()
+            frmRecepcionSpace.Close()
+            frmTrasladosSpace.Close()
+            Me.modEmergencias.Checked = False
+        End If
+
+        If Me.modGpShaman.Checked Then
+            frmLogErrores.Close()
+            MainTree.Close()
+            Mapa.Close()
+            Me.modGpShaman.Checked = False
+        End If
+
+        If Me.modTableros.Checked Then
+            frmTablerosFiltros.Close()
+            frmTablerosArbol.Close()
+            frmTablerosResultados.Close()
+            frmTablerosGraficos.Close()
+            Me.modTableros.Checked = False
+        End If
+
+    End Sub
+
+    Private Sub PanelToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles modMonitoreo.Click
+        'ShowChildFormFloat(frmGeneradorClases, Me.DockPanel)
+        'ShowChildFormFloat(frmExportaciones, Me.DockPanel)
+        ShowChildFormFloat(frmPoligonos, Me.DockPanel)
+    End Sub
+End Class

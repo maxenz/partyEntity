@@ -1,0 +1,183 @@
+Imports System.Reflection
+Imports InterSystems.Data.CacheClient
+Imports InterSystems.Data.CacheTypes
+Imports ShamanClases
+Namespace sysCompuMap
+    Public Class MapaObjects
+        Inherits typCacheClass
+        '-----> Propiedades
+        Private clID As Decimal
+        Private clPID As Decimal = 0
+        Private clNroMapa As Integer = 0
+        Private clTipoObjeto As Integer
+        Private clObjetoId As String
+        Private clIndex As Integer
+        Private clDescripcion As String
+        Private clLeyenda As String
+        Private clIcono As String
+        Private clLatitud As Single
+        Private clLongitud As Single
+        Private clIsValid As Boolean
+        Public Sub New(Optional ByVal pCnnSta As String = "", Optional ByVal pCnnDyn As String = "")
+            MyBase.New(pCnnSta, pCnnDyn)
+            Me.CacheClassName = "Temp.tmpGpShaman"
+            Me.CacheClassController = "CompuMapC.MapaSesion"
+        End Sub
+        Public Property ID() As Decimal
+            Get
+                Return clID
+            End Get
+            Set(ByVal value As Decimal)
+                clID = value
+            End Set
+        End Property
+        Public Property PID() As Decimal
+            Get
+                Return clPID
+            End Get
+            Set(ByVal value As Decimal)
+                clPID = value
+            End Set
+        End Property
+        Public Property NroMapa() As Integer
+            Get
+                Return clNroMapa
+            End Get
+            Set(ByVal value As Integer)
+                clNroMapa = value
+            End Set
+        End Property
+        Public Property TipoObjeto() As Integer
+            Get
+                Return clTipoObjeto
+            End Get
+            Set(ByVal value As Integer)
+                clTipoObjeto = value
+            End Set
+        End Property
+        Public Property ObjetoId() As String
+            Get
+                Return clObjetoId
+            End Get
+            Set(ByVal value As String)
+                clObjetoId = value
+            End Set
+        End Property
+        Public Property Index() As Integer
+            Get
+                Return clIndex
+            End Get
+            Set(ByVal value As Integer)
+                clIndex = value
+            End Set
+        End Property
+        Public Property Descripcion() As String
+            Get
+                Return clDescripcion
+            End Get
+            Set(ByVal value As String)
+                clDescripcion = value
+            End Set
+        End Property
+        Public Property Leyenda() As String
+            Get
+                Return clLeyenda
+            End Get
+            Set(ByVal value As String)
+                clLeyenda = value
+            End Set
+        End Property
+        Public Property Icono() As String
+            Get
+                Return clIcono
+            End Get
+            Set(ByVal value As String)
+                clIcono = value
+            End Set
+        End Property
+        Public Property Latitud() As Single
+            Get
+                Return clLatitud
+            End Get
+            Set(ByVal value As Single)
+                clLatitud = value
+            End Set
+        End Property
+        Public Property Longitud() As Single
+            Get
+                Return clLongitud
+            End Get
+            Set(ByVal value As Single)
+                clLongitud = value
+            End Set
+        End Property
+        Public Function IsValid() As Boolean
+            If clPID = 0 Then
+                IsValid = False
+            Else
+                IsValid = True
+            End If
+        End Function
+        Public Overrides Function Abrir(ByVal pId As String) As Boolean
+            Abrir = False
+
+            Try
+                Dim myProperties() As PropertyInfo
+                Dim PropertyItem As PropertyInfo
+
+                Dim mtdSignature As CacheMethodSignature = makeCacheMethodSignature(cnnsCache(Me.cnnDynamic), GetType(CacheObject), pId)
+                CacheObject.RunClassMethodS(cnnsCache(Me.cnnDynamic), CacheClassName, "%OpenId", mtdSignature)
+                Dim vDat As CacheObject = CType(CType(mtdSignature.ReturnValue, CacheObjReturnValue).Value, CacheObject)
+
+                If Not vDat Is Nothing Then
+
+                    myProperties = Me.GetType.GetProperties(BindingFlags.Public Or BindingFlags.Instance)
+
+                    For Each PropertyItem In myProperties
+
+                        If PropertyItem.CanWrite Then
+
+                            If PropertyItem.Name = "ID" Then
+
+                                If PropertyItem.PropertyType.Name = "String" Then
+                                    PropertyItem.SetValue(Me, pId, Nothing)
+                                Else
+                                    PropertyItem.SetValue(Me, CDec(pId), Nothing)
+                                End If
+
+                            ElseIf Left(PropertyItem.PropertyType.Name, 3) = "typ" Then
+
+                            ElseIf PropertyItem.Name = "PID" Then
+
+                                PropertyItem.SetValue(Me, shamanConexion.PID, Nothing)
+
+                            ElseIf PropertyItem.Name <> "cnnStatic" And PropertyItem.Name <> "cnnDynamic" Then
+
+                                Dim vVal As String = getCachePropertyString(cnnsCache(Me.cnnStatic), vDat, PropertyItem.Name, mtdSignature)
+
+                                If Left(PropertyItem.Name, 3) = "Fec" And vVal.Length = 8 Then
+                                    PropertyItem.SetValue(Me, AnsiToDate(vVal), Nothing)
+                                Else
+                                    Select Case PropertyItem.PropertyType.Name
+                                        Case "String" : PropertyItem.SetValue(Me, vVal, Nothing)
+                                        Case "Int32" : PropertyItem.SetValue(Me, CInt(vVal), Nothing)
+                                        Case "Byte" : PropertyItem.SetValue(Me, CByte(vVal), Nothing)
+                                    End Select
+                                End If
+
+                            End If
+                        End If
+
+                    Next
+
+                    Abrir = True
+                End If
+
+            Catch ex As Exception
+
+                MsgBox(Err.Description, MsgBoxStyle.Critical, CacheClassName)
+
+            End Try
+        End Function
+    End Class
+End Namespace

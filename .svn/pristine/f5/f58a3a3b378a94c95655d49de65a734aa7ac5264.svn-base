@@ -1,0 +1,26 @@
+﻿Imports WeifenLuo.WinFormsUI.Docking
+Public Class frmIncidentesABMIndicadores
+    Inherits DockContent
+
+    Private Sub frmIncidentesABMIndicadores_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Me.FormatScreen()
+    End Sub
+    Private Sub FormatScreen()
+        Me.BackColor = Color.Beige
+
+
+    End Sub
+
+    Private Sub xView_RowCellStyle(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs) Handles xView.RowCellStyle
+
+        If e.Column.FieldName = "Gdo" Then
+
+            Dim clrColor As Integer = xView.GetRowCellDisplayText(e.RowHandle, xView.Columns("GdoColor"))
+            e.Appearance.BackColor = System.Drawing.ColorTranslator.FromOle(clrColor)
+
+        End If
+
+    End Sub
+
+
+End Class

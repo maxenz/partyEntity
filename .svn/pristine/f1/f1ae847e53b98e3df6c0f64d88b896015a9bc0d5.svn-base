@@ -1,0 +1,88 @@
+Imports WeifenLuo.WinFormsUI.Docking
+Imports ShamanClases
+Public Class frmTablerosArbol
+    Inherits DockContent
+    Private objTableros As New ShamanClases.PanelC.Tableros
+
+    Private Sub tblSel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tabSel00.Click, tabSel01.Click, tabSel02.Click, tabSel03.Click, tabSel04.Click, tabSel05.Click
+        Dim vCatObj As ToolStripMenuItem = CType(sender, ToolStripMenuItem)
+
+        If Not vCatObj Is Nothing Then
+
+            Dim vCatSel As Integer = CInt(vCatObj.Name.Substring(vCatObj.Name.Length - 2, 2)) - 1
+            objTableros.CreateTreeView(shamanConexion.UsuarioId.ID, Me.trwMain, Main.imlIconos, vCatSel)
+
+            Me.lblSeleccion.Text = vCatObj.Text
+            Me.tblCategoria.Image = vCatObj.Image
+
+        End If
+
+    End Sub
+
+    Private Sub frmTablerosArbol_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        objTableros = Nothing
+    End Sub
+
+    Private Sub frmTablerosArbol_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        objTableros.CreateTreeView(shamanConexion.UsuarioId.ID, Me.trwMain, Main.imlIconos)
+
+        If Me.trwMain.Nodes.Count > 0 Then
+            Me.trwMain.SelectedNode = Me.trwMain.Nodes(0)
+            trwMain_DoubleClick(sender, e)
+        End If
+
+    End Sub
+
+    Private Sub trwMain_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles trwMain.DoubleClick
+        Dim objTablero As New PanelC.Tableros
+
+        If Not trwMain.SelectedNode Is Nothing Then
+
+            If objTablero.Abrir(trwMain.SelectedNode.Name) Then
+
+                Me.CloseOpens()
+
+                Select Case objTablero.OrdenId
+                    Case 9
+                        frmCabDespacho.Show(Me.DockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockTop)
+                    Case 12
+                        frmCabPrestaciones.Show(Me.DockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockTop)
+                    Case 20
+                        frmCabMinorista.Show(Me.DockPanel, WeifenLuo.WinFormsUI.Docking.DockState.DockTop)
+                End Select
+
+                frmTablerosResultados.Show(Me.DockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document)
+                frmTablerosGraficos.Show(Me.DockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document)
+
+                Me.DockState = WeifenLuo.WinFormsUI.Docking.DockState.DockLeftAutoHide
+
+                frmTablerosResultados.Focus()
+
+            End If
+
+        End If
+
+    End Sub
+
+    Private Sub CloseOpens()
+
+        Dim vIdx As Integer
+
+        For vIdx = My.Application.OpenForms.Count - 1 To 0 Step -1
+
+            If My.Application.OpenForms.Item(vIdx).Name <> "Main" And My.Application.OpenForms.Item(vIdx) IsNot Me And _
+                My.Application.OpenForms.Item(vIdx).Name <> "frmTablerosResultados" And My.Application.OpenForms.Item(vIdx).Name <> "frmTablerosGraficos" And _
+                My.Application.OpenForms.Item(vIdx).Name <> "frmSplash" Then
+
+                My.Application.OpenForms.Item(vIdx).Close()
+
+            End If
+
+        Next vIdx
+
+
+    End Sub
+
+
+End Class

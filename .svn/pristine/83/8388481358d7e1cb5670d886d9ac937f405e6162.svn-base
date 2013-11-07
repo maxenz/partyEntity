@@ -1,0 +1,30 @@
+Module modGlobal
+    Public aplMap As CompumapCom.CCompumap
+    Public aplRend As CompumapCom.CRenderContext
+    Public aplFileName As String = "JAVIER.JPG"
+    Public aplOpener As String = "EMERGENCIAS"
+    Public aplZoom As Integer = 5
+    '--------> Predefinidos
+    Public Const refBaseOperativa = 1
+    Public Const refSanatorio = 2
+    Public Const refPrestador = 3
+    Public Const refCentroAtencion = 4
+    Public Const refMovil = 50
+    Public Const refIncidente = 100
+    Public Const refPoint = 200
+    '--------> Ramas Iniciales
+    Public Const ramZonaGeografica = 1
+    Public Const ramPartido = 2
+    Public Const ramOtros = 10
+    Public Const ramPerfil = 50
+    Public Const ramMapaObject = 100
+
+    Public Function SetBoolToCheck(ByVal pVal As Boolean) As Byte
+        If pVal Then
+            SetBoolToCheck = 1
+        Else
+            SetBoolToCheck = 0
+        End If
+    End Function
+
+End Module

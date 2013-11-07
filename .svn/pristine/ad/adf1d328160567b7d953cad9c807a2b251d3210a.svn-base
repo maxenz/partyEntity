@@ -1,0 +1,92 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmGeneradorClases
+    Inherits WeifenLuo.WinFormsUI.Docking.DockContent
+
+    'Form reemplaza a Dispose para limpiar la lista de componentes.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Requerido por el Diseñador de Windows Forms
+    Private components As System.ComponentModel.IContainer
+
+    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
+    'Se puede modificar usando el Diseñador de Windows Forms.  
+    'No lo modifique con el editor de código.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.btnGenerador = New DevExpress.XtraEditors.SimpleButton
+        Me.pgbProceso = New DevExpress.XtraEditors.ProgressBarControl
+        Me.lblProceso = New System.Windows.Forms.Label
+        Me.cmbPaquetes = New DevExpress.XtraEditors.ComboBoxEdit
+        CType(Me.pgbProceso.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cmbPaquetes.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'btnGenerador
+        '
+        Me.btnGenerador.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnGenerador.Location = New System.Drawing.Point(420, 12)
+        Me.btnGenerador.Name = "btnGenerador"
+        Me.btnGenerador.Size = New System.Drawing.Size(131, 20)
+        Me.btnGenerador.TabIndex = 0
+        Me.btnGenerador.Text = "Generación de Clases"
+        '
+        'pgbProceso
+        '
+        Me.pgbProceso.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pgbProceso.Location = New System.Drawing.Point(12, 41)
+        Me.pgbProceso.Name = "pgbProceso"
+        Me.pgbProceso.Size = New System.Drawing.Size(539, 18)
+        Me.pgbProceso.TabIndex = 1
+        '
+        'lblProceso
+        '
+        Me.lblProceso.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblProceso.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblProceso.Location = New System.Drawing.Point(164, 12)
+        Me.lblProceso.Name = "lblProceso"
+        Me.lblProceso.Size = New System.Drawing.Size(250, 20)
+        Me.lblProceso.TabIndex = 2
+        '
+        'cmbPaquetes
+        '
+        Me.cmbPaquetes.EnterMoveNextControl = True
+        Me.cmbPaquetes.Location = New System.Drawing.Point(12, 12)
+        Me.cmbPaquetes.Name = "cmbPaquetes"
+        Me.cmbPaquetes.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cmbPaquetes.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.cmbPaquetes.Size = New System.Drawing.Size(146, 20)
+        Me.cmbPaquetes.TabIndex = 20
+        '
+        'frmGeneradorClases
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(563, 68)
+        Me.Controls.Add(Me.cmbPaquetes)
+        Me.Controls.Add(Me.lblProceso)
+        Me.Controls.Add(Me.pgbProceso)
+        Me.Controls.Add(Me.btnGenerador)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Name = "frmGeneradorClases"
+        Me.Text = "Exportaciones"
+        CType(Me.pgbProceso.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cmbPaquetes.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
+    End Sub
+    Friend WithEvents btnGenerador As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents pgbProceso As DevExpress.XtraEditors.ProgressBarControl
+    Friend WithEvents lblProceso As System.Windows.Forms.Label
+    Friend WithEvents cmbPaquetes As DevExpress.XtraEditors.ComboBoxEdit
+End Class

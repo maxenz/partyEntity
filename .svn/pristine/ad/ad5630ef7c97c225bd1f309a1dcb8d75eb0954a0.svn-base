@@ -1,0 +1,437 @@
+Imports WeifenLuo.WinFormsUI.Docking
+Imports ShamanClases
+Imports DevExpress.XtraGrid.Views.Grid.ViewInfo
+
+Public Class frmIncidentes
+    Inherits DockContent
+    Private objIncidente As New sysEmergencyC.Incidentes
+    Private flgRefreshing As Boolean = False
+    Private flgLoading As Boolean = True
+    Private flgWheeling As Boolean = False
+    Private flgTopRowIndex As Integer = 0
+    Private flgPageTopRowIndex As Integer = 0
+    Private flgArrowTopRowIndex As Integer = 0
+    Private flgPositionTimer As Integer = 0
+    '-----> Publicas
+    Public StylePending As Byte = 1
+
+    Private Sub frmIncidentes_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        FormatScreen()
+        GridView1.Columns(17).Visible = False
+        GridView1.Columns(18).Visible = False
+    End Sub
+
+
+    Private Sub FormatScreen()
+
+        tmrRefresh.Enabled = False
+        Me.KeyPreview = True
+        If Me.AccessibleDescription = "frmEventos" Then
+            Me.Text = "Eventos"
+
+        End If
+
+        flgLoading = False
+
+        GridView1.OptionsBehavior.Editable = False
+        GridView1.OptionsView.ShowIndicator = False
+        ' GridView1.OptionsView.ShowAutoFilterRow = True
+        GridView1.Appearance.FocusedCell.BackColor = Color.Snow
+        GridView1.Appearance.FocusedRow.BackColor = Color.Snow
+        GridView1.OptionsView.EnableAppearanceEvenRow = True
+        GridView1.OptionsView.EnableAppearanceOddRow = True
+        GridView1.Appearance.EvenRow.BackColor = Color.Beige
+        GridView1.Appearance.OddRow.BackColor = Color.Beige
+
+        objIncidente.RefreshGrid2(Me)
+
+        frmIncidentesMoviles.RefreshGrid()
+        Dim vIdx As Integer
+        For vIdx = 19 To GridView1.Columns.Count - 1
+            GridView1.Columns(vIdx).Visible = False
+        Next
+
+        '---> Timer
+
+        tmrRefresh.Enabled = True
+    End Sub
+
+    Private Sub GridView1_TopRowChanged(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles GridView1.MouseWheel
+
+        Dim vi As GridViewInfo = GridView1.GetViewInfo()
+        Dim cantRows As String = vi.RowsInfo.Count.ToString()
+
+        ' MsgBox(GridView1.RowCount)
+
+        If e.Delta < 0 Then
+            flgTopRowIndex = GridView1.TopRowIndex + cantRows
+            GridView1.TopRowIndex = flgTopRowIndex - 4
+            ' GridView1.MakeRowVisible(GridView1.TopRowIndex + 30)
+        Else
+            flgTopRowIndex = GridView1.TopRowIndex - cantRows
+            'GridView1.TopRowIndex = flgTopRowIndex
+            GridView1.MakeRowVisible(flgTopRowIndex + 4)
+        End If
+
+    End Sub
+
+    Private Sub GridView1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles GridView1.KeyDown
+
+        Dim vi As GridViewInfo = GridView1.GetViewInfo()
+        Dim cantRows As String = vi.RowsInfo.Count.ToString()
+
+        If (e.KeyCode = Keys.PageDown) Then
+            e.Handled = True
+            flgPageTopRowIndex = GridView1.TopRowIndex + cantRows
+            GridView1.TopRowIndex = flgPageTopRowIndex - 1
+        End If
+
+
+        If (e.KeyCode = Keys.PageUp) Then
+            e.Handled = True
+            flgPageTopRowIndex = GridView1.TopRowIndex - cantRows
+            GridView1.TopRowIndex = flgPageTopRowIndex + 1
+        End If
+
+        If (e.KeyCode = Keys.Down) Then
+
+            If GridView1.FocusedRowHandle = (GridView1.TopRowIndex + cantRows - 2) Then
+                e.Handled = True
+                flgArrowTopRowIndex = GridView1.TopRowIndex + cantRows - 1
+                GridView1.TopRowIndex = flgArrowTopRowIndex
+            End If
+
+        End If
+
+        If (e.KeyCode = Keys.Up) Then
+
+            If GridView1.FocusedRowHandle = GridView1.TopRowIndex Then
+                e.Handled = True
+                flgArrowTopRowIndex = GridView1.TopRowIndex - cantRows + 1
+                GridView1.TopRowIndex = flgArrowTopRowIndex
+            End If
+        End If
+
+
+
+
+    End Sub
+
+    Private Sub tmrRefresh_Tick(ByVal sender As Object, ByVal e As System.EventArgs) Handles tmrRefresh.Tick
+
+        tmrRefresh.Interval = 5000
+        tmrRefresh.Enabled = False
+        flgPositionTimer = GridView1.TopRowIndex
+        ' numberPageGrid(flgPositionTimer)
+        Dim focusedRow As Integer = GridView1.FocusedRowHandle
+        objIncidente.RefreshGrid2(Me)
+        GridView1.TopRowIndex = flgPositionTimer
+        GridView1.FocusedRowHandle = focusedRow
+
+        tmrRefresh.Enabled = True
+
+    End Sub
+    'Public Function numberPageGrid(ByVal rowIndex As Integer) As Integer
+
+    '    Dim cantRows As Integer = GridView1.RowCount
+
+    'End Function
+    Public Sub RefreshGrid()
+        If Not flgRefreshing Then
+            flgRefreshing = True
+            tmrRefresh.Enabled = False
+
+            ' objIncidente.RefreshGrid(Me)
+            frmIncidentesMoviles.RefreshGrid()
+
+            flgRefreshing = False
+            '-----> Reanudo
+            tmrRefresh.Enabled = True
+            tmrRefresh.Stop()
+            tmrRefresh.Start()
+        End If
+    End Sub
+
+    'Private Sub grdIncidentes_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
+    '    Dim objGrado As EmergencyC.GradosOperativos
+    '    If e.RowIndex >= 0 Then
+    '        objGrado = New EmergencyC.GradosOperativos
+    '        If objGrado.Abrir(objGrado.GetIDByIndex(grdIncidentes.Rows(e.RowIndex).Cells(2).Value.ToString)) Then
+    '            callInfo = grdIncidentes.Rows(e.RowIndex).Cells(0).Value.ToString
+    '            If objGrado.flgTraslado = 0 Then
+    '                frmRecepcionSpace.Focus()
+    '                '        Else
+    '                '            frmTrasladosSpace.Focus()
+    '            End If
+    '        End If
+    '    End If
+    'End Sub
+
+    'Private Sub grdIncidentes_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)
+    '    If e.Button = Windows.Forms.MouseButtons.Right Then
+    '        If grdIncidentes.CurrentCell.ColumnIndex = 4 Then
+    '            menReferencia.Text = "Incidente " & grdIncidentes.CurrentCell.Value
+    '            menActividades.Show(grdIncidentes, e.Location)
+    '        End If
+    '    End If
+    'End Sub
+
+    'Private Sub menSalida_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles menSalida.Click
+    '    callInfo = grdIncidentes.Rows(grdIncidentes.CurrentCell.RowIndex).Cells(1).Value
+    '    'ShowChildFormFloat(frmPopupSalida, Me.DockPanel, "frmPopupSalida")
+    'End Sub
+
+    'Private Sub menPreasignacion_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles menPreasignacion.Click
+    '    callInfo = grdIncidentes.Rows(grdIncidentes.CurrentCell.RowIndex).Cells(1).Value
+    '    'ShowChildFormFloat(frmPopupSalida, Me.DockPanel, "frmPopupPreasginacion")
+    'End Sub
+
+    Protected Sub GridView1_RowCellStyle(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs) Handles GridView1.RowCellStyle
+
+        'GridView1.Columns(5).Caption = " "
+        'GridView1.Columns(11).Caption = " "
+
+        'If (e.Column.Caption = "Gdo") Then
+        '    Dim colGrado As String = GridView1.GetRowCellValue(e.RowHandle, "Column19")
+        '    If colGrado <> "" Then
+        '        e.Appearance.BackColor = System.Drawing.ColorTranslator.FromOle(Val(colGrado))
+        '    End If
+
+        'End If
+
+        'If (e.Column.Caption = "Cliente") Then
+        '    Dim colCliente As String = GridView1.GetRowCellValue(e.RowHandle, "Column20")
+        '    If colCliente <> "" Then
+        '        e.Appearance.BackColor = System.Drawing.ColorTranslator.FromOle(Val(colCliente))
+        '    End If
+
+        'End If
+
+        'If (e.Column.Caption = "Loc") Then
+        '    Dim colLoc As String = GridView1.GetRowCellValue(e.RowHandle, "Column21")
+        '    If colLoc <> "" Then
+        '        e.Appearance.BackColor = System.Drawing.ColorTranslator.FromOle(Val(colLoc))
+        '    End If
+
+        'End If
+
+        'If (e.Column.Caption = "Dsp") Then
+        '    Dim colDsp As String = GridView1.GetRowCellValue(e.RowHandle, "Column23")
+        '    If colDsp <> "" Then
+        '        e.Appearance.BackColor = System.Drawing.ColorTranslator.FromOle(Val(colDsp))
+        '    End If
+
+        'End If
+
+        'If (e.Column.Caption = "Sal") Then
+        '    Dim colSal As String = GridView1.GetRowCellValue(e.RowHandle, "Column24")
+        '    If colSal <> "" Then
+        '        e.Appearance.BackColor = System.Drawing.ColorTranslator.FromOle(Val(colSal))
+        '    End If
+
+        'End If
+
+        'If (e.Column.Caption = "Dpl") Then
+        '    Dim colDpl As String = GridView1.GetRowCellValue(e.RowHandle, "Column25")
+        '    If colDpl <> "" Then
+        '        e.Appearance.BackColor = System.Drawing.ColorTranslator.FromOle(Val(colDpl))
+        '    End If
+
+        'End If
+
+        'If (e.Column.Caption = "Ate") Then
+        '    Dim colAte As String = GridView1.GetRowCellValue(e.RowHandle, "Column26")
+        '    If colAte <> "" Then
+        '        e.Appearance.BackColor = System.Drawing.ColorTranslator.FromOle(Val(colAte))
+        '    End If
+
+        'End If
+
+        'If (e.Column.Caption = "SE") Then
+        '    Dim forColEdad As String = GridView1.GetRowCellValue(e.RowHandle, "Column29")
+        '    If forColEdad <> "" Then
+        '        e.Appearance.ForeColor = System.Drawing.ColorTranslator.FromOle(Val(forColEdad))
+        '        e.Appearance.Font = New Font("Arial", 11, FontStyle.Bold, GraphicsUnit.Pixel, 1)
+        '    Else
+        '        e.Appearance.Font = New Font("Arial", 11, FontStyle.Regular, GraphicsUnit.Pixel, 1)
+        '    End If
+        'End If
+
+        'If (e.Column.Caption = "Mov") Then
+
+        '    Dim vMovEst As String = GridView1.GetRowCellValue(e.RowHandle, "Column32")
+        '    Dim colMov As String = GridView1.GetRowCellValue(e.RowHandle, "Column30")
+        '    If colMov = "" Then
+        '        Select Case vMovEst
+        '            Case "A" : e.Appearance.ForeColor = Color.Black
+        '            Case "P" : e.Appearance.ForeColor = Color.Blue
+        '        End Select
+        '    Else
+        '        e.Appearance.ForeColor = System.Drawing.ColorTranslator.FromOle(Val(colMov))
+        '    End If
+
+        'End If
+
+        'If (e.Column.FieldName = "Column11") Then
+
+        '    Dim colPager As String = GridView1.GetRowCellValue(e.RowHandle, "Column31")
+        '    If colPager <> "|" And colPager <> "" Then
+        '        e.Appearance.BorderColor = Color.DarkGreen
+
+        '        'e.Appearance.BorderColor = System.Drawing.ColorTranslator.FromOle(Val(Parcer(colPager, "|", 1)))
+        '    End If
+
+        'End If
+
+        'If vInc(17) <> "|" And vInc(17) <> "" Then
+        '    .Rows(vIdx).Cells(11).Style.BackColor = System.Drawing.ColorTranslator.FromOle(Val(Parcer(vInc(17), "|", 1)))
+        'Else
+        '    .Rows(vIdx).Cells(11).Style.BackColor = .RowsDefaultCellStyle.BackColor
+        'End If
+        '.Rows(vIdx).Cells(11).ToolTipText = Parcer(vInc(11), "|")
+
+    End Sub
+
+    Private Sub GridView1_CustomDrawCell(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs) Handles GridView1.CustomDrawCell
+
+        GridView1.Columns(5).Caption = " "
+        GridView1.Columns(11).Caption = " "
+
+        If (e.Column.Caption = "Gdo") Then
+            Dim colGrado As String = GridView1.GetRowCellValue(e.RowHandle, "Column19")
+            If colGrado <> "" Then
+                e.Appearance.BackColor = System.Drawing.ColorTranslator.FromOle(Val(colGrado))
+            End If
+
+        End If
+
+        If (e.Column.Caption = "Cliente") Then
+            Dim colCliente As String = GridView1.GetRowCellValue(e.RowHandle, "Column20")
+            If colCliente <> "" Then
+                e.Appearance.BackColor = System.Drawing.ColorTranslator.FromOle(Val(colCliente))
+            End If
+
+        End If
+
+        If (e.Column.Caption = "Loc") Then
+            Dim colLoc As String = GridView1.GetRowCellValue(e.RowHandle, "Column21")
+            If colLoc <> "" Then
+                e.Appearance.BackColor = System.Drawing.ColorTranslator.FromOle(Val(colLoc))
+            End If
+
+        End If
+
+        If (e.Column.Caption = "Dsp") Then
+            Dim colDsp As String = GridView1.GetRowCellValue(e.RowHandle, "Column23")
+            If colDsp <> "" Then
+                e.Appearance.BackColor = System.Drawing.ColorTranslator.FromOle(Val(colDsp))
+            End If
+
+        End If
+
+        If (e.Column.Caption = "Sal") Then
+            Dim colSal As String = GridView1.GetRowCellValue(e.RowHandle, "Column24")
+            If colSal <> "" Then
+                e.Appearance.BackColor = System.Drawing.ColorTranslator.FromOle(Val(colSal))
+            End If
+
+        End If
+
+        If (e.Column.Caption = "Dpl") Then
+            Dim colDpl As String = GridView1.GetRowCellValue(e.RowHandle, "Column25")
+            If colDpl <> "" Then
+                e.Appearance.BackColor = System.Drawing.ColorTranslator.FromOle(Val(colDpl))
+            End If
+
+        End If
+
+        If (e.Column.Caption = "Ate") Then
+            Dim colAte As String = GridView1.GetRowCellValue(e.RowHandle, "Column26")
+            If colAte <> "" Then
+                e.Appearance.BackColor = System.Drawing.ColorTranslator.FromOle(Val(colAte))
+            End If
+
+        End If
+
+        If (e.Column.Caption = "SE") Then
+            Dim forColEdad As String = GridView1.GetRowCellValue(e.RowHandle, "Column29")
+            If forColEdad <> "" Then
+                e.Appearance.ForeColor = System.Drawing.ColorTranslator.FromOle(Val(forColEdad))
+                e.Appearance.Font = New Font("Arial", 11, FontStyle.Bold, GraphicsUnit.Pixel, 1)
+            Else
+                e.Appearance.Font = New Font("Arial", 11, FontStyle.Regular, GraphicsUnit.Pixel, 1)
+            End If
+        End If
+
+        If (e.Column.Caption = "Mov") Then
+
+            Dim vMovEst As String = GridView1.GetRowCellValue(e.RowHandle, "Column32")
+            Dim colMov As String = GridView1.GetRowCellValue(e.RowHandle, "Column30")
+            If colMov = "" Then
+                Select Case vMovEst
+                    Case "A" : e.Appearance.ForeColor = Color.Black
+                    Case "P" : e.Appearance.ForeColor = Color.Blue
+                End Select
+            Else
+                e.Appearance.ForeColor = System.Drawing.ColorTranslator.FromOle(Val(colMov))
+            End If
+
+
+            'Dim rect As Rectangle = e.Bounds
+
+            'e.Graphics.DrawLine(Pens.Blue, rect.Right, rect.Bottom, rect.Right, rect.Top)
+
+            'e.Appearance.DrawString(e.Cache, e.DisplayText, rect)
+
+            'e.Handled = True
+
+        End If
+
+        If (e.Column.Caption = "Llam") Then
+
+            Dim colPager As String = GridView1.GetRowCellValue(e.RowHandle, "Column31")
+
+            If colPager <> "|" And colPager <> "" Then
+
+                Dim rect As Rectangle = e.Bounds
+
+                e.Graphics.DrawLine(Pens.Blue, rect.X - 1, rect.Y - 1, rect.Left - 1, rect.Bottom - 1)
+
+                e.Appearance.DrawString(e.Cache, e.DisplayText, rect)
+
+                e.Handled = True
+
+            Else
+
+                'Dim rect As Rectangle = e.Bounds
+
+                'e.Graphics.DrawLine(Pens.Green, rect.X - 1, rect.Y - 1, rect.Left - 1, rect.Bottom - 1)
+
+                'e.Appearance.DrawString(e.Cache, e.DisplayText, rect)
+
+                'e.Handled = True
+
+            End If
+
+        End If
+
+        'If (e.Column.FieldName = "Column11") Then
+
+
+        '    e.Appearance.BorderColor = Color.DarkGreen
+
+        'e.Appearance.BorderColor = System.Drawing.ColorTranslator.FromOle(Val(Parcer(colPager, "|", 1)))
+        'End If
+
+        ' End If
+
+
+    End Sub
+
+    Private Sub GridView1_TopRowChanged1(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.TopRowChanged
+
+        GridView1.FocusedRowHandle = GridView1.TopRowIndex
+
+    End Sub
+End Class

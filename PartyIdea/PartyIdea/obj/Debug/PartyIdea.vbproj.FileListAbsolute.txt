@@ -1,0 +1,53 @@
+D:\DesaNet\Projects\PartyIdea\PartyIdea\PartyIdea\bin\Debug\Shaman.exe.config
+D:\DesaNet\Projects\PartyIdea\PartyIdea\PartyIdea\obj\Debug\Shaman.exe
+D:\DesaNet\Projects\PartyIdea\PartyIdea\PartyIdea\obj\Debug\Shaman.xml
+D:\DesaNet\Projects\PartyIdea\PartyIdea\PartyIdea\obj\Debug\Shaman.pdb
+D:\DesaNet\Projects\PartyIdea\PartyIdea\PartyIdea\bin\Debug\Shaman.exe
+D:\DesaNet\Projects\PartyIdea\PartyIdea\PartyIdea\bin\Debug\Shaman.pdb
+D:\DesaNet\Projects\PartyIdea\PartyIdea\PartyIdea\bin\Debug\Shaman.xml
+D:\DesaNet\Projects\PartyIdea\PartyIdea\PartyIdea\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll
+D:\DesaNet\Projects\PartyIdea\PartyIdea\PartyIdea\bin\Debug\InterSystems.Data.CacheClient30.xml
+D:\DesaNet\Projects\PartyIdea\PartyIdea\PartyIdea\obj\Debug\PartyIdea.vbprojResolveAssemblyReference.cache
+D:\DesaNet\Projects\PartyIdea\PartyIdea\PartyIdea\obj\Debug\Shaman.Main.resources
+D:\DesaNet\Projects\PartyIdea\PartyIdea\PartyIdea\obj\Debug\Shaman.Resources.resources
+D:\DesaNet\Projects\PartyIdea\PartyIdea\PartyIdea\obj\Debug\Shaman.Recursos.resources
+D:\DesaNet\Projects\PartyIdea\PartyIdea\PartyIdea\obj\Debug\Shaman.frmSplash.resources
+D:\DesaNet\Projects\PartyIdea\PartyIdea\PartyIdea\obj\Debug\Shaman.frmTabCostosContables.resources
+D:\DesaNet\Projects\PartyIdea\PartyIdea\PartyIdea\obj\Debug\Shaman.frmTabCostosContablesImport.resources
+D:\DesaNet\Projects\PartyIdea\PartyIdea\PartyIdea\obj\Debug\PartyIdea.vbproj.GenerateResource.Cache
+D:\DesaNet\Projects\PartyIdea\PartyIdea\PartyIdea\obj\Debug\Shaman.exe.licenses
+D:\DesaNet\Projects\PartyIdea\PartyIdea\PartyIdea\obj\Debug\Shaman.frmRetiros.resources
+C:\Users\soporte\Desktop\party-webforms\PartyIdea\PartyIdea\bin\Debug\Shaman.exe.config
+C:\Users\soporte\Desktop\party-webforms\PartyIdea\PartyIdea\obj\Debug\Shaman.exe
+C:\Users\soporte\Desktop\party-webforms\PartyIdea\PartyIdea\obj\Debug\Shaman.xml
+C:\Users\soporte\Desktop\party-webforms\PartyIdea\PartyIdea\obj\Debug\Shaman.pdb
+C:\Users\soporte\Desktop\party-webforms\PartyIdea\PartyIdea\bin\Debug\Shaman.exe
+C:\Users\soporte\Desktop\party-webforms\PartyIdea\PartyIdea\bin\Debug\Shaman.pdb
+C:\Users\soporte\Desktop\party-webforms\PartyIdea\PartyIdea\bin\Debug\Shaman.xml
+C:\Users\soporte\Desktop\party-webforms\PartyIdea\PartyIdea\obj\Debug\PartyIdea.vbprojResolveAssemblyReference.cache
+C:\Users\soporte\Desktop\party-webforms\PartyIdea\PartyIdea\obj\Debug\Shaman.frmRetiros.resources
+C:\Users\soporte\Desktop\party-webforms\PartyIdea\PartyIdea\obj\Debug\Shaman.Main.resources
+C:\Users\soporte\Desktop\party-webforms\PartyIdea\PartyIdea\obj\Debug\Shaman.Resources.resources
+C:\Users\soporte\Desktop\party-webforms\PartyIdea\PartyIdea\obj\Debug\Shaman.Recursos.resources
+C:\Users\soporte\Desktop\party-webforms\PartyIdea\PartyIdea\obj\Debug\Shaman.frmSplash.resources
+C:\Users\soporte\Desktop\party-webforms\PartyIdea\PartyIdea\obj\Debug\PartyIdea.vbproj.GenerateResource.Cache
+C:\Users\soporte\Desktop\party-webforms\PartyIdea\PartyIdea\obj\Debug\Shaman.exe.licenses
+C:\Users\soporte\Desktop\party-webforms\PartyIdea\PartyIdea\obj\Debug\Shaman.frmEstadisticas.resources
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Shaman.exe.config
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Debug\Shaman.exe
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Debug\Shaman.xml
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Debug\Shaman.pdb
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Debug\Shaman.frmEstadisticas.resources
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Debug\Shaman.frmRetiros.resources
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Debug\Shaman.Main.resources
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Debug\Shaman.Resources.resources
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Debug\Shaman.Recursos.resources
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Debug\Shaman.frmSplash.resources
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Debug\PartyIdea.vbproj.GenerateResource.Cache
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Debug\Shaman.exe.licenses
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Shaman.exe
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Shaman.pdb
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Shaman.xml
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\EntityFramework.dll
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\EntityFramework.xml
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Debug\PartyIdea.vbprojResolveAssemblyReference.cache

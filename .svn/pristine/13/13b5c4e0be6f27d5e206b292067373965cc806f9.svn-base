@@ -1,0 +1,75 @@
+Imports WeifenLuo.WinFormsUI.Docking
+Public Class frmDespachoSpace
+    Inherits DockContent
+
+    Private Sub frmDespachoSpace_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Dim objPantallas As New ShamanClases.EmergencyC.DespachoScreenPantallas
+        Dim ctrItemMenu As ToolStripMenuItem
+
+        Me.KeyPreview = True
+
+        dockDespacho.Parent = Me
+        dockDespacho.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingSdi
+        dockDespacho.DockRightPortion = 140
+        dockDespacho.DockBottomPortion = 30
+
+        '----> Menu de Pantallas
+        objPantallas.ShowPantallas(Me.menuPantallas)
+        If Me.menuPantallas.Items.Count > 0 Then
+            Me.Text = Me.menuPantallas.Items(0).Text
+            Me.TabText = Me.menuPantallas.Items(0).Text
+            '----> Creo eventos
+            For Each ctrItemMenu In Me.menuPantallas.Items
+                If ctrItemMenu.GetType.Name = "ToolStripMenuItem" Then
+                    AddEvent(ctrItemMenu)
+                End If
+            Next
+        End If
+
+        emePages(0).pageLoad = True
+        emePages(0).pageFocus = True
+
+        frmIncidentesMoviles.Show(dockDespacho, WeifenLuo.WinFormsUI.Docking.DockState.DockRight)
+        frmIncidentes.Show(dockDespacho)
+
+        objPantallas = Nothing
+
+    End Sub
+    Private Sub frmIncidentes_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+        Select Case e.KeyCode
+            Case Keys.F11
+                'ShowChildFormFloat(frmPopupAltaMoviles, Me.DockPanel)
+        End Select
+    End Sub
+
+    Private Sub frmDespachoSpace_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
+        frmIncidentes.tmrRefresh.Enabled = True
+    End Sub
+
+    Private Sub frmDespachoSpace_Deactivate(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Deactivate
+        frmIncidentes.tmrRefresh.Enabled = False
+    End Sub
+
+    Private Sub AddEvent(ByVal pItem As ToolStripMenuItem)
+        AddHandler pItem.Click, AddressOf Me.itmEvents_Click
+    End Sub
+
+    Private Sub itmEvents_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Dim vIdx As Integer
+        Dim vItm As ToolStripMenuItem
+
+        For vIdx = 0 To Me.menuPantallas.Items.Count - 1
+            vItm = Me.menuPantallas.Items(vIdx)
+            If vItm.Name <> sender.name Then
+                vItm.Checked = False
+            Else
+                frmIncidentes.StylePending = vIdx + 1
+            End If
+        Next
+
+        Me.Text = sender.Text
+        Me.TabText = sender.Text
+
+    End Sub
+
+End Class

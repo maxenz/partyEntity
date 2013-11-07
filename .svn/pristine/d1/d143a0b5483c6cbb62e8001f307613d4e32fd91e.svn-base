@@ -1,0 +1,1238 @@
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmIncidentesABM
+    Inherits WeifenLuo.WinFormsUI.Docking.DockContent
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        If disposing AndAlso components IsNot Nothing Then
+            components.Dispose()
+        End If
+        MyBase.Dispose(disposing)
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.tbrMain = New System.Windows.Forms.ToolStrip
+        Me.btnAgregar = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton
+        Me.btnModificar = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
+        Me.btnPrimero = New System.Windows.Forms.ToolStripButton
+        Me.btnAnterior = New System.Windows.Forms.ToolStripButton
+        Me.btnSiguiente = New System.Windows.Forms.ToolStripButton
+        Me.btnUltimo = New System.Windows.Forms.ToolStripButton
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator
+        Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton
+        Me.SACCategorizadorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.DAPReclamosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.ReclasificaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.CoordenadasDeLosDomiciliosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator
+        Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator
+        Me.btnGuardar = New System.Windows.Forms.ToolStripButton
+        Me.btnCancelar = New System.Windows.Forms.ToolStripButton
+        Me.grpMain = New System.Windows.Forms.GroupBox
+        Me.cmdEdificio = New DevExpress.XtraEditors.CheckButton
+        Me.chkDomicilio = New DevExpress.XtraEditors.CheckButton
+        Me.lblCopago = New System.Windows.Forms.Label
+        Me.lblPlan = New System.Windows.Forms.Label
+        Me.lblIva = New System.Windows.Forms.Label
+        Me.lblGradoOperativo = New System.Windows.Forms.Label
+        Me.lblSintomas = New System.Windows.Forms.Label
+        Me.lblSexoEdad = New System.Windows.Forms.Label
+        Me.lblReferencias = New System.Windows.Forms.Label
+        Me.lblEntreCalle2 = New System.Windows.Forms.Label
+        Me.lblEntreCalle1 = New System.Windows.Forms.Label
+        Me.lblDomicilio = New System.Windows.Forms.Label
+        Me.lblPartido = New System.Windows.Forms.Label
+        Me.lblLocalidad = New System.Windows.Forms.Label
+        Me.lblNroAfiliado = New System.Windows.Forms.Label
+        Me.lblCliente = New System.Windows.Forms.Label
+        Me.lblFechaNro = New System.Windows.Forms.Label
+        Me.lblTelefono = New System.Windows.Forms.Label
+        Me.lblObservaciones = New System.Windows.Forms.Label
+        Me.txtObservaciones = New DevExpress.XtraEditors.MemoEdit
+        Me.lblDemora = New System.Windows.Forms.Label
+        Me.lblNroInterno = New System.Windows.Forms.Label
+        Me.lblPreArribo = New System.Windows.Forms.Label
+        Me.lblAutoriza = New System.Windows.Forms.Label
+        Me.txtDemora = New DevExpress.XtraEditors.TextEdit
+        Me.txtNroInterno = New DevExpress.XtraEditors.TextEdit
+        Me.txtPreArribo = New DevExpress.XtraEditors.TextEdit
+        Me.txtAutoriza = New DevExpress.XtraEditors.TextEdit
+        Me.txtCoPago = New DevExpress.XtraEditors.TextEdit
+        Me.cmbPlanes = New DevExpress.XtraEditors.ComboBoxEdit
+        Me.cmbIvas = New DevExpress.XtraEditors.ComboBoxEdit
+        Me.txtPaciente = New DevExpress.XtraEditors.TextEdit
+        Me.cmbGrados = New DevExpress.XtraEditors.ComboBoxEdit
+        Me.txtSintomas = New DevExpress.XtraEditors.TextEdit
+        Me.txtEdad = New DevExpress.XtraEditors.TextEdit
+        Me.cmbSexo = New DevExpress.XtraEditors.ComboBoxEdit
+        Me.txtReferencias = New DevExpress.XtraEditors.TextEdit
+        Me.txtEntreCalle2 = New DevExpress.XtraEditors.TextEdit
+        Me.txtEntreCalle1 = New DevExpress.XtraEditors.TextEdit
+        Me.txtDepto = New DevExpress.XtraEditors.TextEdit
+        Me.txtPiso = New DevExpress.XtraEditors.TextEdit
+        Me.txtAltura = New DevExpress.XtraEditors.TextEdit
+        Me.txtCalle = New DevExpress.XtraEditors.TextEdit
+        Me.txtPartido = New DevExpress.XtraEditors.TextEdit
+        Me.txtLocalidadDes = New DevExpress.XtraEditors.TextEdit
+        Me.txtLocalidadId = New DevExpress.XtraEditors.TextEdit
+        Me.txtNroAfiliado = New DevExpress.XtraEditors.TextEdit
+        Me.txtClienteId = New DevExpress.XtraEditors.TextEdit
+        Me.txtNroIncidente = New DevExpress.XtraEditors.TextEdit
+        Me.dtpFecIncidente = New DevExpress.XtraEditors.DateEdit
+        Me.txtTelefono = New DevExpress.XtraEditors.TextEdit
+        Me.lblPaciente = New System.Windows.Forms.Label
+        Me.lblResolucion = New System.Windows.Forms.Label
+        Me.lblDiagnostico = New System.Windows.Forms.Label
+        Me.Label2 = New System.Windows.Forms.Label
+        Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit
+        Me.TextEdit2 = New DevExpress.XtraEditors.TextEdit
+        Me.TextEdit3 = New DevExpress.XtraEditors.TextEdit
+        Me.TextEdit4 = New DevExpress.XtraEditors.TextEdit
+        Me.TextEdit5 = New DevExpress.XtraEditors.TextEdit
+        Me.TextEdit6 = New DevExpress.XtraEditors.TextEdit
+        Me.TextEdit7 = New DevExpress.XtraEditors.TextEdit
+        Me.grpCierre = New System.Windows.Forms.GroupBox
+        Me.xView = New DevExpress.XtraGrid.Views.Grid.GridView
+        Me.ID = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.Hora = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.Movil = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.Estado = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.Viaje = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.Cnd = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.Usuario = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.xgrdHistorial = New DevExpress.XtraGrid.GridControl
+        Me.tbrMain.SuspendLayout()
+        Me.grpMain.SuspendLayout()
+        CType(Me.txtObservaciones.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtDemora.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtNroInterno.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtPreArribo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtAutoriza.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtCoPago.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cmbPlanes.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cmbIvas.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtPaciente.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cmbGrados.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtSintomas.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtEdad.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cmbSexo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtReferencias.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtEntreCalle2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtEntreCalle1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtDepto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtPiso.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtAltura.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtCalle.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtPartido.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtLocalidadDes.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtLocalidadId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtNroAfiliado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtClienteId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtNroIncidente.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtpFecIncidente.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtpFecIncidente.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtTelefono.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEdit3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEdit4.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEdit5.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEdit6.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEdit7.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grpCierre.SuspendLayout()
+        CType(Me.xView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.xgrdHistorial, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'tbrMain
+        '
+        Me.tbrMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnAgregar, Me.ToolStripButton2, Me.btnModificar, Me.ToolStripButton4, Me.ToolStripSeparator1, Me.btnPrimero, Me.btnAnterior, Me.btnSiguiente, Me.btnUltimo, Me.ToolStripSeparator2, Me.ToolStripDropDownButton1, Me.ToolStripLabel1, Me.ToolStripSeparator4, Me.ToolStripDropDownButton2, Me.ToolStripLabel2, Me.ToolStripSeparator3, Me.btnGuardar, Me.btnCancelar})
+        Me.tbrMain.Location = New System.Drawing.Point(0, 0)
+        Me.tbrMain.Name = "tbrMain"
+        Me.tbrMain.Size = New System.Drawing.Size(897, 25)
+        Me.tbrMain.TabIndex = 7
+        Me.tbrMain.Text = "ToolStrip"
+        '
+        'btnAgregar
+        '
+        Me.btnAgregar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnAgregar.Image = Global.Shaman.My.Resources.Resources.agregar
+        Me.btnAgregar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnAgregar.Name = "btnAgregar"
+        Me.btnAgregar.Size = New System.Drawing.Size(23, 22)
+        Me.btnAgregar.Text = "ToolStripButton1"
+        '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton2.Image = Global.Shaman.My.Resources.Resources.eliminar
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton2.Text = "ToolStripButton2"
+        '
+        'btnModificar
+        '
+        Me.btnModificar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnModificar.Image = Global.Shaman.My.Resources.Resources.modificar
+        Me.btnModificar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.Size = New System.Drawing.Size(23, 22)
+        Me.btnModificar.Text = "Modificar"
+        '
+        'ToolStripButton4
+        '
+        Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton4.Image = Global.Shaman.My.Resources.Resources.refrescar
+        Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton4.Name = "ToolStripButton4"
+        Me.ToolStripButton4.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton4.Text = "ToolStripButton4"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'btnPrimero
+        '
+        Me.btnPrimero.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnPrimero.Image = Global.Shaman.My.Resources.Resources.qutodos
+        Me.btnPrimero.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnPrimero.Name = "btnPrimero"
+        Me.btnPrimero.Size = New System.Drawing.Size(23, 22)
+        '
+        'btnAnterior
+        '
+        Me.btnAnterior.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnAnterior.Image = Global.Shaman.My.Resources.Resources.quuno
+        Me.btnAnterior.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnAnterior.Name = "btnAnterior"
+        Me.btnAnterior.Size = New System.Drawing.Size(23, 22)
+        Me.btnAnterior.Text = "ToolStripButton6"
+        '
+        'btnSiguiente
+        '
+        Me.btnSiguiente.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnSiguiente.Image = Global.Shaman.My.Resources.Resources.aguno
+        Me.btnSiguiente.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnSiguiente.Name = "btnSiguiente"
+        Me.btnSiguiente.Size = New System.Drawing.Size(23, 22)
+        Me.btnSiguiente.Text = "ToolStripButton7"
+        '
+        'btnUltimo
+        '
+        Me.btnUltimo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnUltimo.Image = Global.Shaman.My.Resources.Resources.agtodos
+        Me.btnUltimo.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnUltimo.Name = "btnUltimo"
+        Me.btnUltimo.Size = New System.Drawing.Size(23, 22)
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripDropDownButton1
+        '
+        Me.ToolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SACCategorizadorToolStripMenuItem, Me.DAPReclamosToolStripMenuItem, Me.ReclasificaciónToolStripMenuItem, Me.CoordenadasDeLosDomiciliosToolStripMenuItem})
+        Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
+        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(13, 22)
+        Me.ToolStripDropDownButton1.Text = "ToolStripDropDownButton1"
+        '
+        'SACCategorizadorToolStripMenuItem
+        '
+        Me.SACCategorizadorToolStripMenuItem.Name = "SACCategorizadorToolStripMenuItem"
+        Me.SACCategorizadorToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
+        Me.SACCategorizadorToolStripMenuItem.Text = "SAC - Categorizador"
+        '
+        'DAPReclamosToolStripMenuItem
+        '
+        Me.DAPReclamosToolStripMenuItem.Name = "DAPReclamosToolStripMenuItem"
+        Me.DAPReclamosToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
+        Me.DAPReclamosToolStripMenuItem.Text = "DAP - Reclamos"
+        '
+        'ReclasificaciónToolStripMenuItem
+        '
+        Me.ReclasificaciónToolStripMenuItem.Name = "ReclasificaciónToolStripMenuItem"
+        Me.ReclasificaciónToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
+        Me.ReclasificaciónToolStripMenuItem.Text = "Reclasificación"
+        '
+        'CoordenadasDeLosDomiciliosToolStripMenuItem
+        '
+        Me.CoordenadasDeLosDomiciliosToolStripMenuItem.Name = "CoordenadasDeLosDomiciliosToolStripMenuItem"
+        Me.CoordenadasDeLosDomiciliosToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
+        Me.CoordenadasDeLosDomiciliosToolStripMenuItem.Text = "Coordenadas de los domicilios"
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(132, 22)
+        Me.ToolStripLabel1.Text = "Información Adjunta     "
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripDropDownButton2
+        '
+        Me.ToolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripDropDownButton2.Image = Global.Shaman.My.Resources.Resources.refrescar
+        Me.ToolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripDropDownButton2.Name = "ToolStripDropDownButton2"
+        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(29, 22)
+        Me.ToolStripDropDownButton2.Text = "ToolStripDropDownButton2"
+        '
+        'ToolStripLabel2
+        '
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(131, 22)
+        Me.ToolStripLabel2.Text = "Acciones Disponibles    "
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
+        '
+        'btnGuardar
+        '
+        Me.btnGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnGuardar.Image = Global.Shaman.My.Resources.Resources.salvar
+        Me.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(23, 22)
+        Me.btnGuardar.Text = "Guardar"
+        '
+        'btnCancelar
+        '
+        Me.btnCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnCancelar.Image = Global.Shaman.My.Resources.Resources.cancelar
+        Me.btnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnCancelar.Name = "btnCancelar"
+        Me.btnCancelar.Size = New System.Drawing.Size(23, 22)
+        Me.btnCancelar.Text = "Cancelar"
+        '
+        'grpMain
+        '
+        Me.grpMain.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.grpMain.Controls.Add(Me.cmdEdificio)
+        Me.grpMain.Controls.Add(Me.chkDomicilio)
+        Me.grpMain.Controls.Add(Me.lblCopago)
+        Me.grpMain.Controls.Add(Me.lblPlan)
+        Me.grpMain.Controls.Add(Me.lblIva)
+        Me.grpMain.Controls.Add(Me.lblGradoOperativo)
+        Me.grpMain.Controls.Add(Me.lblSintomas)
+        Me.grpMain.Controls.Add(Me.lblSexoEdad)
+        Me.grpMain.Controls.Add(Me.lblReferencias)
+        Me.grpMain.Controls.Add(Me.lblEntreCalle2)
+        Me.grpMain.Controls.Add(Me.lblEntreCalle1)
+        Me.grpMain.Controls.Add(Me.lblDomicilio)
+        Me.grpMain.Controls.Add(Me.lblPartido)
+        Me.grpMain.Controls.Add(Me.lblLocalidad)
+        Me.grpMain.Controls.Add(Me.lblNroAfiliado)
+        Me.grpMain.Controls.Add(Me.lblCliente)
+        Me.grpMain.Controls.Add(Me.lblFechaNro)
+        Me.grpMain.Controls.Add(Me.lblTelefono)
+        Me.grpMain.Controls.Add(Me.lblObservaciones)
+        Me.grpMain.Controls.Add(Me.txtObservaciones)
+        Me.grpMain.Controls.Add(Me.lblDemora)
+        Me.grpMain.Controls.Add(Me.lblNroInterno)
+        Me.grpMain.Controls.Add(Me.lblPreArribo)
+        Me.grpMain.Controls.Add(Me.lblAutoriza)
+        Me.grpMain.Controls.Add(Me.txtDemora)
+        Me.grpMain.Controls.Add(Me.txtNroInterno)
+        Me.grpMain.Controls.Add(Me.txtPreArribo)
+        Me.grpMain.Controls.Add(Me.txtAutoriza)
+        Me.grpMain.Controls.Add(Me.txtCoPago)
+        Me.grpMain.Controls.Add(Me.cmbPlanes)
+        Me.grpMain.Controls.Add(Me.cmbIvas)
+        Me.grpMain.Controls.Add(Me.txtPaciente)
+        Me.grpMain.Controls.Add(Me.cmbGrados)
+        Me.grpMain.Controls.Add(Me.txtSintomas)
+        Me.grpMain.Controls.Add(Me.txtEdad)
+        Me.grpMain.Controls.Add(Me.cmbSexo)
+        Me.grpMain.Controls.Add(Me.txtReferencias)
+        Me.grpMain.Controls.Add(Me.txtEntreCalle2)
+        Me.grpMain.Controls.Add(Me.txtEntreCalle1)
+        Me.grpMain.Controls.Add(Me.txtDepto)
+        Me.grpMain.Controls.Add(Me.txtPiso)
+        Me.grpMain.Controls.Add(Me.txtAltura)
+        Me.grpMain.Controls.Add(Me.txtCalle)
+        Me.grpMain.Controls.Add(Me.txtPartido)
+        Me.grpMain.Controls.Add(Me.txtLocalidadDes)
+        Me.grpMain.Controls.Add(Me.txtLocalidadId)
+        Me.grpMain.Controls.Add(Me.txtNroAfiliado)
+        Me.grpMain.Controls.Add(Me.txtClienteId)
+        Me.grpMain.Controls.Add(Me.txtNroIncidente)
+        Me.grpMain.Controls.Add(Me.dtpFecIncidente)
+        Me.grpMain.Controls.Add(Me.txtTelefono)
+        Me.grpMain.Controls.Add(Me.lblPaciente)
+        Me.grpMain.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpMain.Location = New System.Drawing.Point(0, 34)
+        Me.grpMain.Name = "grpMain"
+        Me.grpMain.Size = New System.Drawing.Size(493, 402)
+        Me.grpMain.TabIndex = 86
+        Me.grpMain.TabStop = False
+        Me.grpMain.Text = "Incidente"
+        '
+        'cmdEdificio
+        '
+        Me.cmdEdificio.Image = Global.Shaman.My.Resources.Resources.prestadores
+        Me.cmdEdificio.Location = New System.Drawing.Point(6, 118)
+        Me.cmdEdificio.Name = "cmdEdificio"
+        Me.cmdEdificio.Size = New System.Drawing.Size(25, 25)
+        Me.cmdEdificio.TabIndex = 8
+        Me.cmdEdificio.Text = "CheckButton1"
+        '
+        'chkDomicilio
+        '
+        Me.chkDomicilio.Image = Global.Shaman.My.Resources.Resources.movil
+        Me.chkDomicilio.Location = New System.Drawing.Point(460, 118)
+        Me.chkDomicilio.Name = "chkDomicilio"
+        Me.chkDomicilio.Size = New System.Drawing.Size(25, 25)
+        Me.chkDomicilio.TabIndex = 138
+        Me.chkDomicilio.Text = "CheckButton1"
+        '
+        'lblCopago
+        '
+        Me.lblCopago.AutoSize = True
+        Me.lblCopago.Location = New System.Drawing.Point(432, 263)
+        Me.lblCopago.Name = "lblCopago"
+        Me.lblCopago.Size = New System.Drawing.Size(44, 13)
+        Me.lblCopago.TabIndex = 137
+        Me.lblCopago.Text = "CoPago"
+        '
+        'lblPlan
+        '
+        Me.lblPlan.AutoSize = True
+        Me.lblPlan.Location = New System.Drawing.Point(329, 263)
+        Me.lblPlan.Name = "lblPlan"
+        Me.lblPlan.Size = New System.Drawing.Size(27, 13)
+        Me.lblPlan.TabIndex = 136
+        Me.lblPlan.Text = "Plan"
+        '
+        'lblIva
+        '
+        Me.lblIva.AutoSize = True
+        Me.lblIva.Location = New System.Drawing.Point(267, 263)
+        Me.lblIva.Name = "lblIva"
+        Me.lblIva.Size = New System.Drawing.Size(23, 13)
+        Me.lblIva.TabIndex = 135
+        Me.lblIva.Text = "Iva"
+        '
+        'lblGradoOperativo
+        '
+        Me.lblGradoOperativo.AutoSize = True
+        Me.lblGradoOperativo.Location = New System.Drawing.Point(432, 224)
+        Me.lblGradoOperativo.Name = "lblGradoOperativo"
+        Me.lblGradoOperativo.Size = New System.Drawing.Size(36, 13)
+        Me.lblGradoOperativo.TabIndex = 134
+        Me.lblGradoOperativo.Text = "Grado"
+        '
+        'lblSintomas
+        '
+        Me.lblSintomas.AutoSize = True
+        Me.lblSintomas.Location = New System.Drawing.Point(96, 224)
+        Me.lblSintomas.Name = "lblSintomas"
+        Me.lblSintomas.Size = New System.Drawing.Size(50, 13)
+        Me.lblSintomas.TabIndex = 133
+        Me.lblSintomas.Text = "Síntomas"
+        '
+        'lblSexoEdad
+        '
+        Me.lblSexoEdad.AutoSize = True
+        Me.lblSexoEdad.Location = New System.Drawing.Point(9, 224)
+        Me.lblSexoEdad.Name = "lblSexoEdad"
+        Me.lblSexoEdad.Size = New System.Drawing.Size(65, 13)
+        Me.lblSexoEdad.TabIndex = 132
+        Me.lblSexoEdad.Text = "Sexo / Edad"
+        '
+        'lblReferencias
+        '
+        Me.lblReferencias.AutoSize = True
+        Me.lblReferencias.Location = New System.Drawing.Point(9, 185)
+        Me.lblReferencias.Name = "lblReferencias"
+        Me.lblReferencias.Size = New System.Drawing.Size(137, 13)
+        Me.lblReferencias.TabIndex = 131
+        Me.lblReferencias.Text = "Referencias de la ubicación"
+        '
+        'lblEntreCalle2
+        '
+        Me.lblEntreCalle2.AutoSize = True
+        Me.lblEntreCalle2.Location = New System.Drawing.Point(253, 146)
+        Me.lblEntreCalle2.Name = "lblEntreCalle2"
+        Me.lblEntreCalle2.Size = New System.Drawing.Size(68, 13)
+        Me.lblEntreCalle2.TabIndex = 130
+        Me.lblEntreCalle2.Text = "Entre Calle 2"
+        '
+        'lblEntreCalle1
+        '
+        Me.lblEntreCalle1.AutoSize = True
+        Me.lblEntreCalle1.Location = New System.Drawing.Point(9, 146)
+        Me.lblEntreCalle1.Name = "lblEntreCalle1"
+        Me.lblEntreCalle1.Size = New System.Drawing.Size(68, 13)
+        Me.lblEntreCalle1.TabIndex = 129
+        Me.lblEntreCalle1.Text = "Entre Calle 1"
+        '
+        'lblDomicilio
+        '
+        Me.lblDomicilio.AutoSize = True
+        Me.lblDomicilio.Location = New System.Drawing.Point(9, 107)
+        Me.lblDomicilio.Name = "lblDomicilio"
+        Me.lblDomicilio.Size = New System.Drawing.Size(228, 13)
+        Me.lblDomicilio.TabIndex = 128
+        Me.lblDomicilio.Text = "Domicilio (Calle / Altura / Piso / Departamento)"
+        '
+        'lblPartido
+        '
+        Me.lblPartido.AutoSize = True
+        Me.lblPartido.Location = New System.Drawing.Point(293, 67)
+        Me.lblPartido.Name = "lblPartido"
+        Me.lblPartido.Size = New System.Drawing.Size(41, 13)
+        Me.lblPartido.TabIndex = 127
+        Me.lblPartido.Text = "Partido"
+        '
+        'lblLocalidad
+        '
+        Me.lblLocalidad.AutoSize = True
+        Me.lblLocalidad.Location = New System.Drawing.Point(9, 67)
+        Me.lblLocalidad.Name = "lblLocalidad"
+        Me.lblLocalidad.Size = New System.Drawing.Size(51, 13)
+        Me.lblLocalidad.TabIndex = 126
+        Me.lblLocalidad.Text = "Localidad"
+        '
+        'lblNroAfiliado
+        '
+        Me.lblNroAfiliado.AutoSize = True
+        Me.lblNroAfiliado.Location = New System.Drawing.Point(351, 28)
+        Me.lblNroAfiliado.Name = "lblNroAfiliado"
+        Me.lblNroAfiliado.Size = New System.Drawing.Size(66, 13)
+        Me.lblNroAfiliado.TabIndex = 125
+        Me.lblNroAfiliado.Text = "Nro. Afiliado"
+        '
+        'lblCliente
+        '
+        Me.lblCliente.AutoSize = True
+        Me.lblCliente.Location = New System.Drawing.Point(259, 28)
+        Me.lblCliente.Name = "lblCliente"
+        Me.lblCliente.Size = New System.Drawing.Size(40, 13)
+        Me.lblCliente.TabIndex = 124
+        Me.lblCliente.Text = "Cliente"
+        '
+        'lblFechaNro
+        '
+        Me.lblFechaNro.AutoSize = True
+        Me.lblFechaNro.Location = New System.Drawing.Point(10, 28)
+        Me.lblFechaNro.Name = "lblFechaNro"
+        Me.lblFechaNro.Size = New System.Drawing.Size(115, 13)
+        Me.lblFechaNro.TabIndex = 123
+        Me.lblFechaNro.Text = "Fecha / Nro. Incidente"
+        '
+        'lblTelefono
+        '
+        Me.lblTelefono.AutoSize = True
+        Me.lblTelefono.Location = New System.Drawing.Point(155, 28)
+        Me.lblTelefono.Name = "lblTelefono"
+        Me.lblTelefono.Size = New System.Drawing.Size(49, 13)
+        Me.lblTelefono.TabIndex = 122
+        Me.lblTelefono.Text = "Teléfono"
+        '
+        'lblObservaciones
+        '
+        Me.lblObservaciones.AutoSize = True
+        Me.lblObservaciones.Location = New System.Drawing.Point(10, 342)
+        Me.lblObservaciones.Name = "lblObservaciones"
+        Me.lblObservaciones.Size = New System.Drawing.Size(78, 13)
+        Me.lblObservaciones.TabIndex = 121
+        Me.lblObservaciones.Text = "Observaciones"
+        '
+        'txtObservaciones
+        '
+        Me.txtObservaciones.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.txtObservaciones.Location = New System.Drawing.Point(6, 361)
+        Me.txtObservaciones.Name = "txtObservaciones"
+        Me.txtObservaciones.Size = New System.Drawing.Size(481, 34)
+        Me.txtObservaciones.TabIndex = 28
+        '
+        'lblDemora
+        '
+        Me.lblDemora.AutoSize = True
+        Me.lblDemora.Location = New System.Drawing.Point(432, 303)
+        Me.lblDemora.Name = "lblDemora"
+        Me.lblDemora.Size = New System.Drawing.Size(44, 13)
+        Me.lblDemora.TabIndex = 118
+        Me.lblDemora.Text = "Demora"
+        '
+        'lblNroInterno
+        '
+        Me.lblNroInterno.AutoSize = True
+        Me.lblNroInterno.Location = New System.Drawing.Point(329, 303)
+        Me.lblNroInterno.Name = "lblNroInterno"
+        Me.lblNroInterno.Size = New System.Drawing.Size(67, 13)
+        Me.lblNroInterno.TabIndex = 117
+        Me.lblNroInterno.Text = "Nro. Interno"
+        '
+        'lblPreArribo
+        '
+        Me.lblPreArribo.AutoSize = True
+        Me.lblPreArribo.Location = New System.Drawing.Point(177, 303)
+        Me.lblPreArribo.Name = "lblPreArribo"
+        Me.lblPreArribo.Size = New System.Drawing.Size(56, 13)
+        Me.lblPreArribo.TabIndex = 116
+        Me.lblPreArribo.Text = "Pre-Arribo"
+        '
+        'lblAutoriza
+        '
+        Me.lblAutoriza.AutoSize = True
+        Me.lblAutoriza.Location = New System.Drawing.Point(9, 302)
+        Me.lblAutoriza.Name = "lblAutoriza"
+        Me.lblAutoriza.Size = New System.Drawing.Size(47, 13)
+        Me.lblAutoriza.TabIndex = 115
+        Me.lblAutoriza.Text = "Autoriza"
+        '
+        'txtDemora
+        '
+        Me.txtDemora.EnterMoveNextControl = True
+        Me.txtDemora.Location = New System.Drawing.Point(429, 319)
+        Me.txtDemora.Name = "txtDemora"
+        Me.txtDemora.Properties.MaxLength = 3
+        Me.txtDemora.Size = New System.Drawing.Size(58, 20)
+        Me.txtDemora.TabIndex = 27
+        '
+        'txtNroInterno
+        '
+        Me.txtNroInterno.EnterMoveNextControl = True
+        Me.txtNroInterno.Location = New System.Drawing.Point(327, 319)
+        Me.txtNroInterno.Name = "txtNroInterno"
+        Me.txtNroInterno.Properties.MaxLength = 3
+        Me.txtNroInterno.Size = New System.Drawing.Size(97, 20)
+        Me.txtNroInterno.TabIndex = 26
+        '
+        'txtPreArribo
+        '
+        Me.txtPreArribo.EnterMoveNextControl = True
+        Me.txtPreArribo.Location = New System.Drawing.Point(171, 319)
+        Me.txtPreArribo.Name = "txtPreArribo"
+        Me.txtPreArribo.Properties.MaxLength = 3
+        Me.txtPreArribo.Size = New System.Drawing.Size(150, 20)
+        Me.txtPreArribo.TabIndex = 25
+        '
+        'txtAutoriza
+        '
+        Me.txtAutoriza.EnterMoveNextControl = True
+        Me.txtAutoriza.Location = New System.Drawing.Point(6, 319)
+        Me.txtAutoriza.Name = "txtAutoriza"
+        Me.txtAutoriza.Properties.MaxLength = 3
+        Me.txtAutoriza.Size = New System.Drawing.Size(159, 20)
+        Me.txtAutoriza.TabIndex = 24
+        '
+        'txtCoPago
+        '
+        Me.txtCoPago.EnterMoveNextControl = True
+        Me.txtCoPago.Location = New System.Drawing.Point(429, 279)
+        Me.txtCoPago.Name = "txtCoPago"
+        Me.txtCoPago.Properties.MaxLength = 3
+        Me.txtCoPago.Size = New System.Drawing.Size(58, 20)
+        Me.txtCoPago.TabIndex = 23
+        '
+        'cmbPlanes
+        '
+        Me.cmbPlanes.EnterMoveNextControl = True
+        Me.cmbPlanes.Location = New System.Drawing.Point(327, 279)
+        Me.cmbPlanes.Name = "cmbPlanes"
+        Me.cmbPlanes.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cmbPlanes.Size = New System.Drawing.Size(96, 20)
+        Me.cmbPlanes.TabIndex = 22
+        '
+        'cmbIvas
+        '
+        Me.cmbIvas.EnterMoveNextControl = True
+        Me.cmbIvas.Location = New System.Drawing.Point(261, 279)
+        Me.cmbIvas.Name = "cmbIvas"
+        Me.cmbIvas.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cmbIvas.Size = New System.Drawing.Size(60, 20)
+        Me.cmbIvas.TabIndex = 21
+        '
+        'txtPaciente
+        '
+        Me.txtPaciente.EnterMoveNextControl = True
+        Me.txtPaciente.Location = New System.Drawing.Point(6, 279)
+        Me.txtPaciente.Name = "txtPaciente"
+        Me.txtPaciente.Properties.MaxLength = 3
+        Me.txtPaciente.Size = New System.Drawing.Size(249, 20)
+        Me.txtPaciente.TabIndex = 20
+        '
+        'cmbGrados
+        '
+        Me.cmbGrados.EnterMoveNextControl = True
+        Me.cmbGrados.Location = New System.Drawing.Point(429, 240)
+        Me.cmbGrados.Name = "cmbGrados"
+        Me.cmbGrados.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cmbGrados.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.cmbGrados.Size = New System.Drawing.Size(58, 20)
+        Me.cmbGrados.TabIndex = 19
+        '
+        'txtSintomas
+        '
+        Me.txtSintomas.EnterMoveNextControl = True
+        Me.txtSintomas.Location = New System.Drawing.Point(93, 240)
+        Me.txtSintomas.Name = "txtSintomas"
+        Me.txtSintomas.Properties.MaxLength = 3
+        Me.txtSintomas.Size = New System.Drawing.Size(330, 20)
+        Me.txtSintomas.TabIndex = 18
+        '
+        'txtEdad
+        '
+        Me.txtEdad.EnterMoveNextControl = True
+        Me.txtEdad.Location = New System.Drawing.Point(53, 240)
+        Me.txtEdad.Name = "txtEdad"
+        Me.txtEdad.Properties.MaxLength = 3
+        Me.txtEdad.Size = New System.Drawing.Size(36, 20)
+        Me.txtEdad.TabIndex = 17
+        '
+        'cmbSexo
+        '
+        Me.cmbSexo.EnterMoveNextControl = True
+        Me.cmbSexo.Location = New System.Drawing.Point(6, 240)
+        Me.cmbSexo.Name = "cmbSexo"
+        Me.cmbSexo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cmbSexo.Size = New System.Drawing.Size(47, 20)
+        Me.cmbSexo.TabIndex = 16
+        '
+        'txtReferencias
+        '
+        Me.txtReferencias.EnterMoveNextControl = True
+        Me.txtReferencias.Location = New System.Drawing.Point(6, 201)
+        Me.txtReferencias.Name = "txtReferencias"
+        Me.txtReferencias.Properties.MaxLength = 200
+        Me.txtReferencias.Size = New System.Drawing.Size(481, 20)
+        Me.txtReferencias.TabIndex = 15
+        '
+        'txtEntreCalle2
+        '
+        Me.txtEntreCalle2.EnterMoveNextControl = True
+        Me.txtEntreCalle2.Location = New System.Drawing.Point(248, 162)
+        Me.txtEntreCalle2.Name = "txtEntreCalle2"
+        Me.txtEntreCalle2.Properties.MaxLength = 100
+        Me.txtEntreCalle2.Size = New System.Drawing.Size(236, 20)
+        Me.txtEntreCalle2.TabIndex = 14
+        '
+        'txtEntreCalle1
+        '
+        Me.txtEntreCalle1.EnterMoveNextControl = True
+        Me.txtEntreCalle1.Location = New System.Drawing.Point(6, 162)
+        Me.txtEntreCalle1.Name = "txtEntreCalle1"
+        Me.txtEntreCalle1.Properties.MaxLength = 100
+        Me.txtEntreCalle1.Size = New System.Drawing.Size(236, 20)
+        Me.txtEntreCalle1.TabIndex = 13
+        '
+        'txtDepto
+        '
+        Me.txtDepto.EnterMoveNextControl = True
+        Me.txtDepto.Location = New System.Drawing.Point(421, 123)
+        Me.txtDepto.Name = "txtDepto"
+        Me.txtDepto.Properties.MaxLength = 5
+        Me.txtDepto.Size = New System.Drawing.Size(33, 20)
+        Me.txtDepto.TabIndex = 12
+        '
+        'txtPiso
+        '
+        Me.txtPiso.EnterMoveNextControl = True
+        Me.txtPiso.Location = New System.Drawing.Point(376, 123)
+        Me.txtPiso.Name = "txtPiso"
+        Me.txtPiso.Properties.MaxLength = 3
+        Me.txtPiso.Size = New System.Drawing.Size(47, 20)
+        Me.txtPiso.TabIndex = 11
+        '
+        'txtAltura
+        '
+        Me.txtAltura.EnterMoveNextControl = True
+        Me.txtAltura.Location = New System.Drawing.Point(318, 123)
+        Me.txtAltura.Name = "txtAltura"
+        Me.txtAltura.Properties.MaxLength = 6
+        Me.txtAltura.Size = New System.Drawing.Size(59, 20)
+        Me.txtAltura.TabIndex = 10
+        '
+        'txtCalle
+        '
+        Me.txtCalle.EnterMoveNextControl = True
+        Me.txtCalle.Location = New System.Drawing.Point(6, 123)
+        Me.txtCalle.Name = "txtCalle"
+        Me.txtCalle.Properties.MaxLength = 100
+        Me.txtCalle.Size = New System.Drawing.Size(313, 20)
+        Me.txtCalle.TabIndex = 9
+        '
+        'txtPartido
+        '
+        Me.txtPartido.Enabled = False
+        Me.txtPartido.EnterMoveNextControl = True
+        Me.txtPartido.Location = New System.Drawing.Point(291, 83)
+        Me.txtPartido.Name = "txtPartido"
+        Me.txtPartido.Size = New System.Drawing.Size(196, 20)
+        Me.txtPartido.TabIndex = 7
+        '
+        'txtLocalidadDes
+        '
+        Me.txtLocalidadDes.Enabled = False
+        Me.txtLocalidadDes.EnterMoveNextControl = True
+        Me.txtLocalidadDes.Location = New System.Drawing.Point(50, 83)
+        Me.txtLocalidadDes.Name = "txtLocalidadDes"
+        Me.txtLocalidadDes.Size = New System.Drawing.Size(235, 20)
+        Me.txtLocalidadDes.TabIndex = 6
+        '
+        'txtLocalidadId
+        '
+        Me.txtLocalidadId.EnterMoveNextControl = True
+        Me.txtLocalidadId.Location = New System.Drawing.Point(6, 83)
+        Me.txtLocalidadId.Name = "txtLocalidadId"
+        Me.txtLocalidadId.Properties.MaxLength = 3
+        Me.txtLocalidadId.Size = New System.Drawing.Size(45, 20)
+        Me.txtLocalidadId.TabIndex = 5
+        '
+        'txtNroAfiliado
+        '
+        Me.txtNroAfiliado.EnterMoveNextControl = True
+        Me.txtNroAfiliado.Location = New System.Drawing.Point(346, 44)
+        Me.txtNroAfiliado.Name = "txtNroAfiliado"
+        Me.txtNroAfiliado.Properties.MaxLength = 25
+        Me.txtNroAfiliado.Size = New System.Drawing.Size(141, 20)
+        Me.txtNroAfiliado.TabIndex = 4
+        '
+        'txtClienteId
+        '
+        Me.txtClienteId.EnterMoveNextControl = True
+        Me.txtClienteId.Location = New System.Drawing.Point(257, 44)
+        Me.txtClienteId.Name = "txtClienteId"
+        Me.txtClienteId.Properties.MaxLength = 10
+        Me.txtClienteId.Size = New System.Drawing.Size(84, 20)
+        Me.txtClienteId.TabIndex = 3
+        '
+        'txtNroIncidente
+        '
+        Me.txtNroIncidente.Location = New System.Drawing.Point(105, 44)
+        Me.txtNroIncidente.Name = "txtNroIncidente"
+        Me.txtNroIncidente.Properties.Appearance.Options.UseTextOptions = True
+        Me.txtNroIncidente.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.txtNroIncidente.Size = New System.Drawing.Size(41, 20)
+        Me.txtNroIncidente.TabIndex = 1
+        '
+        'dtpFecIncidente
+        '
+        Me.dtpFecIncidente.EditValue = Nothing
+        Me.dtpFecIncidente.EnterMoveNextControl = True
+        Me.dtpFecIncidente.Location = New System.Drawing.Point(6, 44)
+        Me.dtpFecIncidente.Name = "dtpFecIncidente"
+        Me.dtpFecIncidente.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.dtpFecIncidente.Properties.VistaTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
+        Me.dtpFecIncidente.Size = New System.Drawing.Size(100, 20)
+        Me.dtpFecIncidente.TabIndex = 0
+        '
+        'txtTelefono
+        '
+        Me.txtTelefono.Location = New System.Drawing.Point(152, 44)
+        Me.txtTelefono.Name = "txtTelefono"
+        Me.txtTelefono.Properties.MaxLength = 20
+        Me.txtTelefono.Size = New System.Drawing.Size(100, 20)
+        Me.txtTelefono.TabIndex = 2
+        '
+        'lblPaciente
+        '
+        Me.lblPaciente.AutoSize = True
+        Me.lblPaciente.Location = New System.Drawing.Point(9, 263)
+        Me.lblPaciente.Name = "lblPaciente"
+        Me.lblPaciente.Size = New System.Drawing.Size(48, 13)
+        Me.lblPaciente.TabIndex = 59
+        Me.lblPaciente.Text = "Paciente"
+        '
+        'lblResolucion
+        '
+        Me.lblResolucion.AutoSize = True
+        Me.lblResolucion.Enabled = False
+        Me.lblResolucion.Location = New System.Drawing.Point(15, 26)
+        Me.lblResolucion.Name = "lblResolucion"
+        Me.lblResolucion.Size = New System.Drawing.Size(58, 13)
+        Me.lblResolucion.TabIndex = 75
+        Me.lblResolucion.Text = "Resolución"
+        '
+        'lblDiagnostico
+        '
+        Me.lblDiagnostico.AutoSize = True
+        Me.lblDiagnostico.Enabled = False
+        Me.lblDiagnostico.Location = New System.Drawing.Point(15, 66)
+        Me.lblDiagnostico.Name = "lblDiagnostico"
+        Me.lblDiagnostico.Size = New System.Drawing.Size(62, 13)
+        Me.lblDiagnostico.TabIndex = 86
+        Me.lblDiagnostico.Text = "Diagnóstico"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Enabled = False
+        Me.Label2.Location = New System.Drawing.Point(15, 107)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(57, 13)
+        Me.Label2.TabIndex = 87
+        Me.Label2.Text = "Derivación"
+        '
+        'TextEdit1
+        '
+        Me.TextEdit1.Enabled = False
+        Me.TextEdit1.Location = New System.Drawing.Point(9, 42)
+        Me.TextEdit1.Name = "TextEdit1"
+        Me.TextEdit1.Properties.MaxLength = 3
+        Me.TextEdit1.Size = New System.Drawing.Size(46, 20)
+        Me.TextEdit1.TabIndex = 28
+        '
+        'TextEdit2
+        '
+        Me.TextEdit2.Enabled = False
+        Me.TextEdit2.Location = New System.Drawing.Point(54, 42)
+        Me.TextEdit2.Name = "TextEdit2"
+        Me.TextEdit2.Size = New System.Drawing.Size(330, 20)
+        Me.TextEdit2.TabIndex = 29
+        '
+        'TextEdit3
+        '
+        Me.TextEdit3.Enabled = False
+        Me.TextEdit3.Location = New System.Drawing.Point(9, 82)
+        Me.TextEdit3.Name = "TextEdit3"
+        Me.TextEdit3.Properties.MaxLength = 3
+        Me.TextEdit3.Size = New System.Drawing.Size(46, 20)
+        Me.TextEdit3.TabIndex = 30
+        '
+        'TextEdit4
+        '
+        Me.TextEdit4.Enabled = False
+        Me.TextEdit4.Location = New System.Drawing.Point(54, 82)
+        Me.TextEdit4.Name = "TextEdit4"
+        Me.TextEdit4.Size = New System.Drawing.Size(330, 20)
+        Me.TextEdit4.TabIndex = 31
+        '
+        'TextEdit5
+        '
+        Me.TextEdit5.Enabled = False
+        Me.TextEdit5.Location = New System.Drawing.Point(9, 123)
+        Me.TextEdit5.Name = "TextEdit5"
+        Me.TextEdit5.Properties.MaxLength = 3
+        Me.TextEdit5.Size = New System.Drawing.Size(64, 20)
+        Me.TextEdit5.TabIndex = 32
+        '
+        'TextEdit6
+        '
+        Me.TextEdit6.Enabled = False
+        Me.TextEdit6.Location = New System.Drawing.Point(70, 123)
+        Me.TextEdit6.Name = "TextEdit6"
+        Me.TextEdit6.Size = New System.Drawing.Size(259, 20)
+        Me.TextEdit6.TabIndex = 33
+        '
+        'TextEdit7
+        '
+        Me.TextEdit7.Enabled = False
+        Me.TextEdit7.Location = New System.Drawing.Point(327, 123)
+        Me.TextEdit7.Name = "TextEdit7"
+        Me.TextEdit7.Properties.MaxLength = 3
+        Me.TextEdit7.Size = New System.Drawing.Size(57, 20)
+        Me.TextEdit7.TabIndex = 34
+        '
+        'grpCierre
+        '
+        Me.grpCierre.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpCierre.Controls.Add(Me.TextEdit7)
+        Me.grpCierre.Controls.Add(Me.TextEdit6)
+        Me.grpCierre.Controls.Add(Me.TextEdit5)
+        Me.grpCierre.Controls.Add(Me.TextEdit4)
+        Me.grpCierre.Controls.Add(Me.TextEdit3)
+        Me.grpCierre.Controls.Add(Me.TextEdit2)
+        Me.grpCierre.Controls.Add(Me.TextEdit1)
+        Me.grpCierre.Controls.Add(Me.Label2)
+        Me.grpCierre.Controls.Add(Me.lblDiagnostico)
+        Me.grpCierre.Controls.Add(Me.lblResolucion)
+        Me.grpCierre.Location = New System.Drawing.Point(499, 34)
+        Me.grpCierre.Name = "grpCierre"
+        Me.grpCierre.Size = New System.Drawing.Size(393, 148)
+        Me.grpCierre.TabIndex = 86
+        Me.grpCierre.TabStop = False
+        Me.grpCierre.Text = "Cierre"
+        '
+        'xView
+        '
+        Me.xView.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ID, Me.Hora, Me.Movil, Me.Estado, Me.Viaje, Me.Cnd, Me.Usuario})
+        Me.xView.GridControl = Me.xgrdHistorial
+        Me.xView.GroupPanelText = "Historial del Incidente..."
+        Me.xView.Name = "xView"
+        '
+        'ID
+        '
+        Me.ID.Caption = "ID"
+        Me.ID.FieldName = "ID"
+        Me.ID.Name = "ID"
+        Me.ID.OptionsColumn.AllowEdit = False
+        Me.ID.OptionsColumn.ReadOnly = True
+        '
+        'Hora
+        '
+        Me.Hora.AppearanceCell.Options.UseTextOptions = True
+        Me.Hora.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.Hora.Caption = "Hora"
+        Me.Hora.FieldName = "Hora"
+        Me.Hora.Name = "Hora"
+        Me.Hora.OptionsColumn.AllowEdit = False
+        Me.Hora.OptionsColumn.ReadOnly = True
+        Me.Hora.Visible = True
+        Me.Hora.VisibleIndex = 0
+        Me.Hora.Width = 50
+        '
+        'Movil
+        '
+        Me.Movil.AppearanceCell.Options.UseTextOptions = True
+        Me.Movil.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.Movil.Caption = "Movil"
+        Me.Movil.FieldName = "Movil"
+        Me.Movil.Name = "Movil"
+        Me.Movil.OptionsColumn.AllowEdit = False
+        Me.Movil.OptionsColumn.ReadOnly = True
+        Me.Movil.Visible = True
+        Me.Movil.VisibleIndex = 1
+        Me.Movil.Width = 50
+        '
+        'Estado
+        '
+        Me.Estado.Caption = "Estado"
+        Me.Estado.FieldName = "Estado"
+        Me.Estado.MinWidth = 50
+        Me.Estado.Name = "Estado"
+        Me.Estado.OptionsColumn.AllowEdit = False
+        Me.Estado.OptionsColumn.ReadOnly = True
+        Me.Estado.Visible = True
+        Me.Estado.VisibleIndex = 2
+        Me.Estado.Width = 127
+        '
+        'Viaje
+        '
+        Me.Viaje.AppearanceCell.Options.UseTextOptions = True
+        Me.Viaje.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.Viaje.Caption = "Vj"
+        Me.Viaje.FieldName = "Viaje"
+        Me.Viaje.Name = "Viaje"
+        Me.Viaje.OptionsColumn.AllowEdit = False
+        Me.Viaje.OptionsColumn.ReadOnly = True
+        Me.Viaje.Visible = True
+        Me.Viaje.VisibleIndex = 4
+        Me.Viaje.Width = 39
+        '
+        'Cnd
+        '
+        Me.Cnd.AppearanceCell.Options.UseTextOptions = True
+        Me.Cnd.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.Cnd.Caption = "Cn"
+        Me.Cnd.FieldName = "Cnd"
+        Me.Cnd.Name = "Cnd"
+        Me.Cnd.OptionsColumn.AllowEdit = False
+        Me.Cnd.OptionsColumn.ReadOnly = True
+        Me.Cnd.Visible = True
+        Me.Cnd.VisibleIndex = 3
+        Me.Cnd.Width = 40
+        '
+        'Usuario
+        '
+        Me.Usuario.Caption = "Usuario"
+        Me.Usuario.FieldName = "Usuario"
+        Me.Usuario.MinWidth = 50
+        Me.Usuario.Name = "Usuario"
+        Me.Usuario.OptionsColumn.AllowEdit = False
+        Me.Usuario.OptionsColumn.ReadOnly = True
+        Me.Usuario.Visible = True
+        Me.Usuario.VisibleIndex = 5
+        Me.Usuario.Width = 66
+        '
+        'xgrdHistorial
+        '
+        Me.xgrdHistorial.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.xgrdHistorial.Location = New System.Drawing.Point(499, 188)
+        Me.xgrdHistorial.LookAndFeel.SkinName = "VS2010"
+        Me.xgrdHistorial.MainView = Me.xView
+        Me.xgrdHistorial.Name = "xgrdHistorial"
+        Me.xgrdHistorial.Size = New System.Drawing.Size(393, 248)
+        Me.xgrdHistorial.TabIndex = 35
+        Me.xgrdHistorial.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.xView})
+        '
+        'frmIncidentesABM
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.ClientSize = New System.Drawing.Size(897, 439)
+        Me.Controls.Add(Me.xgrdHistorial)
+        Me.Controls.Add(Me.grpCierre)
+        Me.Controls.Add(Me.grpMain)
+        Me.Controls.Add(Me.tbrMain)
+        Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Name = "frmIncidentesABM"
+        Me.TabText = "Recepción"
+        Me.Text = "Recepción de Servicios"
+        Me.tbrMain.ResumeLayout(False)
+        Me.tbrMain.PerformLayout()
+        Me.grpMain.ResumeLayout(False)
+        Me.grpMain.PerformLayout()
+        CType(Me.txtObservaciones.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtDemora.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtNroInterno.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtPreArribo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtAutoriza.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtCoPago.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cmbPlanes.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cmbIvas.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtPaciente.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cmbGrados.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtSintomas.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtEdad.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cmbSexo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtReferencias.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtEntreCalle2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtEntreCalle1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtDepto.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtPiso.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtAltura.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtCalle.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtPartido.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtLocalidadDes.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtLocalidadId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtNroAfiliado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtClienteId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtNroIncidente.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtpFecIncidente.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtpFecIncidente.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtTelefono.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEdit3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEdit4.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEdit5.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEdit6.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEdit7.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grpCierre.ResumeLayout(False)
+        Me.grpCierre.PerformLayout()
+        CType(Me.xView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.xgrdHistorial, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents tbrMain As System.Windows.Forms.ToolStrip
+    Friend WithEvents btnAgregar As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripButton2 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btnModificar As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripButton4 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents btnPrimero As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btnAnterior As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btnSiguiente As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btnUltimo As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents btnGuardar As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btnCancelar As System.Windows.Forms.ToolStripButton
+    Friend WithEvents grpMain As System.Windows.Forms.GroupBox
+    Friend WithEvents chkDomicilio As DevExpress.XtraEditors.CheckButton
+    Friend WithEvents lblCopago As System.Windows.Forms.Label
+    Friend WithEvents lblPlan As System.Windows.Forms.Label
+    Friend WithEvents lblIva As System.Windows.Forms.Label
+    Friend WithEvents lblGradoOperativo As System.Windows.Forms.Label
+    Friend WithEvents lblSintomas As System.Windows.Forms.Label
+    Friend WithEvents lblSexoEdad As System.Windows.Forms.Label
+    Friend WithEvents lblReferencias As System.Windows.Forms.Label
+    Friend WithEvents lblEntreCalle2 As System.Windows.Forms.Label
+    Friend WithEvents lblEntreCalle1 As System.Windows.Forms.Label
+    Friend WithEvents lblDomicilio As System.Windows.Forms.Label
+    Friend WithEvents lblPartido As System.Windows.Forms.Label
+    Friend WithEvents lblLocalidad As System.Windows.Forms.Label
+    Friend WithEvents lblNroAfiliado As System.Windows.Forms.Label
+    Friend WithEvents lblCliente As System.Windows.Forms.Label
+    Friend WithEvents lblFechaNro As System.Windows.Forms.Label
+    Friend WithEvents lblTelefono As System.Windows.Forms.Label
+    Friend WithEvents lblObservaciones As System.Windows.Forms.Label
+    Friend WithEvents txtObservaciones As DevExpress.XtraEditors.MemoEdit
+    Friend WithEvents lblDemora As System.Windows.Forms.Label
+    Friend WithEvents lblNroInterno As System.Windows.Forms.Label
+    Friend WithEvents lblPreArribo As System.Windows.Forms.Label
+    Friend WithEvents lblAutoriza As System.Windows.Forms.Label
+    Friend WithEvents txtDemora As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtNroInterno As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtPreArribo As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtAutoriza As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtCoPago As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents cmbPlanes As DevExpress.XtraEditors.ComboBoxEdit
+    Friend WithEvents cmbIvas As DevExpress.XtraEditors.ComboBoxEdit
+    Friend WithEvents txtPaciente As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents cmbGrados As DevExpress.XtraEditors.ComboBoxEdit
+    Friend WithEvents txtSintomas As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtEdad As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents cmbSexo As DevExpress.XtraEditors.ComboBoxEdit
+    Friend WithEvents txtReferencias As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtEntreCalle2 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtEntreCalle1 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtDepto As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtPiso As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtAltura As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtCalle As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtPartido As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtLocalidadDes As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtLocalidadId As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtNroAfiliado As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtClienteId As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtNroIncidente As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents dtpFecIncidente As DevExpress.XtraEditors.DateEdit
+    Friend WithEvents txtTelefono As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents lblPaciente As System.Windows.Forms.Label
+    Friend WithEvents lblResolucion As System.Windows.Forms.Label
+    Friend WithEvents lblDiagnostico As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents TextEdit1 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit2 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit3 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit4 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit5 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit6 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit7 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents grpCierre As System.Windows.Forms.GroupBox
+    Friend WithEvents xView As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents ID As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents Hora As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents Movil As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents Estado As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents Viaje As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents Cnd As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents Usuario As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents xgrdHistorial As DevExpress.XtraGrid.GridControl
+    Friend WithEvents ToolStripDropDownButton1 As System.Windows.Forms.ToolStripDropDownButton
+    Friend WithEvents ToolStripLabel1 As System.Windows.Forms.ToolStripLabel
+    Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripDropDownButton2 As System.Windows.Forms.ToolStripDropDownButton
+    Friend WithEvents ToolStripLabel2 As System.Windows.Forms.ToolStripLabel
+    Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents SACCategorizadorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DAPReclamosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ReclasificaciónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CoordenadasDeLosDomiciliosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents cmdEdificio As DevExpress.XtraEditors.CheckButton
+End Class

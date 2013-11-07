@@ -1,0 +1,14 @@
+Module modDeclares
+    '----> Paths
+    Public pathIconos As String
+    Public pathReports As String
+    '----> Calls
+    Public callInfo As String
+    '----> Conexion
+    Public shamanConexion As ShamanClases.PanelC.Conexion
+    '----> Otras
+    Public vTabMode As Integer
+    '----> Configuración
+    Public configShaman As ShamanClases.PanelC.GlobalParameters
+    Public configEmergencias As ShamanClases.EmergencyC.DespachoScreen
+End Module

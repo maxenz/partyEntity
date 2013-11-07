@@ -1,0 +1,1692 @@
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmTrasladosABM
+    Inherits WeifenLuo.WinFormsUI.Docking.DockContent
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        If disposing AndAlso components IsNot Nothing Then
+            components.Dispose()
+        End If
+        MyBase.Dispose(disposing)
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.tbrMain = New System.Windows.Forms.ToolStrip
+        Me.grpMain = New System.Windows.Forms.GroupBox
+        Me.lblObservaciones = New System.Windows.Forms.Label
+        Me.txtObservaciones = New System.Windows.Forms.TextBox
+        Me.chkRetorno = New System.Windows.Forms.CheckBox
+        Me.Label2 = New System.Windows.Forms.Label
+        Me.txtTrasladoId = New System.Windows.Forms.TextBox
+        Me.txtNroIncidente = New System.Windows.Forms.TextBox
+        Me.lblCoPago = New System.Windows.Forms.Label
+        Me.lblPlan = New System.Windows.Forms.Label
+        Me.lblIva = New System.Windows.Forms.Label
+        Me.txtCoPago = New System.Windows.Forms.TextBox
+        Me.cmbPlanes = New System.Windows.Forms.ComboBox
+        Me.cmbIvas = New System.Windows.Forms.ComboBox
+        Me.lblGrado = New System.Windows.Forms.Label
+        Me.lblSintomas = New System.Windows.Forms.Label
+        Me.lblSexoEdad = New System.Windows.Forms.Label
+        Me.txtEdad = New System.Windows.Forms.TextBox
+        Me.cmbSexo = New System.Windows.Forms.ComboBox
+        Me.cmbGrados = New System.Windows.Forms.ComboBox
+        Me.txtSintomas = New System.Windows.Forms.TextBox
+        Me.lblPaciente = New System.Windows.Forms.Label
+        Me.lblNroAfiliado = New System.Windows.Forms.Label
+        Me.lblCliente = New System.Windows.Forms.Label
+        Me.txtPaciente = New System.Windows.Forms.TextBox
+        Me.txtNroAfiliado = New System.Windows.Forms.TextBox
+        Me.txtClienteId = New System.Windows.Forms.TextBox
+        Me.txtTelefono = New System.Windows.Forms.TextBox
+        Me.dtpFecIncidente = New System.Windows.Forms.DateTimePicker
+        Me.lblTelefono = New System.Windows.Forms.Label
+        Me.lblIncidente = New System.Windows.Forms.Label
+        Me.tabTraslado = New Crownwood.Magic.Controls.TabControl
+        Me.pagOrigenDestino = New Crownwood.Magic.Controls.TabPage
+        Me.grpDestino = New System.Windows.Forms.GroupBox
+        Me.lblDstSanatorio = New System.Windows.Forms.Label
+        Me.txtDstSanatorioId = New System.Windows.Forms.TextBox
+        Me.lblFechaHoraRetorno = New System.Windows.Forms.Label
+        Me.mskHorRetorno = New System.Windows.Forms.MaskedTextBox
+        Me.dtpFecRetorno = New System.Windows.Forms.DateTimePicker
+        Me.mskHorDestino = New System.Windows.Forms.MaskedTextBox
+        Me.lblFechaHoraTurno = New System.Windows.Forms.Label
+        Me.dtpFecDestino = New System.Windows.Forms.DateTimePicker
+        Me.lblDstReferencias = New System.Windows.Forms.Label
+        Me.lblDstEntreCalle2 = New System.Windows.Forms.Label
+        Me.txtDstReferencias = New System.Windows.Forms.TextBox
+        Me.txtDstEntreCalle2 = New System.Windows.Forms.TextBox
+        Me.lblDstEntreCalle1 = New System.Windows.Forms.Label
+        Me.txtDstEntreCalle1 = New System.Windows.Forms.TextBox
+        Me.txtDstDepartamento = New System.Windows.Forms.TextBox
+        Me.txtDstPiso = New System.Windows.Forms.TextBox
+        Me.txtDstAltura = New System.Windows.Forms.TextBox
+        Me.txtDstCalle = New System.Windows.Forms.TextBox
+        Me.lblDstLocalidad = New System.Windows.Forms.Label
+        Me.lblDstDomicilio = New System.Windows.Forms.Label
+        Me.txtDstLocalidadDes = New System.Windows.Forms.TextBox
+        Me.txtDstLocalidadId = New System.Windows.Forms.TextBox
+        Me.grpOrigen = New System.Windows.Forms.GroupBox
+        Me.lblSanatorio = New System.Windows.Forms.Label
+        Me.txtSanatorioId = New System.Windows.Forms.TextBox
+        Me.mskHorOrigen = New System.Windows.Forms.MaskedTextBox
+        Me.lblFechaHora = New System.Windows.Forms.Label
+        Me.lblPartido = New System.Windows.Forms.Label
+        Me.txtPartido = New System.Windows.Forms.TextBox
+        Me.dtpFecOrigen = New System.Windows.Forms.DateTimePicker
+        Me.lblReferencias = New System.Windows.Forms.Label
+        Me.lblEntreCalle2 = New System.Windows.Forms.Label
+        Me.txtReferencias = New System.Windows.Forms.TextBox
+        Me.txtEntreCalle2 = New System.Windows.Forms.TextBox
+        Me.lblEntreCalle1 = New System.Windows.Forms.Label
+        Me.txtEntreCalle1 = New System.Windows.Forms.TextBox
+        Me.txtDepartamento = New System.Windows.Forms.TextBox
+        Me.txtPiso = New System.Windows.Forms.TextBox
+        Me.txtAltura = New System.Windows.Forms.TextBox
+        Me.txtCalle = New System.Windows.Forms.TextBox
+        Me.lblLocalidad = New System.Windows.Forms.Label
+        Me.lblDomicilio = New System.Windows.Forms.Label
+        Me.txtLocalidadDes = New System.Windows.Forms.TextBox
+        Me.txtLocalidadId = New System.Windows.Forms.TextBox
+        Me.pagAnexos = New Crownwood.Magic.Controls.TabPage
+        Me.grpAnexo2 = New System.Windows.Forms.GroupBox
+        Me.lblAn2SanatorioId = New System.Windows.Forms.Label
+        Me.txtAn2SanatorioId = New System.Windows.Forms.TextBox
+        Me.mskAn2Hora = New System.Windows.Forms.MaskedTextBox
+        Me.lblAn2FechaHora = New System.Windows.Forms.Label
+        Me.lblAn2Partido = New System.Windows.Forms.Label
+        Me.txtAn2Partido = New System.Windows.Forms.TextBox
+        Me.dtpAn2Fecha = New System.Windows.Forms.DateTimePicker
+        Me.lblAn2Referencias = New System.Windows.Forms.Label
+        Me.lblAn2EntreCalle2 = New System.Windows.Forms.Label
+        Me.txtAn2Referencias = New System.Windows.Forms.TextBox
+        Me.txtAn2EntreCalle2 = New System.Windows.Forms.TextBox
+        Me.lblAn2EntreCalle1 = New System.Windows.Forms.Label
+        Me.txtAn2EntreCalle1 = New System.Windows.Forms.TextBox
+        Me.txtAn2Departamento = New System.Windows.Forms.TextBox
+        Me.txtAn2Piso = New System.Windows.Forms.TextBox
+        Me.txtAn2Altura = New System.Windows.Forms.TextBox
+        Me.txtAn2Calle = New System.Windows.Forms.TextBox
+        Me.lblAn2LocalidadId = New System.Windows.Forms.Label
+        Me.lblAn2Domicilio = New System.Windows.Forms.Label
+        Me.txtAn2LocalidadDes = New System.Windows.Forms.TextBox
+        Me.txtAn2LocalidadId = New System.Windows.Forms.TextBox
+        Me.grpAnexo1 = New System.Windows.Forms.GroupBox
+        Me.lblAn1SanatorioId = New System.Windows.Forms.Label
+        Me.txtAn1SanatorioId = New System.Windows.Forms.TextBox
+        Me.mskAn1Hora = New System.Windows.Forms.MaskedTextBox
+        Me.lblAn1FechaHora = New System.Windows.Forms.Label
+        Me.lblAn1Partido = New System.Windows.Forms.Label
+        Me.txtAn1Partido = New System.Windows.Forms.TextBox
+        Me.dtpAn1Fecha = New System.Windows.Forms.DateTimePicker
+        Me.lblAn1Referencias = New System.Windows.Forms.Label
+        Me.lblAn1EntreCalle2 = New System.Windows.Forms.Label
+        Me.txtAn1Referencias = New System.Windows.Forms.TextBox
+        Me.txtAn1EntreCalle2 = New System.Windows.Forms.TextBox
+        Me.lblAn1EntreCalle1 = New System.Windows.Forms.Label
+        Me.txtAn1EntreCalle1 = New System.Windows.Forms.TextBox
+        Me.txtAn1Departamento = New System.Windows.Forms.TextBox
+        Me.txtAn1Piso = New System.Windows.Forms.TextBox
+        Me.txtAn1Altura = New System.Windows.Forms.TextBox
+        Me.txtAn1Calle = New System.Windows.Forms.TextBox
+        Me.lblAn1LocalidadId = New System.Windows.Forms.Label
+        Me.lblAn1Domicilio = New System.Windows.Forms.Label
+        Me.txtAn1LocalidadDes = New System.Windows.Forms.TextBox
+        Me.txtAn1LocalidadId = New System.Windows.Forms.TextBox
+        Me.pagProgramacion = New Crownwood.Magic.Controls.TabPage
+        Me.grpMain.SuspendLayout()
+        Me.pagOrigenDestino.SuspendLayout()
+        Me.grpDestino.SuspendLayout()
+        Me.grpOrigen.SuspendLayout()
+        Me.pagAnexos.SuspendLayout()
+        Me.grpAnexo2.SuspendLayout()
+        Me.grpAnexo1.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'tbrMain
+        '
+        Me.tbrMain.Location = New System.Drawing.Point(0, 0)
+        Me.tbrMain.Name = "tbrMain"
+        Me.tbrMain.Size = New System.Drawing.Size(958, 25)
+        Me.tbrMain.TabIndex = 8
+        Me.tbrMain.Text = "ToolStrip"
+        '
+        'grpMain
+        '
+        Me.grpMain.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpMain.Controls.Add(Me.lblObservaciones)
+        Me.grpMain.Controls.Add(Me.txtObservaciones)
+        Me.grpMain.Controls.Add(Me.chkRetorno)
+        Me.grpMain.Controls.Add(Me.Label2)
+        Me.grpMain.Controls.Add(Me.txtTrasladoId)
+        Me.grpMain.Controls.Add(Me.txtNroIncidente)
+        Me.grpMain.Controls.Add(Me.lblCoPago)
+        Me.grpMain.Controls.Add(Me.lblPlan)
+        Me.grpMain.Controls.Add(Me.lblIva)
+        Me.grpMain.Controls.Add(Me.txtCoPago)
+        Me.grpMain.Controls.Add(Me.cmbPlanes)
+        Me.grpMain.Controls.Add(Me.cmbIvas)
+        Me.grpMain.Controls.Add(Me.lblGrado)
+        Me.grpMain.Controls.Add(Me.lblSintomas)
+        Me.grpMain.Controls.Add(Me.lblSexoEdad)
+        Me.grpMain.Controls.Add(Me.txtEdad)
+        Me.grpMain.Controls.Add(Me.cmbSexo)
+        Me.grpMain.Controls.Add(Me.cmbGrados)
+        Me.grpMain.Controls.Add(Me.txtSintomas)
+        Me.grpMain.Controls.Add(Me.lblPaciente)
+        Me.grpMain.Controls.Add(Me.lblNroAfiliado)
+        Me.grpMain.Controls.Add(Me.lblCliente)
+        Me.grpMain.Controls.Add(Me.txtPaciente)
+        Me.grpMain.Controls.Add(Me.txtNroAfiliado)
+        Me.grpMain.Controls.Add(Me.txtClienteId)
+        Me.grpMain.Controls.Add(Me.txtTelefono)
+        Me.grpMain.Controls.Add(Me.dtpFecIncidente)
+        Me.grpMain.Controls.Add(Me.lblTelefono)
+        Me.grpMain.Controls.Add(Me.lblIncidente)
+        Me.grpMain.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpMain.Location = New System.Drawing.Point(0, 25)
+        Me.grpMain.Name = "grpMain"
+        Me.grpMain.Size = New System.Drawing.Size(900, 173)
+        Me.grpMain.TabIndex = 10
+        Me.grpMain.TabStop = False
+        Me.grpMain.Text = "Traslado"
+        '
+        'lblObservaciones
+        '
+        Me.lblObservaciones.AutoSize = True
+        Me.lblObservaciones.Location = New System.Drawing.Point(12, 107)
+        Me.lblObservaciones.Name = "lblObservaciones"
+        Me.lblObservaciones.Size = New System.Drawing.Size(78, 13)
+        Me.lblObservaciones.TabIndex = 80
+        Me.lblObservaciones.Text = "Observaciones"
+        '
+        'txtObservaciones
+        '
+        Me.txtObservaciones.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtObservaciones.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtObservaciones.Location = New System.Drawing.Point(6, 123)
+        Me.txtObservaciones.MaxLength = 100
+        Me.txtObservaciones.Multiline = True
+        Me.txtObservaciones.Name = "txtObservaciones"
+        Me.txtObservaciones.Size = New System.Drawing.Size(888, 44)
+        Me.txtObservaciones.TabIndex = 14
+        '
+        'chkRetorno
+        '
+        Me.chkRetorno.Location = New System.Drawing.Point(373, 66)
+        Me.chkRetorno.Name = "chkRetorno"
+        Me.chkRetorno.Size = New System.Drawing.Size(125, 15)
+        Me.chkRetorno.TabIndex = 78
+        Me.chkRetorno.Text = "Traslado c/Retorno"
+        Me.chkRetorno.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(10, 23)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(72, 13)
+        Me.Label2.TabIndex = 77
+        Me.Label2.Text = "Nro. Traslado"
+        '
+        'txtTrasladoId
+        '
+        Me.txtTrasladoId.Location = New System.Drawing.Point(6, 39)
+        Me.txtTrasladoId.MaxLength = 10
+        Me.txtTrasladoId.Name = "txtTrasladoId"
+        Me.txtTrasladoId.Size = New System.Drawing.Size(86, 21)
+        Me.txtTrasladoId.TabIndex = 0
+        Me.txtTrasladoId.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtNroIncidente
+        '
+        Me.txtNroIncidente.Location = New System.Drawing.Point(189, 39)
+        Me.txtNroIncidente.MaxLength = 20
+        Me.txtNroIncidente.Name = "txtNroIncidente"
+        Me.txtNroIncidente.Size = New System.Drawing.Size(41, 21)
+        Me.txtNroIncidente.TabIndex = 2
+        Me.txtNroIncidente.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'lblCoPago
+        '
+        Me.lblCoPago.AutoSize = True
+        Me.lblCoPago.Location = New System.Drawing.Point(826, 64)
+        Me.lblCoPago.Name = "lblCoPago"
+        Me.lblCoPago.Size = New System.Drawing.Size(44, 13)
+        Me.lblCoPago.TabIndex = 72
+        Me.lblCoPago.Text = "CoPago"
+        '
+        'lblPlan
+        '
+        Me.lblPlan.AutoSize = True
+        Me.lblPlan.Location = New System.Drawing.Point(722, 64)
+        Me.lblPlan.Name = "lblPlan"
+        Me.lblPlan.Size = New System.Drawing.Size(27, 13)
+        Me.lblPlan.TabIndex = 71
+        Me.lblPlan.Text = "Plan"
+        '
+        'lblIva
+        '
+        Me.lblIva.AutoSize = True
+        Me.lblIva.Location = New System.Drawing.Point(658, 64)
+        Me.lblIva.Name = "lblIva"
+        Me.lblIva.Size = New System.Drawing.Size(23, 13)
+        Me.lblIva.TabIndex = 70
+        Me.lblIva.Text = "Iva"
+        '
+        'txtCoPago
+        '
+        Me.txtCoPago.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCoPago.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtCoPago.Location = New System.Drawing.Point(829, 80)
+        Me.txtCoPago.MaxLength = 100
+        Me.txtCoPago.Name = "txtCoPago"
+        Me.txtCoPago.Size = New System.Drawing.Size(65, 21)
+        Me.txtCoPago.TabIndex = 13
+        Me.txtCoPago.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'cmbPlanes
+        '
+        Me.cmbPlanes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbPlanes.FormattingEnabled = True
+        Me.cmbPlanes.Location = New System.Drawing.Point(716, 80)
+        Me.cmbPlanes.Name = "cmbPlanes"
+        Me.cmbPlanes.Size = New System.Drawing.Size(107, 21)
+        Me.cmbPlanes.TabIndex = 12
+        '
+        'cmbIvas
+        '
+        Me.cmbIvas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbIvas.FormattingEnabled = True
+        Me.cmbIvas.Location = New System.Drawing.Point(652, 80)
+        Me.cmbIvas.Name = "cmbIvas"
+        Me.cmbIvas.Size = New System.Drawing.Size(60, 21)
+        Me.cmbIvas.TabIndex = 11
+        '
+        'lblGrado
+        '
+        Me.lblGrado.AutoSize = True
+        Me.lblGrado.Location = New System.Drawing.Point(505, 64)
+        Me.lblGrado.Name = "lblGrado"
+        Me.lblGrado.Size = New System.Drawing.Size(36, 13)
+        Me.lblGrado.TabIndex = 66
+        Me.lblGrado.Text = "Grado"
+        '
+        'lblSintomas
+        '
+        Me.lblSintomas.AutoSize = True
+        Me.lblSintomas.Location = New System.Drawing.Point(95, 64)
+        Me.lblSintomas.Name = "lblSintomas"
+        Me.lblSintomas.Size = New System.Drawing.Size(149, 13)
+        Me.lblSintomas.TabIndex = 65
+        Me.lblSintomas.Text = "Motivo de Llamada - Síntomas"
+        '
+        'lblSexoEdad
+        '
+        Me.lblSexoEdad.AutoSize = True
+        Me.lblSexoEdad.Location = New System.Drawing.Point(12, 64)
+        Me.lblSexoEdad.Name = "lblSexoEdad"
+        Me.lblSexoEdad.Size = New System.Drawing.Size(65, 13)
+        Me.lblSexoEdad.TabIndex = 64
+        Me.lblSexoEdad.Text = "Sexo / Edad"
+        '
+        'txtEdad
+        '
+        Me.txtEdad.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEdad.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtEdad.Location = New System.Drawing.Point(48, 80)
+        Me.txtEdad.MaxLength = 100
+        Me.txtEdad.Name = "txtEdad"
+        Me.txtEdad.Size = New System.Drawing.Size(40, 21)
+        Me.txtEdad.TabIndex = 8
+        Me.txtEdad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'cmbSexo
+        '
+        Me.cmbSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSexo.FormattingEnabled = True
+        Me.cmbSexo.Location = New System.Drawing.Point(6, 80)
+        Me.cmbSexo.Name = "cmbSexo"
+        Me.cmbSexo.Size = New System.Drawing.Size(45, 21)
+        Me.cmbSexo.TabIndex = 7
+        '
+        'cmbGrados
+        '
+        Me.cmbGrados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbGrados.FormattingEnabled = True
+        Me.cmbGrados.Location = New System.Drawing.Point(506, 80)
+        Me.cmbGrados.Name = "cmbGrados"
+        Me.cmbGrados.Size = New System.Drawing.Size(140, 21)
+        Me.cmbGrados.TabIndex = 10
+        '
+        'txtSintomas
+        '
+        Me.txtSintomas.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSintomas.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtSintomas.Location = New System.Drawing.Point(94, 80)
+        Me.txtSintomas.MaxLength = 100
+        Me.txtSintomas.Name = "txtSintomas"
+        Me.txtSintomas.Size = New System.Drawing.Size(406, 21)
+        Me.txtSintomas.TabIndex = 9
+        '
+        'lblPaciente
+        '
+        Me.lblPaciente.AutoSize = True
+        Me.lblPaciente.Location = New System.Drawing.Point(554, 23)
+        Me.lblPaciente.Name = "lblPaciente"
+        Me.lblPaciente.Size = New System.Drawing.Size(48, 13)
+        Me.lblPaciente.TabIndex = 59
+        Me.lblPaciente.Text = "Paciente"
+        '
+        'lblNroAfiliado
+        '
+        Me.lblNroAfiliado.AutoSize = True
+        Me.lblNroAfiliado.Location = New System.Drawing.Point(330, 23)
+        Me.lblNroAfiliado.Name = "lblNroAfiliado"
+        Me.lblNroAfiliado.Size = New System.Drawing.Size(66, 13)
+        Me.lblNroAfiliado.TabIndex = 53
+        Me.lblNroAfiliado.Text = "Nro. Afiliado"
+        '
+        'lblCliente
+        '
+        Me.lblCliente.AutoSize = True
+        Me.lblCliente.Location = New System.Drawing.Point(237, 23)
+        Me.lblCliente.Name = "lblCliente"
+        Me.lblCliente.Size = New System.Drawing.Size(40, 13)
+        Me.lblCliente.TabIndex = 52
+        Me.lblCliente.Text = "Cliente"
+        '
+        'txtPaciente
+        '
+        Me.txtPaciente.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPaciente.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtPaciente.Location = New System.Drawing.Point(551, 39)
+        Me.txtPaciente.MaxLength = 100
+        Me.txtPaciente.Name = "txtPaciente"
+        Me.txtPaciente.Size = New System.Drawing.Size(343, 21)
+        Me.txtPaciente.TabIndex = 6
+        '
+        'txtNroAfiliado
+        '
+        Me.txtNroAfiliado.Location = New System.Drawing.Point(328, 39)
+        Me.txtNroAfiliado.MaxLength = 20
+        Me.txtNroAfiliado.Name = "txtNroAfiliado"
+        Me.txtNroAfiliado.Size = New System.Drawing.Size(108, 21)
+        Me.txtNroAfiliado.TabIndex = 4
+        '
+        'txtClienteId
+        '
+        Me.txtClienteId.Location = New System.Drawing.Point(236, 39)
+        Me.txtClienteId.MaxLength = 10
+        Me.txtClienteId.Name = "txtClienteId"
+        Me.txtClienteId.Size = New System.Drawing.Size(86, 21)
+        Me.txtClienteId.TabIndex = 3
+        '
+        'txtTelefono
+        '
+        Me.txtTelefono.Location = New System.Drawing.Point(442, 39)
+        Me.txtTelefono.MaxLength = 20
+        Me.txtTelefono.Name = "txtTelefono"
+        Me.txtTelefono.Size = New System.Drawing.Size(103, 21)
+        Me.txtTelefono.TabIndex = 5
+        '
+        'dtpFecIncidente
+        '
+        Me.dtpFecIncidente.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFecIncidente.Location = New System.Drawing.Point(98, 39)
+        Me.dtpFecIncidente.Name = "dtpFecIncidente"
+        Me.dtpFecIncidente.Size = New System.Drawing.Size(93, 21)
+        Me.dtpFecIncidente.TabIndex = 1
+        '
+        'lblTelefono
+        '
+        Me.lblTelefono.AutoSize = True
+        Me.lblTelefono.Location = New System.Drawing.Point(442, 23)
+        Me.lblTelefono.Name = "lblTelefono"
+        Me.lblTelefono.Size = New System.Drawing.Size(49, 13)
+        Me.lblTelefono.TabIndex = 5
+        Me.lblTelefono.Text = "Teléfono"
+        '
+        'lblIncidente
+        '
+        Me.lblIncidente.AutoSize = True
+        Me.lblIncidente.Location = New System.Drawing.Point(98, 23)
+        Me.lblIncidente.Name = "lblIncidente"
+        Me.lblIncidente.Size = New System.Drawing.Size(117, 13)
+        Me.lblIncidente.TabIndex = 0
+        Me.lblIncidente.Text = "Fecha y Nro. Incidente"
+        '
+        'tabTraslado
+        '
+        Me.tabTraslado.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tabTraslado.HideTabsMode = Crownwood.Magic.Controls.TabControl.HideTabsModes.ShowAlways
+        Me.tabTraslado.Location = New System.Drawing.Point(0, 204)
+        Me.tabTraslado.Name = "tabTraslado"
+        Me.tabTraslado.SelectedIndex = 0
+        Me.tabTraslado.SelectedTab = Me.pagOrigenDestino
+        Me.tabTraslado.Size = New System.Drawing.Size(947, 244)
+        Me.tabTraslado.TabIndex = 15
+        Me.tabTraslado.TabPages.AddRange(New Crownwood.Magic.Controls.TabPage() {Me.pagOrigenDestino, Me.pagAnexos, Me.pagProgramacion})
+        '
+        'pagOrigenDestino
+        '
+        Me.pagOrigenDestino.Controls.Add(Me.grpDestino)
+        Me.pagOrigenDestino.Controls.Add(Me.grpOrigen)
+        Me.pagOrigenDestino.Location = New System.Drawing.Point(0, 0)
+        Me.pagOrigenDestino.Name = "pagOrigenDestino"
+        Me.pagOrigenDestino.Size = New System.Drawing.Size(946, 219)
+        Me.pagOrigenDestino.TabIndex = 0
+        Me.pagOrigenDestino.Title = "Origen y Destino"
+        '
+        'grpDestino
+        '
+        Me.grpDestino.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpDestino.Controls.Add(Me.lblDstSanatorio)
+        Me.grpDestino.Controls.Add(Me.txtDstSanatorioId)
+        Me.grpDestino.Controls.Add(Me.lblFechaHoraRetorno)
+        Me.grpDestino.Controls.Add(Me.mskHorRetorno)
+        Me.grpDestino.Controls.Add(Me.dtpFecRetorno)
+        Me.grpDestino.Controls.Add(Me.mskHorDestino)
+        Me.grpDestino.Controls.Add(Me.lblFechaHoraTurno)
+        Me.grpDestino.Controls.Add(Me.dtpFecDestino)
+        Me.grpDestino.Controls.Add(Me.lblDstReferencias)
+        Me.grpDestino.Controls.Add(Me.lblDstEntreCalle2)
+        Me.grpDestino.Controls.Add(Me.txtDstReferencias)
+        Me.grpDestino.Controls.Add(Me.txtDstEntreCalle2)
+        Me.grpDestino.Controls.Add(Me.lblDstEntreCalle1)
+        Me.grpDestino.Controls.Add(Me.txtDstEntreCalle1)
+        Me.grpDestino.Controls.Add(Me.txtDstDepartamento)
+        Me.grpDestino.Controls.Add(Me.txtDstPiso)
+        Me.grpDestino.Controls.Add(Me.txtDstAltura)
+        Me.grpDestino.Controls.Add(Me.txtDstCalle)
+        Me.grpDestino.Controls.Add(Me.lblDstLocalidad)
+        Me.grpDestino.Controls.Add(Me.lblDstDomicilio)
+        Me.grpDestino.Controls.Add(Me.txtDstLocalidadDes)
+        Me.grpDestino.Controls.Add(Me.txtDstLocalidadId)
+        Me.grpDestino.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpDestino.Location = New System.Drawing.Point(3, 111)
+        Me.grpDestino.Name = "grpDestino"
+        Me.grpDestino.Size = New System.Drawing.Size(946, 101)
+        Me.grpDestino.TabIndex = 15
+        Me.grpDestino.TabStop = False
+        Me.grpDestino.Text = "Destino"
+        '
+        'lblDstSanatorio
+        '
+        Me.lblDstSanatorio.AutoSize = True
+        Me.lblDstSanatorio.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDstSanatorio.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblDstSanatorio.Location = New System.Drawing.Point(11, 17)
+        Me.lblDstSanatorio.Name = "lblDstSanatorio"
+        Me.lblDstSanatorio.Size = New System.Drawing.Size(58, 13)
+        Me.lblDstSanatorio.TabIndex = 85
+        Me.lblDstSanatorio.Text = "Nosocomio"
+        '
+        'txtDstSanatorioId
+        '
+        Me.txtDstSanatorioId.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDstSanatorioId.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtDstSanatorioId.Location = New System.Drawing.Point(8, 33)
+        Me.txtDstSanatorioId.MaxLength = 5
+        Me.txtDstSanatorioId.Name = "txtDstSanatorioId"
+        Me.txtDstSanatorioId.Size = New System.Drawing.Size(80, 21)
+        Me.txtDstSanatorioId.TabIndex = 28
+        Me.txtDstSanatorioId.Tag = "2"
+        '
+        'lblFechaHoraRetorno
+        '
+        Me.lblFechaHoraRetorno.AutoSize = True
+        Me.lblFechaHoraRetorno.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFechaHoraRetorno.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblFechaHoraRetorno.Location = New System.Drawing.Point(812, 58)
+        Me.lblFechaHoraRetorno.Name = "lblFechaHoraRetorno"
+        Me.lblFechaHoraRetorno.Size = New System.Drawing.Size(130, 13)
+        Me.lblFechaHoraRetorno.TabIndex = 83
+        Me.lblFechaHoraRetorno.Text = "Fecha y Hora del Retorno"
+        '
+        'mskHorRetorno
+        '
+        Me.mskHorRetorno.Location = New System.Drawing.Point(901, 74)
+        Me.mskHorRetorno.Mask = "00:00"
+        Me.mskHorRetorno.Name = "mskHorRetorno"
+        Me.mskHorRetorno.Size = New System.Drawing.Size(39, 21)
+        Me.mskHorRetorno.TabIndex = 41
+        Me.mskHorRetorno.ValidatingType = GetType(Date)
+        '
+        'dtpFecRetorno
+        '
+        Me.dtpFecRetorno.CustomFormat = "MM'/'dd'/'yyyy hh':'mm"
+        Me.dtpFecRetorno.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFecRetorno.Location = New System.Drawing.Point(810, 74)
+        Me.dtpFecRetorno.Name = "dtpFecRetorno"
+        Me.dtpFecRetorno.Size = New System.Drawing.Size(92, 21)
+        Me.dtpFecRetorno.TabIndex = 40
+        '
+        'mskHorDestino
+        '
+        Me.mskHorDestino.Location = New System.Drawing.Point(765, 74)
+        Me.mskHorDestino.Mask = "00:00"
+        Me.mskHorDestino.Name = "mskHorDestino"
+        Me.mskHorDestino.Size = New System.Drawing.Size(39, 21)
+        Me.mskHorDestino.TabIndex = 39
+        Me.mskHorDestino.ValidatingType = GetType(Date)
+        '
+        'lblFechaHoraTurno
+        '
+        Me.lblFechaHoraTurno.AutoSize = True
+        Me.lblFechaHoraTurno.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFechaHoraTurno.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblFechaHoraTurno.Location = New System.Drawing.Point(676, 58)
+        Me.lblFechaHoraTurno.Name = "lblFechaHoraTurno"
+        Me.lblFechaHoraTurno.Size = New System.Drawing.Size(119, 13)
+        Me.lblFechaHoraTurno.TabIndex = 80
+        Me.lblFechaHoraTurno.Text = "Fecha y Hora del Turno"
+        '
+        'dtpFecDestino
+        '
+        Me.dtpFecDestino.CustomFormat = "MM'/'dd'/'yyyy hh':'mm"
+        Me.dtpFecDestino.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFecDestino.Location = New System.Drawing.Point(673, 74)
+        Me.dtpFecDestino.Name = "dtpFecDestino"
+        Me.dtpFecDestino.Size = New System.Drawing.Size(92, 21)
+        Me.dtpFecDestino.TabIndex = 38
+        '
+        'lblDstReferencias
+        '
+        Me.lblDstReferencias.AutoSize = True
+        Me.lblDstReferencias.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDstReferencias.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblDstReferencias.Location = New System.Drawing.Point(434, 58)
+        Me.lblDstReferencias.Name = "lblDstReferencias"
+        Me.lblDstReferencias.Size = New System.Drawing.Size(64, 13)
+        Me.lblDstReferencias.TabIndex = 38
+        Me.lblDstReferencias.Text = "Referencias"
+        '
+        'lblDstEntreCalle2
+        '
+        Me.lblDstEntreCalle2.AutoSize = True
+        Me.lblDstEntreCalle2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDstEntreCalle2.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblDstEntreCalle2.Location = New System.Drawing.Point(225, 58)
+        Me.lblDstEntreCalle2.Name = "lblDstEntreCalle2"
+        Me.lblDstEntreCalle2.Size = New System.Drawing.Size(68, 13)
+        Me.lblDstEntreCalle2.TabIndex = 37
+        Me.lblDstEntreCalle2.Text = "Entre Calle 2"
+        '
+        'txtDstReferencias
+        '
+        Me.txtDstReferencias.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDstReferencias.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtDstReferencias.Location = New System.Drawing.Point(432, 74)
+        Me.txtDstReferencias.MaxLength = 100
+        Me.txtDstReferencias.Name = "txtDstReferencias"
+        Me.txtDstReferencias.Size = New System.Drawing.Size(235, 21)
+        Me.txtDstReferencias.TabIndex = 37
+        '
+        'txtDstEntreCalle2
+        '
+        Me.txtDstEntreCalle2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDstEntreCalle2.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtDstEntreCalle2.Location = New System.Drawing.Point(218, 74)
+        Me.txtDstEntreCalle2.MaxLength = 100
+        Me.txtDstEntreCalle2.Name = "txtDstEntreCalle2"
+        Me.txtDstEntreCalle2.Size = New System.Drawing.Size(208, 21)
+        Me.txtDstEntreCalle2.TabIndex = 36
+        '
+        'lblDstEntreCalle1
+        '
+        Me.lblDstEntreCalle1.AutoSize = True
+        Me.lblDstEntreCalle1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDstEntreCalle1.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblDstEntreCalle1.Location = New System.Drawing.Point(11, 58)
+        Me.lblDstEntreCalle1.Name = "lblDstEntreCalle1"
+        Me.lblDstEntreCalle1.Size = New System.Drawing.Size(68, 13)
+        Me.lblDstEntreCalle1.TabIndex = 36
+        Me.lblDstEntreCalle1.Text = "Entre Calle 1"
+        '
+        'txtDstEntreCalle1
+        '
+        Me.txtDstEntreCalle1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDstEntreCalle1.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtDstEntreCalle1.Location = New System.Drawing.Point(6, 74)
+        Me.txtDstEntreCalle1.MaxLength = 100
+        Me.txtDstEntreCalle1.Name = "txtDstEntreCalle1"
+        Me.txtDstEntreCalle1.Size = New System.Drawing.Size(206, 21)
+        Me.txtDstEntreCalle1.TabIndex = 35
+        '
+        'txtDstDepartamento
+        '
+        Me.txtDstDepartamento.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDstDepartamento.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtDstDepartamento.Location = New System.Drawing.Point(859, 33)
+        Me.txtDstDepartamento.MaxLength = 3
+        Me.txtDstDepartamento.Name = "txtDstDepartamento"
+        Me.txtDstDepartamento.Size = New System.Drawing.Size(43, 21)
+        Me.txtDstDepartamento.TabIndex = 34
+        Me.txtDstDepartamento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtDstPiso
+        '
+        Me.txtDstPiso.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDstPiso.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtDstPiso.Location = New System.Drawing.Point(818, 33)
+        Me.txtDstPiso.MaxLength = 3
+        Me.txtDstPiso.Name = "txtDstPiso"
+        Me.txtDstPiso.Size = New System.Drawing.Size(45, 21)
+        Me.txtDstPiso.TabIndex = 33
+        Me.txtDstPiso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtDstAltura
+        '
+        Me.txtDstAltura.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDstAltura.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtDstAltura.Location = New System.Drawing.Point(765, 33)
+        Me.txtDstAltura.MaxLength = 6
+        Me.txtDstAltura.Name = "txtDstAltura"
+        Me.txtDstAltura.Size = New System.Drawing.Size(55, 21)
+        Me.txtDstAltura.TabIndex = 32
+        Me.txtDstAltura.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtDstCalle
+        '
+        Me.txtDstCalle.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDstCalle.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtDstCalle.Location = New System.Drawing.Point(362, 33)
+        Me.txtDstCalle.MaxLength = 70
+        Me.txtDstCalle.Name = "txtDstCalle"
+        Me.txtDstCalle.Size = New System.Drawing.Size(403, 21)
+        Me.txtDstCalle.TabIndex = 31
+        '
+        'lblDstLocalidad
+        '
+        Me.lblDstLocalidad.AutoSize = True
+        Me.lblDstLocalidad.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDstLocalidad.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblDstLocalidad.Location = New System.Drawing.Point(95, 17)
+        Me.lblDstLocalidad.Name = "lblDstLocalidad"
+        Me.lblDstLocalidad.Size = New System.Drawing.Size(51, 13)
+        Me.lblDstLocalidad.TabIndex = 20
+        Me.lblDstLocalidad.Text = "Localidad"
+        '
+        'lblDstDomicilio
+        '
+        Me.lblDstDomicilio.AutoSize = True
+        Me.lblDstDomicilio.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDstDomicilio.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblDstDomicilio.Location = New System.Drawing.Point(365, 17)
+        Me.lblDstDomicilio.Name = "lblDstDomicilio"
+        Me.lblDstDomicilio.Size = New System.Drawing.Size(188, 13)
+        Me.lblDstDomicilio.TabIndex = 19
+        Me.lblDstDomicilio.Text = "Domicilio (Calle / Altura / Piso / Depto)"
+        '
+        'txtDstLocalidadDes
+        '
+        Me.txtDstLocalidadDes.Enabled = False
+        Me.txtDstLocalidadDes.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDstLocalidadDes.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtDstLocalidadDes.Location = New System.Drawing.Point(136, 33)
+        Me.txtDstLocalidadDes.MaxLength = 50
+        Me.txtDstLocalidadDes.Name = "txtDstLocalidadDes"
+        Me.txtDstLocalidadDes.Size = New System.Drawing.Size(219, 21)
+        Me.txtDstLocalidadDes.TabIndex = 30
+        '
+        'txtDstLocalidadId
+        '
+        Me.txtDstLocalidadId.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDstLocalidadId.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtDstLocalidadId.Location = New System.Drawing.Point(94, 33)
+        Me.txtDstLocalidadId.MaxLength = 3
+        Me.txtDstLocalidadId.Name = "txtDstLocalidadId"
+        Me.txtDstLocalidadId.Size = New System.Drawing.Size(45, 21)
+        Me.txtDstLocalidadId.TabIndex = 29
+        Me.txtDstLocalidadId.Tag = "2"
+        '
+        'grpOrigen
+        '
+        Me.grpOrigen.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpOrigen.Controls.Add(Me.lblSanatorio)
+        Me.grpOrigen.Controls.Add(Me.txtSanatorioId)
+        Me.grpOrigen.Controls.Add(Me.mskHorOrigen)
+        Me.grpOrigen.Controls.Add(Me.lblFechaHora)
+        Me.grpOrigen.Controls.Add(Me.lblPartido)
+        Me.grpOrigen.Controls.Add(Me.txtPartido)
+        Me.grpOrigen.Controls.Add(Me.dtpFecOrigen)
+        Me.grpOrigen.Controls.Add(Me.lblReferencias)
+        Me.grpOrigen.Controls.Add(Me.lblEntreCalle2)
+        Me.grpOrigen.Controls.Add(Me.txtReferencias)
+        Me.grpOrigen.Controls.Add(Me.txtEntreCalle2)
+        Me.grpOrigen.Controls.Add(Me.lblEntreCalle1)
+        Me.grpOrigen.Controls.Add(Me.txtEntreCalle1)
+        Me.grpOrigen.Controls.Add(Me.txtDepartamento)
+        Me.grpOrigen.Controls.Add(Me.txtPiso)
+        Me.grpOrigen.Controls.Add(Me.txtAltura)
+        Me.grpOrigen.Controls.Add(Me.txtCalle)
+        Me.grpOrigen.Controls.Add(Me.lblLocalidad)
+        Me.grpOrigen.Controls.Add(Me.lblDomicilio)
+        Me.grpOrigen.Controls.Add(Me.txtLocalidadDes)
+        Me.grpOrigen.Controls.Add(Me.txtLocalidadId)
+        Me.grpOrigen.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpOrigen.Location = New System.Drawing.Point(3, 3)
+        Me.grpOrigen.Name = "grpOrigen"
+        Me.grpOrigen.Size = New System.Drawing.Size(901, 102)
+        Me.grpOrigen.TabIndex = 14
+        Me.grpOrigen.TabStop = False
+        Me.grpOrigen.Text = "Origen"
+        '
+        'lblSanatorio
+        '
+        Me.lblSanatorio.AutoSize = True
+        Me.lblSanatorio.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSanatorio.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblSanatorio.Location = New System.Drawing.Point(11, 17)
+        Me.lblSanatorio.Name = "lblSanatorio"
+        Me.lblSanatorio.Size = New System.Drawing.Size(58, 13)
+        Me.lblSanatorio.TabIndex = 81
+        Me.lblSanatorio.Text = "Nosocomio"
+        '
+        'txtSanatorioId
+        '
+        Me.txtSanatorioId.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSanatorioId.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtSanatorioId.Location = New System.Drawing.Point(8, 33)
+        Me.txtSanatorioId.MaxLength = 5
+        Me.txtSanatorioId.Name = "txtSanatorioId"
+        Me.txtSanatorioId.Size = New System.Drawing.Size(80, 21)
+        Me.txtSanatorioId.TabIndex = 15
+        Me.txtSanatorioId.Tag = "1"
+        '
+        'mskHorOrigen
+        '
+        Me.mskHorOrigen.Location = New System.Drawing.Point(858, 74)
+        Me.mskHorOrigen.Mask = "00:00"
+        Me.mskHorOrigen.Name = "mskHorOrigen"
+        Me.mskHorOrigen.Size = New System.Drawing.Size(39, 21)
+        Me.mskHorOrigen.TabIndex = 27
+        Me.mskHorOrigen.ValidatingType = GetType(Date)
+        '
+        'lblFechaHora
+        '
+        Me.lblFechaHora.AutoSize = True
+        Me.lblFechaHora.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFechaHora.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblFechaHora.Location = New System.Drawing.Point(773, 58)
+        Me.lblFechaHora.Name = "lblFechaHora"
+        Me.lblFechaHora.Size = New System.Drawing.Size(129, 13)
+        Me.lblFechaHora.TabIndex = 79
+        Me.lblFechaHora.Text = "Fecha y Hora en Domicilio"
+        '
+        'lblPartido
+        '
+        Me.lblPartido.AutoSize = True
+        Me.lblPartido.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPartido.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblPartido.Location = New System.Drawing.Point(676, 58)
+        Me.lblPartido.Name = "lblPartido"
+        Me.lblPartido.Size = New System.Drawing.Size(41, 13)
+        Me.lblPartido.TabIndex = 78
+        Me.lblPartido.Text = "Partido"
+        '
+        'txtPartido
+        '
+        Me.txtPartido.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPartido.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtPartido.Location = New System.Drawing.Point(673, 74)
+        Me.txtPartido.MaxLength = 100
+        Me.txtPartido.Name = "txtPartido"
+        Me.txtPartido.Size = New System.Drawing.Size(92, 21)
+        Me.txtPartido.TabIndex = 25
+        '
+        'dtpFecOrigen
+        '
+        Me.dtpFecOrigen.CustomFormat = "MM'/'dd'/'yyyy hh':'mm"
+        Me.dtpFecOrigen.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFecOrigen.Location = New System.Drawing.Point(771, 74)
+        Me.dtpFecOrigen.Name = "dtpFecOrigen"
+        Me.dtpFecOrigen.Size = New System.Drawing.Size(92, 21)
+        Me.dtpFecOrigen.TabIndex = 26
+        '
+        'lblReferencias
+        '
+        Me.lblReferencias.AutoSize = True
+        Me.lblReferencias.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblReferencias.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblReferencias.Location = New System.Drawing.Point(436, 58)
+        Me.lblReferencias.Name = "lblReferencias"
+        Me.lblReferencias.Size = New System.Drawing.Size(64, 13)
+        Me.lblReferencias.TabIndex = 38
+        Me.lblReferencias.Text = "Referencias"
+        '
+        'lblEntreCalle2
+        '
+        Me.lblEntreCalle2.AutoSize = True
+        Me.lblEntreCalle2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEntreCalle2.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblEntreCalle2.Location = New System.Drawing.Point(227, 58)
+        Me.lblEntreCalle2.Name = "lblEntreCalle2"
+        Me.lblEntreCalle2.Size = New System.Drawing.Size(68, 13)
+        Me.lblEntreCalle2.TabIndex = 37
+        Me.lblEntreCalle2.Text = "Entre Calle 2"
+        '
+        'txtReferencias
+        '
+        Me.txtReferencias.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtReferencias.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtReferencias.Location = New System.Drawing.Point(434, 74)
+        Me.txtReferencias.MaxLength = 100
+        Me.txtReferencias.Name = "txtReferencias"
+        Me.txtReferencias.Size = New System.Drawing.Size(233, 21)
+        Me.txtReferencias.TabIndex = 24
+        '
+        'txtEntreCalle2
+        '
+        Me.txtEntreCalle2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEntreCalle2.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtEntreCalle2.Location = New System.Drawing.Point(220, 74)
+        Me.txtEntreCalle2.MaxLength = 100
+        Me.txtEntreCalle2.Name = "txtEntreCalle2"
+        Me.txtEntreCalle2.Size = New System.Drawing.Size(208, 21)
+        Me.txtEntreCalle2.TabIndex = 23
+        '
+        'lblEntreCalle1
+        '
+        Me.lblEntreCalle1.AutoSize = True
+        Me.lblEntreCalle1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEntreCalle1.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblEntreCalle1.Location = New System.Drawing.Point(13, 58)
+        Me.lblEntreCalle1.Name = "lblEntreCalle1"
+        Me.lblEntreCalle1.Size = New System.Drawing.Size(68, 13)
+        Me.lblEntreCalle1.TabIndex = 36
+        Me.lblEntreCalle1.Text = "Entre Calle 1"
+        '
+        'txtEntreCalle1
+        '
+        Me.txtEntreCalle1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEntreCalle1.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtEntreCalle1.Location = New System.Drawing.Point(8, 74)
+        Me.txtEntreCalle1.MaxLength = 100
+        Me.txtEntreCalle1.Name = "txtEntreCalle1"
+        Me.txtEntreCalle1.Size = New System.Drawing.Size(206, 21)
+        Me.txtEntreCalle1.TabIndex = 22
+        '
+        'txtDepartamento
+        '
+        Me.txtDepartamento.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDepartamento.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtDepartamento.Location = New System.Drawing.Point(849, 33)
+        Me.txtDepartamento.MaxLength = 3
+        Me.txtDepartamento.Name = "txtDepartamento"
+        Me.txtDepartamento.Size = New System.Drawing.Size(42, 21)
+        Me.txtDepartamento.TabIndex = 21
+        Me.txtDepartamento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtPiso
+        '
+        Me.txtPiso.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPiso.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtPiso.Location = New System.Drawing.Point(810, 33)
+        Me.txtPiso.MaxLength = 3
+        Me.txtPiso.Name = "txtPiso"
+        Me.txtPiso.Size = New System.Drawing.Size(45, 21)
+        Me.txtPiso.TabIndex = 20
+        Me.txtPiso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtAltura
+        '
+        Me.txtAltura.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAltura.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAltura.Location = New System.Drawing.Point(765, 33)
+        Me.txtAltura.MaxLength = 6
+        Me.txtAltura.Name = "txtAltura"
+        Me.txtAltura.Size = New System.Drawing.Size(55, 21)
+        Me.txtAltura.TabIndex = 19
+        Me.txtAltura.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtCalle
+        '
+        Me.txtCalle.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCalle.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtCalle.Location = New System.Drawing.Point(362, 33)
+        Me.txtCalle.MaxLength = 70
+        Me.txtCalle.Name = "txtCalle"
+        Me.txtCalle.Size = New System.Drawing.Size(403, 21)
+        Me.txtCalle.TabIndex = 18
+        '
+        'lblLocalidad
+        '
+        Me.lblLocalidad.AutoSize = True
+        Me.lblLocalidad.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLocalidad.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblLocalidad.Location = New System.Drawing.Point(98, 17)
+        Me.lblLocalidad.Name = "lblLocalidad"
+        Me.lblLocalidad.Size = New System.Drawing.Size(51, 13)
+        Me.lblLocalidad.TabIndex = 20
+        Me.lblLocalidad.Text = "Localidad"
+        '
+        'lblDomicilio
+        '
+        Me.lblDomicilio.AutoSize = True
+        Me.lblDomicilio.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDomicilio.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblDomicilio.Location = New System.Drawing.Point(365, 17)
+        Me.lblDomicilio.Name = "lblDomicilio"
+        Me.lblDomicilio.Size = New System.Drawing.Size(188, 13)
+        Me.lblDomicilio.TabIndex = 19
+        Me.lblDomicilio.Text = "Domicilio (Calle / Altura / Piso / Depto)"
+        '
+        'txtLocalidadDes
+        '
+        Me.txtLocalidadDes.Enabled = False
+        Me.txtLocalidadDes.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLocalidadDes.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtLocalidadDes.Location = New System.Drawing.Point(136, 33)
+        Me.txtLocalidadDes.MaxLength = 50
+        Me.txtLocalidadDes.Name = "txtLocalidadDes"
+        Me.txtLocalidadDes.Size = New System.Drawing.Size(219, 21)
+        Me.txtLocalidadDes.TabIndex = 17
+        '
+        'txtLocalidadId
+        '
+        Me.txtLocalidadId.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLocalidadId.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtLocalidadId.Location = New System.Drawing.Point(94, 33)
+        Me.txtLocalidadId.MaxLength = 3
+        Me.txtLocalidadId.Name = "txtLocalidadId"
+        Me.txtLocalidadId.Size = New System.Drawing.Size(45, 21)
+        Me.txtLocalidadId.TabIndex = 16
+        Me.txtLocalidadId.Tag = "1"
+        '
+        'pagAnexos
+        '
+        Me.pagAnexos.Controls.Add(Me.grpAnexo2)
+        Me.pagAnexos.Controls.Add(Me.grpAnexo1)
+        Me.pagAnexos.Location = New System.Drawing.Point(0, 0)
+        Me.pagAnexos.Name = "pagAnexos"
+        Me.pagAnexos.Selected = False
+        Me.pagAnexos.Size = New System.Drawing.Size(947, 219)
+        Me.pagAnexos.TabIndex = 1
+        Me.pagAnexos.Title = "Anexos"
+        '
+        'grpAnexo2
+        '
+        Me.grpAnexo2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpAnexo2.Controls.Add(Me.lblAn2SanatorioId)
+        Me.grpAnexo2.Controls.Add(Me.txtAn2SanatorioId)
+        Me.grpAnexo2.Controls.Add(Me.mskAn2Hora)
+        Me.grpAnexo2.Controls.Add(Me.lblAn2FechaHora)
+        Me.grpAnexo2.Controls.Add(Me.lblAn2Partido)
+        Me.grpAnexo2.Controls.Add(Me.txtAn2Partido)
+        Me.grpAnexo2.Controls.Add(Me.dtpAn2Fecha)
+        Me.grpAnexo2.Controls.Add(Me.lblAn2Referencias)
+        Me.grpAnexo2.Controls.Add(Me.lblAn2EntreCalle2)
+        Me.grpAnexo2.Controls.Add(Me.txtAn2Referencias)
+        Me.grpAnexo2.Controls.Add(Me.txtAn2EntreCalle2)
+        Me.grpAnexo2.Controls.Add(Me.lblAn2EntreCalle1)
+        Me.grpAnexo2.Controls.Add(Me.txtAn2EntreCalle1)
+        Me.grpAnexo2.Controls.Add(Me.txtAn2Departamento)
+        Me.grpAnexo2.Controls.Add(Me.txtAn2Piso)
+        Me.grpAnexo2.Controls.Add(Me.txtAn2Altura)
+        Me.grpAnexo2.Controls.Add(Me.txtAn2Calle)
+        Me.grpAnexo2.Controls.Add(Me.lblAn2LocalidadId)
+        Me.grpAnexo2.Controls.Add(Me.lblAn2Domicilio)
+        Me.grpAnexo2.Controls.Add(Me.txtAn2LocalidadDes)
+        Me.grpAnexo2.Controls.Add(Me.txtAn2LocalidadId)
+        Me.grpAnexo2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpAnexo2.Location = New System.Drawing.Point(0, 111)
+        Me.grpAnexo2.Name = "grpAnexo2"
+        Me.grpAnexo2.Size = New System.Drawing.Size(947, 102)
+        Me.grpAnexo2.TabIndex = 16
+        Me.grpAnexo2.TabStop = False
+        Me.grpAnexo2.Text = "Anexo II"
+        '
+        'lblAn2SanatorioId
+        '
+        Me.lblAn2SanatorioId.AutoSize = True
+        Me.lblAn2SanatorioId.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAn2SanatorioId.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblAn2SanatorioId.Location = New System.Drawing.Point(11, 17)
+        Me.lblAn2SanatorioId.Name = "lblAn2SanatorioId"
+        Me.lblAn2SanatorioId.Size = New System.Drawing.Size(58, 13)
+        Me.lblAn2SanatorioId.TabIndex = 81
+        Me.lblAn2SanatorioId.Text = "Nosocomio"
+        '
+        'txtAn2SanatorioId
+        '
+        Me.txtAn2SanatorioId.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn2SanatorioId.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn2SanatorioId.Location = New System.Drawing.Point(8, 33)
+        Me.txtAn2SanatorioId.MaxLength = 5
+        Me.txtAn2SanatorioId.Name = "txtAn2SanatorioId"
+        Me.txtAn2SanatorioId.Size = New System.Drawing.Size(80, 21)
+        Me.txtAn2SanatorioId.TabIndex = 55
+        Me.txtAn2SanatorioId.Tag = "4"
+        '
+        'mskAn2Hora
+        '
+        Me.mskAn2Hora.Location = New System.Drawing.Point(901, 74)
+        Me.mskAn2Hora.Mask = "00:00"
+        Me.mskAn2Hora.Name = "mskAn2Hora"
+        Me.mskAn2Hora.Size = New System.Drawing.Size(39, 21)
+        Me.mskAn2Hora.TabIndex = 67
+        Me.mskAn2Hora.ValidatingType = GetType(Date)
+        '
+        'lblAn2FechaHora
+        '
+        Me.lblAn2FechaHora.AutoSize = True
+        Me.lblAn2FechaHora.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAn2FechaHora.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblAn2FechaHora.Location = New System.Drawing.Point(812, 58)
+        Me.lblAn2FechaHora.Name = "lblAn2FechaHora"
+        Me.lblAn2FechaHora.Size = New System.Drawing.Size(129, 13)
+        Me.lblAn2FechaHora.TabIndex = 79
+        Me.lblAn2FechaHora.Text = "Fecha y Hora en Domicilio"
+        '
+        'lblAn2Partido
+        '
+        Me.lblAn2Partido.AutoSize = True
+        Me.lblAn2Partido.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAn2Partido.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblAn2Partido.Location = New System.Drawing.Point(676, 58)
+        Me.lblAn2Partido.Name = "lblAn2Partido"
+        Me.lblAn2Partido.Size = New System.Drawing.Size(41, 13)
+        Me.lblAn2Partido.TabIndex = 78
+        Me.lblAn2Partido.Text = "Partido"
+        '
+        'txtAn2Partido
+        '
+        Me.txtAn2Partido.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn2Partido.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn2Partido.Location = New System.Drawing.Point(673, 74)
+        Me.txtAn2Partido.MaxLength = 100
+        Me.txtAn2Partido.Name = "txtAn2Partido"
+        Me.txtAn2Partido.Size = New System.Drawing.Size(130, 21)
+        Me.txtAn2Partido.TabIndex = 65
+        '
+        'dtpAn2Fecha
+        '
+        Me.dtpAn2Fecha.CustomFormat = "MM'/'dd'/'yyyy hh':'mm"
+        Me.dtpAn2Fecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpAn2Fecha.Location = New System.Drawing.Point(809, 74)
+        Me.dtpAn2Fecha.Name = "dtpAn2Fecha"
+        Me.dtpAn2Fecha.Size = New System.Drawing.Size(92, 21)
+        Me.dtpAn2Fecha.TabIndex = 66
+        '
+        'lblAn2Referencias
+        '
+        Me.lblAn2Referencias.AutoSize = True
+        Me.lblAn2Referencias.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAn2Referencias.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblAn2Referencias.Location = New System.Drawing.Point(436, 58)
+        Me.lblAn2Referencias.Name = "lblAn2Referencias"
+        Me.lblAn2Referencias.Size = New System.Drawing.Size(64, 13)
+        Me.lblAn2Referencias.TabIndex = 38
+        Me.lblAn2Referencias.Text = "Referencias"
+        '
+        'lblAn2EntreCalle2
+        '
+        Me.lblAn2EntreCalle2.AutoSize = True
+        Me.lblAn2EntreCalle2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAn2EntreCalle2.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblAn2EntreCalle2.Location = New System.Drawing.Point(227, 58)
+        Me.lblAn2EntreCalle2.Name = "lblAn2EntreCalle2"
+        Me.lblAn2EntreCalle2.Size = New System.Drawing.Size(68, 13)
+        Me.lblAn2EntreCalle2.TabIndex = 37
+        Me.lblAn2EntreCalle2.Text = "Entre Calle 2"
+        '
+        'txtAn2Referencias
+        '
+        Me.txtAn2Referencias.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn2Referencias.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn2Referencias.Location = New System.Drawing.Point(434, 74)
+        Me.txtAn2Referencias.MaxLength = 100
+        Me.txtAn2Referencias.Name = "txtAn2Referencias"
+        Me.txtAn2Referencias.Size = New System.Drawing.Size(233, 21)
+        Me.txtAn2Referencias.TabIndex = 64
+        '
+        'txtAn2EntreCalle2
+        '
+        Me.txtAn2EntreCalle2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn2EntreCalle2.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn2EntreCalle2.Location = New System.Drawing.Point(220, 74)
+        Me.txtAn2EntreCalle2.MaxLength = 100
+        Me.txtAn2EntreCalle2.Name = "txtAn2EntreCalle2"
+        Me.txtAn2EntreCalle2.Size = New System.Drawing.Size(208, 21)
+        Me.txtAn2EntreCalle2.TabIndex = 63
+        '
+        'lblAn2EntreCalle1
+        '
+        Me.lblAn2EntreCalle1.AutoSize = True
+        Me.lblAn2EntreCalle1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAn2EntreCalle1.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblAn2EntreCalle1.Location = New System.Drawing.Point(13, 58)
+        Me.lblAn2EntreCalle1.Name = "lblAn2EntreCalle1"
+        Me.lblAn2EntreCalle1.Size = New System.Drawing.Size(68, 13)
+        Me.lblAn2EntreCalle1.TabIndex = 36
+        Me.lblAn2EntreCalle1.Text = "Entre Calle 1"
+        '
+        'txtAn2EntreCalle1
+        '
+        Me.txtAn2EntreCalle1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn2EntreCalle1.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn2EntreCalle1.Location = New System.Drawing.Point(8, 74)
+        Me.txtAn2EntreCalle1.MaxLength = 100
+        Me.txtAn2EntreCalle1.Name = "txtAn2EntreCalle1"
+        Me.txtAn2EntreCalle1.Size = New System.Drawing.Size(206, 21)
+        Me.txtAn2EntreCalle1.TabIndex = 62
+        '
+        'txtAn2Departamento
+        '
+        Me.txtAn2Departamento.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn2Departamento.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn2Departamento.Location = New System.Drawing.Point(899, 33)
+        Me.txtAn2Departamento.MaxLength = 3
+        Me.txtAn2Departamento.Name = "txtAn2Departamento"
+        Me.txtAn2Departamento.Size = New System.Drawing.Size(42, 21)
+        Me.txtAn2Departamento.TabIndex = 61
+        Me.txtAn2Departamento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtAn2Piso
+        '
+        Me.txtAn2Piso.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn2Piso.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn2Piso.Location = New System.Drawing.Point(857, 33)
+        Me.txtAn2Piso.MaxLength = 3
+        Me.txtAn2Piso.Name = "txtAn2Piso"
+        Me.txtAn2Piso.Size = New System.Drawing.Size(45, 21)
+        Me.txtAn2Piso.TabIndex = 60
+        Me.txtAn2Piso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtAn2Altura
+        '
+        Me.txtAn2Altura.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn2Altura.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn2Altura.Location = New System.Drawing.Point(805, 33)
+        Me.txtAn2Altura.MaxLength = 6
+        Me.txtAn2Altura.Name = "txtAn2Altura"
+        Me.txtAn2Altura.Size = New System.Drawing.Size(55, 21)
+        Me.txtAn2Altura.TabIndex = 59
+        Me.txtAn2Altura.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtAn2Calle
+        '
+        Me.txtAn2Calle.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn2Calle.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn2Calle.Location = New System.Drawing.Point(362, 33)
+        Me.txtAn2Calle.MaxLength = 70
+        Me.txtAn2Calle.Name = "txtAn2Calle"
+        Me.txtAn2Calle.Size = New System.Drawing.Size(444, 21)
+        Me.txtAn2Calle.TabIndex = 58
+        '
+        'lblAn2LocalidadId
+        '
+        Me.lblAn2LocalidadId.AutoSize = True
+        Me.lblAn2LocalidadId.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAn2LocalidadId.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblAn2LocalidadId.Location = New System.Drawing.Point(98, 17)
+        Me.lblAn2LocalidadId.Name = "lblAn2LocalidadId"
+        Me.lblAn2LocalidadId.Size = New System.Drawing.Size(51, 13)
+        Me.lblAn2LocalidadId.TabIndex = 20
+        Me.lblAn2LocalidadId.Text = "Localidad"
+        '
+        'lblAn2Domicilio
+        '
+        Me.lblAn2Domicilio.AutoSize = True
+        Me.lblAn2Domicilio.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAn2Domicilio.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblAn2Domicilio.Location = New System.Drawing.Point(365, 17)
+        Me.lblAn2Domicilio.Name = "lblAn2Domicilio"
+        Me.lblAn2Domicilio.Size = New System.Drawing.Size(188, 13)
+        Me.lblAn2Domicilio.TabIndex = 19
+        Me.lblAn2Domicilio.Text = "Domicilio (Calle / Altura / Piso / Depto)"
+        '
+        'txtAn2LocalidadDes
+        '
+        Me.txtAn2LocalidadDes.Enabled = False
+        Me.txtAn2LocalidadDes.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn2LocalidadDes.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn2LocalidadDes.Location = New System.Drawing.Point(136, 33)
+        Me.txtAn2LocalidadDes.MaxLength = 50
+        Me.txtAn2LocalidadDes.Name = "txtAn2LocalidadDes"
+        Me.txtAn2LocalidadDes.Size = New System.Drawing.Size(219, 21)
+        Me.txtAn2LocalidadDes.TabIndex = 57
+        '
+        'txtAn2LocalidadId
+        '
+        Me.txtAn2LocalidadId.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn2LocalidadId.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn2LocalidadId.Location = New System.Drawing.Point(94, 33)
+        Me.txtAn2LocalidadId.MaxLength = 3
+        Me.txtAn2LocalidadId.Name = "txtAn2LocalidadId"
+        Me.txtAn2LocalidadId.Size = New System.Drawing.Size(45, 21)
+        Me.txtAn2LocalidadId.TabIndex = 56
+        Me.txtAn2LocalidadId.Tag = "4"
+        '
+        'grpAnexo1
+        '
+        Me.grpAnexo1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpAnexo1.Controls.Add(Me.lblAn1SanatorioId)
+        Me.grpAnexo1.Controls.Add(Me.txtAn1SanatorioId)
+        Me.grpAnexo1.Controls.Add(Me.mskAn1Hora)
+        Me.grpAnexo1.Controls.Add(Me.lblAn1FechaHora)
+        Me.grpAnexo1.Controls.Add(Me.lblAn1Partido)
+        Me.grpAnexo1.Controls.Add(Me.txtAn1Partido)
+        Me.grpAnexo1.Controls.Add(Me.dtpAn1Fecha)
+        Me.grpAnexo1.Controls.Add(Me.lblAn1Referencias)
+        Me.grpAnexo1.Controls.Add(Me.lblAn1EntreCalle2)
+        Me.grpAnexo1.Controls.Add(Me.txtAn1Referencias)
+        Me.grpAnexo1.Controls.Add(Me.txtAn1EntreCalle2)
+        Me.grpAnexo1.Controls.Add(Me.lblAn1EntreCalle1)
+        Me.grpAnexo1.Controls.Add(Me.txtAn1EntreCalle1)
+        Me.grpAnexo1.Controls.Add(Me.txtAn1Departamento)
+        Me.grpAnexo1.Controls.Add(Me.txtAn1Piso)
+        Me.grpAnexo1.Controls.Add(Me.txtAn1Altura)
+        Me.grpAnexo1.Controls.Add(Me.txtAn1Calle)
+        Me.grpAnexo1.Controls.Add(Me.lblAn1LocalidadId)
+        Me.grpAnexo1.Controls.Add(Me.lblAn1Domicilio)
+        Me.grpAnexo1.Controls.Add(Me.txtAn1LocalidadDes)
+        Me.grpAnexo1.Controls.Add(Me.txtAn1LocalidadId)
+        Me.grpAnexo1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpAnexo1.Location = New System.Drawing.Point(0, 3)
+        Me.grpAnexo1.Name = "grpAnexo1"
+        Me.grpAnexo1.Size = New System.Drawing.Size(947, 102)
+        Me.grpAnexo1.TabIndex = 15
+        Me.grpAnexo1.TabStop = False
+        Me.grpAnexo1.Text = "Anexo I"
+        '
+        'lblAn1SanatorioId
+        '
+        Me.lblAn1SanatorioId.AutoSize = True
+        Me.lblAn1SanatorioId.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAn1SanatorioId.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblAn1SanatorioId.Location = New System.Drawing.Point(11, 17)
+        Me.lblAn1SanatorioId.Name = "lblAn1SanatorioId"
+        Me.lblAn1SanatorioId.Size = New System.Drawing.Size(58, 13)
+        Me.lblAn1SanatorioId.TabIndex = 81
+        Me.lblAn1SanatorioId.Text = "Nosocomio"
+        '
+        'txtAn1SanatorioId
+        '
+        Me.txtAn1SanatorioId.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn1SanatorioId.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn1SanatorioId.Location = New System.Drawing.Point(8, 33)
+        Me.txtAn1SanatorioId.MaxLength = 5
+        Me.txtAn1SanatorioId.Name = "txtAn1SanatorioId"
+        Me.txtAn1SanatorioId.Size = New System.Drawing.Size(80, 21)
+        Me.txtAn1SanatorioId.TabIndex = 42
+        Me.txtAn1SanatorioId.Tag = "3"
+        '
+        'mskAn1Hora
+        '
+        Me.mskAn1Hora.Location = New System.Drawing.Point(901, 74)
+        Me.mskAn1Hora.Mask = "00:00"
+        Me.mskAn1Hora.Name = "mskAn1Hora"
+        Me.mskAn1Hora.Size = New System.Drawing.Size(39, 21)
+        Me.mskAn1Hora.TabIndex = 54
+        Me.mskAn1Hora.ValidatingType = GetType(Date)
+        '
+        'lblAn1FechaHora
+        '
+        Me.lblAn1FechaHora.AutoSize = True
+        Me.lblAn1FechaHora.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAn1FechaHora.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblAn1FechaHora.Location = New System.Drawing.Point(812, 58)
+        Me.lblAn1FechaHora.Name = "lblAn1FechaHora"
+        Me.lblAn1FechaHora.Size = New System.Drawing.Size(129, 13)
+        Me.lblAn1FechaHora.TabIndex = 79
+        Me.lblAn1FechaHora.Text = "Fecha y Hora en Domicilio"
+        '
+        'lblAn1Partido
+        '
+        Me.lblAn1Partido.AutoSize = True
+        Me.lblAn1Partido.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAn1Partido.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblAn1Partido.Location = New System.Drawing.Point(676, 58)
+        Me.lblAn1Partido.Name = "lblAn1Partido"
+        Me.lblAn1Partido.Size = New System.Drawing.Size(41, 13)
+        Me.lblAn1Partido.TabIndex = 78
+        Me.lblAn1Partido.Text = "Partido"
+        '
+        'txtAn1Partido
+        '
+        Me.txtAn1Partido.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn1Partido.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn1Partido.Location = New System.Drawing.Point(673, 74)
+        Me.txtAn1Partido.MaxLength = 100
+        Me.txtAn1Partido.Name = "txtAn1Partido"
+        Me.txtAn1Partido.Size = New System.Drawing.Size(130, 21)
+        Me.txtAn1Partido.TabIndex = 52
+        '
+        'dtpAn1Fecha
+        '
+        Me.dtpAn1Fecha.CustomFormat = "MM'/'dd'/'yyyy hh':'mm"
+        Me.dtpAn1Fecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpAn1Fecha.Location = New System.Drawing.Point(809, 74)
+        Me.dtpAn1Fecha.Name = "dtpAn1Fecha"
+        Me.dtpAn1Fecha.Size = New System.Drawing.Size(92, 21)
+        Me.dtpAn1Fecha.TabIndex = 53
+        '
+        'lblAn1Referencias
+        '
+        Me.lblAn1Referencias.AutoSize = True
+        Me.lblAn1Referencias.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAn1Referencias.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblAn1Referencias.Location = New System.Drawing.Point(436, 58)
+        Me.lblAn1Referencias.Name = "lblAn1Referencias"
+        Me.lblAn1Referencias.Size = New System.Drawing.Size(64, 13)
+        Me.lblAn1Referencias.TabIndex = 38
+        Me.lblAn1Referencias.Text = "Referencias"
+        '
+        'lblAn1EntreCalle2
+        '
+        Me.lblAn1EntreCalle2.AutoSize = True
+        Me.lblAn1EntreCalle2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAn1EntreCalle2.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblAn1EntreCalle2.Location = New System.Drawing.Point(227, 58)
+        Me.lblAn1EntreCalle2.Name = "lblAn1EntreCalle2"
+        Me.lblAn1EntreCalle2.Size = New System.Drawing.Size(68, 13)
+        Me.lblAn1EntreCalle2.TabIndex = 37
+        Me.lblAn1EntreCalle2.Text = "Entre Calle 2"
+        '
+        'txtAn1Referencias
+        '
+        Me.txtAn1Referencias.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn1Referencias.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn1Referencias.Location = New System.Drawing.Point(434, 74)
+        Me.txtAn1Referencias.MaxLength = 100
+        Me.txtAn1Referencias.Name = "txtAn1Referencias"
+        Me.txtAn1Referencias.Size = New System.Drawing.Size(233, 21)
+        Me.txtAn1Referencias.TabIndex = 51
+        '
+        'txtAn1EntreCalle2
+        '
+        Me.txtAn1EntreCalle2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn1EntreCalle2.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn1EntreCalle2.Location = New System.Drawing.Point(220, 74)
+        Me.txtAn1EntreCalle2.MaxLength = 100
+        Me.txtAn1EntreCalle2.Name = "txtAn1EntreCalle2"
+        Me.txtAn1EntreCalle2.Size = New System.Drawing.Size(208, 21)
+        Me.txtAn1EntreCalle2.TabIndex = 50
+        '
+        'lblAn1EntreCalle1
+        '
+        Me.lblAn1EntreCalle1.AutoSize = True
+        Me.lblAn1EntreCalle1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAn1EntreCalle1.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblAn1EntreCalle1.Location = New System.Drawing.Point(13, 58)
+        Me.lblAn1EntreCalle1.Name = "lblAn1EntreCalle1"
+        Me.lblAn1EntreCalle1.Size = New System.Drawing.Size(68, 13)
+        Me.lblAn1EntreCalle1.TabIndex = 36
+        Me.lblAn1EntreCalle1.Text = "Entre Calle 1"
+        '
+        'txtAn1EntreCalle1
+        '
+        Me.txtAn1EntreCalle1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn1EntreCalle1.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn1EntreCalle1.Location = New System.Drawing.Point(8, 74)
+        Me.txtAn1EntreCalle1.MaxLength = 100
+        Me.txtAn1EntreCalle1.Name = "txtAn1EntreCalle1"
+        Me.txtAn1EntreCalle1.Size = New System.Drawing.Size(206, 21)
+        Me.txtAn1EntreCalle1.TabIndex = 49
+        '
+        'txtAn1Departamento
+        '
+        Me.txtAn1Departamento.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn1Departamento.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn1Departamento.Location = New System.Drawing.Point(899, 33)
+        Me.txtAn1Departamento.MaxLength = 3
+        Me.txtAn1Departamento.Name = "txtAn1Departamento"
+        Me.txtAn1Departamento.Size = New System.Drawing.Size(42, 21)
+        Me.txtAn1Departamento.TabIndex = 48
+        Me.txtAn1Departamento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtAn1Piso
+        '
+        Me.txtAn1Piso.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn1Piso.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn1Piso.Location = New System.Drawing.Point(857, 33)
+        Me.txtAn1Piso.MaxLength = 3
+        Me.txtAn1Piso.Name = "txtAn1Piso"
+        Me.txtAn1Piso.Size = New System.Drawing.Size(45, 21)
+        Me.txtAn1Piso.TabIndex = 47
+        Me.txtAn1Piso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtAn1Altura
+        '
+        Me.txtAn1Altura.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn1Altura.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn1Altura.Location = New System.Drawing.Point(805, 33)
+        Me.txtAn1Altura.MaxLength = 6
+        Me.txtAn1Altura.Name = "txtAn1Altura"
+        Me.txtAn1Altura.Size = New System.Drawing.Size(55, 21)
+        Me.txtAn1Altura.TabIndex = 46
+        Me.txtAn1Altura.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtAn1Calle
+        '
+        Me.txtAn1Calle.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn1Calle.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn1Calle.Location = New System.Drawing.Point(362, 33)
+        Me.txtAn1Calle.MaxLength = 70
+        Me.txtAn1Calle.Name = "txtAn1Calle"
+        Me.txtAn1Calle.Size = New System.Drawing.Size(444, 21)
+        Me.txtAn1Calle.TabIndex = 45
+        '
+        'lblAn1LocalidadId
+        '
+        Me.lblAn1LocalidadId.AutoSize = True
+        Me.lblAn1LocalidadId.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAn1LocalidadId.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblAn1LocalidadId.Location = New System.Drawing.Point(98, 17)
+        Me.lblAn1LocalidadId.Name = "lblAn1LocalidadId"
+        Me.lblAn1LocalidadId.Size = New System.Drawing.Size(51, 13)
+        Me.lblAn1LocalidadId.TabIndex = 20
+        Me.lblAn1LocalidadId.Text = "Localidad"
+        '
+        'lblAn1Domicilio
+        '
+        Me.lblAn1Domicilio.AutoSize = True
+        Me.lblAn1Domicilio.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAn1Domicilio.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblAn1Domicilio.Location = New System.Drawing.Point(365, 17)
+        Me.lblAn1Domicilio.Name = "lblAn1Domicilio"
+        Me.lblAn1Domicilio.Size = New System.Drawing.Size(188, 13)
+        Me.lblAn1Domicilio.TabIndex = 19
+        Me.lblAn1Domicilio.Text = "Domicilio (Calle / Altura / Piso / Depto)"
+        '
+        'txtAn1LocalidadDes
+        '
+        Me.txtAn1LocalidadDes.Enabled = False
+        Me.txtAn1LocalidadDes.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn1LocalidadDes.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn1LocalidadDes.Location = New System.Drawing.Point(136, 33)
+        Me.txtAn1LocalidadDes.MaxLength = 50
+        Me.txtAn1LocalidadDes.Name = "txtAn1LocalidadDes"
+        Me.txtAn1LocalidadDes.Size = New System.Drawing.Size(219, 21)
+        Me.txtAn1LocalidadDes.TabIndex = 44
+        '
+        'txtAn1LocalidadId
+        '
+        Me.txtAn1LocalidadId.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAn1LocalidadId.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.txtAn1LocalidadId.Location = New System.Drawing.Point(94, 33)
+        Me.txtAn1LocalidadId.MaxLength = 3
+        Me.txtAn1LocalidadId.Name = "txtAn1LocalidadId"
+        Me.txtAn1LocalidadId.Size = New System.Drawing.Size(45, 21)
+        Me.txtAn1LocalidadId.TabIndex = 43
+        Me.txtAn1LocalidadId.Tag = "3"
+        '
+        'pagProgramacion
+        '
+        Me.pagProgramacion.Location = New System.Drawing.Point(0, 0)
+        Me.pagProgramacion.Name = "pagProgramacion"
+        Me.pagProgramacion.Selected = False
+        Me.pagProgramacion.Size = New System.Drawing.Size(947, 219)
+        Me.pagProgramacion.TabIndex = 2
+        Me.pagProgramacion.Title = "Historial de Programación"
+        '
+        'frmTrasladosABM
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(958, 452)
+        Me.Controls.Add(Me.tabTraslado)
+        Me.Controls.Add(Me.grpMain)
+        Me.Controls.Add(Me.tbrMain)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Name = "frmTrasladosABM"
+        Me.TabText = "frmTrasladosABM"
+        Me.Text = "frmTrasladosABM"
+        Me.grpMain.ResumeLayout(False)
+        Me.grpMain.PerformLayout()
+        Me.pagOrigenDestino.ResumeLayout(False)
+        Me.grpDestino.ResumeLayout(False)
+        Me.grpDestino.PerformLayout()
+        Me.grpOrigen.ResumeLayout(False)
+        Me.grpOrigen.PerformLayout()
+        Me.pagAnexos.ResumeLayout(False)
+        Me.grpAnexo2.ResumeLayout(False)
+        Me.grpAnexo2.PerformLayout()
+        Me.grpAnexo1.ResumeLayout(False)
+        Me.grpAnexo1.PerformLayout()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents tbrMain As System.Windows.Forms.ToolStrip
+    Friend WithEvents grpMain As System.Windows.Forms.GroupBox
+    Friend WithEvents lblPaciente As System.Windows.Forms.Label
+    Friend WithEvents lblNroAfiliado As System.Windows.Forms.Label
+    Friend WithEvents lblCliente As System.Windows.Forms.Label
+    Friend WithEvents txtPaciente As System.Windows.Forms.TextBox
+    Friend WithEvents txtNroAfiliado As System.Windows.Forms.TextBox
+    Friend WithEvents txtClienteId As System.Windows.Forms.TextBox
+    Friend WithEvents txtTelefono As System.Windows.Forms.TextBox
+    Friend WithEvents dtpFecIncidente As System.Windows.Forms.DateTimePicker
+    Friend WithEvents lblTelefono As System.Windows.Forms.Label
+    Friend WithEvents lblIncidente As System.Windows.Forms.Label
+    Friend WithEvents tabTraslado As Crownwood.Magic.Controls.TabControl
+    Friend WithEvents pagOrigenDestino As Crownwood.Magic.Controls.TabPage
+    Friend WithEvents grpDestino As System.Windows.Forms.GroupBox
+    Friend WithEvents lblDstReferencias As System.Windows.Forms.Label
+    Friend WithEvents lblDstEntreCalle2 As System.Windows.Forms.Label
+    Friend WithEvents txtDstReferencias As System.Windows.Forms.TextBox
+    Friend WithEvents txtDstEntreCalle2 As System.Windows.Forms.TextBox
+    Friend WithEvents lblDstEntreCalle1 As System.Windows.Forms.Label
+    Friend WithEvents txtDstEntreCalle1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtDstDepartamento As System.Windows.Forms.TextBox
+    Friend WithEvents txtDstPiso As System.Windows.Forms.TextBox
+    Friend WithEvents txtDstAltura As System.Windows.Forms.TextBox
+    Friend WithEvents txtDstCalle As System.Windows.Forms.TextBox
+    Friend WithEvents lblDstLocalidad As System.Windows.Forms.Label
+    Friend WithEvents lblDstDomicilio As System.Windows.Forms.Label
+    Friend WithEvents txtDstLocalidadDes As System.Windows.Forms.TextBox
+    Friend WithEvents txtDstLocalidadId As System.Windows.Forms.TextBox
+    Friend WithEvents grpOrigen As System.Windows.Forms.GroupBox
+    Friend WithEvents lblReferencias As System.Windows.Forms.Label
+    Friend WithEvents lblEntreCalle2 As System.Windows.Forms.Label
+    Friend WithEvents txtReferencias As System.Windows.Forms.TextBox
+    Friend WithEvents txtEntreCalle2 As System.Windows.Forms.TextBox
+    Friend WithEvents lblEntreCalle1 As System.Windows.Forms.Label
+    Friend WithEvents txtEntreCalle1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtDepartamento As System.Windows.Forms.TextBox
+    Friend WithEvents txtPiso As System.Windows.Forms.TextBox
+    Friend WithEvents txtAltura As System.Windows.Forms.TextBox
+    Friend WithEvents txtCalle As System.Windows.Forms.TextBox
+    Friend WithEvents lblLocalidad As System.Windows.Forms.Label
+    Friend WithEvents lblDomicilio As System.Windows.Forms.Label
+    Friend WithEvents txtLocalidadDes As System.Windows.Forms.TextBox
+    Friend WithEvents txtLocalidadId As System.Windows.Forms.TextBox
+    Friend WithEvents pagAnexos As Crownwood.Magic.Controls.TabPage
+    Friend WithEvents lblGrado As System.Windows.Forms.Label
+    Friend WithEvents lblSintomas As System.Windows.Forms.Label
+    Friend WithEvents lblSexoEdad As System.Windows.Forms.Label
+    Friend WithEvents txtEdad As System.Windows.Forms.TextBox
+    Friend WithEvents cmbSexo As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbGrados As System.Windows.Forms.ComboBox
+    Friend WithEvents txtSintomas As System.Windows.Forms.TextBox
+    Friend WithEvents lblCoPago As System.Windows.Forms.Label
+    Friend WithEvents lblPlan As System.Windows.Forms.Label
+    Friend WithEvents lblIva As System.Windows.Forms.Label
+    Friend WithEvents txtCoPago As System.Windows.Forms.TextBox
+    Friend WithEvents cmbPlanes As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbIvas As System.Windows.Forms.ComboBox
+    Friend WithEvents pagProgramacion As Crownwood.Magic.Controls.TabPage
+    Friend WithEvents txtNroIncidente As System.Windows.Forms.TextBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents txtTrasladoId As System.Windows.Forms.TextBox
+    Friend WithEvents txtPartido As System.Windows.Forms.TextBox
+    Friend WithEvents dtpFecOrigen As System.Windows.Forms.DateTimePicker
+    Friend WithEvents chkRetorno As System.Windows.Forms.CheckBox
+    Friend WithEvents dtpFecDestino As System.Windows.Forms.DateTimePicker
+    Friend WithEvents lblPartido As System.Windows.Forms.Label
+    Friend WithEvents lblFechaHoraTurno As System.Windows.Forms.Label
+    Friend WithEvents lblFechaHora As System.Windows.Forms.Label
+    Friend WithEvents txtObservaciones As System.Windows.Forms.TextBox
+    Friend WithEvents lblObservaciones As System.Windows.Forms.Label
+    Friend WithEvents mskHorOrigen As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents mskHorDestino As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents mskHorRetorno As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents dtpFecRetorno As System.Windows.Forms.DateTimePicker
+    Friend WithEvents lblFechaHoraRetorno As System.Windows.Forms.Label
+    Friend WithEvents lblSanatorio As System.Windows.Forms.Label
+    Friend WithEvents txtSanatorioId As System.Windows.Forms.TextBox
+    Friend WithEvents lblDstSanatorio As System.Windows.Forms.Label
+    Friend WithEvents txtDstSanatorioId As System.Windows.Forms.TextBox
+    Friend WithEvents grpAnexo2 As System.Windows.Forms.GroupBox
+    Friend WithEvents lblAn2SanatorioId As System.Windows.Forms.Label
+    Friend WithEvents txtAn2SanatorioId As System.Windows.Forms.TextBox
+    Friend WithEvents mskAn2Hora As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents lblAn2FechaHora As System.Windows.Forms.Label
+    Friend WithEvents lblAn2Partido As System.Windows.Forms.Label
+    Friend WithEvents txtAn2Partido As System.Windows.Forms.TextBox
+    Friend WithEvents dtpAn2Fecha As System.Windows.Forms.DateTimePicker
+    Friend WithEvents lblAn2Referencias As System.Windows.Forms.Label
+    Friend WithEvents lblAn2EntreCalle2 As System.Windows.Forms.Label
+    Friend WithEvents txtAn2Referencias As System.Windows.Forms.TextBox
+    Friend WithEvents txtAn2EntreCalle2 As System.Windows.Forms.TextBox
+    Friend WithEvents lblAn2EntreCalle1 As System.Windows.Forms.Label
+    Friend WithEvents txtAn2EntreCalle1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtAn2Departamento As System.Windows.Forms.TextBox
+    Friend WithEvents txtAn2Piso As System.Windows.Forms.TextBox
+    Friend WithEvents txtAn2Altura As System.Windows.Forms.TextBox
+    Friend WithEvents txtAn2Calle As System.Windows.Forms.TextBox
+    Friend WithEvents lblAn2LocalidadId As System.Windows.Forms.Label
+    Friend WithEvents lblAn2Domicilio As System.Windows.Forms.Label
+    Friend WithEvents txtAn2LocalidadDes As System.Windows.Forms.TextBox
+    Friend WithEvents txtAn2LocalidadId As System.Windows.Forms.TextBox
+    Friend WithEvents grpAnexo1 As System.Windows.Forms.GroupBox
+    Friend WithEvents lblAn1SanatorioId As System.Windows.Forms.Label
+    Friend WithEvents txtAn1SanatorioId As System.Windows.Forms.TextBox
+    Friend WithEvents mskAn1Hora As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents lblAn1FechaHora As System.Windows.Forms.Label
+    Friend WithEvents lblAn1Partido As System.Windows.Forms.Label
+    Friend WithEvents txtAn1Partido As System.Windows.Forms.TextBox
+    Friend WithEvents dtpAn1Fecha As System.Windows.Forms.DateTimePicker
+    Friend WithEvents lblAn1Referencias As System.Windows.Forms.Label
+    Friend WithEvents lblAn1EntreCalle2 As System.Windows.Forms.Label
+    Friend WithEvents txtAn1Referencias As System.Windows.Forms.TextBox
+    Friend WithEvents txtAn1EntreCalle2 As System.Windows.Forms.TextBox
+    Friend WithEvents lblAn1EntreCalle1 As System.Windows.Forms.Label
+    Friend WithEvents txtAn1EntreCalle1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtAn1Departamento As System.Windows.Forms.TextBox
+    Friend WithEvents txtAn1Piso As System.Windows.Forms.TextBox
+    Friend WithEvents txtAn1Altura As System.Windows.Forms.TextBox
+    Friend WithEvents txtAn1Calle As System.Windows.Forms.TextBox
+    Friend WithEvents lblAn1LocalidadId As System.Windows.Forms.Label
+    Friend WithEvents lblAn1Domicilio As System.Windows.Forms.Label
+    Friend WithEvents txtAn1LocalidadDes As System.Windows.Forms.TextBox
+    Friend WithEvents txtAn1LocalidadId As System.Windows.Forms.TextBox
+End Class

@@ -1,0 +1,123 @@
+﻿Module modGPSFunciones
+    Public Sub gpsShowChildFormFloat(ByVal pForm As WeifenLuo.WinFormsUI.Docking.DockContent, ByVal pDockPanel As WeifenLuo.WinFormsUI.Docking.DockPanel, Optional ByVal pName As String = "", Optional ByVal pLeft As Integer = 0, Optional ByVal pTop As Integer = 0)
+
+        Try
+            Dim Control As Control
+
+            Dim vPane As WeifenLuo.WinFormsUI.Docking.DockPane
+            Dim vBounds As System.Drawing.Rectangle
+            Dim vWinFloat As WeifenLuo.WinFormsUI.Docking.FloatWindow
+
+            '----> Nombre del Formulario
+            If pName <> "" Then pForm.AccessibleName = pName
+            '----> Bounds
+            If pLeft = 0 Then
+                vBounds.X = ((pDockPanel.Width - pForm.Width) / 2) + 100
+            Else
+                vBounds.X = pLeft
+            End If
+            If pTop = 0 Then
+                vBounds.Y = (pDockPanel.Height - pForm.Height) / 2
+            Else
+                vBounds.Y = pTop
+            End If
+            vBounds.Width = pForm.Width
+            vBounds.Height = pForm.Height
+            '----> Handler
+            pForm.DockHandler.DockPanel = pDockPanel
+            '----> Armo Pane y WinFloat
+            vPane = pDockPanel.DockPaneFactory.CreateDockPane(pForm, WeifenLuo.WinFormsUI.Docking.DockState.Float, True)
+            vWinFloat = pDockPanel.FloatWindowFactory.CreateFloatWindow(pDockPanel, vPane, vBounds)
+
+            With pForm
+                '.BackColor = Color.Beige
+                .KeyPreview = True
+                '----> Colores de Labels
+                For Each Control In .Controls
+                    Select Case Control.GetType.Name
+                        Case "Label"
+                            'Control.ForeColor = Color.SteelBlue
+                            Control.Font = New Font("Tahoma", 11, FontStyle.Regular, GraphicsUnit.Pixel, 1)
+                        Case Else
+                            If Not Control.Controls Is Nothing Then
+                                SetFormatControl(Control)
+                            Else
+                                Control.Font = New Font("Tahoma", 11, FontStyle.Regular, GraphicsUnit.Pixel, 1)
+                            End If
+                    End Select
+                Next
+            End With
+
+            pForm.IsHidden = False
+
+        Catch ex As Exception
+            HandleError("modFunciones", "ShowChildFormFloat", ex)
+        End Try
+
+    End Sub
+    Public Sub SetFormatControl(ByVal pGrp As Control)
+        Dim Control As Control
+        With pGrp
+            '.FlatStyle = FlatStyle.Popup
+            .Font = New Font("Tahoma", 11, FontStyle.Bold, GraphicsUnit.Pixel, 1)
+            '.ForeColor = Color.SteelBlue
+            For Each Control In .Controls
+                Select Case Control.GetType.Name
+                    Case "Label"
+                        'Control.ForeColor = Color.SteelBlue
+                        Control.Font = New Font("Tahoma", 11, FontStyle.Regular, GraphicsUnit.Pixel, 1)
+                    Case Else
+                        If Not Control.Controls Is Nothing Then
+                            'SetFormatControl(Control)
+                        Else
+                            'Control.Font = New Font("Tahoma", 11, FontStyle.Regular, GraphicsUnit.Pixel, 1)
+                        End If
+                        Control.Font = New Font("Tahoma", 11, FontStyle.Regular, GraphicsUnit.Pixel, 1)
+                End Select
+            Next
+        End With
+    End Sub
+    Public Sub gpsSetFormatGrid(ByVal pGrid As DataGridView, ByVal pCol As Integer, Optional ByVal pAltClr As Boolean = True, Optional ByVal pByRow As Boolean = True)
+        With pGrid
+            '----> Comportamiento
+            .RowCount = 1
+            .ColumnCount = pCol
+            .RowHeadersVisible = False
+            .AllowUserToAddRows = False
+            .AllowUserToDeleteRows = False
+            .AllowUserToResizeColumns = False
+            .AllowUserToResizeRows = False
+            .ScrollBars = ScrollBars.Vertical
+            .MultiSelect = False
+            .ReadOnly = True
+            '----> Formato General
+            .Font = New Font("Tahoma", 11, FontStyle.Regular, GraphicsUnit.Pixel, 1)
+            .ForeColor = Color.Black
+            .BackgroundColor = Color.LightSlateGray
+            If pAltClr Then
+
+                .RowsDefaultCellStyle.BackColor = Color.Azure
+                .AlternatingRowsDefaultCellStyle.BackColor = Color.Beige
+                '.RowsDefaultCellStyle.SelectionBackColor = Color.CadetBlue
+                .RowsDefaultCellStyle.SelectionBackColor = Color.Azure
+                .RowsDefaultCellStyle.SelectionForeColor = Color.Black
+                .RowHeadersDefaultCellStyle.BackColor = Color.Chocolate
+            Else
+                .RowsDefaultCellStyle.BackColor = Color.Beige
+                .RowsDefaultCellStyle.SelectionBackColor = Color.AliceBlue
+                .RowsDefaultCellStyle.SelectionForeColor = Color.Black
+            End If
+            If pByRow Then
+                .SelectionMode = DataGridViewSelectionMode.FullRowSelect
+            Else
+                .SelectionMode = DataGridViewSelectionMode.CellSelect
+            End If
+            '----> Formato de Headers
+            With .ColumnHeadersDefaultCellStyle
+                .Alignment = DataGridViewContentAlignment.MiddleCenter
+                .BackColor = Color.Beige
+                .Font = New Font("Tahoma", 11, FontStyle.Bold, GraphicsUnit.Pixel, 1)
+            End With
+        End With
+    End Sub
+End Module

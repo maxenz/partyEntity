@@ -1,0 +1,72 @@
+Imports InterSystems.Data.CacheClient
+Imports InterSystems.Data.CacheTypes
+Imports ShamanClases
+Namespace sysEmergencyC
+    Public Class MovilesActuales
+        Inherits ShamanClases.EmergencyC.MovilesActuales
+        Public Sub New(Optional ByVal pCnnName As String = "")
+            MyBase.New(pCnnName)
+        End Sub
+        Public Sub RefreshPopup(ByVal pGrid As DataGridView)
+            Try
+                Dim vIdx As Integer, vMov() As String
+
+                '----> Parametros ByVal
+                Dim mtdSignature As CacheMethodSignature = makeCacheMethodSignature(cnnsCache(Me.cnnStatic), GetType(InterSystems.Data.CacheTypes.CacheArrayOfStrings), _
+                shamanConexion.PID, shamanConexion.PerfilId.ID, 1, "LOC", 9999, 0)
+
+                '----> Debug
+                Debug.Print(getCacheDebug(Me.CacheClassController, "GetOperativos", mtdSignature))
+
+                '----> Run Method
+                CacheObject.RunClassMethodS(cnnsCache(Me.cnnStatic), Me.CacheClassController, "GetOperativos", mtdSignature)
+                Dim vDat As CacheArrayOfStrings = CType(CType(mtdSignature.ReturnValue, CacheObjReturnValue).Value, CacheArrayOfStrings)
+
+                If vDat.Count > 0 Then
+                    For vIdx = 0 To vDat.Count - 1
+                        vMov = Split(vDat.Item(vIdx + 1), vSeparator)
+
+                        With pGrid
+
+                            If vIdx < .Rows.Count Then
+                                .Rows(vIdx).Cells(0).Value = vMov(0)
+                                .Rows(vIdx).Cells(1).Value = vMov(2)
+                                .Rows(vIdx).Cells(2).Value = vMov(3)
+                            Else
+                                .Rows.Add(vMov(0), vMov(2), vMov(3))
+                            End If
+
+                            '-----> Color Móvil
+                            If vMov(1) <> "" Then
+                                .Rows(vIdx).Cells(0).Style.BackColor = System.Drawing.ColorTranslator.FromOle(Val(vMov(1)))
+                            Else
+                                .Rows(vIdx).Cells(0).Style.BackColor = .RowsDefaultCellStyle.BackColor
+                            End If
+                            '-----> Estado
+                            If vMov(2) = "Bas" Or vMov(2) = "Lib" Or vMov(2) = "Reg" Then
+                                .Rows(vIdx).Cells(1).Style.ForeColor = Color.Green
+                                .Rows(vIdx).Cells(1).Style.Font = New Font(pGrid.Font.Name, pGrid.Font.Size, FontStyle.Bold, pGrid.Font.Unit)
+                            ElseIf vMov(2) = "Ate" Or vMov(2) = "Sol" Then
+                                .Rows(vIdx).Cells(1).Style.ForeColor = Color.Red
+                                .Rows(vIdx).Cells(1).Style.Font = New Font(pGrid.Font.Name, pGrid.Font.Size, FontStyle.Regular, pGrid.Font.Unit)
+                            Else
+                                .Rows(vIdx).Cells(1).Style.ForeColor = .RowsDefaultCellStyle.ForeColor
+                                .Rows(vIdx).Cells(1).Style.Font = New Font(pGrid.Font.Name, pGrid.Font.Size, FontStyle.Regular, pGrid.Font.Unit)
+                            End If
+
+                        End With
+
+                    Next vIdx
+                Else
+                    pGrid.RowCount = 0
+                End If
+
+            Catch ex As System.Exception
+
+                HandleError(Me.CacheClassController, "RefreshPopup", ex)
+
+            End Try
+
+        End Sub
+    End Class
+End Namespace

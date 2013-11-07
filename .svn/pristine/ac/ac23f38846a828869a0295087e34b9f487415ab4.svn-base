@@ -1,0 +1,164 @@
+﻿Imports InterSystems.Data.CacheClient
+Imports InterSystems.Data.CacheTypes
+Imports ShamanClases
+Imports DevExpress.XtraPivotGrid
+Imports DevExpress.XtraCharts
+Namespace sysPanelC
+    Public Class Tableros
+        Inherits ShamanClases.PanelC.Tableros
+        Private Const myClassName = "PanelC.Tableros"
+        Public Sub New(Optional ByVal pCnnName As String = "")
+            MyBase.New(pCnnName)
+        End Sub
+        
+        Public Sub BuildEntidadesPrestacion(ByVal pDes As Date, ByVal pHas As Date, ByVal pGrid As PivotGridControl, ByVal pGrf As ChartControl, Optional ByVal pDesCmp As Date = NullDateTime, Optional ByVal pHasCmp As Date = NullDateTime, Optional ByVal pCmpCli As Decimal = 0, Optional ByVal pPreVta As Integer = 0, Optional ByVal pCli As Decimal = 0)
+            Try
+                '-----> Cache
+                Dim vDat As CacheArrayOfStrings
+                Dim vRow As Integer, vDatRow() As String
+                '-----> DataView
+                Dim dwTabla As DataView
+                Dim dtTabla As New DataTable
+                Dim dtColumna As DataColumn
+                Dim dtKey(5) As DataColumn
+                Dim dtRegistro As DataRow
+
+
+                dtColumna = New DataColumn("Periodo", GetType(String))
+                dtTabla.Columns.Add(dtColumna)
+                dtKey(0) = dtColumna
+
+                dtColumna = New DataColumn("Cliente", GetType(String))
+                dtTabla.Columns.Add(dtColumna)
+                dtKey(1) = dtColumna
+
+                dtColumna = New DataColumn("NombreArea", GetType(String))
+                dtTabla.Columns.Add(dtColumna)
+                dtKey(2) = dtColumna
+
+                dtColumna = New DataColumn("NombreColumna", GetType(String))
+                dtTabla.Columns.Add(dtColumna)
+                dtKey(3) = dtColumna
+
+                dtColumna = New DataColumn("TipoValor", GetType(String))
+                dtTabla.Columns.Add(dtColumna)
+                dtKey(4) = dtColumna
+
+                dtTabla.PrimaryKey = dtKey
+
+                dtColumna = New DataColumn("Valor", GetType(Double))
+                dtTabla.Columns.Add(dtColumna)
+
+                '----> Datos...
+                Dim mtdSignature = makeCacheMethodSignature(cnnsCache(Me.cnnStatic), GetType(InterSystems.Data.CacheTypes.CacheArrayOfStrings), shamanConexion.PID, DtoN(pDes), DtoN(pHas), DtoN(pDesCmp), DtoN(pHasCmp), pCmpCli, pPreVta, pCli)
+                Debug.Print(getCacheDebug(Me.CacheClassController, "tabEntidadesPrestacion", mtdSignature))
+                CacheObject.RunClassMethodS(cnnsCache(Me.cnnStatic), Me.CacheClassController, "tabEntidadesPrestacion", mtdSignature)
+                vDat = CType(CType(mtdSignature.ReturnValue, CacheObjReturnValue).Value, CacheArrayOfStrings)
+
+                For vRow = 1 To vDat.Count
+
+                    vDatRow = Split(vDat.Item(vRow), vSeparator)
+
+                    dtRegistro = dtTabla.NewRow
+
+                    dtRegistro(0) = "Período " & vDatRow(0)
+                    dtRegistro(1) = vDatRow(1)
+                    dtRegistro(2) = Val(vDatRow(2)) & ") " & getNombreArea(Val(vDatRow(2)))
+                    dtRegistro(3) = vDatRow(3).Substring(0, 4) & vDatRow(3).Substring(4, vDatRow(3).Length - 4).ToLower
+                    dtRegistro(4) = getTipoValor(vDatRow(4))
+                    dtRegistro(5) = CacheToDouble(vDatRow(5))
+
+                    dtTabla.Rows.Add(dtRegistro)
+
+                Next vRow
+
+                '-----> Paso a DataView
+                dwTabla = New DataView(dtTabla)
+
+                pGrid.Fields.Clear()
+                pGrid.Groups.Clear()
+
+                pGrid.DataSource = dwTabla
+
+                For Each dtColumna In dtTabla.Columns
+
+                    If dtColumna.ColumnName = "Cliente" Or dtColumna.ColumnName = "Periodo" Then
+                        Dim fieldPivot As PivotGridField = New PivotGridField(dtColumna.ColumnName, PivotArea.RowArea)
+
+                        fieldPivot.CustomTotals.Add(DevExpress.Data.PivotGrid.PivotSummaryType.Average)
+                        fieldPivot.CustomTotals.Add(DevExpress.Data.PivotGrid.PivotSummaryType.Sum)
+                        'fieldPivot.CustomTotals.Add(DevExpress.Data.PivotGrid.PivotSummaryType.Custom)
+
+                        fieldPivot.TotalsVisibility = PivotTotalsVisibility.CustomTotals
+
+                        pGrid.Fields.Add(fieldPivot)
+
+                    ElseIf dtColumna.ColumnName = "NombreArea" Or dtColumna.ColumnName = "NombreColumna" Or dtColumna.ColumnName = "TipoValor" Then
+
+                        Dim fieldPivot As PivotGridField = New PivotGridField(dtColumna.ColumnName, PivotArea.ColumnArea)
+
+                        If dtColumna.ColumnName = "NombreArea" Then
+                            fieldPivot.Caption = "Area"
+                        ElseIf dtColumna.ColumnName = "NombreColumna" Then
+                            fieldPivot.Caption = "Columna"
+                        End If
+
+                        fieldPivot.SortMode = PivotSortMode.None
+                        fieldPivot.SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Sum
+
+                        pGrid.Fields.Add(fieldPivot)
+
+                    Else
+
+                        Dim fieldPivot As PivotGridField = New PivotGridField(dtColumna.ColumnName, PivotArea.DataArea)
+                        fieldPivot.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                        fieldPivot.CellFormat.FormatString = "n2"
+                        fieldPivot.Width = 60
+                        fieldPivot.SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Average
+
+                        pGrid.Fields.Add(fieldPivot)
+
+                    End If
+
+                Next
+
+                pGrid.OptionsDataField.AreaIndex = 0
+                pGrid.OptionsView.ShowColumnGrandTotals = False
+                pGrid.OptionsView.ShowColumnTotals = False
+
+                pGrid.LookAndFeel.UseWindowsXPTheme = False
+                pGrid.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Skin
+                pGrid.LookAndFeel.SkinName = "Money Twins"
+
+
+
+            Catch ex As Exception
+
+                HandleError(Me.CacheClassController, "BuildEntidadesPrestacion", ex)
+
+            End Try
+        End Sub
+        Private Function getNombreArea(ByVal pVal As Integer) As String
+            Select Case pVal
+                Case 1 : getNombreArea = "Incidentes"
+                Case 2 : getNombreArea = "Traslados"
+                Case 3 : getNombreArea = "Facturación y Débitos"
+                Case 4 : getNombreArea = "Costos"
+                Case 5 : getNombreArea = "Resultado"
+                Case Else : getNombreArea = ""
+            End Select
+        End Function
+        Private Function getTipoValor(ByVal pVal As Integer) As String
+            Select Case pVal
+                Case 0 : getTipoValor = "Cantidad"
+                Case 1 : getTipoValor = "Importe"
+                Case 2 : getTipoValor = "Resultado"
+                Case Else : getTipoValor = ""
+            End Select
+        End Function
+
+
+    End Class
+End Namespace
+
+

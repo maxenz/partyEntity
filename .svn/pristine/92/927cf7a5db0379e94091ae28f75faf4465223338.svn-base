@@ -1,0 +1,148 @@
+﻿Imports WeifenLuo.WinFormsUI.Docking
+Imports ZedGraph
+Imports ShamanClases
+Public Class frmIncidentesEstadisticas
+
+    Private flgLoading As Boolean = True
+
+    Private Sub frmIncidentesEstadisticas_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        Me.FormatScreen()
+        flgLoading = False
+        Me.RefreshXtraGraphs()
+
+    End Sub
+
+    Private Sub FormatScreen()
+        Dim objGrados As New ShamanClases.EmergencyC.GradosOperativos
+        Dim objZonas As New ShamanClases.EmergencyC.ZonasGeograficas
+
+        objGrados.FillToolStripComboBox(Me.cmbGrados)
+        objZonas.FillToolStripComboBox(Me.cmbZonas)
+
+        objGrados = Nothing
+        objZonas = Nothing
+
+    End Sub
+
+    
+    Private Sub RefreshXtraGraphs()
+
+        If Not flgLoading Then
+
+            Dim objIndicadores As New sysEmergencyC.IndicadoresOperativos
+            Dim vTpos() As String = Split(objIndicadores.GetTiemposOperativos(getItemData(Me.cmbGrados), getItemData(Me.cmbZonas)), vSeparator)
+
+            Dim vData As New DataTable
+            Dim vDataColumn As DataColumn
+            Dim vTblRow As DataRow
+
+            vDataColumn = New DataColumn("Tiempo", GetType(String))
+            vData.Columns.Add(vDataColumn)
+            vDataColumn = New DataColumn("Valor", GetType(Double))
+            vData.Columns.Add(vDataColumn)
+
+            vTblRow = vData.NewRow
+            vTblRow.Item(0) = "Despacho"
+            vTblRow.Item(1) = CacheToDouble(vTpos(0).ToString)
+            vData.Rows.Add(vTblRow)
+            vTblRow = vData.NewRow
+            vTblRow.Item(0) = "Salida"
+            vTblRow.Item(1) = CacheToDouble(vTpos(1).ToString)
+            vData.Rows.Add(vTblRow)
+            vTblRow = vData.NewRow
+            vTblRow.Item(0) = "Llegada"
+            vTblRow.Item(1) = CacheToDouble(vTpos(2).ToString)
+            vData.Rows.Add(vTblRow)
+            vTblRow = vData.NewRow
+            vTblRow.Item(0) = "Atencion"
+            vTblRow.Item(1) = CacheToDouble(vTpos(3).ToString)
+            vData.Rows.Add(vTblRow)
+
+            Me.ChartControl1.Series.Clear()
+            Dim Series As New DevExpress.XtraCharts.Series("Valores", DevExpress.XtraCharts.ViewType.Bar)
+            Me.ChartControl1.Series.Add(Series)
+
+            Series.DataSource = vData
+            Series.ArgumentDataMember = "Tiempo"
+            Series.ValueScaleType = DevExpress.XtraCharts.ScaleType.Numerical
+            Series.ValueDataMembers.AddRange(New String() {"Valor"})
+
+            objIndicadores = Nothing
+        End If
+
+    End Sub
+    
+
+    Private Sub cmbCombos_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cmbGrados.SelectedIndexChanged, cmbZonas.SelectedIndexChanged
+        Me.RefreshXtraGraphs()
+    End Sub
+
+
+    'Private Sub CreateGraph()
+    '    Dim area As RectangleF
+    '    Dim x As Double
+    '    Dim y As Double
+
+    '    Dim puntos = New PointPairList()
+
+    '    'Limpiar gráfica
+    '    area = Me.zedGrafico.GraphPane.Rect
+    '    Me.zedGrafico.GraphPane = New GraphPane(area, "Mi gráfica", "x", "y")
+
+    '    'Informar los puntos
+    '    For x = 1 To 24
+    '        y = x + 10
+    '        puntos.Add(x, y)
+    '    Next
+
+    '    'Crear y añadir la curva
+    '    Dim curva As LineItem = Me.zedGrafico.GraphPane.AddCurve("Gráfica", puntos, Color.Blue, SymbolType.None)
+    '    curva.Line.Width = 3.0
+
+    '    'Refrescar la gráfica
+    '    Me.zedGrafico.GraphPane.Fill = New Fill(Color.White, Color.FromArgb(220, 220, 255), 45.0F)
+    '    Me.zedGrafico.AxisChange()
+    '    Me.zedGrafico.Refresh()
+
+    'End Sub
+    'Private Sub RefreshZedGraphs()
+
+    '    If Not flgLoading Then
+
+    '        Dim objIndicadores As New clsEmergency.clsIndicadoresOperativos
+    '        Dim vTpos() As String = Split(objIndicadores.GetTiemposOperativos(getItemData(Me.cmbGrados), getItemData(Me.cmbZonas)), vSeparator)
+    '        Dim vIdx As Integer
+    '        Dim area As RectangleF
+    '        Dim puntos = New PointPairList()
+
+    '        area = Me.zedGrafico.GraphPane.Rect
+    '        Me.zedGrafico.GraphPane = New GraphPane(area, "Tiempos Operativos", "x", "y")
+    '        Me.zedGrafico.GraphPane.XAxis.Title.Text = "Tiempos de Estudios"
+    '        Me.zedGrafico.GraphPane.YAxis.Title.Text = "Minutos"
+
+    '        For vIdx = 0 To UBound(vTpos)
+    '            puntos.Add(vIdx, CacheToDouble(vTpos(vIdx)))
+
+    '            Select Case vIdx
+    '                Case 0
+    '                    Dim barra As BarItem = Me.zedGrafico.GraphPane.AddBar("Despacho", puntos, Color.AliceBlue)
+    '                Case 1
+    '                    Dim barra As BarItem = Me.zedGrafico.GraphPane.AddBar("Desplazamiento", puntos, Color.AntiqueWhite)
+    '                Case 2
+    '                    Dim barra As BarItem = Me.zedGrafico.GraphPane.AddBar("Atención", puntos, Color.Aqua)
+    '                Case 3
+    '                    Dim barra As BarItem = Me.zedGrafico.GraphPane.AddBar("Llegada", puntos, Color.Aquamarine)
+    '            End Select
+    '        Next
+
+    '        'Refrescar la gráfica
+    '        Me.zedGrafico.GraphPane.Fill = New Fill(Color.White, Color.FromArgb(220, 220, 255), 45.0F)
+    '        Me.zedGrafico.AxisChange()
+    '        Me.zedGrafico.Refresh()
+
+    '        objIndicadores = Nothing
+    '    End If
+
+    'End Sub
+End Class

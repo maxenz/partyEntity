@@ -1,0 +1,13 @@
+﻿Imports WeifenLuo.WinFormsUI.Docking
+Imports ShamanClases
+Public Class frmPoligonos
+    Inherits DockContent
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Dim objZonas As New CompuMapC.Zonificaciones
+
+        MsgBox(objZonas.GetPoligonosInPoint(-34.724789, -58.238789, "COB"))
+
+
+    End Sub
+End Class

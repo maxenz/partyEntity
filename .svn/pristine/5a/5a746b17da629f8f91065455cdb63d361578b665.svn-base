@@ -1,0 +1,196 @@
+Imports InterSystems.Data.CacheClient
+Imports InterSystems.Data.CacheTypes
+Imports ShamanClases
+Namespace sysCompuMapC
+    Public Class Predefinidos
+        Inherits ShamanClases.typAll
+        Public Sub New(Optional ByVal pCnnName As String = "")
+            MyBase.New(pCnnName)
+        End Sub
+        Public Sub getRamaFiltro(ByVal pNro As Integer, ByVal pTip As Integer, ByVal pRam As Integer, ByVal pTrw As TreeView, Optional ByVal pSel As Boolean = False, Optional ByVal pPrf As Integer = 0)
+            Try
+
+                Dim vDat As CacheArrayOfStrings
+
+                Dim vMapObject() As String, vRow As Integer
+                Dim vKey As String = pTip & vSeparator & pRam
+
+                Dim mtdSignature As CacheMethodSignature = makeCacheMethodSignature(cnnsCache(Me.cnnStatic), GetType(InterSystems.Data.CacheTypes.CacheArrayOfStrings), shamanConexion.PID, shamanConexion.UsuarioId.UsuarioId, pNro, pTip, pRam, SetBoolToCheck(pSel), pPrf)
+                CacheObject.RunClassMethodS(cnnsCache(Me.cnnStatic), "CompuMapC.MapaSesion", "GetRamaFiltro", mtdSignature)
+                vDat = CType(CType(mtdSignature.ReturnValue, CacheObjReturnValue).Value, CacheArrayOfStrings)
+
+                'Debug.Print(getCacheDebug("CompuMapC.MapaSesion", "GetRamaFiltro", mtdSignature))
+
+                If vDat.Count > 0 Then
+
+                    '-----> Agrego Padre
+
+                    pTrw.Nodes(pTrw.Nodes.IndexOfKey(pTip)).Nodes.Add(nodoArbol(vKey, getNombreRama(pRam), pTrw.Nodes(pTrw.Nodes.IndexOfKey(pTip)).ImageKey))
+
+                    For vRow = 1 To vDat.Count
+
+                        vMapObject = Split(vDat.Item(vRow), vSeparator)
+
+                        'pTrw.Nodes(pTrw.Nodes.IndexOfKey(pTip)).Nodes(pTrw.Nodes(pTrw.Nodes.IndexOfKey(pTip)).Nodes.IndexOfKey(vKey)).Nodes.Add(nodoArbol(vKey & vSeparator & vMapObject(0), vMapObject(1).ToUpper, pTrw.Nodes(pTrw.Nodes.IndexOfKey(pTip)).ImageKey, CBool(vMapObject(2))))
+
+                    Next vRow
+
+                End If
+
+            Catch ex As Exception
+                HandleError("clsPredefinidos", "getRamaFiltro", ex)
+            End Try
+
+        End Sub
+        Public Sub getPredefinidos(ByVal pNro As Integer, ByVal pTip As Integer, ByVal pTrw As TreeView, ByVal pTrwErr As TreeView, ByVal pBtnErr As ToolStripButton)
+            Try
+
+                Dim vDat As CacheArrayOfStrings
+
+                Dim vMapObject() As String, vRow As Integer
+                Dim vKey As String = pTip & vSeparator & ramMapaObject
+
+                Dim mtdSignature As CacheMethodSignature = makeCacheMethodSignature(cnnsCache(Me.cnnStatic), GetType(InterSystems.Data.CacheTypes.CacheArrayOfStrings), shamanConexion.PID, pNro, pTip)
+                CacheObject.RunClassMethodS(cnnsCache(Me.cnnStatic), "CompuMapC.MapaSesion", "GetPredefinidos", mtdSignature)
+                vDat = CType(CType(mtdSignature.ReturnValue, CacheObjReturnValue).Value, CacheArrayOfStrings)
+
+                pTrwErr.Nodes.Clear()
+
+                Debug.Print(getCacheDebug("CompuMapC.MapaSesion", "GetPredefinidos", mtdSignature))
+
+                If vDat.Count > 0 Then
+
+                    '-----> Agrego Padre
+                    pTrw.Nodes(pTrw.Nodes.IndexOfKey(pTip)).Nodes.Add(nodoArbol(vKey, "Items", pTrw.Nodes(pTrw.Nodes.IndexOfKey(pTip)).ImageKey))
+
+                    For vRow = 1 To vDat.Count
+
+                        vMapObject = Split(vDat.Item(vRow), vSeparator)
+
+                        If Not CBool(vMapObject(3)) Then
+
+                            If pTip <> refIncidente Then
+                                'pTrw.Nodes(pTrw.Nodes.IndexOfKey(pTip)).Nodes(pTrw.Nodes(pTrw.Nodes.IndexOfKey(pTip)).Nodes.IndexOfKey(vKey)).Nodes.Add(nodoArbol(vKey & vSeparator & vMapObject(0), vMapObject(1).ToUpper, pTrw.Nodes(pTrw.Nodes.IndexOfKey(pTip)).ImageKey, CBool(vMapObject(2))))
+                            Else
+                                'pTrw.Nodes(pTrw.Nodes.IndexOfKey(pTip)).Nodes(pTrw.Nodes(pTrw.Nodes.IndexOfKey(pTip)).Nodes.IndexOfKey(vKey)).Nodes.Add(nodoArbol(vKey & vSeparator & vMapObject(0), vMapObject(1).ToUpper, getImagenIncidente(vMapObject(4)), CBool(vMapObject(2))))
+                            End If
+
+                        Else
+                            '--------> A errores
+                            If pTip <> refIncidente Then
+                                pTrwErr.Nodes.Add(nodoArbol(vMapObject(0), vMapObject(1), Me.getIcono(pTip)))
+                            Else
+                                pTrwErr.Nodes.Add(nodoArbol(vMapObject(0), vMapObject(1) & " - " & vMapObject(5), Me.getImagenIncidente(vMapObject(4))))
+                            End If
+
+                        End If
+
+                    Next vRow
+
+                    If pTrwErr.Nodes.Count > 0 Then
+                        pBtnErr.Text = Me.getLabelRef(pTip) & " (" & pTrwErr.Nodes.Count & ")"
+                    Else
+                        pBtnErr.Text = Me.getLabelRef(pTip)
+                    End If
+
+                End If
+
+            Catch ex As Exception
+                HandleError("clsPredefinidos", "getRamaFiltro", ex)
+            End Try
+
+        End Sub
+        Public Sub setRamaFiltro(ByVal pNro As Integer, ByVal pTip As Integer, ByVal pRam As Integer, ByVal pObj As String, Optional ByVal pChecked As Boolean = True)
+            Try
+
+                Dim mtdSignature As CacheMethodSignature = makeCacheMethodSignature(cnnsCache(Me.cnnStatic), GetType(InterSystems.Data.CacheTypes.CacheBooleanReturnValue), shamanConexion.PID, pNro, pTip, pRam, pObj, SetBoolToCheck(pChecked))
+                CacheObject.RunClassMethodS(cnnsCache(Me.cnnStatic), "CompuMapC.MapaSesion", "SeleccionarRama", mtdSignature)
+
+                'Debug.Print(getCacheDebug("CompuMapC.MapaSesion", "SeleccionarRama", mtdSignature))
+
+            Catch ex As Exception
+                HandleError("clsPredefinidos", "setRamaFiltro", ex)
+            End Try
+
+        End Sub
+        Public Function setMapaObject(ByVal pApl As String, ByVal pNro As Integer, ByVal pTip As Integer, ByVal pId As String, ByVal pDes As String, Optional ByVal pShwErr As Boolean = False) As sysCompuMapC.MapaObjects
+
+            Dim objConversor As New sysCompuMapC.Conversores
+            Dim mtdSignature As New CacheMethodSignature
+
+            Select Case pTip
+                Case refMovil
+                    mtdSignature = makeCacheMethodSignature(cnnsCache(Me.cnnStatic), GetType(InterSystems.Data.CacheTypes.CacheStringReturnValue), pId)
+                    CacheObject.RunClassMethodS(cnnsCache(Me.cnnStatic), "CompuMapC.MapaSesion", "GetEstadoMovil", mtdSignature)
+                    'Debug.Print(getCacheDebug("CompuMapC.MapaSesion", "GetEstadoMovil", mtdSignature))
+                Case refIncidente
+                    mtdSignature = makeCacheMethodSignature(cnnsCache(Me.cnnStatic), GetType(InterSystems.Data.CacheTypes.CacheStringReturnValue), pId)
+                    CacheObject.RunClassMethodS(cnnsCache(Me.cnnStatic), "CompuMapC.MapaSesion", "GetEstadoIncidente", mtdSignature)
+                    'Debug.Print(getCacheDebug("CompuMapC.MapaSesion", "GetEstadoIncidente", mtdSignature))
+                Case Else
+                    mtdSignature = makeCacheMethodSignature(cnnsCache(Me.cnnStatic), GetType(InterSystems.Data.CacheTypes.CacheStringReturnValue), pApl, pTip, pId)
+                    CacheObject.RunClassMethodS(cnnsCache(Me.cnnStatic), "CompuMapC.MapaSesion", "GetEstadoPredefinido", mtdSignature)
+                    'Debug.Print(getCacheDebug("CompuMapC.MapaSesion", "GetEstadoPredefinido", mtdSignature))
+            End Select
+
+            Dim vMapItm As String() = Split(CType(mtdSignature.ReturnValue, CacheStringReturnValue).Value, vSeparator)
+
+            If UBound(vMapItm) = 2 Then
+                setMapaObject = objConversor.MakeFromCIconLatLon(pNro, pTip, pId, pDes, vMapItm(0), "", CacheToSingle(vMapItm(1)), CacheToSingle(vMapItm(2)), pShwErr)
+            Else
+                setMapaObject = Nothing
+            End If
+
+            objConversor = Nothing
+
+        End Function
+        Private Function getIcono(ByVal pTip As Integer) As String
+
+            Select Case pTip
+                Case refBaseOperativa : getIcono = "archivo"
+                Case refSanatorio : getIcono = "archivo"
+                Case refPrestador : getIcono = "archivo"
+                Case refCentroAtencion : getIcono = "archivo"
+                Case refMovil : getIcono = "movil"
+                Case Else : getIcono = ""
+            End Select
+
+        End Function
+
+        Private Function getLabelRef(ByVal pTip As Integer) As String
+
+            Select Case pTip
+                Case refBaseOperativa : getLabelRef = "Bases Operativas"
+                Case refSanatorio : getLabelRef = "Nosocomios"
+                Case refPrestador : getLabelRef = "Prestadores"
+                Case refCentroAtencion : getLabelRef = "Centros de Atención"
+                Case refMovil : getLabelRef = "Móviles"
+                Case refIncidente : getLabelRef = "Incidentes"
+                Case Else : getLabelRef = ""
+            End Select
+
+        End Function
+
+        Private Function getNombreRama(ByVal pRam As Integer) As String
+
+            Select Case pRam
+                Case ramZonaGeografica : getNombreRama = "Zonas Geográficas"
+                Case ramPartido : getNombreRama = "Partidos"
+                Case ramOtros : getNombreRama = "Otros"
+                Case ramPerfil : getNombreRama = "Perfiles"
+                Case Else : getNombreRama = ""
+            End Select
+
+        End Function
+        Private Function getImagenIncidente(ByVal pGdo As String) As String
+
+            Select Case pGdo
+                Case "1" : getImagenIncidente = "rojo"
+                Case "2" : getImagenIncidente = "amarillo"
+                Case "3" : getImagenIncidente = "verde"
+                Case Else : getImagenIncidente = "azul"
+            End Select
+
+        End Function
+    End Class
+End Namespace

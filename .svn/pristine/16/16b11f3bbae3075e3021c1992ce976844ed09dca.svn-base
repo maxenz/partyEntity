@@ -1,0 +1,245 @@
+﻿Imports InterSystems.Data.CacheClient
+Imports InterSystems.Data.CacheTypes
+Imports ShamanClases
+Namespace sysEmergencyC
+    Public Class Incidentes
+        Inherits ShamanClases.EmergencyC.Incidentes
+        Private Const myClassName = "EmergencyC.Incidentes"
+        Public Sub New(Optional ByVal pCnnName As String = "")
+            MyBase.New(pCnnName)
+        End Sub
+        Public Sub RefreshGrid(ByVal pScr As frmIncidentes)
+
+            Try
+
+                Dim vIdx As Integer, vInc() As String, vCnt As Integer
+                Dim vMov As String, vMovEst As String
+                Dim vRowGet As Integer, vPags As Integer, vPag As Integer
+
+                If pScr.grdIncidentes.Rows.Count > 0 Then
+                    vRowGet = ((pScr.grdIncidentes.Height - pScr.grdIncidentes.ColumnHeadersHeight) / pScr.grdIncidentes.Rows(0).Height) - 1
+                Else
+                    vRowGet = ((pScr.grdIncidentes.Height - pScr.grdIncidentes.ColumnHeadersHeight) / 22) - 1
+                End If
+                If vRowGet < 5 Then vRowGet = 25
+
+                vPag = pScr.scrIncidentes.Value
+
+                '----> Parametros ByVal
+                Dim mtdSignature As CacheMethodSignature = ShamanClases.makeCacheMethodSignature(cnnsCache(Me.cnnStatic), GetType(InterSystems.Data.CacheTypes.CacheArrayOfStrings), _
+                shamanConexion.PID, pScr.StylePending, 1, 0, vRowGet, pScr.scrIncidentes.Value, shamanConexion.PerfilId.ID, 1, pScr.txtGrado.Text.ToUpper, pScr.txtCliente.Text, pScr.txtNroIncidente.Text, pScr.txtDomicilio.Text, _
+                pScr.txtSintoma.Text, pScr.txtLocalidadId.Text, pScr.txtSexoEdad.Text, "", pScr.txtMovil.Text, pScr.txtLlamada.Text, pScr.txtDespacho.Text, _
+                pScr.txtSalida.Text, pScr.txtDesplazamiento.Text, pScr.txtAtencion.Text, pScr.txtPaciente.Text, pScr.txtReferencias.Text)
+
+                '----> Debug
+                Debug.Print(getCacheDebug(Me.CacheClassController, "GetOperativa", mtdSignature))
+
+                '----> Run Method
+                CacheObject.RunClassMethodS(cnnsCache(Me.cnnStatic), Me.CacheClassController, "GetOperativa", mtdSignature)
+                Dim vDat As CacheArrayOfStrings = CType(CType(mtdSignature.ReturnValue, CacheObjReturnValue).Value, CacheArrayOfStrings)
+
+                If vDat.Count > 0 Then
+
+                    vCnt = vDat.Item("Cantidad")
+
+                    If vDat.Count - 1 > 0 Then
+
+                        For vIdx = 0 To vDat.Count - 2
+                            vInc = Split(vDat.Item(vIdx + 1), vSeparator)
+
+                            With pScr.grdIncidentes
+
+                                vMov = Parcer(vInc(16), "|")
+                                vMovEst = Parcer(vInc(16), "|", 1)
+
+                                If vIdx < .Rows.Count Then
+                                    .Rows(vIdx).Cells(0).Value = vInc(0)
+                                    .Rows(vIdx).Cells(1).Value = ""
+                                    .Rows(vIdx).Cells(2).Value = vInc(2)
+                                    .Rows(vIdx).Cells(3).Value = vInc(4)
+                                    .Rows(vIdx).Cells(4).Value = vInc(6)
+                                    .Rows(vIdx).Cells(5).Value = ""
+                                    .Rows(vIdx).Cells(6).Value = vInc(9)
+                                    .Rows(vIdx).Cells(7).Value = vInc(10)
+                                    .Rows(vIdx).Cells(8).Value = vInc(12)
+                                    .Rows(vIdx).Cells(9).Value = vInc(14) & vInc(15)
+                                    .Rows(vIdx).Cells(10).Value = vMov
+                                    .Rows(vIdx).Cells(11).Value = ""
+                                    .Rows(vIdx).Cells(12).Value = vInc(19)
+                                    .Rows(vIdx).Cells(13).Value = vInc(21)
+                                    .Rows(vIdx).Cells(14).Value = vInc(23)
+                                    .Rows(vIdx).Cells(15).Value = vInc(25)
+                                    .Rows(vIdx).Cells(16).Value = vInc(27)
+                                    .Rows(vIdx).Cells(17).Value = vInc(32)
+                                    .Rows(vIdx).Cells(18).Value = vInc(33)
+                                Else
+                                    .Rows.Add(vInc(0), "", vInc(2), vInc(4), vInc(6), vInc(7), vInc(9), vInc(10), vInc(12), vInc(14) & vInc(15), vMov, "", vInc(19), vInc(21), vInc(23), vInc(25), vInc(27), vInc(32), vInc(33))
+                                End If
+
+                                '-----> Grado
+                                If vInc(1) <> "" Then
+                                    .Rows(vIdx).Cells(2).Style.BackColor = System.Drawing.ColorTranslator.FromOle(Val(vInc(1)))
+                                Else
+                                    .Rows(vIdx).Cells(2).Style.BackColor = .RowsDefaultCellStyle.BackColor
+                                End If
+                                '-----> Entidad
+                                If vInc(3) <> "" Then
+                                    .Rows(vIdx).Cells(3).Style.BackColor = System.Drawing.ColorTranslator.FromOle(Val(vInc(3)))
+                                Else
+                                    .Rows(vIdx).Cells(3).Style.BackColor = .RowsDefaultCellStyle.BackColor
+                                End If
+                                '-----> Tip Amarillo
+                                If vInc(7) <> "" Then
+                                    .Rows(vIdx).Cells(5).Style.BackColor = Color.YellowGreen
+                                    .Rows(vIdx).Cells(5).ToolTipText = vInc(7)
+                                Else
+                                    .Rows(vIdx).Cells(5).Style.BackColor = .RowsDefaultCellStyle.BackColor
+                                    .Rows(vIdx).Cells(5).ToolTipText = ""
+                                End If
+                                '-----> Tip Azul
+                                If vInc(8) <> "" Then
+                                    .Rows(vIdx).Cells(6).Style.BackColor = Color.LightBlue
+                                    .Rows(vIdx).Cells(6).Value = vInc(8) & " | " & .Rows(vIdx).Cells(6).Value
+                                Else
+                                    .Rows(vIdx).Cells(6).Style.BackColor = .RowsDefaultCellStyle.BackColor
+                                End If
+                                '-----> Localidad
+                                If vInc(11) <> "" Then
+                                    .Rows(vIdx).Cells(8).Style.BackColor = System.Drawing.ColorTranslator.FromOle(Val(vInc(11)))
+                                Else
+                                    .Rows(vIdx).Cells(8).Style.BackColor = .RowsDefaultCellStyle.BackColor
+                                End If
+                                '-----> Edad
+                                If vInc(13) <> "" Then
+                                    .Rows(vIdx).Cells(9).Style.ForeColor = System.Drawing.ColorTranslator.FromOle(Val(vInc(13)))
+                                    .Rows(vIdx).Cells(9).Style.Font = New Font("Arial", 11, FontStyle.Bold, GraphicsUnit.Pixel, 1)
+                                Else
+                                    .Rows(vIdx).Cells(9).Style.ForeColor = .RowsDefaultCellStyle.ForeColor
+                                    .Rows(vIdx).Cells(9).Style.Font = New Font("Arial", 11, FontStyle.Regular, GraphicsUnit.Pixel, 1)
+                                End If
+                                '-----> Móvil
+                                If vInc(28) = "" Then
+                                    Select Case vMovEst
+                                        Case "A" : .Rows(vIdx).Cells(10).Style.ForeColor = Color.Black
+                                        Case "P" : .Rows(vIdx).Cells(10).Style.ForeColor = Color.Blue
+                                        Case Else : .Rows(vIdx).Cells(10).Style.ForeColor = .RowsDefaultCellStyle.ForeColor
+                                    End Select
+                                Else
+                                    .Rows(vIdx).Cells(10).Style.ForeColor = System.Drawing.ColorTranslator.FromOle(Val(vInc(28)))
+                                End If
+                                '-----> Pager / vue
+                                If vInc(17) <> "|" And vInc(17) <> "" Then
+                                    .Rows(vIdx).Cells(11).Style.BackColor = System.Drawing.ColorTranslator.FromOle(Val(Parcer(vInc(17), "|", 1)))
+                                Else
+                                    .Rows(vIdx).Cells(11).Style.BackColor = .RowsDefaultCellStyle.BackColor
+                                End If
+                                .Rows(vIdx).Cells(11).ToolTipText = Parcer(vInc(11), "|")
+                                '-----> Despacho
+                                If vInc(20) <> "" Then
+                                    .Rows(vIdx).Cells(13).Style.BackColor = System.Drawing.ColorTranslator.FromOle(Val(vInc(20)))
+                                Else
+                                    .Rows(vIdx).Cells(13).Style.BackColor = .RowsDefaultCellStyle.BackColor
+                                End If
+                                '-----> Salida
+                                If vInc(22) <> "" Then
+                                    .Rows(vIdx).Cells(14).Style.BackColor = System.Drawing.ColorTranslator.FromOle(Val(vInc(22)))
+                                Else
+                                    .Rows(vIdx).Cells(14).Style.BackColor = .RowsDefaultCellStyle.BackColor
+                                End If
+                                '-----> Desplazamiento
+                                If vInc(24) <> "" Then
+                                    .Rows(vIdx).Cells(15).Style.BackColor = System.Drawing.ColorTranslator.FromOle(Val(vInc(24)))
+                                Else
+                                    .Rows(vIdx).Cells(15).Style.BackColor = .RowsDefaultCellStyle.BackColor
+                                End If
+                                '-----> Atencion
+                                If vInc(26) <> "" Then
+                                    .Rows(vIdx).Cells(16).Style.BackColor = System.Drawing.ColorTranslator.FromOle(Val(vInc(26)))
+                                Else
+                                    .Rows(vIdx).Cells(16).Style.BackColor = .RowsDefaultCellStyle.BackColor
+                                End If
+
+                            End With
+                        Next vIdx
+
+                        pScr.grdIncidentes.RowCount = vDat.Count - 1
+
+                    End If
+                Else
+
+                    pScr.grdIncidentes.RowCount = 0
+
+                End If
+
+                '-------> Paginas
+                If vCnt > 0 Then
+                    vPags = Int(vCnt / vRowGet)
+                Else
+                    vPags = 1
+                End If
+
+                If vPags < pScr.scrIncidentes.Value Then
+                    pScr.scrIncidentes.Value = pScr.scrIncidentes.Minimum
+                ElseIf vPag <> pScr.scrIncidentes.Value Then
+                    pScr.scrIncidentes.Value = vPag
+                End If
+                pScr.scrIncidentes.Maximum = vPags
+
+                '-------> Ajuste
+                If vIdx >= vRowGet And vPag < vPags Then
+                    pScr.grdIncidentes.Rows.Add("")
+                End If
+
+            Catch ex As System.Exception
+
+                HandleError(Me.CacheClassController, "RedreshGrid", ex)
+
+            End Try
+        End Sub
+        Public Function MoveFirst(ByVal pFec As Date, Optional ByVal pNau As Boolean = False) As Decimal
+            MoveFirst = 0
+            Try
+                Dim mtdSignature As CacheMethodSignature = makeCacheMethodSignature(cnnsCache(Me.cnnStatic), GetType(CacheDecimalReturnValue), DtoN(pFec), setBoolToInt(pNau))
+                CacheObject.RunClassMethodS(cnnsCache(Me.cnnStatic), Me.CacheClassController, "MoveFirst", mtdSignature)
+                Debug.Print(getCacheDebug(Me.CacheClassController, "MoveFirst", mtdSignature))
+                MoveFirst = CType(mtdSignature.ReturnValue, CacheDecimalReturnValue).Value
+            Catch ex As System.Exception
+                HandleError(Me.CacheClassController, "MoveFirst", ex)
+            End Try
+        End Function
+        Public Function MovePrevious(ByVal pFec As Date, ByVal pNro As String, Optional ByVal pNau As Boolean = False) As Decimal
+            MovePrevious = 0
+            Try
+                Dim mtdSignature As CacheMethodSignature = makeCacheMethodSignature(cnnsCache(Me.cnnStatic), GetType(CacheDecimalReturnValue), DtoN(pFec), pNro, setBoolToInt(pNau))
+                CacheObject.RunClassMethodS(cnnsCache(Me.cnnStatic), Me.CacheClassController, "MovePrevious", mtdSignature)
+                Debug.Print(getCacheDebug(Me.CacheClassController, "MovePrevious", mtdSignature))
+                MovePrevious = CType(mtdSignature.ReturnValue, CacheDecimalReturnValue).Value
+            Catch ex As System.Exception
+                HandleError(Me.CacheClassController, "MovePrevious", ex)
+            End Try
+        End Function
+        Public Function MoveNext(ByVal pFec As Date, ByVal pNro As String, Optional ByVal pNau As Boolean = False) As Decimal
+            MoveNext = 0
+            Try
+                Dim mtdSignature As CacheMethodSignature = makeCacheMethodSignature(cnnsCache(Me.cnnStatic), GetType(CacheDecimalReturnValue), DtoN(pFec), pNro, setBoolToInt(pNau))
+                CacheObject.RunClassMethodS(cnnsCache(Me.cnnStatic), Me.CacheClassController, "MoveNext", mtdSignature)
+                Debug.Print(getCacheDebug(Me.CacheClassController, "MoveNext", mtdSignature))
+                MoveNext = CType(mtdSignature.ReturnValue, CacheDecimalReturnValue).Value
+            Catch ex As System.Exception
+                HandleError(Me.CacheClassController, "MoveNext", ex)
+            End Try
+        End Function
+        Public Function MoveLast(ByVal pFec As Date, Optional ByVal pNau As Boolean = False) As Decimal
+            MoveLast = 0
+            Try
+                Dim mtdSignature As CacheMethodSignature = makeCacheMethodSignature(cnnsCache(Me.cnnStatic), GetType(CacheDecimalReturnValue), DtoN(pFec), setBoolToInt(pNau))
+                CacheObject.RunClassMethodS(cnnsCache(Me.cnnStatic), Me.CacheClassController, "MoveLast", mtdSignature)
+                Debug.Print(getCacheDebug(Me.CacheClassController, "MoveLast", mtdSignature))
+                MoveLast = CType(mtdSignature.ReturnValue, CacheDecimalReturnValue).Value
+            Catch ex As System.Exception
+                HandleError(Me.CacheClassController, "MoveLast", ex)
+            End Try
+        End Function
+
+    End Class
+End Namespace

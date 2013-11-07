@@ -1,0 +1,51 @@
+﻿Module modEmergencias
+    Enum ennPages
+        emeDespacho = 0
+        emeRecepcion = 1
+        emeTraslados = 2
+    End Enum
+
+    Structure pageStatus
+        Dim pageLoad As Boolean
+        Dim pageFocus As Boolean
+    End Structure
+
+    Public emePages(2) As pageStatus
+
+    Public Sub ManagePages(ByVal pPageLoad As ennPages)
+        Dim vIdx As Integer
+
+        For vIdx = 0 To emePages.Length - 1
+
+            If pPageLoad = vIdx Then
+                If Not emePages(vIdx).pageLoad Then
+                    Cursor.Current = Cursors.WaitCursor
+                    Select Case vIdx
+                        Case ennPages.emeDespacho
+                        Case ennPages.emeRecepcion
+                            frmIncidentesABMIndicadores.Show(frmRecepcionSpace.dockRecepcion, WeifenLuo.WinFormsUI.Docking.DockState.DockBottom)
+                            frmIncidentesABM.Show(frmRecepcionSpace.dockRecepcion)
+                        Case ennPages.emeTraslados
+                            frmTrasladosABM.Show(frmTrasladosSpace.dockTraslados)
+                    End Select
+                    Cursor.Current = Cursors.Default
+                End If
+                emePages(vIdx).pageLoad = True
+                emePages(vIdx).pageFocus = True
+            Else
+                emePages(vIdx).pageFocus = False
+            End If
+
+        Next vIdx
+
+    End Sub
+
+    Public Sub ShowIncidenteScreen(ByVal pInc As Long)
+        If pInc > 0 Then
+            ManagePages(ennPages.emeRecepcion)
+            callInfo = ""
+            frmIncidentesABM.ShowIncidente(pInc)
+        End If
+    End Sub
+
+End Module

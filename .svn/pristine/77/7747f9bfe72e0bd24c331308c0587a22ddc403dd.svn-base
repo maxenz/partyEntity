@@ -1,0 +1,187 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmVistaEntidades
+    Inherits WeifenLuo.WinFormsUI.Docking.DockContent
+
+    'Form reemplaza a Dispose para limpiar la lista de componentes.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Requerido por el Diseñador de Windows Forms
+    Private components As System.ComponentModel.IContainer
+
+    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
+    'Se puede modificar usando el Diseñador de Windows Forms.  
+    'No lo modifique con el editor de código.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.tabSolapas = New DevExpress.XtraTab.XtraTabControl
+        Me.tabPrincipal = New DevExpress.XtraTab.XtraTabPage
+        Me.rtfObservaciones = New System.Windows.Forms.RichTextBox
+        Me.grpEntidad = New System.Windows.Forms.GroupBox
+        Me.lblRazonSocial = New System.Windows.Forms.Label
+        Me.txtRazonSocial = New DevExpress.XtraEditors.TextEdit
+        Me.txtCodigo = New DevExpress.XtraEditors.TextEdit
+        Me.lblCodigo = New System.Windows.Forms.Label
+        Me.tabTelefonos = New DevExpress.XtraTab.XtraTabPage
+        Me.tabIntegrantes = New DevExpress.XtraTab.XtraTabPage
+        Me.grdIntegrantes = New System.Windows.Forms.DataGridView
+        CType(Me.tabSolapas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabSolapas.SuspendLayout()
+        Me.tabPrincipal.SuspendLayout()
+        Me.grpEntidad.SuspendLayout()
+        CType(Me.txtRazonSocial.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtCodigo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabIntegrantes.SuspendLayout()
+        CType(Me.grdIntegrantes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'tabSolapas
+        '
+        Me.tabSolapas.AppearancePage.Header.Options.UseBackColor = True
+        Me.tabSolapas.AppearancePage.Header.Options.UseBorderColor = True
+        Me.tabSolapas.AppearancePage.Header.Options.UseFont = True
+        Me.tabSolapas.AppearancePage.Header.Options.UseForeColor = True
+        Me.tabSolapas.AppearancePage.Header.Options.UseImage = True
+        Me.tabSolapas.AppearancePage.Header.Options.UseTextOptions = True
+        Me.tabSolapas.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tabSolapas.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Bottom
+        Me.tabSolapas.Location = New System.Drawing.Point(0, 0)
+        Me.tabSolapas.Name = "tabSolapas"
+        Me.tabSolapas.SelectedTabPage = Me.tabPrincipal
+        Me.tabSolapas.Size = New System.Drawing.Size(661, 320)
+        Me.tabSolapas.TabIndex = 3
+        Me.tabSolapas.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabPrincipal, Me.tabTelefonos, Me.tabIntegrantes})
+        '
+        'tabPrincipal
+        '
+        Me.tabPrincipal.Controls.Add(Me.rtfObservaciones)
+        Me.tabPrincipal.Controls.Add(Me.grpEntidad)
+        Me.tabPrincipal.Image = Global.Shaman.My.Resources.Resources.clientes
+        Me.tabPrincipal.Name = "tabPrincipal"
+        Me.tabPrincipal.Size = New System.Drawing.Size(655, 289)
+        Me.tabPrincipal.Text = "Datos Principales"
+        '
+        'rtfObservaciones
+        '
+        Me.rtfObservaciones.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.rtfObservaciones.Location = New System.Drawing.Point(0, 68)
+        Me.rtfObservaciones.Name = "rtfObservaciones"
+        Me.rtfObservaciones.Size = New System.Drawing.Size(655, 221)
+        Me.rtfObservaciones.TabIndex = 3
+        Me.rtfObservaciones.Text = ""
+        '
+        'grpEntidad
+        '
+        Me.grpEntidad.Controls.Add(Me.lblRazonSocial)
+        Me.grpEntidad.Controls.Add(Me.txtRazonSocial)
+        Me.grpEntidad.Controls.Add(Me.txtCodigo)
+        Me.grpEntidad.Controls.Add(Me.lblCodigo)
+        Me.grpEntidad.Dock = System.Windows.Forms.DockStyle.Top
+        Me.grpEntidad.Location = New System.Drawing.Point(0, 0)
+        Me.grpEntidad.Name = "grpEntidad"
+        Me.grpEntidad.Size = New System.Drawing.Size(655, 68)
+        Me.grpEntidad.TabIndex = 2
+        Me.grpEntidad.TabStop = False
+        Me.grpEntidad.Text = "Entidad"
+        '
+        'lblRazonSocial
+        '
+        Me.lblRazonSocial.AutoSize = True
+        Me.lblRazonSocial.Location = New System.Drawing.Point(118, 26)
+        Me.lblRazonSocial.Name = "lblRazonSocial"
+        Me.lblRazonSocial.Size = New System.Drawing.Size(70, 13)
+        Me.lblRazonSocial.TabIndex = 126
+        Me.lblRazonSocial.Text = "Razón Social"
+        '
+        'txtRazonSocial
+        '
+        Me.txtRazonSocial.Enabled = False
+        Me.txtRazonSocial.Location = New System.Drawing.Point(115, 42)
+        Me.txtRazonSocial.Name = "txtRazonSocial"
+        Me.txtRazonSocial.Size = New System.Drawing.Size(533, 20)
+        Me.txtRazonSocial.TabIndex = 1
+        '
+        'txtCodigo
+        '
+        Me.txtCodigo.Enabled = False
+        Me.txtCodigo.Location = New System.Drawing.Point(9, 42)
+        Me.txtCodigo.Name = "txtCodigo"
+        Me.txtCodigo.Properties.MaxLength = 6
+        Me.txtCodigo.Size = New System.Drawing.Size(100, 20)
+        Me.txtCodigo.TabIndex = 0
+        '
+        'lblCodigo
+        '
+        Me.lblCodigo.AutoSize = True
+        Me.lblCodigo.Location = New System.Drawing.Point(11, 26)
+        Me.lblCodigo.Name = "lblCodigo"
+        Me.lblCodigo.Size = New System.Drawing.Size(40, 13)
+        Me.lblCodigo.TabIndex = 123
+        Me.lblCodigo.Text = "Código"
+        '
+        'tabTelefonos
+        '
+        Me.tabTelefonos.Image = Global.Shaman.My.Resources.Resources.liquidaciones
+        Me.tabTelefonos.Name = "tabTelefonos"
+        Me.tabTelefonos.Size = New System.Drawing.Size(655, 289)
+        Me.tabTelefonos.Text = "Teléfonos / Varios"
+        '
+        'tabIntegrantes
+        '
+        Me.tabIntegrantes.Controls.Add(Me.grdIntegrantes)
+        Me.tabIntegrantes.Image = Global.Shaman.My.Resources.Resources.usuarios
+        Me.tabIntegrantes.Name = "tabIntegrantes"
+        Me.tabIntegrantes.Size = New System.Drawing.Size(655, 289)
+        Me.tabIntegrantes.Text = "Integrantes"
+        '
+        'grdIntegrantes
+        '
+        Me.grdIntegrantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdIntegrantes.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grdIntegrantes.Location = New System.Drawing.Point(0, 0)
+        Me.grdIntegrantes.Name = "grdIntegrantes"
+        Me.grdIntegrantes.Size = New System.Drawing.Size(655, 289)
+        Me.grdIntegrantes.TabIndex = 0
+        '
+        'frmVistaEntidades
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(661, 320)
+        Me.Controls.Add(Me.tabSolapas)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.KeyPreview = True
+        Me.Name = "frmVistaEntidades"
+        Me.Text = "Clientes"
+        CType(Me.tabSolapas, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tabSolapas.ResumeLayout(False)
+        Me.tabPrincipal.ResumeLayout(False)
+        Me.grpEntidad.ResumeLayout(False)
+        Me.grpEntidad.PerformLayout()
+        CType(Me.txtRazonSocial.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtCodigo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tabIntegrantes.ResumeLayout(False)
+        CType(Me.grdIntegrantes, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
+    End Sub
+    Friend WithEvents tabSolapas As DevExpress.XtraTab.XtraTabControl
+    Friend WithEvents tabPrincipal As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents tabTelefonos As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents rtfObservaciones As System.Windows.Forms.RichTextBox
+    Friend WithEvents grpEntidad As System.Windows.Forms.GroupBox
+    Friend WithEvents lblCodigo As System.Windows.Forms.Label
+    Friend WithEvents lblRazonSocial As System.Windows.Forms.Label
+    Friend WithEvents txtRazonSocial As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtCodigo As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents tabIntegrantes As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents grdIntegrantes As System.Windows.Forms.DataGridView
+End Class

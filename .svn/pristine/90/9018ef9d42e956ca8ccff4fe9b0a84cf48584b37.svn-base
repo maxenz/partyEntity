@@ -1,0 +1,720 @@
+Imports WeifenLuo.WinFormsUI.Docking
+Imports ShamanClases
+Public Class frmIncidentesABM
+    Inherits DockContent
+    '-----> Clases
+    Private objLocks As New EmergencyC.lckIncidentes
+    Private objIncidentes As New sysEmergencyC.Incidentes
+    Private objClientes As New VentasC.Clientes
+    Private objLocalidades As New EmergencyC.Localidades
+    '------> flgs Privados
+    Private flgSetGrado As Boolean = False
+    Private flgAskByTelefono As Boolean = False
+    Private flgShwAlerta As Boolean = False
+    '------> Publicas
+    Public flgShowSAC As Boolean = True
+    Public metLocalizacion As String = ""
+    '------> Seguridad
+    Public vMyAccess As ShamanClases.hSeguridad
+    Private Sub FormatScreen()
+        Dim objGrado As New EmergencyC.GradosOperativos
+
+        '----> Formulario
+        Me.BackColor = Color.Beige
+        Me.KeyPreview = True
+        '----> Grupo
+        SetFormatGroupBox(Me.grpMain)
+        SetFormatGroupBox(Me.grpCierre)
+        'SetFormatGroupBox(Me.grpIndicadores)
+        '----> ToolStrips
+        SetFormatToolStrip(Me.tbrMain, Main.imlIconos)
+        Me.tbrMain.Tag = 1
+        '----> Combos
+        comboSexo(Me.cmbSexo)
+        comboIva(Me.cmbIvas, True)
+        objGrado.FillComboBox(Me.cmbGrados)
+        Me.cmbGrados.Font = New System.Drawing.Font("Tahoma", 8.25, FontStyle.Bold)
+        '----> Domicilios
+        If CBool(configShaman.domEdificio) Then
+            Me.cmdEdificio.Visible = True
+            Me.txtCalle.Left = Me.cmdEdificio.Left + Me.cmdEdificio.Width + 5
+            Me.txtCalle.Width = Me.txtCalle.Width - Me.cmdEdificio.Width - 5
+            Me.lblDomicilio.Left = Me.lblDomicilio.Left + Me.cmdEdificio.Width + 5
+        Else
+            Me.cmdEdificio.Visible = False
+        End If
+        '----> Inhabilito
+        SetEnabled(False)
+        '----> Abro Ultimo del día
+        ShowIncidente(objIncidentes.MoveLast(Now.Date))
+    End Sub
+    Private Sub SetEnabled(ByVal pEst As Boolean)
+        Dim Control As Control
+
+        If pEst Then
+            Me.txtNroIncidente.Enabled = False
+        End If
+
+        For Each Control In grpMain.Controls
+            If Control.Name = "dtpFecIncidente" Or Control.Name = "txtNroIncidente" Or Control.Name = "txtLocalidadDes" Or Control.Name = "txtPartido" Then
+                Control.Enabled = False
+            Else
+                Control.Enabled = pEst
+            End If
+        Next
+
+        If pEst Then
+            Me.btnGuardar.Enabled = True
+            Me.btnCancelar.Enabled = True
+        Else
+            Me.btnGuardar.Enabled = False
+            Me.btnCancelar.Enabled = False
+        End If
+
+        flgShowSAC = True
+        flgSetGrado = False
+    End Sub
+    Private Sub ClearValues()
+        Dim Control As Control
+
+        For Each Control In grpMain.Controls
+            If Control.Name <> "dtpFecIncidente" And Control.Name <> "txtNroIncidente" And Control.GetType.Name <> "Label" And Control.GetType.Name <> "LabelControl" And Control.Name <> "cmbGrados" Then
+                Control.Text = ""
+                'ElseIf Control.Name = "cmbGrados" Then
+                '    Me.cmbGrados.SelectedIndex = 0
+                '    Me.cmbGrados.BackColor = Color.White
+            End If
+        Next
+
+        Me.dtpFecIncidente.DateTime = Now
+        Me.xgrdHistorial.DataSource = Nothing
+    End Sub
+    Private Sub SetToolStrip(Optional ByVal pMod As Byte = 1)
+        Dim vIdx As Integer
+        If pMod = 1 Then
+            tbrMain.Tag = 1
+            tbrMain.Items(tbrMain.Items.IndexOfKey("agregar")).Image = Main.imlIconos.Images(Main.imlIconos.Images.IndexOfKey("agregar"))
+            tbrMain.Items(tbrMain.Items.IndexOfKey("eliminar")).Image = Main.imlIconos.Images(Main.imlIconos.Images.IndexOfKey("eliminar"))
+            For vIdx = 2 To tbrMain.Items.Count - 1
+                tbrMain.Items(vIdx).Enabled = True
+            Next vIdx
+        Else
+            tbrMain.Tag = 2
+            tbrMain.Items(tbrMain.Items.IndexOfKey("agregar")).Image = Main.imlIconos.Images(Main.imlIconos.Images.IndexOfKey("salvar"))
+            tbrMain.Items(tbrMain.Items.IndexOfKey("eliminar")).Image = Main.imlIconos.Images(Main.imlIconos.Images.IndexOfKey("cancelar"))
+            For vIdx = 2 To tbrMain.Items.Count - 1
+                tbrMain.Items(vIdx).Enabled = False
+            Next vIdx
+        End If
+    End Sub
+    'Private Sub SetButtonFunction(ByVal pKey As String)
+    '    Dim vIdGet As Long = 0
+
+    '    If tbrMain.Tag = 1 Then
+    '        Select Case pKey
+    '            Case "Agregar"
+    '                SetToolStrip(2)
+    '                ClearValues()
+    '                Me.dtpFecIncidente.Text = Now.Date
+    '                'Me.txtNroIncidente.Text = objLocks.getNewIncidente()
+    '                'objIncidentesExp.CleanProperties(objIncidentesExp)
+    '                SetEnabled(True)
+    '                flgShowSAC = False
+    '                Me.txtClienteId.Focus()
+    '            Case "Eliminar"
+    '                'If MsgBox("¿ Elimina el servicio " & objIncidentesExp.NroIncidente & "?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo, "Eliminar") = MsgBoxResult.Yes Then
+    '                '    If objIncidentesExp.Eliminar(objIncidentesExp.ID) Then
+    '                '        vIdGet = objIncidentes.MoveLast(dtpFecIncidente.Value.Date)
+    '                '        If vIdGet > 0 Then
+    '                '            ShowIncidente(vIdGet)
+    '                '        Else
+    '                '            ClearValues()
+    '                '        End If
+    '                '    End If
+    '                'End If
+    '            Case "Modificar"
+    '                'If objIncidentesExp.Abrir(objIncidentesExp.ID) Then
+    '                '    If objLocks.lockIncidente(objIncidentesExp.FecIncidente, objIncidentesExp.NroIncidente) Then
+    '                '        SetToolStrip(2)
+    '                '        SetEnabled(True)
+    '                '        Me.txtObservaciones.Text = ""
+    '                '        flgSetGrado = True
+    '                '        Me.txtClienteId.Focus()
+    '                '    End If
+    '                'End If
+    '            Case "Refrescar"
+    '                ShowIncidente(vIdGet)
+    '            Case "Primero"
+    '                'vIdGet = objIncidentesExp.MoveFirst(dtpFecIncidente.Value.Date)
+    '                'If vIdGet > 0 Then ShowIncidente(vIdGet)
+    '            Case "Anterior"
+    '                'vIdGet = objIncidentesExp.MovePrevious(dtpFecIncidente.Value.Date, objIncidentesExp.ID)
+    '                'If vIdGet > 0 Then ShowIncidente(vIdGet)
+    '            Case "Siguiente"
+    '                'vIdGet = objIncidentesExp.MoveNext(dtpFecIncidente.Value.Date, objIncidentesExp.ID)
+    '                'If vIdGet > 0 Then ShowIncidente(vIdGet)
+    '            Case "Ultimo"
+    '                vIdGet = objIncidentes.MoveLast(dtpFecIncidente.DateTime.Date)
+    '                If vIdGet > 0 Then ShowIncidente(vIdGet)
+    '        End Select
+    '    Else
+    '        Select Case pKey
+    '            Case "Agregar"
+    '                Actualizar()
+    '            Case "Eliminar"
+    '                'objLocks.unlockIncidente(dtpFecIncidente.Value, txtNroIncidente.Text)
+    '                'SetEnabled(False)
+    '                'SetToolStrip(1)
+    '            Case "Modificar"
+    '            Case "Refrescar"
+    '        End Select
+    '    End If
+
+    'End Sub
+    Public Sub SetIntegrante(Optional ByVal pIte As Long = 0, Optional ByVal pCli As Long = 0, Optional ByVal pAfl As String = "")
+        'Dim objClienteIntegrante As New ShamanCache.clsClientesIntegrantes(objIncidentesExp.myCnnName)
+        'If pIte = 0 Then pIte = objClienteIntegrante.GetIDByNroAfiliado(pCli, pAfl)
+        'If pIte > 0 Then
+        '    If objClienteIntegrante.Abrir(pIte) Then
+        '        txtNroAfiliado.Tag = objClienteIntegrante.ID
+        '        txtNroAfiliado.Text = objClienteIntegrante.NroAfiliado
+        '        If txtTelefono.Text = "" Then txtTelefono.Text = objClienteIntegrante.Telefono01
+        '        txtObservaciones.Text = objClienteIntegrante.Observaciones
+        '        If txtLocalidadId.Text = "" Then
+        '            txtLocalidadId.Text = objClienteIntegrante.LocalidadId.AbreviaturaId
+        '            txtLocalidadDes.Text = objClienteIntegrante.LocalidadId.Descripcion
+        '            txtPartido.Text = objClienteIntegrante.LocalidadId.PartidoId.Descripcion & " (" & objClienteIntegrante.LocalidadId.ProvinciaId.AbreviaturaId & "-" & objClienteIntegrante.LocalidadId.ZonaGeograficaId.Descripcion & ")"
+        '        End If
+        '        If txtCalle.Text = "" Then
+        '            txtCalle.Text = objClienteIntegrante.Domicilio.dmCalle
+        '            txtAltura.Text = objClienteIntegrante.Domicilio.dmAltura
+        '            txtPiso.Text = objClienteIntegrante.Domicilio.dmPiso
+        '            txtDepto.Text = objClienteIntegrante.Domicilio.dmDepto
+        '            txtEntreCalle1.Text = objClienteIntegrante.Domicilio.dmEntreCalle1
+        '            txtEntreCalle2.Text = objClienteIntegrante.Domicilio.dmEntreCalle2
+        '            txtReferencias.Text = objClienteIntegrante.Domicilio.dmReferencia
+        '        End If
+        '        If txtPaciente.Text = "" And objClienteIntegrante.TipoIntegrante = "PER" Then
+        '            cmbSexo.Text = objClienteIntegrante.Sexo
+        '            txtPaciente.Text = objClienteIntegrante.Apellido & ", " & objClienteIntegrante.Nombre
+        '        End If
+        '    Else
+        '        txtNroAfiliado.Tag = 0
+        '    End If
+        'Else
+        '    txtNroAfiliado.Tag = 0
+        'End If
+        'objClienteIntegrante = Nothing
+    End Sub
+
+    Private Function Actualizar() As Boolean
+        'Dim objIncidenteDomicilio As New ShamanCache.clsIncidentesDomicilios, objIncidenteObservacion As New ShamanCache.clsIncidentesObservaciones
+        'Actualizar = False
+        'If Me.cmbGrados.Text = "" Then
+        '    MsgBox("Debe determinar el grado operativo del servicio", MsgBoxStyle.Critical, "Recepción")
+        '    Me.cmbGrados.Focus()
+        'Else
+        '    '---------> Cabecera del Inicidente
+        '    With objIncidentesExp
+        '        .FecIncidente = Me.dtpFecIncidente.DateTime.Date.Date
+        '        .NroIncidente = Me.txtNroIncidente.Text
+        '        .Telefono = Me.txtTelefono.Text
+        '        .GradoOperativoId.SetObjectId(getItemData(Me.cmbGrados))
+        '        .ClienteId.SetObjectId(Val(Me.txtClienteId.Tag))
+        '        .ClienteIntegranteId.SetObjectId(Val(Me.txtNroAfiliado.Tag))
+        '        .NroAfiliado = Me.txtNroAfiliado.Text
+        '        .Paciente = Me.txtPaciente.Text
+        '        .Sexo = Me.cmbSexo.Text
+        '        .Edad = GetDouble(Me.txtEdad.Text)
+        '        .PlanId = Me.cmbPlanes.Text
+        '        .Sintomas = Me.txtSintomas.Text
+        '        .CoPago = GetDouble(Me.txtCoPago.Text)
+        '        If getItemData(Me.cmbIvas) = 2 Then
+        '            .flgIvaGravado = 1
+        '        Else
+        '            .flgIvaGravado = getItemData(Me.cmbIvas)
+        '        End If
+        '    End With
+        '    '---------> Domiclio de IDA
+        '    With objIncidenteDomicilio
+        '        .CleanProperties(objIncidenteDomicilio)
+        '        .LocalidadId.SetObjectId(.LocalidadId.GetIDByAbreviaturaId(Me.txtLocalidadId.Text))
+        '        .Domicilio.dmCalle = Me.txtCalle.Text
+        '        .Domicilio.dmAltura = Val(Me.txtAltura.Text)
+        '        .Domicilio.dmPiso = Me.txtPiso.Text
+        '        .Domicilio.dmDepto = Me.txtDepto.Text
+        '        .Domicilio.dmEntreCalle1 = Me.txtEntreCalle1.Text
+        '        .Domicilio.dmEntreCalle2 = Me.txtEntreCalle2.Text
+        '        .Domicilio.dmReferencia = Me.txtReferencias.Text
+        '    End With
+        '    '--------> Observaciones
+        '    With objIncidenteObservacion
+        '        .CleanProperties(objIncidenteObservacion)
+        '        .Observaciones = Me.txtObservaciones.Text
+        '    End With
+        '    '--------> Salvo Incidente
+        '    If objIncidentesExp.SetIncidente(objIncidentesExp, objIncidenteDomicilio, objIncidenteObservacion) Then
+        '        objLocks.unlockIncidente(objIncidentesExp.FecIncidente, objIncidentesExp.NroIncidente)
+        '        Actualizar = True
+        '        SetEnabled(False)
+        '        ShowIncidente(objIncidentesExp.ID)
+        '        SetToolStrip(1)
+        '    End If
+        'End If
+
+    End Function
+
+    Private Sub frmIncidentes_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+        Select Case e.KeyCode
+            'Case Keys.Enter
+            '    If Not Me.txtNroIncidente.IsEditorActive Then
+            '        e.Handled = True
+            '        SendKeys.Send("{TAB}")
+            '    End If
+            Case Keys.F10
+                Actualizar()
+        End Select
+    End Sub
+
+    Private Sub frmIncidentesABM_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Dim objPerfiles As New ShamanClases.PanelC.Perfiles
+
+        Me.Tag = "10||cmdToolTraslados"
+        vMyAccess = objPerfiles.GetMyAccess(shamanConexion.UsuarioId.UsuarioId, Me.Tag)
+
+        FormatScreen()
+    End Sub
+
+    'Private Sub tbrMain_ItemClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ToolStripItemClickedEventArgs) Handles tbrMain.ItemClicked
+    '    SetButtonFunction(e.ClickedItem.Name)
+    'End Sub
+
+    Private Sub txtClienteId_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtClienteId.KeyDown
+        If e.KeyCode = Keys.F2 Then
+            callInfo = Name
+        End If
+    End Sub
+
+    Private Sub txtNroAfiliado_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtNroAfiliado.KeyDown
+        If e.KeyCode = Keys.F2 Then
+            If Val(txtClienteId.Tag) > 0 Then
+                callInfo = Name
+                'ShowChildFormFloat(frmClientesIntegrantesSearch, Me.DockPanel)
+            Else
+                MsgBox("Debe determinar el cliente para acceder a esta búsqueda", MsgBoxStyle.Critical)
+            End If
+        End If
+    End Sub
+
+    Private Sub txtNroAfiliado_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtNroAfiliado.LostFocus
+        If Val(txtClienteId.Tag) > 0 Then
+            SetIntegrante(, Val(txtClienteId.Tag), txtNroAfiliado.Text)
+        End If
+    End Sub
+
+    Private Sub txtLocalidadId_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtLocalidadId.KeyDown
+        If e.KeyCode = Keys.F2 Then
+            callInfo = Name
+            'ShowChildFormFloat(frmLocalidadesSearch, Me.DockPanel)
+        End If
+    End Sub
+
+    Private Sub txtLocalidadId_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtLocalidadId.LostFocus
+        'Dim objLocalidad As New ShamanCache.clsLocalidades(objIncidentesExp.myCnnName)
+        'If objLocalidad.Abrir(objLocalidad.GetIDByAbreviaturaId(txtLocalidadId.Text)) Then
+        '    txtLocalidadId.Text = objLocalidad.AbreviaturaId
+        '    txtLocalidadDes.Text = objLocalidad.Descripcion
+        '    txtPartido.Text = objLocalidad.PartidoId.Descripcion & " (" & objLocalidad.ProvinciaId.AbreviaturaId & "-" & objLocalidad.ZonaGeograficaId.Descripcion & ")"
+        'Else
+        '    txtLocalidadId.Text = ""
+        '    txtLocalidadDes.Text = ""
+        '    txtPartido.Text = ""
+        'End If
+        'objLocalidad = Nothing
+
+    End Sub
+
+    Private Sub cmbGrados_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbGrados.SelectedIndexChanged
+        Dim objGrado As New EmergencyC.GradosOperativos
+        If objGrado.Abrir(getItemData(cmbGrados)) Then
+            flgSetGrado = True
+            Me.cmbGrados.BackColor = System.Drawing.ColorTranslator.FromOle(Val(objGrado.VisualColor))
+        End If
+        objGrado = Nothing
+        'SetCoberturaCoPago()
+    End Sub
+
+    Private Sub txtSintomas_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSintomas.KeyDown
+        'If e.KeyCode = Keys.F2 Then
+        '    callInfo = Name
+        '    ShowChildFormFloat(frmSintomasSearch, Me.DockPanel)
+        'ElseIf e.KeyCode = Keys.F9 Then
+        '    '-------> Muestro SAC
+        '    VerifySAC()
+        'End If
+    End Sub
+
+    Private Sub txtSintomas_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtSintomas.LostFocus
+        'Dim objSintoma As New ShamanCache.clsSintomas(objIncidentesExp.myCnnName)
+        'If objSintoma.Abrir(objSintoma.GetIDByDescripcion(txtSintomas.Text)) Then
+        '    txtSintomas.Tag = objSintoma.ID
+        '    txtSintomas.Text = objSintoma.Descripcion
+        '    If Not flgShowSAC Then VerifySAC()
+        'Else
+        '    txtSintomas.Tag = 0
+        'End If
+        'objSintoma = Nothing
+    End Sub
+
+    Private Sub VerifySAC()
+        'Dim objCliente As New clsClientes, vOpn As Boolean = True
+        'If objCliente.Abrir(Val(Me.txtClienteId.Tag)) Then
+        '    vOpn = Not (setIntToBool(objCliente.flgCategorizacionPropia))
+        'End If
+        'If vOpn Then
+        '    flgShowSAC = True
+        '    ShowChildFormFloat(frmIncidentesSAC, Me.DockPanel, , (Me.Width - 695) / 2, Me.Top + 100)
+        '    objCliente = Nothing
+        'End If
+    End Sub
+
+    Public Sub SetCoberturaCoPago(Optional ByVal fromSAC As Boolean = False)
+        'Dim objCobertura As New clsClientesGradosOperativos, objGrado As New Emergency.clsGradosOperativos
+        'If flgSetGrado And (Me.txtClienteId.Enabled Or fromSAC) Then
+        '    If objGrado.Abrir(getItemData(Me.cmbGrados)) Then
+        '        If objCobertura.Abrir(objCobertura.GetIDByIndex(Val(Me.txtClienteId.Tag), objGrado.GradoAgrupacionId.ID)) Then
+        '            If objCobertura.flgCubierto = 1 Then
+        '                Me.txtCoPago.Text = prnDbl(objCobertura.CoPago)
+        '            Else
+        '                MsgBox("El cliente no tiene cubierto dicho grado", MsgBoxStyle.Critical, "Cobertura")
+        '            End If
+        '        End If
+        '    End If
+        'End If
+        'objGrado = Nothing
+        'objCobertura = Nothing
+    End Sub
+
+    Public Sub ShowIncidente(ByVal pInc As Decimal)
+        Dim objDomicilio As New EmergencyC.IncidentesDomicilios
+        Dim objHistoral As New EmergencyC.IncidentesHistoriales
+
+        If objIncidentes.Abrir(pInc) Then
+            Me.ClearValues()
+            Me.dtpFecIncidente.Text = objIncidentes.FecIncidente
+            Me.txtNroIncidente.Text = objIncidentes.NroIncidente
+            Me.txtTelefono.Text = objIncidentes.Telefono
+            Me.txtClienteId.Text = objIncidentes.ClienteId.ClienteId
+            Me.txtNroAfiliado.Text = objIncidentes.IntegranteId
+            If objDomicilio.Abrir(objDomicilio.GetIDByIndex(objIncidentes.ID, "IDA")) Then
+                Me.txtLocalidadId.Text = objDomicilio.LocalidadId.AbreviaturaId
+                Me.txtLocalidadDes.Text = objDomicilio.LocalidadId.Descripcion
+                Me.txtPartido.Text = objDomicilio.LocalidadId.PartidoId.Descripcion
+                Me.txtCalle.Text = objDomicilio.dm.Calle
+                Me.txtAltura.Text = objDomicilio.dm.Altura
+                Me.txtPiso.Text = objDomicilio.dm.Piso
+                Me.txtDepto.Text = objDomicilio.dm.Departamento
+                Me.txtEntreCalle1.Text = objDomicilio.dm.EntreCalle1
+                Me.txtEntreCalle2.Text = objDomicilio.dm.EntreCalle2
+                Me.txtReferencias.Text = objDomicilio.dm.Referencia
+            End If
+            Me.cmbSexo.Text = objIncidentes.Sexo
+            Me.txtEdad.Text = objIncidentes.Edad
+            Me.txtSintomas.Text = objIncidentes.Sintoma
+            Me.cmbGrados.Text = objIncidentes.GradoOperativoId.GradoId
+            Me.cmbGrados.BackColor = System.Drawing.ColorTranslator.FromOle(Val(objIncidentes.GradoOperativoId.VisualColor))
+
+            Me.txtPaciente.Text = objIncidentes.Nombre
+
+            frmGpShaman.ShowIncidente(objIncidentes.ID)
+
+            objHistoral.GetHistorialIncidenteToXtra(objIncidentes.ID, Me.xgrdHistorial)
+
+
+        End If
+
+        objDomicilio = Nothing
+        objHistoral = Nothing
+    End Sub
+
+    Private Sub SetFormatToolStrip(ByVal pTbr As ToolStrip, ByVal pIco As ImageList)
+
+        With pTbr
+
+            .ImageScalingSize = New System.Drawing.Size(16, 16)
+            .BackColor = Color.Beige
+
+            'Dim btnAgregar = New ToolStripButton
+            'btnAgregar = MakeToolStripButton(pIco.Images(pIco.Images.IndexOfKey("agregar")), "Agregar")
+            'Dim btnEliminar = New ToolStripButton
+            'btnEliminar = MakeToolStripButton(pIco.Images(pIco.Images.IndexOfKey("eliminar")), "Eliminar")
+            'Dim btnModificar = New ToolStripButton
+            'btnModificar = MakeToolStripButton(pIco.Images(pIco.Images.IndexOfKey("modificar")), "Modificar")
+            'Dim btnConsultar = New ToolStripButton
+            'btnConsultar = MakeToolStripButton(pIco.Images(pIco.Images.IndexOfKey("refrescar")), "Refrescar")
+            'Dim btnPrimero = New ToolStripButton
+            'btnPrimero = MakeToolStripButton(pIco.Images(pIco.Images.IndexOfKey("qutodos")), "Primero")
+            'Dim btnAnterior = New ToolStripButton
+            'btnAnterior = MakeToolStripButton(pIco.Images(pIco.Images.IndexOfKey("quuno")), "Anterior")
+            'Dim btnSiguiente = New ToolStripButton
+            'btnSiguiente = MakeToolStripButton(pIco.Images(pIco.Images.IndexOfKey("aguno")), "Siguiente")
+            'Dim btnUltimo = New ToolStripButton
+            'btnUltimo = MakeToolStripButton(pIco.Images(pIco.Images.IndexOfKey("agtodos")), "Ultimo")
+
+            '.Items.AddRange(New System.Windows.Forms.ToolStripItem() {btnAgregar, btnEliminar, btnModificar, btnConsultar, btnPrimero, btnAnterior, btnSiguiente, btnUltimo})
+
+
+        End With
+
+    End Sub
+
+    Private Sub txtEdad_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtEdad.TextChanged
+        'txtEdad.Tag = setBoolToInt(shamanConfig.isPediatrico(Val(txtEdad.Text)))
+    End Sub
+
+    Private Sub txtCoPago_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtCoPago.LostFocus
+        'txtCoPago.Text = prntxtNumber(txtCoPago.Text)
+    End Sub
+
+    Private Sub btnPrimero_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPrimero.Click
+        ShowIncidente(objIncidentes.MoveFirst(Me.dtpFecIncidente.DateTime.Date))
+    End Sub
+    Private Sub btnUltimo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUltimo.Click
+        ShowIncidente(objIncidentes.MoveLast(Me.dtpFecIncidente.DateTime.Date))
+    End Sub
+    Private Sub btnAnterior_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAnterior.Click
+        ShowIncidente(objIncidentes.MovePrevious(Me.dtpFecIncidente.DateTime.Date, Me.txtNroIncidente.Text))
+    End Sub
+    Private Sub btnSiguiente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSiguiente.Click
+        ShowIncidente(objIncidentes.MoveNext(Me.dtpFecIncidente.DateTime.Date, Me.txtNroIncidente.Text))
+    End Sub
+
+    Private Sub btnModificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificar.Click
+
+        If objIncidentes.ID > 0 Then
+            If objIncidentes.GradoOperativoId.flgTraslado = 0 Then
+                If configEmergencias.incIsModificable(shamanConexion.UsuarioId.UsuarioId) Then
+                    Me.SetEnabled(True)
+                    Me.txtTelefono.Focus()
+                End If
+            Else
+                MsgBox("Dicho servicio debe modificarse de la pantalla 'Traslados'", MsgBoxStyle.Critical, "Incidentes")
+            End If
+        End If
+
+    End Sub
+
+    Private Sub txtLocalidadId_Validated(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtLocalidadId.Validated
+        SetLocalidad(objLocalidades.GetIDByIndex(Me.txtLocalidadId.Text))
+    End Sub
+
+    Private Sub SetLocalidad(ByVal pLoc As Decimal)
+        Dim vClr As Boolean = True
+
+        If objLocalidades.Abrir(pLoc) Then
+
+            If objLocalidades.tmpSituacion = 1 Then
+
+                Me.txtLocalidadId.Text = objLocalidades.AbreviaturaId
+                Me.txtLocalidadDes.Text = objLocalidades.Descripcion
+                Me.txtPartido.Text = objLocalidades.PartidoId.Descripcion
+                vClr = False
+            End If
+
+        End If
+
+        If vClr Then
+            Me.txtLocalidadId.Text = ""
+            Me.txtLocalidadDes.Text = ""
+            Me.txtPartido.Text = ""
+        End If
+
+    End Sub
+
+    Private Sub btnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelar.Click
+        objLocks.UnLockIncidente(shamanConexion.PID, shamanConexion.UsuarioId.UsuarioId, Me.dtpFecIncidente.DateTime.Date, Me.txtNroIncidente.Text)
+        Me.SetEnabled(False)
+    End Sub
+
+    Private Sub txtClienteId_Validated(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtClienteId.Validated
+        Me.SetCliente(objClientes.GetIDByIndex(txtClienteId.Text))
+    End Sub
+
+    Private Sub btnAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregar.Click
+        SetEnabled(False)
+        ClearValues()
+        Me.dtpFecIncidente.Enabled = True
+        Me.txtNroIncidente.Enabled = True
+        Me.dtpFecIncidente.DateTime = Now
+        Me.txtNroIncidente.Focus()
+        Me.flgAskByTelefono = False
+    End Sub
+
+    Private Sub txtNroIncidente_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtNroIncidente.GotFocus
+
+        If Me.dtpFecIncidente.DateTime.Date = Now.Date Then
+            If objLocks.GetNextNroIncidente(shamanConexion.PID, shamanConexion.UsuarioId.UsuarioId) Then
+                Me.txtNroIncidente.Text = objLocks.NroIncidente
+            Else
+                Me.txtNroIncidente.Text = ""
+            End If
+        Else
+            Me.txtNroIncidente.Text = ""
+        End If
+
+    End Sub
+
+    Private Sub txtNroIncidente_PreviewKeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.PreviewKeyDownEventArgs) Handles txtNroIncidente.PreviewKeyDown
+        Select Case e.KeyCode
+            Case Keys.Enter
+                If Me.txtNroIncidente.Text = "" And Me.dtpFecIncidente.DateTime.Date > Now.Date And vMyAccess > hSeguridad.hRead Then
+                    '-----> Servicio programado!
+                ElseIf Me.txtNroIncidente.Text <> objLocks.NroIncidente Or Me.dtpFecIncidente.DateTime.Date <> objLocks.FecIncidente Then
+                    '---> Deslockeo lo llamado
+                    objLocks.UnLockIncidente(shamanConexion.PID, shamanConexion.UsuarioId.UsuarioId, objLocks.FecIncidente, objLocks.NroIncidente)
+                    '---> Muestro el servicio
+                    ShowIncidente(Me.objIncidentes.GetIDByIndex(Me.dtpFecIncidente.DateTime.Date, Me.txtNroIncidente.Text))
+                Else
+                    If vMyAccess > hSeguridad.hRead Then
+                        If objLocks.LockIncidente(shamanConexion.PID, shamanConexion.UsuarioId.UsuarioId, objLocks.FecIncidente, objLocks.NroIncidente) Then
+                            Me.PrepareForAdd()
+                        End If
+                    End If
+                End If
+            Case Keys.Escape
+                objLocks.UnLockIncidente(shamanConexion.PID, shamanConexion.UsuarioId.UsuarioId, Me.dtpFecIncidente.DateTime.Date, Me.txtNroIncidente.Text)
+                Me.dtpFecIncidente.Enabled = False
+                Me.txtNroIncidente.Enabled = False
+                ShowIncidente(objIncidentes.MoveLast(Me.dtpFecIncidente.DateTime.Date))
+        End Select
+    End Sub
+    Private Sub PrepareForAdd()
+        SetEnabled(True)
+        Me.txtTelefono.Focus()
+    End Sub
+    Private Sub txtAll_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtNroIncidente.GotFocus, txtTelefono.GotFocus, txtClienteId.GotFocus
+        'SetFocusColor(sender)
+    End Sub
+    Private Sub txtAll_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtNroIncidente.LostFocus, txtTelefono.LostFocus, txtClienteId.LostFocus
+        'SetLostFocusColor(sender)
+    End Sub
+    Private Sub SetCliente(ByVal pCli As Decimal, Optional ByVal pShwPopup As Boolean = True)
+        Dim vGet As Boolean = False
+
+        If objClientes.Abrir(pCli) Then
+            If objClientes.virSituacion = 1 Then
+                Me.txtClienteId.Tag = objClientes.ID
+                Me.txtClienteId.Text = objClientes.ClienteId
+                vGet = True
+                If pShwPopup Then
+                    If CBool(configEmergencias.visObsEntidad) Then
+                        Dim frm As New frmVistaEntidades(pCli)
+                        ShowChildFormFloat(frm, Me.DockPanel)
+                    End If
+                End If
+            End If
+        End If
+
+        If Not vGet Then
+            Me.txtClienteId.Tag = 0
+            Me.txtClienteId.Text = ""
+        End If
+
+        Me.SetCoberturaCoPago()
+
+    End Sub
+    Private Sub SetAsociado(ByVal pCli As Decimal, ByVal pItg As Decimal)
+        Dim objIntegrante As New VentasC.ClientesIntegrantes
+
+        If objIntegrante.Abrir(objIntegrante.GetIDByIntegranteId(pCli, pItg)) Then
+
+            Me.metLocalizacion = "PAD"
+            Me.txtNroAfiliado.Tag = objIntegrante.IntegranteId
+            Me.txtNroAfiliado.Text = objIntegrante.NroAfiliado
+
+            If Me.txtCalle.Text = "" Then
+
+                Me.txtCalle.Text = objIntegrante.dm.Calle
+                Me.txtAltura.Text = objIntegrante.dm.Altura
+                Me.txtPiso.Text = objIntegrante.dm.Piso
+                Me.txtDepto.Text = objIntegrante.dm.Departamento
+
+                If objIntegrante.dm.PoligonalId.ID > 0 Then
+                    Me.chkDomicilio.Checked = True
+                Else
+                    Me.chkDomicilio.Checked = False
+                End If
+
+            End If
+
+        Else
+
+            Me.txtNroAfiliado.Tag = 0
+            Me.txtNroAfiliado.Text = ""
+
+        End If
+
+        objIntegrante = Nothing
+    End Sub
+
+    Private Sub AlertUltimasAtenciones()
+        If CBool(configEmergencias.flgRcpAlertaMultiplePaciente) And Not flgShwAlerta Then
+
+            Me.objIncidentes.GetHistoriaClinicaToXtra(Now.Date.AddDays(-180), Now.Date, CDec(Me.txtClienteId.Tag), frmIncidentesABMIndicadores.xgrdAntecedentes, Me.metLocalizacion, Me.txtNroAfiliado.Tag)
+
+        End If
+    End Sub
+
+    Private Sub txtTelefono_PreviewKeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.PreviewKeyDownEventArgs) Handles txtTelefono.PreviewKeyDown
+
+        If e.KeyCode = Keys.Return Or e.KeyCode = Keys.Tab Then
+
+            Dim objTelefonos As EmergencyC.ScreenPopUpTelefonos
+            Dim objIntegrante As VentasC.ClientesIntegrantes
+
+            If Me.txtTelefono.Enabled And Me.txtPaciente.Text = "" And Me.txtCalle.Text = "" And Len(Me.txtTelefono.Text) > 6 And configEmergencias.flgRcpVerTelefono = 1 And Not flgAskByTelefono Then
+                objTelefonos = New EmergencyC.ScreenPopUpTelefonos
+                If objTelefonos.Abrir(objTelefonos.GetIDByIndex(Me.txtTelefono.Text)) Then
+                    If objTelefonos.IncidenteId.Nombre <> "" Then
+                        If objTelefonos.IncidenteId.ClienteId.virSituacion = 1 Then
+                            flgAskByTelefono = True
+                            If MsgBox("¿ El teléfono corresponde a " & objTelefonos.IncidenteId.Nombre & " ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Teléfono") = MsgBoxResult.Yes Then
+
+                                Me.txtClienteId.Tag = objTelefonos.IncidenteId.ClienteId.ID
+                                Me.txtClienteId.Text = objTelefonos.IncidenteId.ClienteId.ClienteId
+
+                                objIntegrante = New VentasC.ClientesIntegrantes
+
+                                If objTelefonos.IncidenteId.ClienteId.TipoClienteId.TipoClienteId = "C" Then
+                                    '----> Obtengo planes
+                                    '----> Padrón Alert
+                                    If objIntegrante.Abrir(objIntegrante.GetIDByIndex(objTelefonos.IncidenteId.ClienteId.ID, objTelefonos.IncidenteId.IntegranteId)) Then
+                                        Me.txtPaciente.Text = objIntegrante.Apellido & ", " & objIntegrante.Nombre
+                                    End If
+
+                                ElseIf objTelefonos.IncidenteId.ClienteId.TipoClienteId.TipoClienteId = "S" Then
+
+                                    SetAsociado(objTelefonos.IncidenteId.ClienteId.ID, objTelefonos.IncidenteId.IntegranteId)
+
+                                End If
+
+                                Me.AlertUltimasAtenciones()
+
+                            End If
+                        End If
+                    End If
+                End If
+            End If
+
+            If e.KeyCode = Keys.Return Then
+                Me.txtClienteId.Focus()
+            End If
+
+            objTelefonos = Nothing
+            objIntegrante = Nothing
+
+        End If
+
+    End Sub
+
+End Class

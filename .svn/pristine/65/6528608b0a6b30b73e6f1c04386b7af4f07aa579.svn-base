@@ -1,0 +1,319 @@
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmIncidentesOld
+    Inherits WeifenLuo.WinFormsUI.Docking.DockContent
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        If disposing AndAlso components IsNot Nothing Then
+            components.Dispose()
+        End If
+        MyBase.Dispose(disposing)
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container
+        Me.tmrRefresh = New System.Windows.Forms.Timer(Me.components)
+        Me.menActividades = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.menReferencia = New System.Windows.Forms.ToolStripMenuItem
+        Me.menSep1 = New System.Windows.Forms.ToolStripSeparator
+        Me.menPreasignacion = New System.Windows.Forms.ToolStripMenuItem
+        Me.menSalida = New System.Windows.Forms.ToolStripMenuItem
+        Me.ReclamosObservacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.TipsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.ObservacionesEnCeldaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.scrIncidentes = New System.Windows.Forms.VScrollBar
+        Me.panSearch = New System.Windows.Forms.Panel
+        Me.txtTipAmarillo = New System.Windows.Forms.TextBox
+        Me.txtTipAzul = New System.Windows.Forms.TextBox
+        Me.txtReferencias = New System.Windows.Forms.TextBox
+        Me.txtPaciente = New System.Windows.Forms.TextBox
+        Me.txtAtencion = New System.Windows.Forms.TextBox
+        Me.txtDesplazamiento = New System.Windows.Forms.TextBox
+        Me.txtSalida = New System.Windows.Forms.TextBox
+        Me.txtDespacho = New System.Windows.Forms.TextBox
+        Me.txtLlamada = New System.Windows.Forms.TextBox
+        Me.txtMovil = New System.Windows.Forms.TextBox
+        Me.txtSexoEdad = New System.Windows.Forms.TextBox
+        Me.txtLocalidadId = New System.Windows.Forms.TextBox
+        Me.txtSintoma = New System.Windows.Forms.TextBox
+        Me.txtDomicilio = New System.Windows.Forms.TextBox
+        Me.txtNroIncidente = New System.Windows.Forms.TextBox
+        Me.txtCliente = New System.Windows.Forms.TextBox
+        Me.txtGrado = New System.Windows.Forms.TextBox
+        Me.grdIncidentes = New System.Windows.Forms.DataGridView
+        Me.menActividades.SuspendLayout()
+        Me.panSearch.SuspendLayout()
+        CType(Me.grdIncidentes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'tmrRefresh
+        '
+        '
+        'menActividades
+        '
+        Me.menActividades.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menReferencia, Me.menSep1, Me.menPreasignacion, Me.menSalida, Me.ReclamosObservacionesToolStripMenuItem, Me.TipsToolStripMenuItem, Me.ObservacionesEnCeldaToolStripMenuItem})
+        Me.menActividades.Name = "menActividades"
+        Me.menActividades.Size = New System.Drawing.Size(214, 142)
+        '
+        'menReferencia
+        '
+        Me.menReferencia.Enabled = False
+        Me.menReferencia.Name = "menReferencia"
+        Me.menReferencia.Size = New System.Drawing.Size(213, 22)
+        Me.menReferencia.Text = "Incidente"
+        '
+        'menSep1
+        '
+        Me.menSep1.Name = "menSep1"
+        Me.menSep1.Size = New System.Drawing.Size(210, 6)
+        '
+        'menPreasignacion
+        '
+        Me.menPreasignacion.Name = "menPreasignacion"
+        Me.menPreasignacion.Size = New System.Drawing.Size(213, 22)
+        Me.menPreasignacion.Text = "Preasignar"
+        '
+        'menSalida
+        '
+        Me.menSalida.Name = "menSalida"
+        Me.menSalida.Size = New System.Drawing.Size(213, 22)
+        Me.menSalida.Text = "Despachar"
+        '
+        'ReclamosObservacionesToolStripMenuItem
+        '
+        Me.ReclamosObservacionesToolStripMenuItem.Name = "ReclamosObservacionesToolStripMenuItem"
+        Me.ReclamosObservacionesToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.ReclamosObservacionesToolStripMenuItem.Text = "Reclamos - Observaciones"
+        '
+        'TipsToolStripMenuItem
+        '
+        Me.TipsToolStripMenuItem.Name = "TipsToolStripMenuItem"
+        Me.TipsToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.TipsToolStripMenuItem.Text = "Tips"
+        '
+        'ObservacionesEnCeldaToolStripMenuItem
+        '
+        Me.ObservacionesEnCeldaToolStripMenuItem.Name = "ObservacionesEnCeldaToolStripMenuItem"
+        Me.ObservacionesEnCeldaToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.ObservacionesEnCeldaToolStripMenuItem.Text = "Observaciones en Celda"
+        '
+        'scrIncidentes
+        '
+        Me.scrIncidentes.Dock = System.Windows.Forms.DockStyle.Right
+        Me.scrIncidentes.LargeChange = 1
+        Me.scrIncidentes.Location = New System.Drawing.Point(774, 0)
+        Me.scrIncidentes.Name = "scrIncidentes"
+        Me.scrIncidentes.Size = New System.Drawing.Size(16, 273)
+        Me.scrIncidentes.TabIndex = 11
+        '
+        'panSearch
+        '
+        Me.panSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.panSearch.Controls.Add(Me.txtTipAmarillo)
+        Me.panSearch.Controls.Add(Me.txtTipAzul)
+        Me.panSearch.Controls.Add(Me.txtReferencias)
+        Me.panSearch.Controls.Add(Me.txtPaciente)
+        Me.panSearch.Controls.Add(Me.txtAtencion)
+        Me.panSearch.Controls.Add(Me.txtDesplazamiento)
+        Me.panSearch.Controls.Add(Me.txtSalida)
+        Me.panSearch.Controls.Add(Me.txtDespacho)
+        Me.panSearch.Controls.Add(Me.txtLlamada)
+        Me.panSearch.Controls.Add(Me.txtMovil)
+        Me.panSearch.Controls.Add(Me.txtSexoEdad)
+        Me.panSearch.Controls.Add(Me.txtLocalidadId)
+        Me.panSearch.Controls.Add(Me.txtSintoma)
+        Me.panSearch.Controls.Add(Me.txtDomicilio)
+        Me.panSearch.Controls.Add(Me.txtNroIncidente)
+        Me.panSearch.Controls.Add(Me.txtCliente)
+        Me.panSearch.Controls.Add(Me.txtGrado)
+        Me.panSearch.Dock = System.Windows.Forms.DockStyle.Top
+        Me.panSearch.Location = New System.Drawing.Point(0, 0)
+        Me.panSearch.Name = "panSearch"
+        Me.panSearch.Size = New System.Drawing.Size(774, 24)
+        Me.panSearch.TabIndex = 12
+        '
+        'txtTipAmarillo
+        '
+        Me.txtTipAmarillo.Location = New System.Drawing.Point(129, -1)
+        Me.txtTipAmarillo.Name = "txtTipAmarillo"
+        Me.txtTipAmarillo.Size = New System.Drawing.Size(15, 21)
+        Me.txtTipAmarillo.TabIndex = 27
+        '
+        'txtTipAzul
+        '
+        Me.txtTipAzul.Location = New System.Drawing.Point(522, -1)
+        Me.txtTipAzul.Name = "txtTipAzul"
+        Me.txtTipAzul.Size = New System.Drawing.Size(15, 21)
+        Me.txtTipAzul.TabIndex = 26
+        '
+        'txtReferencias
+        '
+        Me.txtReferencias.Location = New System.Drawing.Point(766, -1)
+        Me.txtReferencias.Name = "txtReferencias"
+        Me.txtReferencias.Size = New System.Drawing.Size(23, 21)
+        Me.txtReferencias.TabIndex = 24
+        '
+        'txtPaciente
+        '
+        Me.txtPaciente.Location = New System.Drawing.Point(750, -1)
+        Me.txtPaciente.Name = "txtPaciente"
+        Me.txtPaciente.Size = New System.Drawing.Size(23, 21)
+        Me.txtPaciente.TabIndex = 23
+        '
+        'txtAtencion
+        '
+        Me.txtAtencion.Location = New System.Drawing.Point(733, -1)
+        Me.txtAtencion.Name = "txtAtencion"
+        Me.txtAtencion.Size = New System.Drawing.Size(23, 21)
+        Me.txtAtencion.TabIndex = 22
+        '
+        'txtDesplazamiento
+        '
+        Me.txtDesplazamiento.Location = New System.Drawing.Point(709, -1)
+        Me.txtDesplazamiento.Name = "txtDesplazamiento"
+        Me.txtDesplazamiento.Size = New System.Drawing.Size(23, 21)
+        Me.txtDesplazamiento.TabIndex = 21
+        '
+        'txtSalida
+        '
+        Me.txtSalida.Location = New System.Drawing.Point(689, -1)
+        Me.txtSalida.Name = "txtSalida"
+        Me.txtSalida.Size = New System.Drawing.Size(23, 21)
+        Me.txtSalida.TabIndex = 20
+        '
+        'txtDespacho
+        '
+        Me.txtDespacho.Location = New System.Drawing.Point(673, -1)
+        Me.txtDespacho.Name = "txtDespacho"
+        Me.txtDespacho.Size = New System.Drawing.Size(21, 21)
+        Me.txtDespacho.TabIndex = 19
+        '
+        'txtLlamada
+        '
+        Me.txtLlamada.Location = New System.Drawing.Point(652, -1)
+        Me.txtLlamada.Name = "txtLlamada"
+        Me.txtLlamada.Size = New System.Drawing.Size(25, 21)
+        Me.txtLlamada.TabIndex = 18
+        '
+        'txtMovil
+        '
+        Me.txtMovil.Location = New System.Drawing.Point(615, -1)
+        Me.txtMovil.Name = "txtMovil"
+        Me.txtMovil.Size = New System.Drawing.Size(43, 21)
+        Me.txtMovil.TabIndex = 17
+        '
+        'txtSexoEdad
+        '
+        Me.txtSexoEdad.Location = New System.Drawing.Point(579, -1)
+        Me.txtSexoEdad.Name = "txtSexoEdad"
+        Me.txtSexoEdad.Size = New System.Drawing.Size(37, 21)
+        Me.txtSexoEdad.TabIndex = 16
+        '
+        'txtLocalidadId
+        '
+        Me.txtLocalidadId.Location = New System.Drawing.Point(543, -1)
+        Me.txtLocalidadId.Name = "txtLocalidadId"
+        Me.txtLocalidadId.Size = New System.Drawing.Size(37, 21)
+        Me.txtLocalidadId.TabIndex = 14
+        '
+        'txtSintoma
+        '
+        Me.txtSintoma.Location = New System.Drawing.Point(365, -1)
+        Me.txtSintoma.Name = "txtSintoma"
+        Me.txtSintoma.Size = New System.Drawing.Size(151, 21)
+        Me.txtSintoma.TabIndex = 12
+        '
+        'txtDomicilio
+        '
+        Me.txtDomicilio.Location = New System.Drawing.Point(150, -1)
+        Me.txtDomicilio.Name = "txtDomicilio"
+        Me.txtDomicilio.Size = New System.Drawing.Size(209, 21)
+        Me.txtDomicilio.TabIndex = 3
+        '
+        'txtNroIncidente
+        '
+        Me.txtNroIncidente.Location = New System.Drawing.Point(93, -1)
+        Me.txtNroIncidente.Name = "txtNroIncidente"
+        Me.txtNroIncidente.Size = New System.Drawing.Size(36, 21)
+        Me.txtNroIncidente.TabIndex = 2
+        '
+        'txtCliente
+        '
+        Me.txtCliente.Location = New System.Drawing.Point(32, -1)
+        Me.txtCliente.Name = "txtCliente"
+        Me.txtCliente.Size = New System.Drawing.Size(62, 21)
+        Me.txtCliente.TabIndex = 1
+        '
+        'txtGrado
+        '
+        Me.txtGrado.Location = New System.Drawing.Point(0, -1)
+        Me.txtGrado.Name = "txtGrado"
+        Me.txtGrado.Size = New System.Drawing.Size(33, 21)
+        Me.txtGrado.TabIndex = 0
+        '
+        'grdIncidentes
+        '
+        Me.grdIncidentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdIncidentes.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grdIncidentes.Location = New System.Drawing.Point(0, 24)
+        Me.grdIncidentes.Name = "grdIncidentes"
+        Me.grdIncidentes.Size = New System.Drawing.Size(774, 249)
+        Me.grdIncidentes.TabIndex = 30
+        '
+        'frmIncidentes
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(790, 273)
+        Me.Controls.Add(Me.grdIncidentes)
+        Me.Controls.Add(Me.panSearch)
+        Me.Controls.Add(Me.scrIncidentes)
+        Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Name = "frmIncidentes"
+        Me.TabText = "frmIncidentes"
+        Me.Text = "frmIncidentes"
+        Me.menActividades.ResumeLayout(False)
+        Me.panSearch.ResumeLayout(False)
+        Me.panSearch.PerformLayout()
+        CType(Me.grdIncidentes, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
+    End Sub
+    Friend WithEvents tmrRefresh As System.Windows.Forms.Timer
+    Friend WithEvents menActividades As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents menSalida As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menReferencia As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menSep1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents menPreasignacion As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ReclamosObservacionesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents TipsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ObservacionesEnCeldaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents scrIncidentes As System.Windows.Forms.VScrollBar
+    Friend WithEvents panSearch As System.Windows.Forms.Panel
+    Friend WithEvents txtReferencias As System.Windows.Forms.TextBox
+    Friend WithEvents txtPaciente As System.Windows.Forms.TextBox
+    Friend WithEvents txtAtencion As System.Windows.Forms.TextBox
+    Friend WithEvents txtDesplazamiento As System.Windows.Forms.TextBox
+    Friend WithEvents txtSalida As System.Windows.Forms.TextBox
+    Friend WithEvents txtDespacho As System.Windows.Forms.TextBox
+    Friend WithEvents txtLlamada As System.Windows.Forms.TextBox
+    Friend WithEvents txtMovil As System.Windows.Forms.TextBox
+    Friend WithEvents txtSexoEdad As System.Windows.Forms.TextBox
+    Friend WithEvents txtLocalidadId As System.Windows.Forms.TextBox
+    Friend WithEvents txtSintoma As System.Windows.Forms.TextBox
+    Friend WithEvents txtDomicilio As System.Windows.Forms.TextBox
+    Friend WithEvents txtNroIncidente As System.Windows.Forms.TextBox
+    Friend WithEvents txtCliente As System.Windows.Forms.TextBox
+    Friend WithEvents txtGrado As System.Windows.Forms.TextBox
+    Friend WithEvents txtTipAzul As System.Windows.Forms.TextBox
+    Friend WithEvents txtTipAmarillo As System.Windows.Forms.TextBox
+    Friend WithEvents grdIncidentes As System.Windows.Forms.DataGridView
+End Class

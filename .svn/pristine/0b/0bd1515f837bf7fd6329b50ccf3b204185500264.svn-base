@@ -1,0 +1,194 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmIncidentesABMIndicadores
+    Inherits WeifenLuo.WinFormsUI.Docking.DockContent
+
+    'Form reemplaza a Dispose para limpiar la lista de componentes.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Requerido por el Diseñador de Windows Forms
+    Private components As System.ComponentModel.IContainer
+
+    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
+    'Se puede modificar usando el Diseñador de Windows Forms.  
+    'No lo modifique con el editor de código.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.xgrdAntecedentes = New DevExpress.XtraGrid.GridControl
+        Me.xView = New DevExpress.XtraGrid.Views.Grid.GridView
+        Me.ID = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.Gdo = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GdoColor = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.Fecha = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.Nro = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.Diagnostico = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.Sintoma = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.Nombre = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.Movil = New DevExpress.XtraGrid.Columns.GridColumn
+        CType(Me.xgrdAntecedentes, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.xView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'xgrdAntecedentes
+        '
+        Me.xgrdAntecedentes.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.xgrdAntecedentes.Location = New System.Drawing.Point(0, 0)
+        Me.xgrdAntecedentes.MainView = Me.xView
+        Me.xgrdAntecedentes.Name = "xgrdAntecedentes"
+        Me.xgrdAntecedentes.Size = New System.Drawing.Size(875, 96)
+        Me.xgrdAntecedentes.TabIndex = 100
+        Me.xgrdAntecedentes.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.xView})
+        '
+        'xView
+        '
+        Me.xView.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ID, Me.Gdo, Me.GdoColor, Me.Fecha, Me.Nro, Me.Sintoma, Me.Diagnostico, Me.Nombre, Me.Movil})
+        Me.xView.GridControl = Me.xgrdAntecedentes
+        Me.xView.GroupPanelText = "Ultimas Atenciones del paciente..."
+        Me.xView.Name = "xView"
+        '
+        'ID
+        '
+        Me.ID.Caption = "ID"
+        Me.ID.FieldName = "ID"
+        Me.ID.Name = "ID"
+        Me.ID.OptionsColumn.AllowEdit = False
+        Me.ID.OptionsColumn.ReadOnly = True
+        '
+        'Gdo
+        '
+        Me.Gdo.AppearanceCell.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.Gdo.AppearanceCell.Options.UseFont = True
+        Me.Gdo.AppearanceCell.Options.UseTextOptions = True
+        Me.Gdo.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.Gdo.Caption = "Gdo"
+        Me.Gdo.FieldName = "Gdo"
+        Me.Gdo.MaxWidth = 30
+        Me.Gdo.MinWidth = 30
+        Me.Gdo.Name = "Gdo"
+        Me.Gdo.OptionsColumn.AllowEdit = False
+        Me.Gdo.OptionsColumn.ReadOnly = True
+        Me.Gdo.Visible = True
+        Me.Gdo.VisibleIndex = 0
+        Me.Gdo.Width = 30
+        '
+        'GdoColor
+        '
+        Me.GdoColor.AppearanceCell.Font = New System.Drawing.Font("Wingdings", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
+        Me.GdoColor.AppearanceCell.Options.UseFont = True
+        Me.GdoColor.Caption = "GdoColor"
+        Me.GdoColor.FieldName = "GdoColor"
+        Me.GdoColor.Name = "GdoColor"
+        '
+        'Fecha
+        '
+        Me.Fecha.AppearanceCell.Options.UseTextOptions = True
+        Me.Fecha.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.Fecha.Caption = "Fecha"
+        Me.Fecha.DisplayFormat.FormatString = "dd/MM/yyyy"
+        Me.Fecha.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.Fecha.FieldName = "Fecha"
+        Me.Fecha.MaxWidth = 80
+        Me.Fecha.MinWidth = 80
+        Me.Fecha.Name = "Fecha"
+        Me.Fecha.OptionsColumn.AllowEdit = False
+        Me.Fecha.OptionsColumn.ReadOnly = True
+        Me.Fecha.Visible = True
+        Me.Fecha.VisibleIndex = 1
+        Me.Fecha.Width = 80
+        '
+        'Nro
+        '
+        Me.Nro.AppearanceCell.Options.UseTextOptions = True
+        Me.Nro.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.Nro.Caption = "Nro"
+        Me.Nro.FieldName = "Nro"
+        Me.Nro.MaxWidth = 35
+        Me.Nro.MinWidth = 35
+        Me.Nro.Name = "Nro"
+        Me.Nro.OptionsColumn.AllowEdit = False
+        Me.Nro.OptionsColumn.ReadOnly = True
+        Me.Nro.Visible = True
+        Me.Nro.VisibleIndex = 2
+        Me.Nro.Width = 35
+        '
+        'Diagnostico
+        '
+        Me.Diagnostico.Caption = "Diagnostico"
+        Me.Diagnostico.FieldName = "Diagnostico"
+        Me.Diagnostico.Name = "Diagnostico"
+        Me.Diagnostico.OptionsColumn.AllowEdit = False
+        Me.Diagnostico.OptionsColumn.ReadOnly = True
+        Me.Diagnostico.Visible = True
+        Me.Diagnostico.VisibleIndex = 4
+        Me.Diagnostico.Width = 150
+        '
+        'Sintoma
+        '
+        Me.Sintoma.Caption = "Sintoma"
+        Me.Sintoma.FieldName = "Sintoma"
+        Me.Sintoma.Name = "Sintoma"
+        Me.Sintoma.OptionsColumn.AllowEdit = False
+        Me.Sintoma.OptionsColumn.ReadOnly = True
+        Me.Sintoma.Visible = True
+        Me.Sintoma.VisibleIndex = 3
+        Me.Sintoma.Width = 136
+        '
+        'Nombre
+        '
+        Me.Nombre.Caption = "Nombre"
+        Me.Nombre.FieldName = "Nombre"
+        Me.Nombre.MinWidth = 50
+        Me.Nombre.Name = "Nombre"
+        Me.Nombre.OptionsColumn.AllowEdit = False
+        Me.Nombre.OptionsColumn.ReadOnly = True
+        Me.Nombre.Visible = True
+        Me.Nombre.VisibleIndex = 5
+        Me.Nombre.Width = 150
+        '
+        'Movil
+        '
+        Me.Movil.AppearanceCell.Options.UseTextOptions = True
+        Me.Movil.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.Movil.Caption = "Movil"
+        Me.Movil.FieldName = "Movil"
+        Me.Movil.MaxWidth = 45
+        Me.Movil.MinWidth = 45
+        Me.Movil.Name = "Movil"
+        Me.Movil.Visible = True
+        Me.Movil.VisibleIndex = 6
+        Me.Movil.Width = 45
+        '
+        'frmIncidentesABMIndicadores
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(875, 96)
+        Me.Controls.Add(Me.xgrdAntecedentes)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Name = "frmIncidentesABMIndicadores"
+        Me.Text = "Indicadores"
+        CType(Me.xgrdAntecedentes, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.xView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
+    End Sub
+    Friend WithEvents xgrdAntecedentes As DevExpress.XtraGrid.GridControl
+    Friend WithEvents xView As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents ID As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents Fecha As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents Nro As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents Gdo As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents Sintoma As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents Diagnostico As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents Nombre As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents Movil As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GdoColor As DevExpress.XtraGrid.Columns.GridColumn
+End Class

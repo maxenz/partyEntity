@@ -1,0 +1,99 @@
+﻿Namespace sysCompuMapC
+    Public Class Zonificadores
+        Private points() As System.Drawing.Point
+        Private coords() As System.Drawing.Point
+        Public Sub ClearPoints()
+            ReDim points(0)
+            ReDim coords(0)
+            points(0).X = 0
+            points(0).Y = 0
+            coords(0).X = 0
+            coords(0).Y = 0
+        End Sub
+        Public Sub AddPoint(ByVal pMap As Integer, ByVal lat As Single, ByVal lon As Single, ByVal x As Single, ByVal y As Single, ByVal pPic As Object, Optional ByVal pSav As Boolean = True)
+            Dim objPoint As New MapaObjects
+            Dim vVal As Boolean = True
+
+            If points(0).X <> 0 Then
+                ReDim Preserve points(UBound(points) + 1)
+                ReDim Preserve coords(UBound(coords) + 1)
+            Else
+                If pSav Then
+                    objPoint.EliminarByTipoObjeto(pMap, refPoint)
+                End If
+            End If
+
+            If pSav Then
+                objPoint.PID = shamanConexion.PID
+                objPoint.NroMapa = pMap
+                objPoint.TipoObjeto = refPoint
+                objPoint.ObjetoId = UBound(points)
+                objPoint.Index = UBound(points)
+                objPoint.Latitud = lat
+                objPoint.Longitud = lon
+                vVal = objPoint.Salvar()
+            End If
+
+            If vVal Then
+
+                '----> Vectores
+                points(UBound(points)).X = x
+                points(UBound(points)).Y = y
+                coords(UBound(coords)).X = lat
+                coords(UBound(coords)).Y = lon
+
+                '----> Marco el punto en el mapa
+                Dim oGrafico As Graphics
+                Dim oBrush As Brush
+
+                If pPic.GetType.Name = "PictureBox" Then
+                    oGrafico = pPic.CreateGraphics
+                Else
+                    oGrafico = Graphics.FromImage(pPic)
+                End If
+
+                oBrush = Brushes.Red
+
+                oGrafico.FillEllipse(oBrush, x, y, 8, 8)
+
+            End If
+
+            objPoint = Nothing
+
+        End Sub
+        Public Function UndoLastPoint(ByVal pMap As Integer, ByVal pPic As PictureBox) As Boolean
+            Dim objPoint As New MapaObjects
+            Dim vDelID As Decimal
+
+            UndoLastPoint = False
+
+            vDelID = objPoint.GetIDByIndex(pMap, refPoint, UBound(points), UBound(points))
+
+            If vDelID > 0 Then
+                UndoLastPoint = objPoint.Eliminar(vDelID)
+            End If
+
+        End Function
+        Public Sub Pintar(ByRef pPic As Object)
+            Dim oBrush As SolidBrush
+            Dim oGrafico As Graphics
+
+            If UBound(points) > 0 Then
+
+                If pPic.GetType.Name = "PictureBox" Then
+                    oGrafico = pPic.CreateGraphics
+                Else
+                    oGrafico = Graphics.FromImage(pPic)
+                End If
+
+                oBrush = New SolidBrush(Color.FromArgb(25, Color.Red))
+                oGrafico.FillPolygon(oBrush, points)
+
+            End If
+
+        End Sub
+        Public Sub New(Optional ByVal pDel As Boolean = False)
+            Me.ClearPoints()
+        End Sub
+    End Class
+End Namespace

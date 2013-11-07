@@ -1,0 +1,327 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmVistaIncidentes
+    Inherits WeifenLuo.WinFormsUI.Docking.DockContent
+
+    'Form reemplaza a Dispose para limpiar la lista de componentes.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Requerido por el Diseñador de Windows Forms
+    Private components As System.ComponentModel.IContainer
+
+    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
+    'Se puede modificar usando el Diseñador de Windows Forms.  
+    'No lo modifique con el editor de código.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.grpIncidente = New System.Windows.Forms.GroupBox
+        Me.lblGrado = New System.Windows.Forms.Label
+        Me.lblSintomas = New System.Windows.Forms.Label
+        Me.txtSintomas = New System.Windows.Forms.TextBox
+        Me.txtEdad = New System.Windows.Forms.TextBox
+        Me.txtSexo = New System.Windows.Forms.TextBox
+        Me.txtPaciente = New System.Windows.Forms.TextBox
+        Me.txtClienteId = New System.Windows.Forms.TextBox
+        Me.grdHistorial = New System.Windows.Forms.DataGridView
+        Me.lblReferencias = New System.Windows.Forms.Label
+        Me.lblSexoEdad = New System.Windows.Forms.Label
+        Me.lblLocalidad = New System.Windows.Forms.Label
+        Me.lblDomicilio = New System.Windows.Forms.Label
+        Me.txtReferencias = New System.Windows.Forms.TextBox
+        Me.txtLocalidadDes = New System.Windows.Forms.TextBox
+        Me.txtLocalidadId = New System.Windows.Forms.TextBox
+        Me.txtDomicilio = New System.Windows.Forms.TextBox
+        Me.lblPaciente = New System.Windows.Forms.Label
+        Me.lblCliente = New System.Windows.Forms.Label
+        Me.lblFecha = New System.Windows.Forms.Label
+        Me.txtGrado = New System.Windows.Forms.TextBox
+        Me.txtNroIncidente = New System.Windows.Forms.TextBox
+        Me.txtFecIncidente = New System.Windows.Forms.TextBox
+        Me.grpIncidente.SuspendLayout()
+        CType(Me.grdHistorial, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'grpIncidente
+        '
+        Me.grpIncidente.Controls.Add(Me.lblGrado)
+        Me.grpIncidente.Controls.Add(Me.lblSintomas)
+        Me.grpIncidente.Controls.Add(Me.txtSintomas)
+        Me.grpIncidente.Controls.Add(Me.txtEdad)
+        Me.grpIncidente.Controls.Add(Me.txtSexo)
+        Me.grpIncidente.Controls.Add(Me.txtPaciente)
+        Me.grpIncidente.Controls.Add(Me.txtClienteId)
+        Me.grpIncidente.Controls.Add(Me.grdHistorial)
+        Me.grpIncidente.Controls.Add(Me.lblReferencias)
+        Me.grpIncidente.Controls.Add(Me.lblSexoEdad)
+        Me.grpIncidente.Controls.Add(Me.lblLocalidad)
+        Me.grpIncidente.Controls.Add(Me.lblDomicilio)
+        Me.grpIncidente.Controls.Add(Me.txtReferencias)
+        Me.grpIncidente.Controls.Add(Me.txtLocalidadDes)
+        Me.grpIncidente.Controls.Add(Me.txtLocalidadId)
+        Me.grpIncidente.Controls.Add(Me.txtDomicilio)
+        Me.grpIncidente.Controls.Add(Me.lblPaciente)
+        Me.grpIncidente.Controls.Add(Me.lblCliente)
+        Me.grpIncidente.Controls.Add(Me.lblFecha)
+        Me.grpIncidente.Controls.Add(Me.txtGrado)
+        Me.grpIncidente.Controls.Add(Me.txtNroIncidente)
+        Me.grpIncidente.Controls.Add(Me.txtFecIncidente)
+        Me.grpIncidente.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grpIncidente.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpIncidente.Location = New System.Drawing.Point(0, 0)
+        Me.grpIncidente.Name = "grpIncidente"
+        Me.grpIncidente.Size = New System.Drawing.Size(665, 236)
+        Me.grpIncidente.TabIndex = 2
+        Me.grpIncidente.TabStop = False
+        Me.grpIncidente.Text = "Datos Principales"
+        '
+        'lblGrado
+        '
+        Me.lblGrado.AutoSize = True
+        Me.lblGrado.Location = New System.Drawing.Point(148, 20)
+        Me.lblGrado.Name = "lblGrado"
+        Me.lblGrado.Size = New System.Drawing.Size(41, 13)
+        Me.lblGrado.TabIndex = 22
+        Me.lblGrado.Text = "Grado"
+        '
+        'lblSintomas
+        '
+        Me.lblSintomas.AutoSize = True
+        Me.lblSintomas.Location = New System.Drawing.Point(414, 100)
+        Me.lblSintomas.Name = "lblSintomas"
+        Me.lblSintomas.Size = New System.Drawing.Size(60, 13)
+        Me.lblSintomas.TabIndex = 21
+        Me.lblSintomas.Text = "Síntomas"
+        '
+        'txtSintomas
+        '
+        Me.txtSintomas.Enabled = False
+        Me.txtSintomas.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSintomas.Location = New System.Drawing.Point(408, 116)
+        Me.txtSintomas.Name = "txtSintomas"
+        Me.txtSintomas.Size = New System.Drawing.Size(251, 21)
+        Me.txtSintomas.TabIndex = 20
+        '
+        'txtEdad
+        '
+        Me.txtEdad.Enabled = False
+        Me.txtEdad.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEdad.Location = New System.Drawing.Point(628, 36)
+        Me.txtEdad.Name = "txtEdad"
+        Me.txtEdad.Size = New System.Drawing.Size(31, 21)
+        Me.txtEdad.TabIndex = 19
+        Me.txtEdad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtSexo
+        '
+        Me.txtSexo.Enabled = False
+        Me.txtSexo.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSexo.Location = New System.Drawing.Point(596, 36)
+        Me.txtSexo.Name = "txtSexo"
+        Me.txtSexo.Size = New System.Drawing.Size(33, 21)
+        Me.txtSexo.TabIndex = 18
+        Me.txtSexo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtPaciente
+        '
+        Me.txtPaciente.Enabled = False
+        Me.txtPaciente.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPaciente.Location = New System.Drawing.Point(290, 36)
+        Me.txtPaciente.Name = "txtPaciente"
+        Me.txtPaciente.Size = New System.Drawing.Size(300, 21)
+        Me.txtPaciente.TabIndex = 17
+        '
+        'txtClienteId
+        '
+        Me.txtClienteId.Enabled = False
+        Me.txtClienteId.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtClienteId.Location = New System.Drawing.Point(199, 36)
+        Me.txtClienteId.Name = "txtClienteId"
+        Me.txtClienteId.Size = New System.Drawing.Size(85, 21)
+        Me.txtClienteId.TabIndex = 16
+        '
+        'grdHistorial
+        '
+        Me.grdHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdHistorial.Location = New System.Drawing.Point(6, 143)
+        Me.grdHistorial.Name = "grdHistorial"
+        Me.grdHistorial.Size = New System.Drawing.Size(653, 87)
+        Me.grdHistorial.TabIndex = 15
+        '
+        'lblReferencias
+        '
+        Me.lblReferencias.AutoSize = True
+        Me.lblReferencias.Location = New System.Drawing.Point(12, 100)
+        Me.lblReferencias.Name = "lblReferencias"
+        Me.lblReferencias.Size = New System.Drawing.Size(74, 13)
+        Me.lblReferencias.TabIndex = 14
+        Me.lblReferencias.Text = "Referencias"
+        '
+        'lblSexoEdad
+        '
+        Me.lblSexoEdad.AutoSize = True
+        Me.lblSexoEdad.Location = New System.Drawing.Point(600, 20)
+        Me.lblSexoEdad.Name = "lblSexoEdad"
+        Me.lblSexoEdad.Size = New System.Drawing.Size(54, 13)
+        Me.lblSexoEdad.TabIndex = 13
+        Me.lblSexoEdad.Text = "Sex/Eda"
+        '
+        'lblLocalidad
+        '
+        Me.lblLocalidad.AutoSize = True
+        Me.lblLocalidad.Location = New System.Drawing.Point(414, 60)
+        Me.lblLocalidad.Name = "lblLocalidad"
+        Me.lblLocalidad.Size = New System.Drawing.Size(60, 13)
+        Me.lblLocalidad.TabIndex = 12
+        Me.lblLocalidad.Text = "Localidad"
+        '
+        'lblDomicilio
+        '
+        Me.lblDomicilio.AutoSize = True
+        Me.lblDomicilio.Location = New System.Drawing.Point(12, 60)
+        Me.lblDomicilio.Name = "lblDomicilio"
+        Me.lblDomicilio.Size = New System.Drawing.Size(58, 13)
+        Me.lblDomicilio.TabIndex = 11
+        Me.lblDomicilio.Text = "Domicilio"
+        '
+        'txtReferencias
+        '
+        Me.txtReferencias.Enabled = False
+        Me.txtReferencias.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtReferencias.Location = New System.Drawing.Point(6, 116)
+        Me.txtReferencias.Name = "txtReferencias"
+        Me.txtReferencias.Size = New System.Drawing.Size(396, 21)
+        Me.txtReferencias.TabIndex = 10
+        '
+        'txtLocalidadDes
+        '
+        Me.txtLocalidadDes.Enabled = False
+        Me.txtLocalidadDes.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLocalidadDes.Location = New System.Drawing.Point(447, 76)
+        Me.txtLocalidadDes.Name = "txtLocalidadDes"
+        Me.txtLocalidadDes.Size = New System.Drawing.Size(212, 21)
+        Me.txtLocalidadDes.TabIndex = 9
+        '
+        'txtLocalidadId
+        '
+        Me.txtLocalidadId.Enabled = False
+        Me.txtLocalidadId.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLocalidadId.Location = New System.Drawing.Point(408, 76)
+        Me.txtLocalidadId.Name = "txtLocalidadId"
+        Me.txtLocalidadId.Size = New System.Drawing.Size(42, 21)
+        Me.txtLocalidadId.TabIndex = 8
+        Me.txtLocalidadId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtDomicilio
+        '
+        Me.txtDomicilio.Enabled = False
+        Me.txtDomicilio.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDomicilio.Location = New System.Drawing.Point(6, 76)
+        Me.txtDomicilio.Name = "txtDomicilio"
+        Me.txtDomicilio.Size = New System.Drawing.Size(396, 21)
+        Me.txtDomicilio.TabIndex = 6
+        '
+        'lblPaciente
+        '
+        Me.lblPaciente.AutoSize = True
+        Me.lblPaciente.Location = New System.Drawing.Point(297, 20)
+        Me.lblPaciente.Name = "lblPaciente"
+        Me.lblPaciente.Size = New System.Drawing.Size(56, 13)
+        Me.lblPaciente.TabIndex = 5
+        Me.lblPaciente.Text = "Paciente"
+        '
+        'lblCliente
+        '
+        Me.lblCliente.AutoSize = True
+        Me.lblCliente.Location = New System.Drawing.Point(201, 20)
+        Me.lblCliente.Name = "lblCliente"
+        Me.lblCliente.Size = New System.Drawing.Size(46, 13)
+        Me.lblCliente.TabIndex = 4
+        Me.lblCliente.Text = "Cliente"
+        '
+        'lblFecha
+        '
+        Me.lblFecha.AutoSize = True
+        Me.lblFecha.Location = New System.Drawing.Point(12, 20)
+        Me.lblFecha.Name = "lblFecha"
+        Me.lblFecha.Size = New System.Drawing.Size(75, 13)
+        Me.lblFecha.TabIndex = 3
+        Me.lblFecha.Text = "Fecha y Nro."
+        '
+        'txtGrado
+        '
+        Me.txtGrado.Enabled = False
+        Me.txtGrado.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtGrado.Location = New System.Drawing.Point(145, 36)
+        Me.txtGrado.Name = "txtGrado"
+        Me.txtGrado.Size = New System.Drawing.Size(48, 21)
+        Me.txtGrado.TabIndex = 2
+        Me.txtGrado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtNroIncidente
+        '
+        Me.txtNroIncidente.Enabled = False
+        Me.txtNroIncidente.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNroIncidente.Location = New System.Drawing.Point(96, 36)
+        Me.txtNroIncidente.Name = "txtNroIncidente"
+        Me.txtNroIncidente.Size = New System.Drawing.Size(43, 21)
+        Me.txtNroIncidente.TabIndex = 1
+        Me.txtNroIncidente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtFecIncidente
+        '
+        Me.txtFecIncidente.Enabled = False
+        Me.txtFecIncidente.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFecIncidente.Location = New System.Drawing.Point(6, 36)
+        Me.txtFecIncidente.Name = "txtFecIncidente"
+        Me.txtFecIncidente.Size = New System.Drawing.Size(94, 21)
+        Me.txtFecIncidente.TabIndex = 0
+        Me.txtFecIncidente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'frmVistaIncidentes
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(665, 236)
+        Me.Controls.Add(Me.grpIncidente)
+        Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Name = "frmVistaIncidentes"
+        Me.TabText = "frmVistaIncidentes"
+        Me.Text = "frmVistaIncidentes"
+        Me.grpIncidente.ResumeLayout(False)
+        Me.grpIncidente.PerformLayout()
+        CType(Me.grdHistorial, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
+    End Sub
+    Friend WithEvents grpIncidente As System.Windows.Forms.GroupBox
+    Friend WithEvents lblGrado As System.Windows.Forms.Label
+    Friend WithEvents lblSintomas As System.Windows.Forms.Label
+    Friend WithEvents txtSintomas As System.Windows.Forms.TextBox
+    Friend WithEvents txtEdad As System.Windows.Forms.TextBox
+    Friend WithEvents txtSexo As System.Windows.Forms.TextBox
+    Friend WithEvents txtPaciente As System.Windows.Forms.TextBox
+    Friend WithEvents txtClienteId As System.Windows.Forms.TextBox
+    Friend WithEvents grdHistorial As System.Windows.Forms.DataGridView
+    Friend WithEvents lblReferencias As System.Windows.Forms.Label
+    Friend WithEvents lblSexoEdad As System.Windows.Forms.Label
+    Friend WithEvents lblLocalidad As System.Windows.Forms.Label
+    Friend WithEvents lblDomicilio As System.Windows.Forms.Label
+    Friend WithEvents txtReferencias As System.Windows.Forms.TextBox
+    Friend WithEvents txtLocalidadDes As System.Windows.Forms.TextBox
+    Friend WithEvents txtLocalidadId As System.Windows.Forms.TextBox
+    Friend WithEvents txtDomicilio As System.Windows.Forms.TextBox
+    Friend WithEvents lblPaciente As System.Windows.Forms.Label
+    Friend WithEvents lblCliente As System.Windows.Forms.Label
+    Friend WithEvents lblFecha As System.Windows.Forms.Label
+    Friend WithEvents txtGrado As System.Windows.Forms.TextBox
+    Friend WithEvents txtNroIncidente As System.Windows.Forms.TextBox
+    Friend WithEvents txtFecIncidente As System.Windows.Forms.TextBox
+End Class

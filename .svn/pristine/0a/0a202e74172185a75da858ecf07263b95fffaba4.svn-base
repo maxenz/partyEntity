@@ -1,0 +1,144 @@
+Imports InterSystems.Data.CacheClient
+Imports InterSystems.Data.CacheTypes
+Imports ShamanClases
+Namespace sysCompuMapC
+    Public Class MapaObjects
+        Inherits sysCompuMap.MapaObjects
+        Public Sub New(Optional ByVal pCnnSta As String = "", Optional ByVal pCnnDyn As String = "")
+            MyBase.New(pCnnSta, pCnnDyn)
+        End Sub
+        Public Function Salvar() As Boolean
+
+            Dim vRdo As Boolean = False
+
+            Try
+
+                If Me.IsValid Then
+
+                    Dim mtdSignature As CacheMethodSignature = makeCacheMethodSignature(cnnsCache(cnnDftStatic), GetType(InterSystems.Data.CacheTypes.CacheStringReturnValue), Me.PID, Me.NroMapa, Me.TipoObjeto, Me.ObjetoId, Me.Index, Me.Descripcion, Me.Leyenda, Me.Icono, SingleToCache(Me.Latitud), SingleToCache(Me.Longitud))
+                    CacheObject.RunClassMethodS(cnnsCache(cnnDftStatic), CacheClassController, "AgregarObjeto", mtdSignature)
+
+                    'Debug.Print(getCacheDebug(CacheClassController, "AgregarObjeto", mtdSignature))
+
+                    CheckResult(vRdo, CType(mtdSignature.ReturnValue, CacheStringReturnValue).Value)
+
+                End If
+
+            Catch ex As Exception
+
+                HandleError("clsMapaObjects", "Salvar", ex)
+
+            End Try
+
+            Salvar = vRdo
+
+        End Function
+        Public Function Eliminar(ByVal pId As Decimal) As Boolean
+
+            Dim vRdo As Boolean = False
+
+            Try
+
+                Dim mtdSignature As CacheMethodSignature = makeCacheMethodSignature(cnnsCache(cnnDftStatic), GetType(CacheStringReturnValue), pId)
+                CacheObject.RunClassMethodS(cnnsCache(cnnDftStatic), CacheClassController, "EliminarObjeto", mtdSignature)
+
+                'Debug.Print(getCacheDebug(CacheClassController, "EliminarObjeto", mtdSignature))
+
+                CheckResult(vRdo, CType(mtdSignature.ReturnValue, CacheStringReturnValue).Value)
+
+            Catch ex As Exception
+
+                HandleError("clsMapaObjects", "Eliminar", ex)
+
+            End Try
+
+            Eliminar = vRdo
+
+        End Function
+
+        Public Sub EliminarByTipoObjeto(ByVal pNro As Integer, ByVal pTip As Integer)
+
+            Dim vRdo As Boolean = False
+
+            Try
+
+                Dim mtdSignature As CacheMethodSignature = makeCacheMethodSignature(cnnsCache(cnnDftStatic), Nothing, shamanConexion.PID, pNro, pTip)
+                CacheObject.RunClassMethodS(cnnsCache(cnnDftStatic), CacheClassController, "EliminarByTipoObjeto", mtdSignature)
+
+                'Debug.Print(getCacheDebug(CacheClassController, "EliminarByTipoObjeto", mtdSignature))
+
+
+            Catch ex As Exception
+
+                HandleError("clsMapaObjects", "EliminarByTipoObjeto", ex)
+
+            End Try
+
+        End Sub
+
+        Public Function SetPixels(ByVal pId As Decimal, ByVal xDes As Single, ByVal xHas As Single, ByVal yDes As Single, ByVal yHas As Single) As Boolean
+
+            Dim vRdo As Boolean = False
+
+            Try
+
+                Dim mtdSignature As CacheMethodSignature = makeCacheMethodSignature(cnnsCache(cnnDftStatic), GetType(CacheStringReturnValue), pId, CInt(xDes), CInt(xHas), CInt(yDes), CInt(yHas))
+                CacheObject.RunClassMethodS(cnnsCache(cnnDftStatic), CacheClassController, "SetPixels", mtdSignature)
+
+                'Debug.Print(getCacheDebug(CacheClassController, "SetPixels", mtdSignature))
+
+                CheckResult(vRdo, CType(mtdSignature.ReturnValue, CacheStringReturnValue).Value)
+
+            Catch ex As Exception
+
+                HandleError("clsMapaObjects", "SetPixels", ex)
+
+            End Try
+
+            SetPixels = vRdo
+
+        End Function
+        Public Function GetIDByIndex(ByVal pNro As Integer, ByVal pTip As Integer, ByVal pId As String, Optional ByVal pIdx As Integer = 0) As Decimal
+
+            GetIDByIndex = 0
+
+            Try
+
+                Dim mtdSignature As CacheMethodSignature = makeCacheMethodSignature(cnnsCache(cnnDftStatic), GetType(CacheDecimalReturnValue), shamanConexion.PID, pNro, pTip, pId, pIdx)
+                CacheObject.RunClassMethodS(cnnsCache(cnnDftStatic), CacheClassController, "GetIDByIndex", mtdSignature)
+
+                Debug.Print(getCacheDebug(CacheClassController, "GetIDByIndex", mtdSignature))
+
+                GetIDByIndex = CType(mtdSignature.ReturnValue, CacheDecimalReturnValue).Value
+
+            Catch ex As Exception
+
+                HandleError("clsMapaObjects", "GetIDByIndex", ex)
+
+            End Try
+
+        End Function
+
+        Public Function GetIDByPixel(ByVal pNro As Integer, ByVal pPixX As Integer, ByVal pPixY As Integer) As Decimal
+
+            GetIDByPixel = 0
+
+            Try
+
+                Dim mtdSignature As CacheMethodSignature = makeCacheMethodSignature(cnnsCache(cnnDftStatic), GetType(CacheDecimalReturnValue), shamanConexion.PID, pNro, pPixX, pPixY)
+                CacheObject.RunClassMethodS(cnnsCache(cnnDftStatic), CacheClassController, "GetIDByPixel", mtdSignature)
+
+                'Debug.Print(getCacheDebug(CacheClassController, "GetIDByPixel", mtdSignature))
+
+                GetIDByPixel = CType(mtdSignature.ReturnValue, CacheDecimalReturnValue).Value
+
+            Catch ex As Exception
+
+                HandleError("clsMapaObjects", "GetIDByPixel", ex)
+
+            End Try
+
+        End Function
+
+    End Class
+End Namespace

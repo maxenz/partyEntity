@@ -1,0 +1,4 @@
+﻿Module modGPSDeclares
+    '----> Zonas
+    Public glbZonas As sysCompuMapC.Zonificadores
+End Module

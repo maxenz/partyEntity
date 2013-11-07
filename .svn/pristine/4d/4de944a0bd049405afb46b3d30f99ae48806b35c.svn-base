@@ -1,0 +1,13 @@
+﻿Module modErrors
+    Public Sub HandleError(ByVal pClass As String, ByVal pSub As String, ByVal ex As Exception)
+        MsgBox(pSub & ": " & ex.Message, MsgBoxStyle.Critical, pClass)
+    End Sub
+    Public Sub CheckResult(ByRef pRdo As Boolean, ByVal pErr As String, Optional ByVal pClass As String = "", Optional ByVal pSub As String = "")
+        If pErr <> "" Then
+            MsgBox(pSub & ": " & pErr, MsgBoxStyle.Critical, pClass)
+            pRdo = False
+        Else
+            pRdo = True
+        End If
+    End Sub
+End Module

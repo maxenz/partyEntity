@@ -1,0 +1,90 @@
+﻿Imports WeifenLuo.WinFormsUI.Docking
+Imports ShamanClases
+Public Class frmCabMinorista
+    Inherits DockContent
+    Private Sub frmCabDespacho_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        Me.FormatScreen()
+
+    End Sub
+    Private Sub FormatScreen()
+        Dim objTiposClientes As New VentasC.TiposClientes
+        Dim objActividades As New VentasC.ActividadesClientes
+        Dim objEntidades As New VentasC.Entidades
+        Dim objZonas As New EmergencyC.ZonasGeograficas
+
+        Me.BackColor = Color.Beige
+        SetFormatGroupControl(Me.grpMain)
+        Me.InitDateValues()
+        objTiposClientes.Combo(Me.cmbTiposClientes, hTipoCliente.hDirectos, True)
+        objActividades.Combo(Me.cmbActividades, hTipoCliente.hDirectos, True)
+        objZonas.Combo(Me.cmbZonas, True)
+        objEntidades.Combo(Me.cmbTarifaComparacion, 0, True)
+        Me.cmbTarifaComparacion.EditValue = objEntidades.GetIDByIndex("VALOR").ToString
+        Me.cmbModoGrafico.Properties.Items.Add(New ItemCombo(0, "Completo"))
+        Me.cmbModoGrafico.Properties.Items.Add(New ItemCombo(1, "Solo Selección"))
+        Me.cmbModoGrafico.SelectedIndex = 1
+
+        frmTablerosGraficos.chtResultados.DataSource = frmTablerosResultados.grdResultados
+
+        objTiposClientes = Nothing
+        objActividades = Nothing
+        objZonas = Nothing
+
+    End Sub
+
+    Private Sub InitDateValues()
+
+        If Now.Date.Month - 1 > 0 Then
+            Me.dtpDesde.EditValue = CDate("01/" & Now.Date.Month - 1 & "/" & Now.Date.Year)
+        Else
+            Me.dtpDesde.EditValue = CDate("01/12/" & Now.Date.Year - 1)
+        End If
+        Me.dtpHasta.EditValue = DateAdd(DateInterval.Day, -1, CDate("01/" & Now.Date.Month & "/" & Now.Date.Year))
+        '-----> Comparación
+        If dtpDesde.DateTime.Date.Month - 1 > 0 Then
+            Me.dtpCmpDesde.EditValue = CDate("01/" & dtpDesde.DateTime.Date.Month - 1 & "/" & dtpDesde.DateTime.Date.Year)
+        Else
+            Me.dtpCmpDesde.EditValue = CDate("01/12/" & dtpDesde.DateTime.Date.Year - 1)
+        End If
+        Me.dtpCmpHasta.EditValue = DateAdd(DateInterval.Day, -1, dtpDesde.DateTime.Date)
+
+    End Sub
+
+    Private Sub cmdProcesar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdProcesar.Click
+        Dim objTablero As New sysPanelC.Tableros
+
+        If ShamanClases.valDesdeHasta(Me.dtpDesde.DateTime.Date, Me.dtpHasta.DateTime.Date) Then
+            Me.Cursor = Cursors.WaitCursor
+            objTablero.BuildMinorista(Me.dtpDesde.DateTime.Date, Me.dtpHasta.DateTime.Date, frmTablerosResultados.grdResultados, _
+                                                frmTablerosGraficos.chtResultados, Me.dtpCmpDesde.DateTime.Date, Me.dtpCmpHasta.DateTime.Date, _
+                                                getItemData(Me.cmbTiposClientes), getItemData(Me.cmbActividades), getItemData(Me.cmbZonas), _
+                                                getItemData(Me.cmbTarifaComparacion))
+            Me.Cursor = Cursors.Default
+        End If
+
+        objTablero = Nothing
+
+    End Sub
+
+    Private Sub cmdExportar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdExportar.Click
+        Me.dlgGuardar.Title = "Establezca el destino de su archivo"
+        Me.dlgGuardar.Filter = "Archivos Excel (*.xls)|*.xls"
+        Me.dlgGuardar.ShowDialog()
+        If Me.dlgGuardar.FileName <> "" Then
+            frmTablerosResultados.grdResultados.ExportToXls(Me.dlgGuardar.FileName)
+            Dim vExcelGrf As String = Me.dlgGuardar.FileName
+            vExcelGrf = Parcer(vExcelGrf, ".") & " Grafico." & Parcer(vExcelGrf, ".", 1)
+            frmTablerosGraficos.chtResultados.ExportToXls(vExcelGrf)
+            MsgBox("Se generaron corractemente los archivos " & vbCrLf & Me.dlgGuardar.FileName & ", " & vbCrLf & vExcelGrf, MsgBoxStyle.Information, "Exportación")
+        End If
+    End Sub
+
+    Private Sub cmbModoGrafico_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbModoGrafico.SelectedIndexChanged
+        If Me.cmbModoGrafico.SelectedIndex = 0 Then
+            frmTablerosGraficos.chtResultados.PivotGridDataSourceOptions.SelectionOnly = False
+        Else
+            frmTablerosGraficos.chtResultados.PivotGridDataSourceOptions.SelectionOnly = True
+        End If
+    End Sub
+End Class

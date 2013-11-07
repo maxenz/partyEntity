@@ -1,0 +1,27 @@
+Imports WeifenLuo.WinFormsUI.Docking
+Public Class frmRecepcionSpace
+    Inherits DockContent
+
+    Private flgLoading As Boolean = True
+
+    Private Sub frmRecepcionSpace_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.GotFocus
+        If Not flgLoading Then
+            If Val(callInfo) > 0 Then
+                ShowIncidenteScreen(Val(callInfo))
+            Else
+                ManagePages(ennPages.emeRecepcion)
+            End If
+        Else
+            flgLoading = False
+        End If
+    End Sub
+
+    Private Sub frmRecepcionSpace_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        Me.dockRecepcion.Parent = Me
+        Me.dockRecepcion.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingSdi
+        Me.dockRecepcion.DockBottomPortion = 170
+
+    End Sub
+
+End Class

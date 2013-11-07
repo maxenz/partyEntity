@@ -1,0 +1,54 @@
+Imports WeifenLuo.WinFormsUI.Docking
+Public Class frmIncidentesMoviles
+    Inherits DockContent
+
+    Private objMovilesActuales As New sysEmergencyC.MovilesActuales
+
+    Private Sub frmIncidentesMoviles_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        objMovilesActuales = Nothing
+    End Sub
+    Private Sub frmIncidentesMoviles_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        FormatScreen()
+    End Sub
+    Private Sub FormatScreen()
+        SetFormatGrid(Me.grdMoviles, 3, False, False)
+        With Me.grdMoviles
+            .Font = New Font("Arial", 12, FontStyle.Bold, GraphicsUnit.Pixel, 1)
+            .ColumnHeadersVisible = False
+            .Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(0).Width = 40
+            .Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(1).Width = 38
+            .Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(2).Width = 38
+        End With
+    End Sub
+    Public Sub RefreshGrid()
+        objMovilesActuales.RefreshPopup(Me.grdMoviles)
+    End Sub
+
+    Private Sub grdMoviles_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            If Me.grdMoviles.CurrentCell.ColumnIndex = 1 Then
+                menReferencia.Text = "Móvil " & Me.grdMoviles.CurrentCell.Value
+                menActividades.Show(Me.grdMoviles, e.Location)
+            End If
+        End If
+    End Sub
+
+    Private Sub menLlegada_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles menLlegada.Click
+        callInfo = Me.grdMoviles.Rows(Me.grdMoviles.CurrentCell.RowIndex).Cells(1).Value
+        'ShowChildFormFloat(frmPopupLlegada, Me.DockPanel)
+    End Sub
+
+    Private Sub menDerivacion_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles menDerivacion.Click
+        callInfo = Me.grdMoviles.Rows(Me.grdMoviles.CurrentCell.RowIndex).Cells(1).Value
+        'ShowChildFormFloat(frmPopupDerivacion, Me.DockPanel)
+    End Sub
+
+    Private Sub menFinal_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles menFinal.Click
+        callInfo = Me.grdMoviles.Rows(Me.grdMoviles.CurrentCell.RowIndex).Cells(1).Value
+        'ShowChildFormFloat(frmPopupFinal, Me.DockPanel)
+    End Sub
+
+End Class

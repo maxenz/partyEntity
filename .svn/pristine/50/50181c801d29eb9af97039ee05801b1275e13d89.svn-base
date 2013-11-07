@@ -1,0 +1,83 @@
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class MainTree
+    Inherits WeifenLuo.WinFormsUI.Docking.DockContent
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        If disposing AndAlso components IsNot Nothing Then
+            components.Dispose()
+        End If
+        MyBase.Dispose(disposing)
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container
+        Me.imlIconos = New System.Windows.Forms.ImageList(Me.components)
+        Me.trwMain = New System.Windows.Forms.TreeView
+        Me.MenuArbol = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.menRefrescar = New System.Windows.Forms.ToolStripMenuItem
+        Me.menExpandir = New System.Windows.Forms.ToolStripMenuItem
+        Me.MenuArbol.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'imlIconos
+        '
+        Me.imlIconos.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
+        Me.imlIconos.ImageSize = New System.Drawing.Size(16, 16)
+        Me.imlIconos.TransparentColor = System.Drawing.Color.Transparent
+        '
+        'trwMain
+        '
+        Me.trwMain.ContextMenuStrip = Me.MenuArbol
+        Me.trwMain.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.trwMain.Location = New System.Drawing.Point(0, 0)
+        Me.trwMain.Name = "trwMain"
+        Me.trwMain.Size = New System.Drawing.Size(253, 341)
+        Me.trwMain.TabIndex = 3
+        '
+        'MenuArbol
+        '
+        Me.MenuArbol.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menRefrescar, Me.menExpandir})
+        Me.MenuArbol.Name = "ContextMenuStrip1"
+        Me.MenuArbol.Size = New System.Drawing.Size(153, 70)
+        '
+        'menRefrescar
+        '
+        Me.menRefrescar.Name = "menRefrescar"
+        Me.menRefrescar.ShortcutKeys = System.Windows.Forms.Keys.F5
+        Me.menRefrescar.Size = New System.Drawing.Size(152, 22)
+        Me.menRefrescar.Text = "Refrescar"
+        '
+        'menExpandir
+        '
+        Me.menExpandir.Name = "menExpandir"
+        Me.menExpandir.Size = New System.Drawing.Size(152, 22)
+        Me.menExpandir.Text = "Expandir"
+        '
+        'MainTree
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(253, 341)
+        Me.Controls.Add(Me.trwMain)
+        Me.Name = "MainTree"
+        Me.TabText = "Arbol de Opciones"
+        Me.Text = "Arbol de Opciones"
+        Me.MenuArbol.ResumeLayout(False)
+        Me.ResumeLayout(False)
+
+    End Sub
+    Friend WithEvents imlIconos As System.Windows.Forms.ImageList
+    Friend WithEvents trwMain As System.Windows.Forms.TreeView
+    Friend WithEvents MenuArbol As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents menRefrescar As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menExpandir As System.Windows.Forms.ToolStripMenuItem
+End Class

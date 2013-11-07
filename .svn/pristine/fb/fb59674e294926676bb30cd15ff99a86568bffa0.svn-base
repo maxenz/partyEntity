@@ -1,0 +1,342 @@
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class Main
+    Inherits System.Windows.Forms.Form
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        If disposing AndAlso components IsNot Nothing Then
+            components.Dispose()
+        End If
+        MyBase.Dispose(disposing)
+    End Sub
+
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
+        Dim DockPanelSkin1 As WeifenLuo.WinFormsUI.Docking.DockPanelSkin = New WeifenLuo.WinFormsUI.Docking.DockPanelSkin
+        Dim AutoHideStripSkin1 As WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin = New WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin
+        Dim DockPanelGradient1 As WeifenLuo.WinFormsUI.Docking.DockPanelGradient = New WeifenLuo.WinFormsUI.Docking.DockPanelGradient
+        Dim TabGradient1 As WeifenLuo.WinFormsUI.Docking.TabGradient = New WeifenLuo.WinFormsUI.Docking.TabGradient
+        Dim DockPaneStripSkin1 As WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin = New WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin
+        Dim DockPaneStripGradient1 As WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient = New WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient
+        Dim TabGradient2 As WeifenLuo.WinFormsUI.Docking.TabGradient = New WeifenLuo.WinFormsUI.Docking.TabGradient
+        Dim DockPanelGradient2 As WeifenLuo.WinFormsUI.Docking.DockPanelGradient = New WeifenLuo.WinFormsUI.Docking.DockPanelGradient
+        Dim TabGradient3 As WeifenLuo.WinFormsUI.Docking.TabGradient = New WeifenLuo.WinFormsUI.Docking.TabGradient
+        Dim DockPaneStripToolWindowGradient1 As WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient = New WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient
+        Dim TabGradient4 As WeifenLuo.WinFormsUI.Docking.TabGradient = New WeifenLuo.WinFormsUI.Docking.TabGradient
+        Dim TabGradient5 As WeifenLuo.WinFormsUI.Docking.TabGradient = New WeifenLuo.WinFormsUI.Docking.TabGradient
+        Dim DockPanelGradient3 As WeifenLuo.WinFormsUI.Docking.DockPanelGradient = New WeifenLuo.WinFormsUI.Docking.DockPanelGradient
+        Dim TabGradient6 As WeifenLuo.WinFormsUI.Docking.TabGradient = New WeifenLuo.WinFormsUI.Docking.TabGradient
+        Dim TabGradient7 As WeifenLuo.WinFormsUI.Docking.TabGradient = New WeifenLuo.WinFormsUI.Docking.TabGradient
+        Me.MenuStrip = New System.Windows.Forms.MenuStrip
+        Me.Modulos = New System.Windows.Forms.ToolStripMenuItem
+        Me.modEmergencias = New System.Windows.Forms.ToolStripMenuItem
+        Me.AdministraciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem
+        Me.RrhhToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.modTableros = New System.Windows.Forms.ToolStripMenuItem
+        Me.modGpShaman = New System.Windows.Forms.ToolStripMenuItem
+        Me.modMonitoreo = New System.Windows.Forms.ToolStripMenuItem
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
+        Me.modSalir = New System.Windows.Forms.ToolStripMenuItem
+        Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.tbrMain = New System.Windows.Forms.ToolStrip
+        Me.HelpToolStripButton = New System.Windows.Forms.ToolStripButton
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.DockPanel = New WeifenLuo.WinFormsUI.Docking.DockPanel
+        Me.imlIconos = New System.Windows.Forms.ImageList(Me.components)
+        Me.stbMain = New System.Windows.Forms.StatusStrip
+        Me.stbCooLatitud = New System.Windows.Forms.ToolStripStatusLabel
+        Me.stbCooLongitud = New System.Windows.Forms.ToolStripStatusLabel
+        Me.stbLatitud = New System.Windows.Forms.ToolStripStatusLabel
+        Me.stbLongitud = New System.Windows.Forms.ToolStripStatusLabel
+        Me.stbPixelX = New System.Windows.Forms.ToolStripStatusLabel
+        Me.stbPixelY = New System.Windows.Forms.ToolStripStatusLabel
+        Me.MenuStrip.SuspendLayout()
+        Me.tbrMain.SuspendLayout()
+        Me.stbMain.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'MenuStrip
+        '
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Modulos, Me.AyudaToolStripMenuItem})
+        Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip.Name = "MenuStrip"
+        Me.MenuStrip.Size = New System.Drawing.Size(632, 24)
+        Me.MenuStrip.TabIndex = 5
+        Me.MenuStrip.Text = "MenuStrip"
+        '
+        'Modulos
+        '
+        Me.Modulos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.modEmergencias, Me.AdministraciónToolStripMenuItem, Me.ToolStripMenuItem1, Me.RrhhToolStripMenuItem, Me.modTableros, Me.modGpShaman, Me.modMonitoreo, Me.ToolStripSeparator1, Me.modSalir})
+        Me.Modulos.Name = "Modulos"
+        Me.Modulos.Size = New System.Drawing.Size(66, 20)
+        Me.Modulos.Text = "Módulos"
+        '
+        'modEmergencias
+        '
+        Me.modEmergencias.Image = Global.Shaman.My.Resources.Resources.operativa
+        Me.modEmergencias.Name = "modEmergencias"
+        Me.modEmergencias.Size = New System.Drawing.Size(282, 22)
+        Me.modEmergencias.Text = "Emergencias"
+        '
+        'AdministraciónToolStripMenuItem
+        '
+        Me.AdministraciónToolStripMenuItem.Enabled = False
+        Me.AdministraciónToolStripMenuItem.Image = Global.Shaman.My.Resources.Resources.facturacion
+        Me.AdministraciónToolStripMenuItem.Name = "AdministraciónToolStripMenuItem"
+        Me.AdministraciónToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
+        Me.AdministraciónToolStripMenuItem.Text = "Ventas / Facturación"
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Enabled = False
+        Me.ToolStripMenuItem1.Image = Global.Shaman.My.Resources.Resources.liquidaciones
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(282, 22)
+        Me.ToolStripMenuItem1.Text = "Compras / Liquidaciones"
+        '
+        'RrhhToolStripMenuItem
+        '
+        Me.RrhhToolStripMenuItem.Enabled = False
+        Me.RrhhToolStripMenuItem.Image = Global.Shaman.My.Resources.Resources.personal
+        Me.RrhhToolStripMenuItem.Name = "RrhhToolStripMenuItem"
+        Me.RrhhToolStripMenuItem.Size = New System.Drawing.Size(282, 22)
+        Me.RrhhToolStripMenuItem.Text = "Recursos Humanos"
+        '
+        'modTableros
+        '
+        Me.modTableros.Image = Global.Shaman.My.Resources.Resources.estadisticas
+        Me.modTableros.Name = "modTableros"
+        Me.modTableros.Size = New System.Drawing.Size(282, 22)
+        Me.modTableros.Text = "Análisis Estadístico"
+        '
+        'modGpShaman
+        '
+        Me.modGpShaman.Image = Global.Shaman.My.Resources.Resources.movil
+        Me.modGpShaman.Name = "modGpShaman"
+        Me.modGpShaman.Size = New System.Drawing.Size(282, 22)
+        Me.modGpShaman.Text = "GPShaman / Mapas"
+        '
+        'modMonitoreo
+        '
+        Me.modMonitoreo.Image = Global.Shaman.My.Resources.Resources.parametros
+        Me.modMonitoreo.Name = "modMonitoreo"
+        Me.modMonitoreo.Size = New System.Drawing.Size(282, 22)
+        Me.modMonitoreo.Text = "Configuración / Seguridad y Monitoreo"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(279, 6)
+        '
+        'modSalir
+        '
+        Me.modSalir.Image = Global.Shaman.My.Resources.Resources.salir
+        Me.modSalir.Name = "modSalir"
+        Me.modSalir.Size = New System.Drawing.Size(282, 22)
+        Me.modSalir.Text = "Salir"
+        '
+        'AyudaToolStripMenuItem
+        '
+        Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
+        Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(53, 20)
+        Me.AyudaToolStripMenuItem.Text = "Ayuda"
+        '
+        'tbrMain
+        '
+        Me.tbrMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HelpToolStripButton})
+        Me.tbrMain.Location = New System.Drawing.Point(0, 24)
+        Me.tbrMain.Name = "tbrMain"
+        Me.tbrMain.Size = New System.Drawing.Size(632, 25)
+        Me.tbrMain.TabIndex = 6
+        Me.tbrMain.Text = "ToolStrip"
+        '
+        'HelpToolStripButton
+        '
+        Me.HelpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.HelpToolStripButton.Image = CType(resources.GetObject("HelpToolStripButton.Image"), System.Drawing.Image)
+        Me.HelpToolStripButton.ImageTransparentColor = System.Drawing.Color.Black
+        Me.HelpToolStripButton.Name = "HelpToolStripButton"
+        Me.HelpToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.HelpToolStripButton.Text = "Help"
+        '
+        'DockPanel
+        '
+        Me.DockPanel.ActiveAutoHideContent = Nothing
+        Me.DockPanel.BackColor = System.Drawing.SystemColors.Control
+        Me.DockPanel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DockPanel.DockBackColor = System.Drawing.SystemColors.Control
+        Me.DockPanel.Location = New System.Drawing.Point(0, 0)
+        Me.DockPanel.Name = "DockPanel"
+        Me.DockPanel.Size = New System.Drawing.Size(632, 453)
+        DockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight
+        DockPanelGradient1.StartColor = System.Drawing.SystemColors.ControlLight
+        AutoHideStripSkin1.DockStripGradient = DockPanelGradient1
+        TabGradient1.EndColor = System.Drawing.SystemColors.Control
+        TabGradient1.StartColor = System.Drawing.SystemColors.Control
+        TabGradient1.TextColor = System.Drawing.SystemColors.ControlDarkDark
+        AutoHideStripSkin1.TabGradient = TabGradient1
+        AutoHideStripSkin1.TextFont = New System.Drawing.Font("Segoe UI", 9.0!)
+        DockPanelSkin1.AutoHideStripSkin = AutoHideStripSkin1
+        TabGradient2.EndColor = System.Drawing.SystemColors.ControlLightLight
+        TabGradient2.StartColor = System.Drawing.SystemColors.ControlLightLight
+        TabGradient2.TextColor = System.Drawing.SystemColors.ControlText
+        DockPaneStripGradient1.ActiveTabGradient = TabGradient2
+        DockPanelGradient2.EndColor = System.Drawing.SystemColors.Control
+        DockPanelGradient2.StartColor = System.Drawing.SystemColors.Control
+        DockPaneStripGradient1.DockStripGradient = DockPanelGradient2
+        TabGradient3.EndColor = System.Drawing.SystemColors.ControlLight
+        TabGradient3.StartColor = System.Drawing.SystemColors.ControlLight
+        TabGradient3.TextColor = System.Drawing.SystemColors.ControlText
+        DockPaneStripGradient1.InactiveTabGradient = TabGradient3
+        DockPaneStripSkin1.DocumentGradient = DockPaneStripGradient1
+        DockPaneStripSkin1.TextFont = New System.Drawing.Font("Segoe UI", 9.0!)
+        TabGradient4.EndColor = System.Drawing.SystemColors.ActiveCaption
+        TabGradient4.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        TabGradient4.StartColor = System.Drawing.SystemColors.GradientActiveCaption
+        TabGradient4.TextColor = System.Drawing.SystemColors.ActiveCaptionText
+        DockPaneStripToolWindowGradient1.ActiveCaptionGradient = TabGradient4
+        TabGradient5.EndColor = System.Drawing.SystemColors.Control
+        TabGradient5.StartColor = System.Drawing.SystemColors.Control
+        TabGradient5.TextColor = System.Drawing.SystemColors.ControlText
+        DockPaneStripToolWindowGradient1.ActiveTabGradient = TabGradient5
+        DockPanelGradient3.EndColor = System.Drawing.SystemColors.ControlLight
+        DockPanelGradient3.StartColor = System.Drawing.SystemColors.ControlLight
+        DockPaneStripToolWindowGradient1.DockStripGradient = DockPanelGradient3
+        TabGradient6.EndColor = System.Drawing.SystemColors.GradientInactiveCaption
+        TabGradient6.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        TabGradient6.StartColor = System.Drawing.SystemColors.GradientInactiveCaption
+        TabGradient6.TextColor = System.Drawing.SystemColors.ControlText
+        DockPaneStripToolWindowGradient1.InactiveCaptionGradient = TabGradient6
+        TabGradient7.EndColor = System.Drawing.Color.Transparent
+        TabGradient7.StartColor = System.Drawing.Color.Transparent
+        TabGradient7.TextColor = System.Drawing.SystemColors.ControlDarkDark
+        DockPaneStripToolWindowGradient1.InactiveTabGradient = TabGradient7
+        DockPaneStripSkin1.ToolWindowGradient = DockPaneStripToolWindowGradient1
+        DockPanelSkin1.DockPaneStripSkin = DockPaneStripSkin1
+        Me.DockPanel.Skin = DockPanelSkin1
+        Me.DockPanel.TabIndex = 10
+        '
+        'imlIconos
+        '
+        Me.imlIconos.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
+        Me.imlIconos.ImageSize = New System.Drawing.Size(16, 16)
+        Me.imlIconos.TransparentColor = System.Drawing.Color.Transparent
+        '
+        'stbMain
+        '
+        Me.stbMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.stbCooLatitud, Me.stbCooLongitud, Me.stbLatitud, Me.stbLongitud, Me.stbPixelX, Me.stbPixelY})
+        Me.stbMain.Location = New System.Drawing.Point(0, 431)
+        Me.stbMain.Name = "stbMain"
+        Me.stbMain.Size = New System.Drawing.Size(632, 22)
+        Me.stbMain.TabIndex = 13
+        Me.stbMain.Text = "StatusStrip"
+        '
+        'stbCooLatitud
+        '
+        Me.stbCooLatitud.BorderSides = CType((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) _
+                    Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
+                    Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
+        Me.stbCooLatitud.Name = "stbCooLatitud"
+        Me.stbCooLatitud.Size = New System.Drawing.Size(4, 17)
+        '
+        'stbCooLongitud
+        '
+        Me.stbCooLongitud.BorderSides = CType((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) _
+                    Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
+                    Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
+        Me.stbCooLongitud.Name = "stbCooLongitud"
+        Me.stbCooLongitud.Size = New System.Drawing.Size(4, 17)
+        '
+        'stbLatitud
+        '
+        Me.stbLatitud.BorderSides = CType((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) _
+                    Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
+                    Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
+        Me.stbLatitud.Name = "stbLatitud"
+        Me.stbLatitud.Size = New System.Drawing.Size(4, 17)
+        '
+        'stbLongitud
+        '
+        Me.stbLongitud.BorderSides = CType((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) _
+                    Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
+                    Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
+        Me.stbLongitud.Name = "stbLongitud"
+        Me.stbLongitud.Size = New System.Drawing.Size(4, 17)
+        '
+        'stbPixelX
+        '
+        Me.stbPixelX.BorderSides = CType((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) _
+                    Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
+                    Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
+        Me.stbPixelX.Name = "stbPixelX"
+        Me.stbPixelX.Size = New System.Drawing.Size(4, 17)
+        '
+        'stbPixelY
+        '
+        Me.stbPixelY.BorderSides = CType((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) _
+                    Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
+                    Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
+        Me.stbPixelY.Name = "stbPixelY"
+        Me.stbPixelY.Size = New System.Drawing.Size(4, 17)
+        '
+        'Main
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.ClientSize = New System.Drawing.Size(632, 453)
+        Me.Controls.Add(Me.stbMain)
+        Me.Controls.Add(Me.tbrMain)
+        Me.Controls.Add(Me.MenuStrip)
+        Me.Controls.Add(Me.DockPanel)
+        Me.IsMdiContainer = True
+        Me.MainMenuStrip = Me.MenuStrip
+        Me.Name = "Main"
+        Me.Text = "Shaman Full"
+        Me.MenuStrip.ResumeLayout(False)
+        Me.MenuStrip.PerformLayout()
+        Me.tbrMain.ResumeLayout(False)
+        Me.tbrMain.PerformLayout()
+        Me.stbMain.ResumeLayout(False)
+        Me.stbMain.PerformLayout()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents HelpToolStripButton As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolTip As System.Windows.Forms.ToolTip
+    Friend WithEvents tbrMain As System.Windows.Forms.ToolStrip
+    Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
+    Friend WithEvents DockPanel As WeifenLuo.WinFormsUI.Docking.DockPanel
+    Friend WithEvents imlIconos As System.Windows.Forms.ImageList
+    Friend WithEvents AyudaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Modulos As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents modEmergencias As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AdministraciónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RrhhToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents modMonitoreo As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents modTableros As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents modGpShaman As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents modSalir As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents stbMain As System.Windows.Forms.StatusStrip
+    Friend WithEvents stbCooLatitud As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents stbCooLongitud As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents stbLatitud As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents stbLongitud As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents stbPixelX As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents stbPixelY As System.Windows.Forms.ToolStripStatusLabel
+
+End Class

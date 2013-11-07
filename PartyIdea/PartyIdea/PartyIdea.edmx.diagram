@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a998b1030fce4e178760e0a66ea75e44" Name="Diagram1">
+        <EntityTypeShape EntityType="PartyIdeaModel.Articulos" Width="1.5" PointX="6" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyIdeaModel.ArticulosTalleStock" Width="1.5" PointX="8.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyIdeaModel.Categorias" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyIdeaModel.Clientes" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyIdeaModel.Eventos" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyIdeaModel.EventosMovimientos" Width="1.5" PointX="7.5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyIdeaModel.Generos" Width="1.5" PointX="3.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyIdeaModel.Localidades" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyIdeaModel.Movimientos" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyIdeaModel.MovimientosArticulos" Width="1.5" PointX="10.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyIdeaModel.Operaciones" Width="1.5" PointX="8.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyIdeaModel.TipoDocumentos" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyIdeaModel.TipoEventos" Width="1.5" PointX="10.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PartyIdeaModel.Usuarios" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <AssociationConnector Association="PartyIdeaModel.FK_ArticulosTalleStock_Articulos" ManuallyRouted="false" />
+        <AssociationConnector Association="PartyIdeaModel.FK_Generos_Articulos" ManuallyRouted="false" />
+        <AssociationConnector Association="PartyIdeaModel.FK_ArticulosTalleStock_MovimientosArticulos" ManuallyRouted="false" />
+        <AssociationConnector Association="PartyIdeaModel.FK_Localidad_Clientes" ManuallyRouted="false" />
+        <AssociationConnector Association="PartyIdeaModel.FK_Movimientos_Clientes" ManuallyRouted="false" />
+        <AssociationConnector Association="PartyIdeaModel.FK_TipoDocumento_Clientes" ManuallyRouted="false" />
+        <AssociationConnector Association="PartyIdeaModel.FK_EventosMovimientos_Eventos" ManuallyRouted="false" />
+        <AssociationConnector Association="PartyIdeaModel.FK_EventosMovimientos_Movimientos" ManuallyRouted="false" />
+        <AssociationConnector Association="PartyIdeaModel.FK_MovimientosArticulos_Movimientos" ManuallyRouted="false" />
+        <AssociationConnector Association="PartyIdeaModel.FK_Operaciones_MovimientosArticulos" ManuallyRouted="false" />
+        <AssociationConnector Association="PartyIdeaModel.FK_Cliente_TipoDocumentos" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

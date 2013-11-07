@@ -1,0 +1,85 @@
+﻿Imports WeifenLuo.WinFormsUI.Docking
+Public Class frmVistaIncidentes
+
+    Private vIncidenteId As Decimal
+
+    Private Sub frmVistaMoviles_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        ShowIncidente(vIncidenteId)
+    End Sub
+
+    Public Sub New(Optional ByVal pInc As Decimal = 0)
+
+        ' Llamada necesaria para el Diseñador de Windows Forms.
+        InitializeComponent()
+
+        FormatScreen()
+
+        vIncidenteId = pInc
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+
+    End Sub
+
+    Private Sub ShowIncidente(ByVal pInc As Decimal)
+        Dim objIncidente As New ShamanClases.EmergencyC.Incidentes
+        Dim objDomicilio As ShamanClases.EmergencyC.IncidentesDomicilios
+        Dim objHistorial As ShamanClases.EmergencyC.IncidentesHistoriales
+
+        If objIncidente.Abrir(pInc) Then
+            Me.TabText = objIncidente.FecIncidente & " - " & objIncidente.NroIncidente
+            Me.txtFecIncidente.Text = objIncidente.FecIncidente
+            Me.txtNroIncidente.Text = objIncidente.NroIncidente
+            Me.txtGrado.Text = objIncidente.GradoOperativoId.GradoId
+            Me.txtGrado.BackColor = System.Drawing.ColorTranslator.FromOle(Val(objIncidente.GradoOperativoId.VisualColor))
+            Me.txtClienteId.Text = objIncidente.ClienteId.ClienteId
+            Me.txtPaciente.Text = objIncidente.Nombre
+            Me.txtSexo.Text = objIncidente.Sexo
+            Me.txtEdad.Text = objIncidente.Edad
+            Me.txtSintomas.Text = objIncidente.Sintoma
+            objDomicilio = New ShamanClases.EmergencyC.IncidentesDomicilios
+            If objDomicilio.Abrir(objDomicilio.GetIDByIndex(pInc, objIncidente.GetViajeScreen(pInc))) Then
+                Me.txtLocalidadId.Text = objDomicilio.LocalidadId.AbreviaturaId
+                Me.txtLocalidadDes.Text = objDomicilio.LocalidadId.Descripcion
+                Me.txtDomicilio.Text = objDomicilio.dm.virDomicilio
+                Me.txtReferencias.Text = objDomicilio.dm.Referencia
+            End If
+            objHistorial = New ShamanClases.EmergencyC.IncidentesHistoriales
+            objHistorial.GetHistorialIncidente(pInc, Me.grdHistorial)
+            If Me.grdHistorial.Rows.Count > 0 Then
+                Me.grdHistorial.FirstDisplayedCell = Me.grdHistorial.Rows(Me.grdHistorial.RowCount - 1).Cells(1)
+            End If
+
+        End If
+
+        objDomicilio = Nothing
+        objHistorial = Nothing
+        objIncidente = Nothing
+
+    End Sub
+
+    Private Sub FormatScreen()
+        SetFormatGrid(Me.grdHistorial, 7, False, False)
+        With Me.grdHistorial
+            .Font = New Font("Arial", 12, FontStyle.Bold, GraphicsUnit.Pixel, 1)
+            .Columns(0).Visible = False
+            .Columns(1).HeaderText = "Hora"
+            .Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(1).Width = 80
+            .Columns(2).HeaderText = "Móvil"
+            .Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(2).Width = 60
+            .Columns(3).HeaderText = "Suceso"
+            .Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+            .Columns(3).Width = 250
+            .Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(4).HeaderText = "Cnd"
+            .Columns(4).Width = 50
+            .Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(5).HeaderText = "Cnd"
+            .Columns(5).Width = 50
+            .Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+            .Columns(6).HeaderText = "Usuario"
+            .Columns(6).Width = 200
+
+        End With
+    End Sub
+End Class

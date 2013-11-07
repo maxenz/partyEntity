@@ -1,0 +1,23 @@
+﻿Imports InterSystems.Data.CacheClient
+Imports InterSystems.Data.CacheTypes
+Imports ShamanClases
+Namespace sysEmergencyC
+    Public Class IndicadoresOperativos
+        Inherits typAll
+        Public Sub New(Optional ByVal pCnnSta As String = "", Optional ByVal pCnnDyn As String = "")
+            MyBase.New(pCnnSta, pCnnDyn)
+            Me.CacheClassController = "EmergencyC.IndicadoresOperativos"
+        End Sub
+        Public Function GetTiemposOperativos(ByVal pGdo As Decimal, ByVal pZon As Decimal) As String
+            GetTiemposOperativos = ""
+            Try
+                Dim mtdSignature As CacheMethodSignature = makeCacheMethodSignature(cnnsCache(Me.cnnStatic), GetType(CacheStringReturnValue), pGdo, pZon)
+                CacheObject.RunClassMethodS(cnnsCache(Me.cnnStatic), Me.CacheClassController, "GetTiemposOperativos", mtdSignature)
+                Debug.Print(getCacheDebug(Me.CacheClassController, "GetTiemposOperativos", mtdSignature))
+                GetTiemposOperativos = CType(mtdSignature.ReturnValue, InterSystems.Data.CacheTypes.CacheStringReturnValue).Value
+            Catch ex As System.Exception
+                HandleError(Me.CacheClassController, "GetTiemposOperativos", ex)
+            End Try
+        End Function
+    End Class
+End Namespace

@@ -1,0 +1,71 @@
+Namespace sysCompuMapC
+    Public Class Conversores
+        Public Function MakeFromCDireccion(ByVal pNro As Integer, ByVal pTip As Integer, ByVal pObjId As String, ByVal pDes As String, ByVal pLey As String, ByVal pIco As String, ByVal pMap As Integer, ByVal pPol As Long, ByVal pAlt As Long, ByVal pPol1 As Long, ByVal pPol2 As Long) As sysCompuMap.MapaObjects
+            Dim objDomicilio As New CompumapCom.CDireccion, objObject As New sysCompuMap.MapaObjects
+            Try
+                objDomicilio.Nmapa = pMap
+                objDomicilio.Calle1 = pPol
+                If pAlt > 0 Then
+                    objDomicilio.Altura = pAlt
+                Else
+                    objDomicilio.Calle2 = pPol1
+                    objDomicilio.Calle3 = pPol2
+                End If
+                If objDomicilio.IsValid = 0 Then
+                    objObject.PID = shamanConexion.PID
+                    objObject.NroMapa = pNro
+                    objObject.TipoObjeto = pTip
+                    objObject.ObjetoId = pObjId
+                    objObject.Descripcion = pDes
+                    objObject.Leyenda = pLey
+                    objObject.Icono = pIco
+                    objObject.Latitud = objDomicilio.Latitud
+                    objObject.Longitud = objDomicilio.Longitud
+                Else
+                    objObject.PID = 0
+                End If
+            Catch
+                objObject.PID = 0
+            End Try
+            MakeFromCDireccion = objObject
+        End Function
+        Public Function MakeFromCIconLatLon(ByVal pNro As Integer, ByVal pTip As Integer, ByVal pObjId As String, ByVal pDes As String, ByVal pLey As String, ByVal pIco As String, ByVal pLat As Single, ByVal pLon As Single, Optional ByVal pShwErr As Boolean = False) As sysCompuMap.MapaObjects
+            Dim objPosicion As New CompumapCom.CIconLatLon, objDomicilio As New CompumapCom.CDireccion, objObject As New sysCompuMapC.MapaObjects
+            Try
+                objPosicion.Latitud = pLat
+                objPosicion.Longitud = pLon
+                objDomicilio = objPosicion.DireccionMasCercana
+                If objDomicilio.IsValid = 0 Then
+                    objObject.PID = shamanConexion.PID
+                    objObject.NroMapa = pNro
+                    objObject.TipoObjeto = pTip
+                    objObject.ObjetoId = pObjId
+                    objObject.Descripcion = pDes
+                    objObject.Leyenda = pLey
+                    objObject.Icono = pIco
+                    objObject.Latitud = objDomicilio.Latitud
+                    objObject.Longitud = objDomicilio.Longitud
+                Else
+                    objObject.PID = 0
+                End If
+            Catch ex As Exception
+                If Err.Number = 5 Then
+                    objObject.PID = shamanConexion.PID
+                    objObject.NroMapa = pNro
+                    objObject.TipoObjeto = pTip
+                    objObject.ObjetoId = pObjId
+                    objObject.Descripcion = pDes
+                    objObject.Leyenda = pLey
+                    objObject.Icono = pIco
+                    objObject.Latitud = pLat
+                    objObject.Longitud = pLon
+                Else
+                    objObject.PID = 0
+                    If pShwErr Then HandleError("clsPredefinidos", "getRamaFiltro", ex)
+                End If
+            End Try
+            MakeFromCIconLatLon = objObject
+        End Function
+
+    End Class
+End Namespace

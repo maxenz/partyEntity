@@ -1,0 +1,294 @@
+Imports WeifenLuo.WinFormsUI.Docking
+Imports System.IO
+Imports ShamanClases
+Public Class MainTree
+    Inherits DockContent
+
+    Private flgSetting As Boolean = True
+    Private flgLoading As Boolean = True
+
+    Private Sub MainTree_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        flgLoading = True
+        LoadIconos(Me.imlIconos)
+        CreateTreeView(Me.trwMain)
+        flgLoading = False
+    End Sub
+
+    Private Sub LoadIconos(ByVal pIml As ImageList)
+        pIml.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
+        pIml.ImageSize = New System.Drawing.Size(16, 16)
+
+        Dim IconFile As String, IconFiles As String()
+
+        Dim vPath As New ShamanClases.PanelC.PathsConfiguracion
+        IconFiles = Directory.GetFiles(vPath.GetPath("IGP"), "*.ico")
+        vPath = Nothing
+
+        For Each IconFile In IconFiles
+            Dim NewIcon As New Icon(IconFile)
+            Dim vKey As String
+            vKey = Dir(IconFile)
+            vKey = Mid(vKey, 1, InStr(vKey, ".") - 1)
+            pIml.Images.Add(vKey, NewIcon)
+        Next
+
+    End Sub
+    Private Sub CreateTreeView(ByVal pTrw As TreeView)
+        Dim objMaestros As New sysCompuMapC.Predefinidos
+
+        With pTrw
+            .Nodes.Clear()
+            .ImageList = Me.imlIconos
+            .Font = New Font("Tahoma", 11, FontStyle.Regular, GraphicsUnit.Pixel, 1)
+            .CheckBoxes = True
+
+            '-----> Bases Operativas
+            .Nodes.Add(nodoArbol(refBaseOperativa, "Bases Operativas", "archivo"))
+            objMaestros.getRamaFiltro(getMapaActiveId, refBaseOperativa, ramZonaGeografica, Me.trwMain, flgLoading)
+            objMaestros.getRamaFiltro(getMapaActiveId, refBaseOperativa, ramPartido, Me.trwMain, flgLoading)
+            objMaestros.getPredefinidos(getMapaActiveId, refBaseOperativa, Me.trwMain, frmLogErrores.trwBasesOperativas, frmLogErrores.btnBasesOperativas)
+            '-----> Sanatorios
+            .Nodes.Add(nodoArbol(refSanatorio, "Nosocomios", "archivo"))
+            objMaestros.getRamaFiltro(getMapaActiveId, refSanatorio, ramZonaGeografica, Me.trwMain, flgLoading)
+            objMaestros.getRamaFiltro(getMapaActiveId, refSanatorio, ramPartido, Me.trwMain, flgLoading)
+            objMaestros.getPredefinidos(getMapaActiveId, refSanatorio, Me.trwMain, frmLogErrores.trwNosocomios, frmLogErrores.btnNosocomios)
+            '-----> Prestadores
+            .Nodes.Add(nodoArbol(refPrestador, "Prestadores", "archivo"))
+            objMaestros.getRamaFiltro(getMapaActiveId, refPrestador, ramZonaGeografica, Me.trwMain, flgLoading)
+            objMaestros.getRamaFiltro(getMapaActiveId, refPrestador, ramPartido, Me.trwMain, flgLoading)
+            objMaestros.getPredefinidos(getMapaActiveId, refPrestador, Me.trwMain, frmLogErrores.trwPrestadores, frmLogErrores.btnPrestadores)
+            '-----> Centros de Atención
+            .Nodes.Add(nodoArbol(refCentroAtencion, "Centros de Atención", "archivo"))
+            objMaestros.getRamaFiltro(getMapaActiveId, refCentroAtencion, ramZonaGeografica, Me.trwMain, flgLoading)
+            objMaestros.getRamaFiltro(getMapaActiveId, refCentroAtencion, ramPartido, Me.trwMain, flgLoading)
+            objMaestros.getPredefinidos(getMapaActiveId, refCentroAtencion, Me.trwMain, frmLogErrores.trwCentrosAtencion, frmLogErrores.btnCentrosAtencion)
+            '-----> Móviles
+            .Nodes.Add(nodoArbol(refMovil, "Móviles", "movil"))
+            If flgLoading Then
+                objMaestros.getRamaFiltro(getMapaActiveId, refMovil, ramPerfil, Me.trwMain, , shamanConexion.PerfilId.ID)
+            Else
+                objMaestros.getRamaFiltro(getMapaActiveId, refMovil, ramPerfil, Me.trwMain)
+            End If
+            objMaestros.getRamaFiltro(getMapaActiveId, refMovil, ramOtros, Me.trwMain)
+            objMaestros.getPredefinidos(getMapaActiveId, refMovil, Me.trwMain, frmLogErrores.trwMoviles, frmLogErrores.btnMoviles)
+            '-----> Incidentes
+            .Nodes.Add(nodoArbol(refIncidente, "Incidentes", "personal"))
+            If flgLoading Then
+                objMaestros.getRamaFiltro(getMapaActiveId, refIncidente, ramPerfil, Me.trwMain, , shamanConexion.PerfilId.ID)
+            Else
+                objMaestros.getRamaFiltro(getMapaActiveId, refIncidente, ramPerfil, Me.trwMain)
+            End If
+            objMaestros.getPredefinidos(getMapaActiveId, refIncidente, Me.trwMain, frmLogErrores.trwIncidentes, frmLogErrores.btnIncidentes)
+
+            '-----> Revisa los que estan llenos
+            FixFullSelected()
+
+            '.ExpandAll()
+        End With
+        objMaestros = Nothing
+
+
+        flgSetting = False
+
+    End Sub
+
+    Private Sub trwMain_AfterCheck(ByVal sender As Object, ByVal e As System.Windows.Forms.TreeViewEventArgs) Handles trwMain.AfterCheck
+
+        If Not flgSetting And Not flgLoading Then
+
+            Me.Cursor = Cursors.WaitCursor
+
+            Dim objEstablecimiento As New sysCompuMapC.Predefinidos, objMapa As New sysCompuMapC.MapaObjects
+            Dim selTipo As Integer, selRama As Integer
+            Dim selObjectId As String = ""
+
+            flgSetting = True
+            '--------> Obtengo Selección
+            getSelectedValues(e.Node, selTipo, selRama, selObjectId)
+            '--------> Evalúo
+            If e.Node.Parent Is Nothing Then    '----> Raíz
+                '-----> Recorro Ramas
+                Dim node As New TreeNode
+                For Each node In e.Node.Nodes
+                    getSelectedValues(node, selTipo, selRama, selObjectId)
+                    node.Checked = e.Node.Checked
+                    '-----> Selecciono todas las ramas  (Zonas y Partidos)
+                    Dim ramNode As New TreeNode
+                    For Each ramNode In node.Nodes
+                        getSelectedValues(ramNode, selTipo, selRama, selObjectId)
+                        ramNode.Checked = node.Checked
+                        If selRama <> ramMapaObject Then
+                            objEstablecimiento.setRamaFiltro(getMapaActiveId, selTipo, selRama, selObjectId, ramNode.Checked)
+                        Else
+                            If ramNode.Checked Then
+                                objMapa = objEstablecimiento.setMapaObject(aplOpener, getMapaActiveId, selTipo, selObjectId, Parcer(ramNode.Text, "-"))
+                                SaveItem(objMapa, ramNode)
+                            Else
+                                objMapa.Eliminar(objMapa.GetIDByIndex(getMapaActiveId, selTipo, selObjectId))
+                            End If
+                        End If
+                    Next
+                    ramNode = Nothing
+                Next
+                node = Nothing
+                '-----> Refresco
+                CreateTreeView(Me.trwMain)
+                RefreshMap()
+            ElseIf e.Node.Parent.Parent Is Nothing Then '----> 1er Rama
+                '-----> Selecciono todas las ramas  (Zonas y Partidos y Objetos)
+                Dim node As New TreeNode
+                For Each node In e.Node.Nodes
+                    getSelectedValues(node, selTipo, selRama, selObjectId)
+                    node.Checked = e.Node.Checked
+                    If selRama <> ramMapaObject Then
+                        objEstablecimiento.setRamaFiltro(getMapaActiveId, selTipo, selRama, selObjectId, node.Checked)
+                    Else
+                        If node.Checked Then
+                            objMapa = objEstablecimiento.setMapaObject(aplOpener, getMapaActiveId, selTipo, selObjectId, Parcer(node.Text, "-", 0))
+                            SaveItem(objMapa, node)
+                        Else
+                            objMapa.Eliminar(objMapa.GetIDByIndex(getMapaActiveId, selTipo, selObjectId))
+                        End If
+                    End If
+                Next
+                node = Nothing
+                '-----> Refresco
+                CreateTreeView(Me.trwMain)
+                RefreshMap()
+            Else                                 '----> Ultima Rama
+                If selRama <> ramMapaObject Then
+                    objEstablecimiento.setRamaFiltro(getMapaActiveId, selTipo, selRama, Parcer(e.Node.Name, ShamanClases.vSeparator, 2), e.Node.Checked)
+                    '-----> Refresco
+                    CreateTreeView(Me.trwMain)
+                Else
+                    If e.Node.Checked Then
+                        objMapa = objEstablecimiento.setMapaObject(aplOpener, getMapaActiveId, selTipo, selObjectId, Parcer(e.Node.Text, "-", 0), True)
+                        SaveItem(objMapa, e.Node)
+                    Else
+                        objMapa.Eliminar(objMapa.GetIDByIndex(getMapaActiveId, selTipo, selObjectId))
+                    End If
+                End If
+                '-----> Refresco
+                RefreshMap()
+            End If
+
+            objEstablecimiento = Nothing
+            objMapa = Nothing
+
+            Me.Cursor = Cursors.Default
+
+            flgSetting = False
+
+        End If
+
+    End Sub
+    Private Sub SaveItem(ByVal objMapa As sysCompuMapC.MapaObjects, ByVal pNode As TreeNode)
+        If Not objMapa Is Nothing Then
+            If objMapa.IsValid Then
+                objMapa.Salvar()
+            Else
+                pNode.Checked = False
+            End If
+        Else
+            pNode.Checked = False
+        End If
+    End Sub
+    Private Sub getSelectedValues(ByVal pNode As TreeNode, ByRef selTipo As Integer, ByRef selRama As Integer, ByRef selObjectId As String)
+        Dim selValues() As String
+        '----> Incializo
+        selTipo = 0
+        selRama = -1
+        selObjectId = -1
+        If pNode.Name <> "" Then
+            '----> Recupero
+            selValues = Split(pNode.Name, ShamanClases.vSeparator)
+            '----> Asigno
+            selTipo = selValues(0)
+            If UBound(selValues) > 0 Then
+                selRama = selValues(1)
+                If UBound(selValues) > 1 Then selObjectId = selValues(2)
+            End If
+        End If
+
+    End Sub
+
+    Private Sub RefreshMap()
+        Dim frmMapa As Object
+        frmMapa = Me.DockPanel.ActiveDocument
+        frmMapa.RefreshMapa()
+        frmMapa = Nothing
+    End Sub
+
+    Private Function getMapaActiveId() As Integer
+        Dim frmMapa As Mapa
+        Try
+            If Not Me.DockPanel.ActiveDocument Is Nothing Then
+                frmMapa = Me.DockPanel.ActiveDocument
+                getMapaActiveId = Val(frmMapa.AccessibleName)
+            Else
+                getMapaActiveId = 0
+            End If
+        Catch
+            getMapaActiveId = 0
+        End Try
+        frmMapa = Nothing
+    End Function
+
+    Private Sub FixFullSelected()
+        Dim node00 As TreeNode
+        Dim node01 As TreeNode, all01 As Boolean
+        Dim node02 As TreeNode, all02 As Boolean
+
+        For Each node00 In Me.trwMain.Nodes
+            all01 = True
+            For Each node01 In node00.Nodes
+                all02 = True
+                For Each node02 In node01.Nodes
+                    If Not node02.Checked Then all02 = False
+                Next
+                If all02 Then
+                    node01.Checked = True
+                Else
+                    all01 = False
+                End If
+            Next
+            If all01 Then node00.Checked = True
+        Next
+    End Sub
+
+    Private Sub menRefrescar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles menRefrescar.Click
+        flgSetting = True
+        Me.CreateTreeView(Me.trwMain)
+        flgSetting = False
+    End Sub
+
+    Private Sub menExpandir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles menExpandir.Click
+
+        If CBool(menExpandir.Tag) Then
+            Me.trwMain.SelectedNode.Expand()
+        Else
+            Me.trwMain.SelectedNode.Collapse()
+        End If
+
+    End Sub
+
+    Private Sub trwMain_NodeMouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.TreeNodeMouseClickEventArgs) Handles trwMain.NodeMouseClick
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+
+            If Not sender.SelectedNode Is Nothing Then
+                If sender.SelectedNode.IsExpanded Then
+                    Me.menExpandir.Text = "Contraer"
+                    Me.menExpandir.Tag = 0
+                Else
+                    Me.menExpandir.Text = "Expandir"
+                    Me.menExpandir.Tag = 1
+                End If
+
+                Me.trwMain.ContextMenuStrip.Show(e.Location)
+            End If
+        End If
+
+    End Sub
+
+End Class

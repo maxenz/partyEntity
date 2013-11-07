@@ -1,0 +1,55 @@
+Imports WeifenLuo.WinFormsUI.Docking
+Imports ShamanClases
+Public Class frmGpShaman
+    Inherits DockContent
+    Private vUrl As String
+    Private Sub frmGpShaman_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        Me.webMapa.ScriptErrorsSuppressed = True
+        Me.DoRender()
+
+    End Sub
+    Public Sub DoRender(Optional ByVal pCen As Boolean = False)
+        Dim objPaths As New ShamanClases.PanelC.PathsConfiguracion
+
+        vUrl = objPaths.GetPath("GST") & "?PID=" & shamanConexion.PID & "&H=" & webMapa.Height & "&W=" & webMapa.Width
+
+        If Me.webMapa.Url Is Nothing Then
+            Me.webMapa.Navigate(vUrl)
+        Else
+            If vUrl <> Me.webMapa.Url.ToString Then
+                Me.webMapa.Navigate(vUrl)
+            Else
+                Me.webMapa.Refresh()
+            End If
+        End If
+
+        objPaths = Nothing
+
+    End Sub
+
+    Private Sub webMapa_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles webMapa.Resize
+        Me.DoRender()
+    End Sub
+
+    Public Sub ShowIncidente(ByVal pInc As Long)
+        Dim objIncidente As New EmergencyC.Incidentes
+        Dim objDomicilio As New EmergencyC.IncidentesDomicilios
+        Dim objGoogle As New CompuMapC.GoogleMaps
+
+        Dim vLat As Double = 0
+        Dim vLon As Double = 0
+
+        If objDomicilio.Abrir(objDomicilio.GetIDByIndex(pInc, objIncidente.GetViajeScreen(pInc))) Then
+            vLat = objDomicilio.dm.Latitud
+            vLon = objDomicilio.dm.Longitud
+        End If
+
+        If vLat <> 0 And vLon <> 0 Then
+            objGoogle.AddIncidente(shamanConexion.PID, pInc, vLat, vLon)
+            Me.DoRender()
+        End If
+
+    End Sub
+
+End Class

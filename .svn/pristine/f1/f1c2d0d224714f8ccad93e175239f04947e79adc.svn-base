@@ -1,0 +1,291 @@
+Imports WeifenLuo.WinFormsUI.Docking
+Imports ShamanClases
+Public Class frmIncidentes
+    Inherits DockContent
+    Private objIncidente As New sysEmergencyC.Incidentes
+    Private flgRefreshing As Boolean = False
+    Private flgLoading As Boolean = True
+    Private flgWheeling As Boolean = False
+    '-----> Publicas
+    Public StylePending As Byte = 1
+
+    Private Sub frmIncidentes_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        FormatScreen()
+    End Sub
+
+    Private Sub FormatScreen()
+
+        tmrRefresh.Enabled = False
+        Me.KeyPreview = True
+        If Me.AccessibleDescription = "frmEventos" Then
+            Me.Text = "Eventos"
+            Me.panSearch.Visible = False
+            Me.scrIncidentes.Visible = False
+        End If
+
+        'SetFormatPanel(Me.panSearch)
+        FormatGrid()
+
+        flgLoading = False
+        SetFormatPanelSearch()
+
+        RefreshGrid()
+
+        '---> Timer
+        tmrRefresh.Interval = 5000
+        tmrRefresh.Enabled = True
+    End Sub
+    Private Sub FormatGrid()
+
+        SetFormatGrid(Me.grdIncidentes, 19, False, False)
+        With Me.grdIncidentes
+
+            .Font = New Font("Arial", 11, FontStyle.Regular, GraphicsUnit.Pixel, 1)
+            .ScrollBars = ScrollBars.Horizontal
+            .AllowUserToResizeColumns = True
+
+            .Columns(0).Visible = False
+            .Columns(1).Visible = False
+            '-----> Grado
+            .Columns(2).HeaderText = "Gdo"
+            .Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(2).DefaultCellStyle.Font = New Font("Arial", 12, FontStyle.Bold, GraphicsUnit.Pixel, 1)
+            .Columns(2).Width = 30
+            '-----> Cliente
+            .Columns(3).HeaderText = "Cliente"
+            .Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+            .Columns(3).Width = 55
+            '-----> Incidente
+            .Columns(4).HeaderText = "Nro"
+            .Columns(4).Width = 35
+            .Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            '-----> Tip
+            .Columns(5).Width = 8
+            '-----> Domicilio
+            .Columns(6).HeaderText = "Domicilio"
+            .Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+            .Columns(6).Width = 165
+            '-----> Sintomas
+            .Columns(7).HeaderText = "Síntomas"
+            .Columns(7).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+            .Columns(7).Width = 150
+            '-----> Localidad
+            .Columns(8).HeaderText = "Loc"
+            .Columns(8).DefaultCellStyle.Font = New Font("Arial", 11, FontStyle.Bold, GraphicsUnit.Pixel, 1)
+            .Columns(8).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(8).Width = 35
+            '-----> Localidad
+            .Columns(9).HeaderText = "SE"
+            .Columns(9).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(9).Width = 35
+            '-----> Móvil
+            .Columns(10).HeaderText = "Mov"
+            .Columns(10).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(10).DefaultCellStyle.Font = New Font("Arial", 12, FontStyle.Bold, GraphicsUnit.Pixel, 1)
+            .Columns(10).Width = 45
+            '-----> Beeper / Nextel
+            .Columns(11).Width = 8
+            '-----> Llamada
+            .Columns(12).HeaderText = "Llam"
+            .Columns(12).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(12).Width = 50
+            '-----> Tpo Despacho
+            .Columns(13).HeaderText = "Dsp"
+            .Columns(13).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+            .Columns(13).Width = 30
+            '-----> Tpo Salida
+            .Columns(14).HeaderText = "Sal"
+            .Columns(14).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+            .Columns(14).Width = 30
+            '-----> Tpo Desplazo
+            .Columns(15).HeaderText = "Dpl"
+            .Columns(15).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+            .Columns(15).Width = 30
+            '-----> Tpo Atención
+            .Columns(16).HeaderText = "Ate"
+            .Columns(16).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+            .Columns(16).Width = 30
+            '-----> Paciente
+            .Columns(17).HeaderText = "Paciente"
+            .Columns(17).Width = 200
+            '-----> Referencias
+            .Columns(18).HeaderText = "Referencias"
+            .Columns(18).Width = 250
+        End With
+
+    End Sub
+    Private Sub tmrRefresh_Tick(ByVal sender As Object, ByVal e As System.EventArgs) Handles tmrRefresh.Tick
+        RefreshGrid()
+    End Sub
+    Public Sub RefreshGrid()
+        If Not flgRefreshing Then
+            flgRefreshing = True
+            tmrRefresh.Enabled = False
+
+            objIncidente.RefreshGrid(Me)
+            frmIncidentesMoviles.RefreshGrid()
+
+            flgRefreshing = False
+            '-----> Reanudo
+            tmrRefresh.Enabled = True
+            tmrRefresh.Stop()
+            tmrRefresh.Start()
+        End If
+    End Sub
+
+    Private Sub grdIncidentes_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles grdIncidentes.CellDoubleClick
+        Dim objGrado As EmergencyC.GradosOperativos
+        If e.RowIndex >= 0 Then
+            objGrado = New EmergencyC.GradosOperativos
+            If objGrado.Abrir(objGrado.GetIDByIndex(grdIncidentes.Rows(e.RowIndex).Cells(2).Value.ToString)) Then
+                callInfo = grdIncidentes.Rows(e.RowIndex).Cells(0).Value.ToString
+                If objGrado.flgTraslado = 0 Then
+                    frmRecepcionSpace.Focus()
+                    '        Else
+                    '            frmTrasladosSpace.Focus()
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub grdIncidentes_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles grdIncidentes.MouseClick
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            If grdIncidentes.CurrentCell.ColumnIndex = 4 Then
+                menReferencia.Text = "Incidente " & grdIncidentes.CurrentCell.Value
+                menActividades.Show(grdIncidentes, e.Location)
+            End If
+        End If
+    End Sub
+
+    Private Sub menSalida_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles menSalida.Click
+        callInfo = grdIncidentes.Rows(grdIncidentes.CurrentCell.RowIndex).Cells(1).Value
+        'ShowChildFormFloat(frmPopupSalida, Me.DockPanel, "frmPopupSalida")
+    End Sub
+
+    Private Sub menPreasignacion_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles menPreasignacion.Click
+        callInfo = grdIncidentes.Rows(grdIncidentes.CurrentCell.RowIndex).Cells(1).Value
+        'ShowChildFormFloat(frmPopupSalida, Me.DockPanel, "frmPopupPreasginacion")
+    End Sub
+
+    Private Sub txtSearch_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtGrado.TextChanged, txtCliente.TextChanged, txtNroIncidente.TextChanged, txtDomicilio.TextChanged, txtSintoma.TextChanged, txtSexoEdad.TextChanged, txtLocalidadId.TextChanged, txtMovil.TextChanged, txtLlamada.TextChanged, txtTipAmarillo.TextChanged, txtTipAzul.TextChanged, txtDespacho.TextChanged, txtSalida.TextChanged, txtDesplazamiento.TextChanged, txtAtencion.TextChanged, txtPaciente.TextChanged, txtReferencias.TextChanged
+        Me.RefreshGrid()
+    End Sub
+
+    Private Sub scrIncidentes_Scroll(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ScrollEventArgs) Handles scrIncidentes.Scroll
+        Me.RefreshGrid()
+    End Sub
+
+    Private Sub grdIncidentes_ColumnWidthChanged(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewColumnEventArgs) Handles grdIncidentes.ColumnWidthChanged
+        SetFormatPanelSearch()
+    End Sub
+
+    Private Sub grdIncidentes_MouseWheel(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles grdIncidentes.MouseWheel
+        If e.Delta < 0 Then
+            If Me.scrIncidentes.Value + 1 <= Me.scrIncidentes.Maximum Then
+                Me.scrIncidentes.Value = Me.scrIncidentes.Value + 1
+                Me.RefreshGrid()
+            End If
+        Else
+            If Me.scrIncidentes.Value - 1 >= Me.scrIncidentes.Minimum Then
+                Me.scrIncidentes.Value = Me.scrIncidentes.Value - 1
+                Me.RefreshGrid()
+            End If
+        End If
+    End Sub
+
+    Private Sub grdIncidentes_Scroll(ByVal sender As Object, ByVal e As System.Windows.Forms.ScrollEventArgs) Handles grdIncidentes.Scroll
+
+        SetFormatPanelSearch()
+
+    End Sub
+
+    Private Sub SetFormatPanelSearch()
+        If Not flgLoading Then
+
+            Dim vIdx As Integer
+            Dim vTxtBox As Object
+
+            For vIdx = 0 To Me.grdIncidentes.FirstDisplayedScrollingColumnIndex - 1
+
+                vTxtBox = getTextBoxByIndex(vIdx)
+
+                If Not vTxtBox Is Nothing Then
+                    vTxtBox.Visible = False
+                End If
+
+                vTxtBox = Nothing
+
+            Next
+
+            getTextBoxByIndex(Me.grdIncidentes.FirstDisplayedScrollingColumnIndex).Visible = True
+            getTextBoxByIndex(Me.grdIncidentes.FirstDisplayedScrollingColumnIndex).Left = 0
+            getTextBoxByIndex(Me.grdIncidentes.FirstDisplayedScrollingColumnIndex).Width = Me.grdIncidentes.Columns(Me.grdIncidentes.FirstDisplayedScrollingColumnIndex).Width - Me.grdIncidentes.FirstDisplayedScrollingColumnHiddenWidth
+            AdjustFrom(Me.grdIncidentes.FirstDisplayedScrollingColumnIndex + 1, getTextBoxByIndex(Me.grdIncidentes.FirstDisplayedScrollingColumnIndex).Width)
+
+        End If
+
+    End Sub
+
+    Private Sub AdjustFrom(ByVal pIdx As Integer, ByVal pRight As Integer)
+        Dim vTxtBox As Object
+
+        For pIdx = pIdx To Me.grdIncidentes.ColumnCount - 1
+
+            vTxtBox = getTextBoxByIndex(pIdx)
+
+            If Not vTxtBox Is Nothing Then
+                vTxtBox.Visible = True
+                vTxtBox.Left = pRight
+                vTxtBox.Width = Me.grdIncidentes.Columns(pIdx).Width
+                pRight = pRight + vTxtBox.Width
+            End If
+
+            vTxtBox = Nothing
+
+        Next pIdx
+    End Sub
+
+    Private Function getTextBoxByIndex(ByVal pIdx As Integer) As TextBox
+        Select Case pIdx
+            Case 2 : getTextBoxByIndex = Me.txtGrado
+            Case 3 : getTextBoxByIndex = Me.txtCliente
+            Case 4 : getTextBoxByIndex = Me.txtNroIncidente
+            Case 5 : getTextBoxByIndex = Me.txtTipAmarillo
+            Case 6 : getTextBoxByIndex = Me.txtDomicilio
+            Case 7 : getTextBoxByIndex = Me.txtSintoma
+            Case 8 : getTextBoxByIndex = Me.txtLocalidadId
+            Case 9 : getTextBoxByIndex = Me.txtSexoEdad
+            Case 10 : getTextBoxByIndex = Me.txtMovil
+            Case 11 : getTextBoxByIndex = Me.txtLlamada
+            Case 12 : getTextBoxByIndex = Me.txtTipAzul
+            Case 13 : getTextBoxByIndex = Me.txtDespacho
+            Case 14 : getTextBoxByIndex = Me.txtSalida
+            Case 15 : getTextBoxByIndex = Me.txtDesplazamiento
+            Case 16 : getTextBoxByIndex = Me.txtAtencion
+            Case 17 : getTextBoxByIndex = Me.txtPaciente
+            Case 18 : getTextBoxByIndex = Me.txtReferencias
+            Case Else : getTextBoxByIndex = Nothing
+        End Select
+    End Function
+
+    Private Sub grdIncidentes_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles grdIncidentes.KeyDown
+        Select Case e.KeyCode
+            Case Keys.PageDown
+                If Me.scrIncidentes.Value + 1 <= Me.scrIncidentes.Maximum Then
+                    Me.scrIncidentes.Value = Me.scrIncidentes.Value + 1
+                    Me.RefreshGrid()
+                End If
+            Case Keys.PageUp
+                If Me.scrIncidentes.Value - 1 >= Me.scrIncidentes.Minimum Then
+                    Me.scrIncidentes.Value = Me.scrIncidentes.Value - 1
+                    Me.RefreshGrid()
+                End If
+            Case Keys.Home
+                Me.scrIncidentes.Value = Me.scrIncidentes.Minimum
+                Me.RefreshGrid()
+            Case Keys.End
+                Me.scrIncidentes.Value = Me.scrIncidentes.Maximum
+                Me.RefreshGrid()
+        End Select
+    End Sub
+End Class

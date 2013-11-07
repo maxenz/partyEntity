@@ -1,0 +1,410 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmVistaMoviles
+    Inherits WeifenLuo.WinFormsUI.Docking.DockContent
+
+    'Form reemplaza a Dispose para limpiar la lista de componentes.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Requerido por el Diseñador de Windows Forms
+    Private components As System.ComponentModel.IContainer
+
+    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
+    'Se puede modificar usando el Diseñador de Windows Forms.  
+    'No lo modifique con el editor de código.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.tabMovil = New Crownwood.Magic.Controls.TabControl
+        Me.pagPrincipales = New Crownwood.Magic.Controls.TabPage
+        Me.grpPrincipales = New System.Windows.Forms.GroupBox
+        Me.lblEstado = New System.Windows.Forms.Label
+        Me.txtEstado = New System.Windows.Forms.TextBox
+        Me.grdTripulantes = New System.Windows.Forms.DataGridView
+        Me.lblPropietario = New System.Windows.Forms.Label
+        Me.lblCondicion = New System.Windows.Forms.Label
+        Me.lblAnio = New System.Windows.Forms.Label
+        Me.lblVehiculo = New System.Windows.Forms.Label
+        Me.txtPropietario = New System.Windows.Forms.TextBox
+        Me.txtCondicion = New System.Windows.Forms.TextBox
+        Me.txtAnio = New System.Windows.Forms.TextBox
+        Me.txtMarcaModelo = New System.Windows.Forms.TextBox
+        Me.txtVehiculoId = New System.Windows.Forms.TextBox
+        Me.lblBaseOperativa = New System.Windows.Forms.Label
+        Me.lblTipoMovil = New System.Windows.Forms.Label
+        Me.lblMovil = New System.Windows.Forms.Label
+        Me.txtBaseOperativa = New System.Windows.Forms.TextBox
+        Me.txtTipoMovil = New System.Windows.Forms.TextBox
+        Me.txtMovil = New System.Windows.Forms.TextBox
+        Me.pagEquipamiento = New Crownwood.Magic.Controls.TabPage
+        Me.grpEquipamiento = New System.Windows.Forms.GroupBox
+        Me.grdComunicaciones = New System.Windows.Forms.DataGridView
+        Me.grdElectroMedicina = New System.Windows.Forms.DataGridView
+        Me.pagInsumos = New Crownwood.Magic.Controls.TabPage
+        Me.grpInsumos = New System.Windows.Forms.GroupBox
+        Me.grdInsumos = New System.Windows.Forms.DataGridView
+        Me.pagPrincipales.SuspendLayout()
+        Me.grpPrincipales.SuspendLayout()
+        CType(Me.grdTripulantes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pagEquipamiento.SuspendLayout()
+        Me.grpEquipamiento.SuspendLayout()
+        CType(Me.grdComunicaciones, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grdElectroMedicina, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pagInsumos.SuspendLayout()
+        Me.grpInsumos.SuspendLayout()
+        CType(Me.grdInsumos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'tabMovil
+        '
+        Me.tabMovil.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tabMovil.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tabMovil.HideTabsMode = Crownwood.Magic.Controls.TabControl.HideTabsModes.ShowAlways
+        Me.tabMovil.Location = New System.Drawing.Point(0, 0)
+        Me.tabMovil.Name = "tabMovil"
+        Me.tabMovil.SelectedIndex = 0
+        Me.tabMovil.SelectedTab = Me.pagPrincipales
+        Me.tabMovil.Size = New System.Drawing.Size(665, 309)
+        Me.tabMovil.TabIndex = 0
+        Me.tabMovil.TabPages.AddRange(New Crownwood.Magic.Controls.TabPage() {Me.pagPrincipales, Me.pagEquipamiento, Me.pagInsumos})
+        '
+        'pagPrincipales
+        '
+        Me.pagPrincipales.Controls.Add(Me.grpPrincipales)
+        Me.pagPrincipales.Location = New System.Drawing.Point(0, 0)
+        Me.pagPrincipales.Name = "pagPrincipales"
+        Me.pagPrincipales.Size = New System.Drawing.Size(665, 284)
+        Me.pagPrincipales.TabIndex = 0
+        Me.pagPrincipales.Title = "Datos Principales"
+        '
+        'grpPrincipales
+        '
+        Me.grpPrincipales.Controls.Add(Me.lblEstado)
+        Me.grpPrincipales.Controls.Add(Me.txtEstado)
+        Me.grpPrincipales.Controls.Add(Me.grdTripulantes)
+        Me.grpPrincipales.Controls.Add(Me.lblPropietario)
+        Me.grpPrincipales.Controls.Add(Me.lblCondicion)
+        Me.grpPrincipales.Controls.Add(Me.lblAnio)
+        Me.grpPrincipales.Controls.Add(Me.lblVehiculo)
+        Me.grpPrincipales.Controls.Add(Me.txtPropietario)
+        Me.grpPrincipales.Controls.Add(Me.txtCondicion)
+        Me.grpPrincipales.Controls.Add(Me.txtAnio)
+        Me.grpPrincipales.Controls.Add(Me.txtMarcaModelo)
+        Me.grpPrincipales.Controls.Add(Me.txtVehiculoId)
+        Me.grpPrincipales.Controls.Add(Me.lblBaseOperativa)
+        Me.grpPrincipales.Controls.Add(Me.lblTipoMovil)
+        Me.grpPrincipales.Controls.Add(Me.lblMovil)
+        Me.grpPrincipales.Controls.Add(Me.txtBaseOperativa)
+        Me.grpPrincipales.Controls.Add(Me.txtTipoMovil)
+        Me.grpPrincipales.Controls.Add(Me.txtMovil)
+        Me.grpPrincipales.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grpPrincipales.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpPrincipales.Location = New System.Drawing.Point(0, 0)
+        Me.grpPrincipales.Name = "grpPrincipales"
+        Me.grpPrincipales.Size = New System.Drawing.Size(665, 284)
+        Me.grpPrincipales.TabIndex = 0
+        Me.grpPrincipales.TabStop = False
+        Me.grpPrincipales.Text = "Datos Principales"
+        '
+        'lblEstado
+        '
+        Me.lblEstado.AutoSize = True
+        Me.lblEstado.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEstado.Location = New System.Drawing.Point(12, 142)
+        Me.lblEstado.Name = "lblEstado"
+        Me.lblEstado.Size = New System.Drawing.Size(73, 13)
+        Me.lblEstado.TabIndex = 17
+        Me.lblEstado.Text = "Estado Actual"
+        '
+        'txtEstado
+        '
+        Me.txtEstado.Enabled = False
+        Me.txtEstado.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEstado.Location = New System.Drawing.Point(6, 158)
+        Me.txtEstado.Name = "txtEstado"
+        Me.txtEstado.Size = New System.Drawing.Size(653, 21)
+        Me.txtEstado.TabIndex = 16
+        '
+        'grdTripulantes
+        '
+        Me.grdTripulantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdTripulantes.Location = New System.Drawing.Point(6, 185)
+        Me.grdTripulantes.Name = "grdTripulantes"
+        Me.grdTripulantes.Size = New System.Drawing.Size(653, 93)
+        Me.grdTripulantes.TabIndex = 15
+        '
+        'lblPropietario
+        '
+        Me.lblPropietario.AutoSize = True
+        Me.lblPropietario.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPropietario.Location = New System.Drawing.Point(12, 100)
+        Me.lblPropietario.Name = "lblPropietario"
+        Me.lblPropietario.Size = New System.Drawing.Size(59, 13)
+        Me.lblPropietario.TabIndex = 14
+        Me.lblPropietario.Text = "Propietario"
+        '
+        'lblCondicion
+        '
+        Me.lblCondicion.AutoSize = True
+        Me.lblCondicion.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCondicion.Location = New System.Drawing.Point(476, 60)
+        Me.lblCondicion.Name = "lblCondicion"
+        Me.lblCondicion.Size = New System.Drawing.Size(53, 13)
+        Me.lblCondicion.TabIndex = 13
+        Me.lblCondicion.Text = "Condición"
+        '
+        'lblAnio
+        '
+        Me.lblAnio.AutoSize = True
+        Me.lblAnio.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAnio.Location = New System.Drawing.Point(414, 60)
+        Me.lblAnio.Name = "lblAnio"
+        Me.lblAnio.Size = New System.Drawing.Size(26, 13)
+        Me.lblAnio.TabIndex = 12
+        Me.lblAnio.Text = "Año"
+        '
+        'lblVehiculo
+        '
+        Me.lblVehiculo.AutoSize = True
+        Me.lblVehiculo.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblVehiculo.Location = New System.Drawing.Point(12, 60)
+        Me.lblVehiculo.Name = "lblVehiculo"
+        Me.lblVehiculo.Size = New System.Drawing.Size(46, 13)
+        Me.lblVehiculo.TabIndex = 11
+        Me.lblVehiculo.Text = "Vehículo"
+        '
+        'txtPropietario
+        '
+        Me.txtPropietario.Enabled = False
+        Me.txtPropietario.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPropietario.Location = New System.Drawing.Point(6, 116)
+        Me.txtPropietario.Name = "txtPropietario"
+        Me.txtPropietario.Size = New System.Drawing.Size(653, 21)
+        Me.txtPropietario.TabIndex = 10
+        '
+        'txtCondicion
+        '
+        Me.txtCondicion.Enabled = False
+        Me.txtCondicion.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCondicion.Location = New System.Drawing.Point(470, 76)
+        Me.txtCondicion.Name = "txtCondicion"
+        Me.txtCondicion.Size = New System.Drawing.Size(189, 21)
+        Me.txtCondicion.TabIndex = 9
+        '
+        'txtAnio
+        '
+        Me.txtAnio.Enabled = False
+        Me.txtAnio.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAnio.Location = New System.Drawing.Point(408, 76)
+        Me.txtAnio.Name = "txtAnio"
+        Me.txtAnio.Size = New System.Drawing.Size(56, 21)
+        Me.txtAnio.TabIndex = 8
+        Me.txtAnio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtMarcaModelo
+        '
+        Me.txtMarcaModelo.Enabled = False
+        Me.txtMarcaModelo.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMarcaModelo.Location = New System.Drawing.Point(105, 76)
+        Me.txtMarcaModelo.Name = "txtMarcaModelo"
+        Me.txtMarcaModelo.Size = New System.Drawing.Size(297, 21)
+        Me.txtMarcaModelo.TabIndex = 7
+        '
+        'txtVehiculoId
+        '
+        Me.txtVehiculoId.Enabled = False
+        Me.txtVehiculoId.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtVehiculoId.Location = New System.Drawing.Point(6, 76)
+        Me.txtVehiculoId.Name = "txtVehiculoId"
+        Me.txtVehiculoId.Size = New System.Drawing.Size(100, 21)
+        Me.txtVehiculoId.TabIndex = 6
+        Me.txtVehiculoId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'lblBaseOperativa
+        '
+        Me.lblBaseOperativa.AutoSize = True
+        Me.lblBaseOperativa.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBaseOperativa.Location = New System.Drawing.Point(380, 20)
+        Me.lblBaseOperativa.Name = "lblBaseOperativa"
+        Me.lblBaseOperativa.Size = New System.Drawing.Size(81, 13)
+        Me.lblBaseOperativa.TabIndex = 5
+        Me.lblBaseOperativa.Text = "Base Operativa"
+        '
+        'lblTipoMovil
+        '
+        Me.lblTipoMovil.AutoSize = True
+        Me.lblTipoMovil.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTipoMovil.Location = New System.Drawing.Point(70, 20)
+        Me.lblTipoMovil.Name = "lblTipoMovil"
+        Me.lblTipoMovil.Size = New System.Drawing.Size(69, 13)
+        Me.lblTipoMovil.TabIndex = 4
+        Me.lblTipoMovil.Text = "Tipo de Móvil"
+        '
+        'lblMovil
+        '
+        Me.lblMovil.AutoSize = True
+        Me.lblMovil.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMovil.Location = New System.Drawing.Point(12, 20)
+        Me.lblMovil.Name = "lblMovil"
+        Me.lblMovil.Size = New System.Drawing.Size(31, 13)
+        Me.lblMovil.TabIndex = 3
+        Me.lblMovil.Text = "Móvil"
+        '
+        'txtBaseOperativa
+        '
+        Me.txtBaseOperativa.Enabled = False
+        Me.txtBaseOperativa.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBaseOperativa.Location = New System.Drawing.Point(374, 36)
+        Me.txtBaseOperativa.Name = "txtBaseOperativa"
+        Me.txtBaseOperativa.Size = New System.Drawing.Size(285, 21)
+        Me.txtBaseOperativa.TabIndex = 2
+        '
+        'txtTipoMovil
+        '
+        Me.txtTipoMovil.Enabled = False
+        Me.txtTipoMovil.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTipoMovil.Location = New System.Drawing.Point(64, 36)
+        Me.txtTipoMovil.Name = "txtTipoMovil"
+        Me.txtTipoMovil.Size = New System.Drawing.Size(304, 21)
+        Me.txtTipoMovil.TabIndex = 1
+        '
+        'txtMovil
+        '
+        Me.txtMovil.Enabled = False
+        Me.txtMovil.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMovil.Location = New System.Drawing.Point(6, 36)
+        Me.txtMovil.Name = "txtMovil"
+        Me.txtMovil.Size = New System.Drawing.Size(52, 21)
+        Me.txtMovil.TabIndex = 0
+        Me.txtMovil.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'pagEquipamiento
+        '
+        Me.pagEquipamiento.Controls.Add(Me.grpEquipamiento)
+        Me.pagEquipamiento.Location = New System.Drawing.Point(0, 0)
+        Me.pagEquipamiento.Name = "pagEquipamiento"
+        Me.pagEquipamiento.Selected = False
+        Me.pagEquipamiento.Size = New System.Drawing.Size(665, 284)
+        Me.pagEquipamiento.TabIndex = 1
+        Me.pagEquipamiento.Title = "Equipamiento"
+        '
+        'grpEquipamiento
+        '
+        Me.grpEquipamiento.Controls.Add(Me.grdComunicaciones)
+        Me.grpEquipamiento.Controls.Add(Me.grdElectroMedicina)
+        Me.grpEquipamiento.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grpEquipamiento.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpEquipamiento.Location = New System.Drawing.Point(0, 0)
+        Me.grpEquipamiento.Name = "grpEquipamiento"
+        Me.grpEquipamiento.Size = New System.Drawing.Size(665, 284)
+        Me.grpEquipamiento.TabIndex = 0
+        Me.grpEquipamiento.TabStop = False
+        Me.grpEquipamiento.Text = "Electromedicina / Comunicaciones"
+        '
+        'grdComunicaciones
+        '
+        Me.grdComunicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdComunicaciones.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.grdComunicaciones.Location = New System.Drawing.Point(3, 202)
+        Me.grdComunicaciones.Name = "grdComunicaciones"
+        Me.grdComunicaciones.Size = New System.Drawing.Size(659, 79)
+        Me.grdComunicaciones.TabIndex = 1
+        '
+        'grdElectroMedicina
+        '
+        Me.grdElectroMedicina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdElectroMedicina.Dock = System.Windows.Forms.DockStyle.Top
+        Me.grdElectroMedicina.Location = New System.Drawing.Point(3, 17)
+        Me.grdElectroMedicina.Name = "grdElectroMedicina"
+        Me.grdElectroMedicina.Size = New System.Drawing.Size(659, 179)
+        Me.grdElectroMedicina.TabIndex = 0
+        '
+        'pagInsumos
+        '
+        Me.pagInsumos.Controls.Add(Me.grpInsumos)
+        Me.pagInsumos.Location = New System.Drawing.Point(0, 0)
+        Me.pagInsumos.Name = "pagInsumos"
+        Me.pagInsumos.Selected = False
+        Me.pagInsumos.Size = New System.Drawing.Size(665, 284)
+        Me.pagInsumos.TabIndex = 2
+        Me.pagInsumos.Title = "Insumos"
+        '
+        'grpInsumos
+        '
+        Me.grpInsumos.Controls.Add(Me.grdInsumos)
+        Me.grpInsumos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grpInsumos.Location = New System.Drawing.Point(0, 0)
+        Me.grpInsumos.Name = "grpInsumos"
+        Me.grpInsumos.Size = New System.Drawing.Size(665, 284)
+        Me.grpInsumos.TabIndex = 1
+        Me.grpInsumos.TabStop = False
+        Me.grpInsumos.Text = "Insumos"
+        '
+        'grdInsumos
+        '
+        Me.grdInsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdInsumos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grdInsumos.Location = New System.Drawing.Point(3, 17)
+        Me.grdInsumos.Name = "grdInsumos"
+        Me.grdInsumos.Size = New System.Drawing.Size(659, 264)
+        Me.grdInsumos.TabIndex = 0
+        '
+        'frmVistaMoviles
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(665, 309)
+        Me.Controls.Add(Me.tabMovil)
+        Me.Name = "frmVistaMoviles"
+        Me.TabText = "frmVistaMoviles"
+        Me.Text = "frmVistaMoviles"
+        Me.pagPrincipales.ResumeLayout(False)
+        Me.grpPrincipales.ResumeLayout(False)
+        Me.grpPrincipales.PerformLayout()
+        CType(Me.grdTripulantes, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pagEquipamiento.ResumeLayout(False)
+        Me.grpEquipamiento.ResumeLayout(False)
+        CType(Me.grdComunicaciones, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grdElectroMedicina, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pagInsumos.ResumeLayout(False)
+        Me.grpInsumos.ResumeLayout(False)
+        CType(Me.grdInsumos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
+    End Sub
+    Friend WithEvents tabMovil As Crownwood.Magic.Controls.TabControl
+    Friend WithEvents pagPrincipales As Crownwood.Magic.Controls.TabPage
+    Friend WithEvents pagEquipamiento As Crownwood.Magic.Controls.TabPage
+    Friend WithEvents pagInsumos As Crownwood.Magic.Controls.TabPage
+    Friend WithEvents grpPrincipales As System.Windows.Forms.GroupBox
+    Friend WithEvents grdTripulantes As System.Windows.Forms.DataGridView
+    Friend WithEvents lblPropietario As System.Windows.Forms.Label
+    Friend WithEvents lblCondicion As System.Windows.Forms.Label
+    Friend WithEvents lblAnio As System.Windows.Forms.Label
+    Friend WithEvents lblVehiculo As System.Windows.Forms.Label
+    Friend WithEvents txtPropietario As System.Windows.Forms.TextBox
+    Friend WithEvents txtCondicion As System.Windows.Forms.TextBox
+    Friend WithEvents txtAnio As System.Windows.Forms.TextBox
+    Friend WithEvents txtMarcaModelo As System.Windows.Forms.TextBox
+    Friend WithEvents txtVehiculoId As System.Windows.Forms.TextBox
+    Friend WithEvents lblBaseOperativa As System.Windows.Forms.Label
+    Friend WithEvents lblTipoMovil As System.Windows.Forms.Label
+    Friend WithEvents lblMovil As System.Windows.Forms.Label
+    Friend WithEvents txtBaseOperativa As System.Windows.Forms.TextBox
+    Friend WithEvents txtTipoMovil As System.Windows.Forms.TextBox
+    Friend WithEvents txtMovil As System.Windows.Forms.TextBox
+    Friend WithEvents lblEstado As System.Windows.Forms.Label
+    Friend WithEvents txtEstado As System.Windows.Forms.TextBox
+    Friend WithEvents grpEquipamiento As System.Windows.Forms.GroupBox
+    Friend WithEvents grdElectroMedicina As System.Windows.Forms.DataGridView
+    Friend WithEvents grpInsumos As System.Windows.Forms.GroupBox
+    Friend WithEvents grdInsumos As System.Windows.Forms.DataGridView
+    Friend WithEvents grdComunicaciones As System.Windows.Forms.DataGridView
+End Class

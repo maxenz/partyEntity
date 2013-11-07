@@ -1,0 +1,146 @@
+﻿Imports WeifenLuo.WinFormsUI.Docking
+Public Class frmVistaMoviles
+
+    Private vMovilId As String
+
+    Private Sub frmVistaMoviles_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        ShowMovil(vMovilId)
+    End Sub
+
+    Public Sub New(Optional ByVal pMov As String = "")
+
+        ' Llamada necesaria para el Diseñador de Windows Forms.
+        InitializeComponent()
+
+        FormatScreen()
+
+        vMovilId = pMov
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+
+    End Sub
+
+    Private Sub ShowMovil(ByVal pMov As String)
+        Dim objMovil As New ShamanClases.EmergencyC.Moviles
+        Dim objMovilActual As New ShamanClases.EmergencyC.MovilesActuales
+        Dim objVehiculo As New ShamanClases.EmergencyC.Vehiculos
+        Dim objTecnologias As New ShamanClases.EmergencyC.Tecnologias
+        Dim objInsumos As New ShamanClases.EmergencyC.Insumos
+        Dim vVeh As Decimal = 0
+
+        If objMovil.Abrir(pMov) Then
+            Me.TabText = objMovil.ID & " - " & objMovil.TipoMovilOpeId.Descripcion
+            Me.txtMovil.Text = objMovil.ID
+            Me.txtTipoMovil.Text = objMovil.TipoMovilOpeId.Descripcion
+            Me.txtBaseOperativa.Text = objMovil.BaseOperativaId.Descripcion
+
+            If objMovilActual.Abrir(objMovilActual.GetIDByIndex(pMov)) Then
+
+                vVeh = objMovilActual.GetVehiculoOperativo(pMov)
+
+                If objVehiculo.Abrir(vVeh) Then
+                    Me.txtVehiculoId.Text = objVehiculo.DominioId
+                    Me.txtMarcaModelo.Text = objVehiculo.ModeloUnidadId.Marca & " - " & objVehiculo.ModeloUnidadId.Modelo
+                    Me.txtAnio.Text = objVehiculo.Anio
+                    If objVehiculo.VehiculoClasificacionId.flgPropio = 1 Then
+                        Me.txtCondicion.Text = "MOVIL PROPIO"
+                    Else
+                        Me.txtCondicion.Text = "MOVIL DE TERCEROS"
+                    End If
+                    Me.txtPropietario.Text = objMovil.virRazonSocial
+
+                    Me.txtEstado.Text = objMovilActual.EstadoId.Descripcion
+                    If objMovilActual.IncidenteId.ID > 0 Then
+                        Me.txtEstado.Text = Me.txtEstado.Text & " (Inc: " & objMovilActual.IncidenteId.NroIncidente & " / Grado: " & objMovilActual.IncidenteId.GradoOperativoId.GradoId & ")"
+                    End If
+                    Me.txtEstado.Text = Me.txtEstado.Text & " / Desde las " & ShamanClases.ShowDateTime(objMovilActual.FecHorMovimiento, 1)
+
+                    objMovilActual.GetDotacionActual(shamanConexion.PID, pMov, Me.grdTripulantes)
+                End If
+
+                objTecnologias.GetTecnologiaMovil(pMov, vVeh, 1, Me.grdElectroMedicina)
+                objTecnologias.GetTecnologiaMovil(pMov, vVeh, 2, Me.grdComunicaciones)
+                objInsumos.GetInsumosVehiculo(vVeh, Me.grdInsumos)
+
+            End If
+
+        End If
+
+        objMovil = Nothing
+        objMovilActual = Nothing
+        objVehiculo = Nothing
+        objTecnologias = Nothing
+        objInsumos = Nothing
+
+    End Sub
+
+    Private Sub FormatScreen()
+        'SetFormatGroupBox(Me.grpPrincipales)
+        SetFormatGrid(Me.grdTripulantes, 4, True, True)
+        With Me.grdTripulantes
+            .Font = New Font("Arial", 12, FontStyle.Bold, GraphicsUnit.Pixel, 1)
+            .ColumnHeadersVisible = False
+            .Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(0).Width = 60
+            .Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(1).Width = 300
+            .Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(2).Width = 150
+            .Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(3).Width = 150
+        End With
+
+        SetFormatGrid(Me.grdElectroMedicina, 3, True, False)
+        With Me.grdElectroMedicina
+            .Font = New Font("Arial", 11, FontStyle.Regular, GraphicsUnit.Pixel, 1)
+            .Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+            .Columns(0).Width = 160
+            .Columns(0).HeaderText = "Tipo"
+            .Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+            .Columns(1).Width = 260
+            .Columns(1).HeaderText = "Marca"
+            .Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+            .Columns(2).Width = 260
+            .Columns(2).HeaderText = "Modelo"
+        End With
+
+        SetFormatGrid(Me.grdComunicaciones, 4, True, False)
+        With Me.grdComunicaciones
+            .Font = New Font("Arial", 11, FontStyle.Regular, GraphicsUnit.Pixel, 1)
+            .Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(0).Width = 160
+            .Columns(0).HeaderText = "Equipo"
+            .Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(1).Width = 180
+            .Columns(1).HeaderText = "Marca"
+            .Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(2).Width = 160
+            .Columns(2).HeaderText = "Modelo"
+            .Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(3).Width = 160
+            .Columns(3).HeaderText = "ID"
+        End With
+
+        SetFormatGrid(Me.grdInsumos, 5, True, False)
+        With Me.grdInsumos
+            .Font = New Font("Arial", 11, FontStyle.Regular, GraphicsUnit.Pixel, 1)
+            .Columns(0).Visible = False
+            .Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(1).Width = 80
+            .Columns(1).HeaderText = "Código"
+            .Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+            .Columns(2).Width = 260
+            .Columns(2).HeaderText = "Insumo"
+            .Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+            .Columns(3).Width = 220
+            .Columns(3).HeaderText = "Tipo"
+            .Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+            .Columns(4).Width = 80
+            .Columns(4).HeaderText = "Cantidad"
+        End With
+
+    End Sub
+
+    Private Sub tabMovil_SelectionChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tabMovil.SelectionChanged
+
+    End Sub
+End Class

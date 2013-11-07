@@ -1,0 +1,52 @@
+﻿Namespace My
+
+    ' Los siguientes eventos están disponibles para MyApplication:
+    ' 
+    ' Inicio: se desencadena cuando se inicia la aplicación, antes de que se cree el formulario de inicio.
+    ' Apagado: generado después de cerrar todos los formularios de la aplicación. Este evento no se genera si la aplicación termina de forma anómala.
+    ' UnhandledException: generado si la aplicación detecta una excepción no controlada.
+    ' StartupNextInstance: se desencadena cuando se inicia una aplicación de instancia única y la aplicación ya está activa. 
+    ' NetworkAvailabilityChanged: se desencadena cuando la conexión de red está conectada o desconectada.
+    Partial Friend Class MyApplication
+
+        Private Sub MyApplication_Startup(ByVal sender As Object, ByVal e As Microsoft.VisualBasic.ApplicationServices.StartupEventArgs) Handles Me.Startup
+
+            Me.Init()
+
+        End Sub
+
+        Private Sub Init()
+            Dim vArg() As String
+
+            shamanConexion = New ShamanClases.PanelC.Conexion
+
+            '192.168.0.249/1972/SHAMAN/JAVIER/1/1
+
+            vArg = Split(Command, "/")
+
+            If UBound(vArg) = 5 Then
+
+                If shamanConexion.Iniciar(vArg(0), Val(vArg(1)), vArg(2), "EMERGENCIAS", vArg(3), vArg(4)) Then
+                    vTabMode = Val(vArg(5))
+                    configShaman = New ShamanClases.PanelC.GlobalParameters
+                Else
+                    Global.System.Windows.Forms.Application.Exit()
+                End If
+
+            Else
+
+                If shamanConexion.Iniciar("192.168.0.249", 1972, "SHAMAN", "EMERGENCIAS", "JAVIER", 1) Then
+                    configShaman = New ShamanClases.PanelC.GlobalParameters
+                Else
+                    Global.System.Windows.Forms.Application.Exit()
+                End If
+
+            End If
+
+        End Sub
+
+
+    End Class
+
+End Namespace
+

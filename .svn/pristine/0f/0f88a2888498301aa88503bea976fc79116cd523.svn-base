@@ -1,0 +1,219 @@
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmTablerosArbol
+    Inherits WeifenLuo.WinFormsUI.Docking.DockContent
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        If disposing AndAlso components IsNot Nothing Then
+            components.Dispose()
+        End If
+        MyBase.Dispose(disposing)
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTablerosArbol))
+        Me.menActividades = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.menReferencia = New System.Windows.Forms.ToolStripMenuItem
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
+        Me.menLlegada = New System.Windows.Forms.ToolStripMenuItem
+        Me.menDerivacion = New System.Windows.Forms.ToolStripMenuItem
+        Me.menFinal = New System.Windows.Forms.ToolStripMenuItem
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
+        Me.tblOpciones = New System.Windows.Forms.ToolStripDropDownButton
+        Me.tblCentralizados = New System.Windows.Forms.ToolStripMenuItem
+        Me.TiemposOperativosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.VentasFacturaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.ComprasLiquidacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.RecursosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel
+        Me.trwMain = New System.Windows.Forms.TreeView
+        Me.imlIconos = New System.Windows.Forms.ImageList(Me.components)
+        Me.menActividades.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'menActividades
+        '
+        Me.menActividades.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menReferencia, Me.ToolStripSeparator1, Me.menLlegada, Me.menDerivacion, Me.menFinal})
+        Me.menActividades.Name = "ContextMenuStrip1"
+        Me.menActividades.Size = New System.Drawing.Size(137, 98)
+        '
+        'menReferencia
+        '
+        Me.menReferencia.Enabled = False
+        Me.menReferencia.Name = "menReferencia"
+        Me.menReferencia.Size = New System.Drawing.Size(136, 22)
+        Me.menReferencia.Text = "Móvil"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(133, 6)
+        '
+        'menLlegada
+        '
+        Me.menLlegada.Name = "menLlegada"
+        Me.menLlegada.Size = New System.Drawing.Size(136, 22)
+        Me.menLlegada.Text = "Llegada"
+        '
+        'menDerivacion
+        '
+        Me.menDerivacion.Name = "menDerivacion"
+        Me.menDerivacion.Size = New System.Drawing.Size(136, 22)
+        Me.menDerivacion.Text = "Derivación"
+        '
+        'menFinal
+        '
+        Me.menFinal.Name = "menFinal"
+        Me.menFinal.Size = New System.Drawing.Size(136, 22)
+        Me.menFinal.Text = "Finalización"
+        '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tblOpciones, Me.ToolStripLabel1})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(202, 25)
+        Me.ToolStrip1.TabIndex = 4
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'tblOpciones
+        '
+        Me.tblOpciones.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tblOpciones.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tblCentralizados, Me.TiemposOperativosToolStripMenuItem, Me.VentasFacturaciónToolStripMenuItem, Me.ComprasLiquidacionesToolStripMenuItem, Me.RecursosToolStripMenuItem})
+        Me.tblOpciones.Image = Global.Shaman.My.Resources.Resources.estadisticas
+        Me.tblOpciones.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tblOpciones.Name = "tblOpciones"
+        Me.tblOpciones.Size = New System.Drawing.Size(29, 22)
+        Me.tblOpciones.Text = "ToolStripDropDownButton1"
+        '
+        'tblCentralizados
+        '
+        Me.tblCentralizados.Image = Global.Shaman.My.Resources.Resources.estadisticas
+        Me.tblCentralizados.Name = "tblCentralizados"
+        Me.tblCentralizados.Size = New System.Drawing.Size(206, 22)
+        Me.tblCentralizados.Text = "Centralizados"
+        '
+        'TiemposOperativosToolStripMenuItem
+        '
+        Me.TiemposOperativosToolStripMenuItem.Enabled = False
+        Me.TiemposOperativosToolStripMenuItem.Image = Global.Shaman.My.Resources.Resources.operativa
+        Me.TiemposOperativosToolStripMenuItem.Name = "TiemposOperativosToolStripMenuItem"
+        Me.TiemposOperativosToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
+        Me.TiemposOperativosToolStripMenuItem.Text = "Emergencias"
+        '
+        'VentasFacturaciónToolStripMenuItem
+        '
+        Me.VentasFacturaciónToolStripMenuItem.Enabled = False
+        Me.VentasFacturaciónToolStripMenuItem.Image = Global.Shaman.My.Resources.Resources.facturacion
+        Me.VentasFacturaciónToolStripMenuItem.Name = "VentasFacturaciónToolStripMenuItem"
+        Me.VentasFacturaciónToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
+        Me.VentasFacturaciónToolStripMenuItem.Text = "Ventas / Facturación"
+        '
+        'ComprasLiquidacionesToolStripMenuItem
+        '
+        Me.ComprasLiquidacionesToolStripMenuItem.Enabled = False
+        Me.ComprasLiquidacionesToolStripMenuItem.Image = Global.Shaman.My.Resources.Resources.liquidaciones
+        Me.ComprasLiquidacionesToolStripMenuItem.Name = "ComprasLiquidacionesToolStripMenuItem"
+        Me.ComprasLiquidacionesToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
+        Me.ComprasLiquidacionesToolStripMenuItem.Text = "Compras / Liquidaciones"
+        '
+        'RecursosToolStripMenuItem
+        '
+        Me.RecursosToolStripMenuItem.Enabled = False
+        Me.RecursosToolStripMenuItem.Image = Global.Shaman.My.Resources.Resources.personal
+        Me.RecursosToolStripMenuItem.Name = "RecursosToolStripMenuItem"
+        Me.RecursosToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
+        Me.RecursosToolStripMenuItem.Text = "Recursos Humanos"
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(78, 22)
+        Me.ToolStripLabel1.Text = "Centralizados"
+        '
+        'trwMain
+        '
+        Me.trwMain.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.trwMain.Location = New System.Drawing.Point(0, 25)
+        Me.trwMain.Name = "trwMain"
+        Me.trwMain.Size = New System.Drawing.Size(202, 248)
+        Me.trwMain.TabIndex = 5
+        '
+        'imlIconos
+        '
+        Me.imlIconos.ImageStream = CType(resources.GetObject("imlIconos.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.imlIconos.TransparentColor = System.Drawing.Color.Transparent
+        Me.imlIconos.Images.SetKeyName(0, "agregar.ico")
+        Me.imlIconos.Images.SetKeyName(1, "agtodos.ico")
+        Me.imlIconos.Images.SetKeyName(2, "aguno.ico")
+        Me.imlIconos.Images.SetKeyName(3, "archivo")
+        Me.imlIconos.Images.SetKeyName(4, "bajar.ico")
+        Me.imlIconos.Images.SetKeyName(5, "cancelar.ico")
+        Me.imlIconos.Images.SetKeyName(6, "clientes.ico")
+        Me.imlIconos.Images.SetKeyName(7, "colores.ico")
+        Me.imlIconos.Images.SetKeyName(8, "eliminar.ico")
+        Me.imlIconos.Images.SetKeyName(9, "estadisticas.ico")
+        Me.imlIconos.Images.SetKeyName(10, "facturacion.ico")
+        Me.imlIconos.Images.SetKeyName(11, "imprimir.ico")
+        Me.imlIconos.Images.SetKeyName(12, "JAVIER.JPG")
+        Me.imlIconos.Images.SetKeyName(13, "liquidaciones.ico")
+        Me.imlIconos.Images.SetKeyName(14, "modificar.ico")
+        Me.imlIconos.Images.SetKeyName(15, "movil.ico")
+        Me.imlIconos.Images.SetKeyName(16, "nooperativa.ico")
+        Me.imlIconos.Images.SetKeyName(17, "operativa.ico")
+        Me.imlIconos.Images.SetKeyName(18, "parametros.ico")
+        Me.imlIconos.Images.SetKeyName(19, "personal.ico")
+        Me.imlIconos.Images.SetKeyName(20, "prestadores.ico")
+        Me.imlIconos.Images.SetKeyName(21, "qutodos.ico")
+        Me.imlIconos.Images.SetKeyName(22, "quuno.ico")
+        Me.imlIconos.Images.SetKeyName(23, "refrescar.ico")
+        Me.imlIconos.Images.SetKeyName(24, "salir.ico")
+        Me.imlIconos.Images.SetKeyName(25, "salvar.ico")
+        Me.imlIconos.Images.SetKeyName(26, "subir.ico")
+        Me.imlIconos.Images.SetKeyName(27, "usuarios.ico")
+        '
+        'frmTablerosArbol
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(202, 273)
+        Me.Controls.Add(Me.trwMain)
+        Me.Controls.Add(Me.ToolStrip1)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Name = "frmTablerosArbol"
+        Me.TabText = "Mis Tableros"
+        Me.Text = "Mis Tableros"
+        Me.menActividades.ResumeLayout(False)
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents menActividades As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents menReferencia As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents menLlegada As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menFinal As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menDerivacion As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
+    Friend WithEvents tblOpciones As System.Windows.Forms.ToolStripDropDownButton
+    Friend WithEvents TiemposOperativosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripLabel1 As System.Windows.Forms.ToolStripLabel
+    Friend WithEvents trwMain As System.Windows.Forms.TreeView
+    Friend WithEvents VentasFacturaciónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ComprasLiquidacionesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents tblCentralizados As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RecursosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents imlIconos As System.Windows.Forms.ImageList
+End Class

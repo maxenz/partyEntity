@@ -1,0 +1,293 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmCabMinorista
+    Inherits WeifenLuo.WinFormsUI.Docking.DockContent
+
+    'Form reemplaza a Dispose para limpiar la lista de componentes.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Requerido por el Diseñador de Windows Forms
+    Private components As System.ComponentModel.IContainer
+
+    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
+    'Se puede modificar usando el Diseñador de Windows Forms.  
+    'No lo modifique con el editor de código.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.grpMain = New DevExpress.XtraEditors.GroupControl
+        Me.lblZona = New DevExpress.XtraEditors.LabelControl
+        Me.cmbZonas = New DevExpress.XtraEditors.LookUpEdit
+        Me.lblActividad = New DevExpress.XtraEditors.LabelControl
+        Me.cmbActividades = New DevExpress.XtraEditors.LookUpEdit
+        Me.cmbTiposClientes = New DevExpress.XtraEditors.LookUpEdit
+        Me.dtpCmpHasta = New DevExpress.XtraEditors.DateEdit
+        Me.dtpCmpDesde = New DevExpress.XtraEditors.DateEdit
+        Me.lblModoGrafico = New DevExpress.XtraEditors.LabelControl
+        Me.cmbModoGrafico = New DevExpress.XtraEditors.ComboBoxEdit
+        Me.cmdExportar = New DevExpress.XtraEditors.SimpleButton
+        Me.lblTipoCliente = New DevExpress.XtraEditors.LabelControl
+        Me.cmdProcesar = New DevExpress.XtraEditors.SimpleButton
+        Me.dtpHasta = New DevExpress.XtraEditors.DateEdit
+        Me.dtpDesde = New DevExpress.XtraEditors.DateEdit
+        Me.lblDesde = New DevExpress.XtraEditors.LabelControl
+        Me.lblHasta = New DevExpress.XtraEditors.LabelControl
+        Me.dlgGuardar = New System.Windows.Forms.SaveFileDialog
+        Me.cmbTarifaComparacion = New DevExpress.XtraEditors.LookUpEdit
+        Me.lblTarComp = New DevExpress.XtraEditors.LabelControl
+        CType(Me.grpMain, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grpMain.SuspendLayout()
+        CType(Me.cmbZonas.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cmbActividades.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cmbTiposClientes.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtpCmpHasta.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtpCmpHasta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtpCmpDesde.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtpCmpDesde.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cmbModoGrafico.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtpHasta.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtpHasta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtpDesde.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtpDesde.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cmbTarifaComparacion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'grpMain
+        '
+        Me.grpMain.Controls.Add(Me.lblTarComp)
+        Me.grpMain.Controls.Add(Me.cmbTarifaComparacion)
+        Me.grpMain.Controls.Add(Me.lblZona)
+        Me.grpMain.Controls.Add(Me.cmbZonas)
+        Me.grpMain.Controls.Add(Me.lblActividad)
+        Me.grpMain.Controls.Add(Me.cmbActividades)
+        Me.grpMain.Controls.Add(Me.cmbTiposClientes)
+        Me.grpMain.Controls.Add(Me.dtpCmpHasta)
+        Me.grpMain.Controls.Add(Me.dtpCmpDesde)
+        Me.grpMain.Controls.Add(Me.lblModoGrafico)
+        Me.grpMain.Controls.Add(Me.cmbModoGrafico)
+        Me.grpMain.Controls.Add(Me.cmdExportar)
+        Me.grpMain.Controls.Add(Me.lblTipoCliente)
+        Me.grpMain.Controls.Add(Me.cmdProcesar)
+        Me.grpMain.Controls.Add(Me.dtpHasta)
+        Me.grpMain.Controls.Add(Me.dtpDesde)
+        Me.grpMain.Controls.Add(Me.lblDesde)
+        Me.grpMain.Controls.Add(Me.lblHasta)
+        Me.grpMain.Dock = System.Windows.Forms.DockStyle.Top
+        Me.grpMain.Location = New System.Drawing.Point(0, 0)
+        Me.grpMain.Name = "grpMain"
+        Me.grpMain.Size = New System.Drawing.Size(1306, 66)
+        Me.grpMain.TabIndex = 2
+        Me.grpMain.Text = "Filtros de Emisión"
+        '
+        'lblZona
+        '
+        Me.lblZona.Location = New System.Drawing.Point(776, 24)
+        Me.lblZona.Name = "lblZona"
+        Me.lblZona.Size = New System.Drawing.Size(24, 13)
+        Me.lblZona.TabIndex = 29
+        Me.lblZona.Text = "Zona"
+        '
+        'cmbZonas
+        '
+        Me.cmbZonas.Location = New System.Drawing.Point(771, 40)
+        Me.cmbZonas.Name = "cmbZonas"
+        Me.cmbZonas.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cmbZonas.Size = New System.Drawing.Size(103, 20)
+        Me.cmbZonas.TabIndex = 6
+        '
+        'lblActividad
+        '
+        Me.lblActividad.Location = New System.Drawing.Point(598, 24)
+        Me.lblActividad.Name = "lblActividad"
+        Me.lblActividad.Size = New System.Drawing.Size(44, 13)
+        Me.lblActividad.TabIndex = 27
+        Me.lblActividad.Text = "Actividad"
+        '
+        'cmbActividades
+        '
+        Me.cmbActividades.Location = New System.Drawing.Point(593, 40)
+        Me.cmbActividades.Name = "cmbActividades"
+        Me.cmbActividades.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cmbActividades.Size = New System.Drawing.Size(172, 20)
+        Me.cmbActividades.TabIndex = 5
+        '
+        'cmbTiposClientes
+        '
+        Me.cmbTiposClientes.Location = New System.Drawing.Point(415, 40)
+        Me.cmbTiposClientes.Name = "cmbTiposClientes"
+        Me.cmbTiposClientes.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cmbTiposClientes.Size = New System.Drawing.Size(172, 20)
+        Me.cmbTiposClientes.TabIndex = 4
+        '
+        'dtpCmpHasta
+        '
+        Me.dtpCmpHasta.EditValue = Nothing
+        Me.dtpCmpHasta.Location = New System.Drawing.Point(309, 40)
+        Me.dtpCmpHasta.Name = "dtpCmpHasta"
+        Me.dtpCmpHasta.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.dtpCmpHasta.Properties.VistaTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
+        Me.dtpCmpHasta.Size = New System.Drawing.Size(100, 20)
+        Me.dtpCmpHasta.TabIndex = 3
+        '
+        'dtpCmpDesde
+        '
+        Me.dtpCmpDesde.EditValue = Nothing
+        Me.dtpCmpDesde.Location = New System.Drawing.Point(210, 40)
+        Me.dtpCmpDesde.Name = "dtpCmpDesde"
+        Me.dtpCmpDesde.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.dtpCmpDesde.Properties.VistaTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
+        Me.dtpCmpDesde.Size = New System.Drawing.Size(100, 20)
+        Me.dtpCmpDesde.TabIndex = 2
+        '
+        'lblModoGrafico
+        '
+        Me.lblModoGrafico.Location = New System.Drawing.Point(994, 24)
+        Me.lblModoGrafico.Name = "lblModoGrafico"
+        Me.lblModoGrafico.Size = New System.Drawing.Size(63, 13)
+        Me.lblModoGrafico.TabIndex = 25
+        Me.lblModoGrafico.Text = "Modo Gráfico"
+        '
+        'cmbModoGrafico
+        '
+        Me.cmbModoGrafico.Location = New System.Drawing.Point(990, 40)
+        Me.cmbModoGrafico.Name = "cmbModoGrafico"
+        Me.cmbModoGrafico.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cmbModoGrafico.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.cmbModoGrafico.Size = New System.Drawing.Size(117, 20)
+        Me.cmbModoGrafico.TabIndex = 8
+        '
+        'cmdExportar
+        '
+        Me.cmdExportar.Image = Global.Shaman.My.Resources.Resources.personal
+        Me.cmdExportar.Location = New System.Drawing.Point(1209, 36)
+        Me.cmdExportar.Name = "cmdExportar"
+        Me.cmdExportar.Size = New System.Drawing.Size(90, 23)
+        Me.cmdExportar.TabIndex = 10
+        Me.cmdExportar.Text = "Exportar"
+        '
+        'lblTipoCliente
+        '
+        Me.lblTipoCliente.Location = New System.Drawing.Point(420, 25)
+        Me.lblTipoCliente.Name = "lblTipoCliente"
+        Me.lblTipoCliente.Size = New System.Drawing.Size(56, 13)
+        Me.lblTipoCliente.TabIndex = 23
+        Me.lblTipoCliente.Text = "Tipo Cliente"
+        '
+        'cmdProcesar
+        '
+        Me.cmdProcesar.Image = Global.Shaman.My.Resources.Resources.refrescar
+        Me.cmdProcesar.Location = New System.Drawing.Point(1113, 36)
+        Me.cmdProcesar.Name = "cmdProcesar"
+        Me.cmdProcesar.Size = New System.Drawing.Size(90, 23)
+        Me.cmdProcesar.TabIndex = 9
+        Me.cmdProcesar.Text = "Procesar"
+        '
+        'dtpHasta
+        '
+        Me.dtpHasta.EditValue = Nothing
+        Me.dtpHasta.Location = New System.Drawing.Point(104, 40)
+        Me.dtpHasta.Name = "dtpHasta"
+        Me.dtpHasta.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.dtpHasta.Properties.VistaTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
+        Me.dtpHasta.Size = New System.Drawing.Size(100, 20)
+        Me.dtpHasta.TabIndex = 1
+        '
+        'dtpDesde
+        '
+        Me.dtpDesde.EditValue = Nothing
+        Me.dtpDesde.Location = New System.Drawing.Point(5, 40)
+        Me.dtpDesde.Name = "dtpDesde"
+        Me.dtpDesde.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.dtpDesde.Properties.VistaTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
+        Me.dtpDesde.Size = New System.Drawing.Size(100, 20)
+        Me.dtpDesde.TabIndex = 0
+        '
+        'lblDesde
+        '
+        Me.lblDesde.Location = New System.Drawing.Point(12, 25)
+        Me.lblDesde.Name = "lblDesde"
+        Me.lblDesde.Size = New System.Drawing.Size(53, 13)
+        Me.lblDesde.TabIndex = 14
+        Me.lblDesde.Text = "Período (1)"
+        '
+        'lblHasta
+        '
+        Me.lblHasta.Location = New System.Drawing.Point(215, 25)
+        Me.lblHasta.Name = "lblHasta"
+        Me.lblHasta.Size = New System.Drawing.Size(125, 13)
+        Me.lblHasta.TabIndex = 13
+        Me.lblHasta.Text = "Período (2) - Comparación"
+        '
+        'cmbTarifaComparacion
+        '
+        Me.cmbTarifaComparacion.Location = New System.Drawing.Point(880, 40)
+        Me.cmbTarifaComparacion.Name = "cmbTarifaComparacion"
+        Me.cmbTarifaComparacion.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cmbTarifaComparacion.Size = New System.Drawing.Size(104, 20)
+        Me.cmbTarifaComparacion.TabIndex = 7
+        '
+        'lblTarComp
+        '
+        Me.lblTarComp.Location = New System.Drawing.Point(886, 24)
+        Me.lblTarComp.Name = "lblTarComp"
+        Me.lblTarComp.Size = New System.Drawing.Size(79, 13)
+        Me.lblTarComp.TabIndex = 31
+        Me.lblTarComp.Text = "Tarifa de Costos"
+        '
+        'frmCabMinorista
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(1306, 72)
+        Me.Controls.Add(Me.grpMain)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Name = "frmCabMinorista"
+        Me.TabText = "Análisis Minorista"
+        Me.Text = "Análisis Minorista"
+        CType(Me.grpMain, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grpMain.ResumeLayout(False)
+        Me.grpMain.PerformLayout()
+        CType(Me.cmbZonas.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cmbActividades.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cmbTiposClientes.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtpCmpHasta.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtpCmpHasta.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtpCmpDesde.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtpCmpDesde.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cmbModoGrafico.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtpHasta.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtpHasta.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtpDesde.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtpDesde.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cmbTarifaComparacion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
+    End Sub
+    Friend WithEvents grpMain As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents lblDesde As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lblHasta As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents dtpHasta As DevExpress.XtraEditors.DateEdit
+    Friend WithEvents dtpDesde As DevExpress.XtraEditors.DateEdit
+    Friend WithEvents cmdProcesar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents lblTipoCliente As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents cmdExportar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents dlgGuardar As System.Windows.Forms.SaveFileDialog
+    Friend WithEvents lblModoGrafico As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents cmbModoGrafico As DevExpress.XtraEditors.ComboBoxEdit
+    Friend WithEvents dtpCmpHasta As DevExpress.XtraEditors.DateEdit
+    Friend WithEvents dtpCmpDesde As DevExpress.XtraEditors.DateEdit
+    Friend WithEvents cmbTiposClientes As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents lblZona As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents cmbZonas As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents lblActividad As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents cmbActividades As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents cmbTarifaComparacion As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents lblTarComp As DevExpress.XtraEditors.LabelControl
+End Class
