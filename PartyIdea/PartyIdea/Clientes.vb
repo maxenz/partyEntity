@@ -21,14 +21,14 @@ Partial Public Class Clientes
     Public Property dmAltura As Long
     Public Property dmPiso As String
     Public Property dmDepto As String
-    Public Property LocalidadId As Long
+    Public Property LocalidadId As Nullable(Of Long)
     Public Property CodigoPostal As String
     Public Property TelefonoLinea As String
     Public Property TelefonoCelular As String
     Public Property Email As String
     Public Property Empresa As String
-    Public Property TipoDocumentoId As Long
-    Public Property NroDocumento As Long
+    Public Property TipoDocumentoId As Nullable(Of Long)
+    Public Property NroDocumento As Nullable(Of Long)
     Public Property Observaciones As String
     Public Property regUsuarioId As Long
     Public Property regFechaHora As Nullable(Of Date)

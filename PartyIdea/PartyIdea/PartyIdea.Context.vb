@@ -26,6 +26,8 @@ Partial Public Class PartyIdeaEntities
     Public Property ArticulosTalleStock() As DbSet(Of ArticulosTalleStock)
     Public Property Categorias() As DbSet(Of Categorias)
     Public Property Clientes() As DbSet(Of Clientes)
+    Public Property Estados() As DbSet(Of Estados)
+    Public Property EstadosMovimientos() As DbSet(Of EstadosMovimientos)
     Public Property Eventos() As DbSet(Of Eventos)
     Public Property EventosMovimientos() As DbSet(Of EventosMovimientos)
     Public Property Generos() As DbSet(Of Generos)

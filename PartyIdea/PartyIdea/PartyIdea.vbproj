@@ -22,6 +22,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -36,7 +37,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -156,7 +156,15 @@
     <Compile Include="Categorias.vb">
       <DependentUpon>PartyIdea.tt</DependentUpon>
     </Compile>
+    <Compile Include="Classes\MovimientosGestion.vb" />
+    <Compile Include="Classes\MovimientosResumen.vb" />
     <Compile Include="Clientes.vb">
+      <DependentUpon>PartyIdea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Estados.vb">
+      <DependentUpon>PartyIdea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstadosMovimientos.vb">
       <DependentUpon>PartyIdea.tt</DependentUpon>
     </Compile>
     <Compile Include="Eventos.vb">
@@ -164,6 +172,14 @@
     </Compile>
     <Compile Include="EventosMovimientos.vb">
       <DependentUpon>PartyIdea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Clientes.methods.vb" />
+    <Compile Include="Classes\Movimientos.methods.vb" />
+    <Compile Include="Forms\frmAlquileres.Designer.vb">
+      <DependentUpon>frmAlquileres.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAlquileres.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmEstadisticas.Designer.vb">
       <DependentUpon>frmEstadisticas.vb</DependentUpon>
@@ -238,11 +254,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PartyIdea.tt</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Recursos.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Recursos.resx</DependentUpon>
-    </Compile>
+    <Compile Include="Resources\Recursos.Designer.vb" />
     <Compile Include="TipoDocumentos.vb">
       <DependentUpon>PartyIdea.tt</DependentUpon>
     </Compile>
@@ -254,6 +266,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\frmAlquileres.resx">
+      <DependentUpon>frmAlquileres.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmEstadisticas.resx">
       <DependentUpon>frmEstadisticas.vb</DependentUpon>
     </EmbeddedResource>
@@ -266,22 +281,19 @@
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
-      <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Recursos.resx">
-      <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Recursos.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSplash.resx">
       <DependentUpon>frmSplash.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Recursos.resx" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -293,6 +305,24 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <EntityDeploy Include="PartyIdea.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PartyIdea.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <None Include="PartyIdea.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PartyIdea.edmx</DependentUpon>
+      <LastGenOutput>PartyIdea.Context.vb</LastGenOutput>
+    </None>
+    <None Include="PartyIdea.edmx.diagram">
+      <DependentUpon>PartyIdea.edmx</DependentUpon>
+    </None>
+    <None Include="PartyIdea.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PartyIdea.edmx</DependentUpon>
+      <LastGenOutput>PartyIdea.vb</LastGenOutput>
+    </None>
+    <None Include="Resources\Thumbs.db" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -328,137 +358,85 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <EntityDeploy Include="PartyIdea.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PartyIdea.Designer.vb</LastGenOutput>
-    </EntityDeploy>
-    <None Include="PartyIdea.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PartyIdea.edmx</DependentUpon>
-      <LastGenOutput>PartyIdea.Context.vb</LastGenOutput>
-    </None>
-    <None Include="PartyIdea.edmx.diagram">
-      <DependentUpon>PartyIdea.edmx</DependentUpon>
-    </None>
-    <None Include="PartyIdea.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PartyIdea.edmx</DependentUpon>
-      <LastGenOutput>PartyIdea.vb</LastGenOutput>
-    </None>
-    <None Include="Resources\agregar.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\agtodos.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\aguno.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\archivo.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bajar.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cancelar.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\clientes.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\colores.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\eliminar.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\estadisticas.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\facturacion.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\liquidaciones.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\modificar.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\movil.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\NoMapa.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\NoMapa1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\NoMapaWide.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\NoMapaWide1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\nooperativa.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\operativa.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\parametros.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\personal.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\prestadores.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\qutodos.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\quuno.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\refrescar.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\salir.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\salvar.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\subir.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\usuarios.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\GPShaman\IncAmarillo.GIF" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\GPShaman\IncAzul.GIF" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\GPShaman\IncRojo.GIF" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\GPShaman\IncVerde.GIF" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\GPShaman\Lugar.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\GPShaman\AmbuWhite.ico" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Images\Calendar_16x16.png" />
+    <Content Include="Images\Drafts_16x16.png" />
+    <Content Include="Images\Inbox_16x16.png" />
+    <Content Include="Images\login.jpg" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\Mail_16x16.png" />
+    <Content Include="Images\Organizer_16x16.png" />
+    <Content Include="Images\Outbox_16x16.png" />
+    <Content Include="Images\splah9.jpg" />
+    <Content Include="Images\Tasks_16x16.png" />
+    <Content Include="Images\Trash_16x16.png" />
     <Content Include="PartyIdea.ico" />
+    <Content Include="Resources\aguno.ico" />
+    <Content Include="Resources\Alicia - Tim Burton 1-01.jpg" />
+    <Content Include="Resources\alicia 1-01.jpg" />
+    <Content Include="Resources\AUTOMOVILISTA.jpg" />
+    <Content Include="Resources\AÑOS_50.jpg" />
+    <Content Include="Resources\bombera1-01.jpg" />
+    <Content Include="Resources\bucanera 1-01.jpg" />
+    <Content Include="Resources\bucanera oro 1-01.jpg" />
+    <Content Include="Resources\Cacique.jpg" />
+    <Content Include="Resources\CAMARERA_50%27s.jpg" />
+    <Content Include="Resources\CAN_CAN_MOD_I.jpg" />
+    <Content Include="Resources\CARNAVAL_VENECIANO.jpg" />
+    <Content Include="Resources\cazafantasma 1-01.jpg" />
+    <Content Include="Resources\CHARLESTON_MOD_I.jpg" />
+    <Content Include="Resources\CHEFF.jpg" />
+    <Content Include="Resources\daphne %28scooby doo%29 1-01.jpg" />
+    <Content Include="Resources\DETECTIVE.jpg" />
+    <Content Include="Resources\ENFERMERA_MOD_II_CORTO.jpg" />
+    <Content Include="Resources\ENFERMERA_MOD_I_LARGO.jpg" />
+    <Content Include="Resources\estatua de la libertad1-01.jpg" />
+    <Content Include="Resources\Frutillitas %282%29 1-01.jpg" />
+    <Content Include="Resources\frutillitas 1-01.jpg" />
+    <Content Include="Resources\gaisha 21-01.jpg" />
+    <Content Include="Resources\GANGSTER_MOD_I.jpg" />
+    <Content Include="Resources\GANGSTER_MOD_II.jpg" />
+    <Content Include="Resources\geisha 11-01.jpg" />
+    <Content Include="Resources\GIRL_SCOUT_MOD_I.jpg" />
+    <Content Include="Resources\GIRL_SCOUT_MOD_II.jpg" />
+    <Content Include="Resources\Marge Simpson 1-01.jpg" />
+    <Content Include="Resources\MARINERA_MOD_I.jpg" />
+    <Content Include="Resources\MARINERA_MOD_II.jpg" />
+    <Content Include="Resources\MARINERA_MOD_III.jpg" />
+    <Content Include="Resources\militar 1-01.jpg" />
+    <Content Include="Resources\minnie 1-01.jpg" />
+    <Content Include="Resources\MUCAMA_MOD_I.jpg" />
+    <Content Include="Resources\MUCAMA_MOD_II.jpg" />
+    <Content Include="Resources\MÉDICA.jpg" />
+    <Content Include="Resources\ODALISCA.jpg" />
+    <Content Include="Resources\Olivia 1-01.jpg" />
+    <Content Include="Resources\piloto.jpg" />
+    <Content Include="Resources\Pirata %282%29 1-01.jpg" />
+    <Content Include="Resources\pirata 1-01.jpg" />
+    <Content Include="Resources\POLICIA.jpg" />
+    <Content Include="Resources\PORRISTA.jpg" />
+    <Content Include="Resources\PRESA.jpg" />
+    <Content Include="Resources\PUNK_ROJO.jpg" />
+    <Content Include="Resources\PUNK_VERDE.jpg" />
+    <Content Include="Resources\quuno.ico" />
+    <Content Include="Resources\Rainbow Brite 1-01.jpg" />
+    <Content Include="Resources\REFEREE.jpg" />
+    <Content Include="Resources\Reina de Corazones - Tim Burton 1-01.jpg" />
+    <Content Include="Resources\reina de corazones 1-01.jpg" />
+    <Content Include="Resources\rockera1-01.jpg" />
+    <Content Include="Resources\SFSGE-2.jpg" />
+    <Content Include="Resources\SFSGE-3.jpg" />
+    <Content Include="Resources\shaman.ico" />
+    <Content Include="Resources\SOLDADO.jpg" />
+    <Content Include="Resources\sombrerero loco %28alicia en el pais de las maravillas%29 1-01.jpg" />
+    <Content Include="Resources\TAXISTA.jpg" />
     <Content Include="Tatice-Cristal-Intense-Java.ico" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

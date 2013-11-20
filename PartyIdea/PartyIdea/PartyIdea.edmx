@@ -10,6 +10,8 @@
           <EntitySet Name="ArticulosTalleStock" EntityType="PartyIdeaModel.Store.ArticulosTalleStock" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Categorias" EntityType="PartyIdeaModel.Store.Categorias" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Clientes" EntityType="PartyIdeaModel.Store.Clientes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Estados" EntityType="PartyIdeaModel.Store.Estados" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EstadosMovimientos" EntityType="PartyIdeaModel.Store.EstadosMovimientos" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Eventos" EntityType="PartyIdeaModel.Store.Eventos" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="EventosMovimientos" EntityType="PartyIdeaModel.Store.EventosMovimientos" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Generos" EntityType="PartyIdeaModel.Store.Generos" store:Type="Tables" Schema="dbo" />
@@ -28,9 +30,17 @@
             <End Role="ArticulosTalleStock" EntitySet="ArticulosTalleStock" />
             <End Role="MovimientosArticulos" EntitySet="MovimientosArticulos" />
           </AssociationSet>
+          <AssociationSet Name="FK_Categorias_Articulos" Association="PartyIdeaModel.Store.FK_Categorias_Articulos">
+            <End Role="Categorias" EntitySet="Categorias" />
+            <End Role="Articulos" EntitySet="Articulos" />
+          </AssociationSet>
           <AssociationSet Name="FK_Cliente_TipoDocumentos" Association="PartyIdeaModel.Store.FK_Cliente_TipoDocumentos">
             <End Role="TipoDocumentos" EntitySet="TipoDocumentos" />
             <End Role="TipoDocumentos1" EntitySet="TipoDocumentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estados_EstadosMovimientos" Association="PartyIdeaModel.Store.FK_Estados_EstadosMovimientos">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="EstadosMovimientos" EntitySet="EstadosMovimientos" />
           </AssociationSet>
           <AssociationSet Name="FK_EventosMovimientos_Eventos" Association="PartyIdeaModel.Store.FK_EventosMovimientos_Eventos">
             <End Role="Eventos" EntitySet="Eventos" />
@@ -52,6 +62,10 @@
             <End Role="Clientes" EntitySet="Clientes" />
             <End Role="Movimientos" EntitySet="Movimientos" />
           </AssociationSet>
+          <AssociationSet Name="FK_Movimientos_EstadosMovimientos" Association="PartyIdeaModel.Store.FK_Movimientos_EstadosMovimientos">
+            <End Role="Movimientos" EntitySet="Movimientos" />
+            <End Role="EstadosMovimientos" EntitySet="EstadosMovimientos" />
+          </AssociationSet>
           <AssociationSet Name="FK_MovimientosArticulos_Movimientos" Association="PartyIdeaModel.Store.FK_MovimientosArticulos_Movimientos">
             <End Role="Movimientos" EntitySet="Movimientos" />
             <End Role="MovimientosArticulos" EntitySet="MovimientosArticulos" />
@@ -72,7 +86,7 @@
           <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ImageUrl" Type="varchar" MaxLength="150" />
           <Property Name="Codigo" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="CategoriaId" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CategoriaId" Type="bigint" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="150" />
           <Property Name="GeneroId" Type="tinyint" Nullable="false" />
           <Property Name="Procedencia" Type="varchar" MaxLength="150" />
@@ -100,7 +114,6 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Codigo" Type="varchar" Nullable="false" MaxLength="3" />
           <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="200" />
           <Property Name="regUsuarioId" Type="bigint" Nullable="false" />
           <Property Name="regFechaHora" Type="datetime" Nullable="false" />
@@ -114,24 +127,43 @@
           <Property Name="NroCliente" Type="bigint" />
           <Property Name="Apellido" Type="varchar" Nullable="false" MaxLength="70" />
           <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="Sexo" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Sexo" Type="varchar" MaxLength="50" />
           <Property Name="FecNacimiento" Type="date" />
           <Property Name="dmCalle" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="dmAltura" Type="bigint" Nullable="false" />
           <Property Name="dmPiso" Type="varchar" MaxLength="5" />
           <Property Name="dmDepto" Type="varchar" MaxLength="10" />
-          <Property Name="LocalidadId" Type="bigint" Nullable="false" />
-          <Property Name="CodigoPostal" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="TelefonoLinea" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="TelefonoCelular" Type="varchar" MaxLength="20" />
+          <Property Name="LocalidadId" Type="bigint" />
+          <Property Name="CodigoPostal" Type="varchar" MaxLength="20" />
+          <Property Name="TelefonoLinea" Type="varchar" MaxLength="20" />
+          <Property Name="TelefonoCelular" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="Email" Type="varchar" MaxLength="100" />
           <Property Name="Empresa" Type="varchar" MaxLength="100" />
-          <Property Name="TipoDocumentoId" Type="bigint" Nullable="false" />
-          <Property Name="NroDocumento" Type="bigint" Nullable="false" />
+          <Property Name="TipoDocumentoId" Type="bigint" />
+          <Property Name="NroDocumento" Type="bigint" />
           <Property Name="Observaciones" Type="text" />
           <Property Name="regUsuarioId" Type="bigint" Nullable="false" />
           <Property Name="regFechaHora" Type="datetime" />
           <Property Name="regTerminalId" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Estados">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="regFechaHora" Type="datetime" Nullable="false" />
+          <Property Name="regUsuarioId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EstadosMovimientos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MovimientoId" Type="bigint" Nullable="false" />
+          <Property Name="EstadoId" Type="bigint" Nullable="false" />
+          <Property Name="regFechaHora" Type="datetime" Nullable="false" />
+          <Property Name="regUsuarioId" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="Eventos">
           <Key>
@@ -188,12 +220,10 @@
           <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NroSolicitud" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="FecMovimiento" Type="date" Nullable="false" />
-          <Property Name="ClienteId" Type="bigint" />
+          <Property Name="ClienteId" Type="bigint" Nullable="false" />
           <Property Name="FecAnticipo" Type="date" />
+          <Property Name="Deposito" Type="numeric" Nullable="false" Scale="2" />
           <Property Name="ImpAnticipo" Type="numeric" Scale="2" />
-          <Property Name="flgPagado" Type="tinyint" Nullable="false" />
-          <Property Name="flgEntregado" Type="tinyint" Nullable="false" />
-          <Property Name="flgConcluido" Type="tinyint" Nullable="false" />
           <Property Name="Observaciones" Type="varchar" MaxLength="300" />
           <Property Name="regUsuarioId" Type="bigint" Nullable="false" />
           <Property Name="regFechaHora" Type="datetime" Nullable="false" />
@@ -288,6 +318,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Categorias_Articulos">
+          <End Role="Categorias" Type="PartyIdeaModel.Store.Categorias" Multiplicity="1" />
+          <End Role="Articulos" Type="PartyIdeaModel.Store.Articulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorias">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Articulos">
+              <PropertyRef Name="CategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Cliente_TipoDocumentos">
           <End Role="TipoDocumentos" Type="PartyIdeaModel.Store.TipoDocumentos" Multiplicity="1" />
           <End Role="TipoDocumentos1" Type="PartyIdeaModel.Store.TipoDocumentos" Multiplicity="0..1" />
@@ -297,6 +339,20 @@
             </Principal>
             <Dependent Role="TipoDocumentos1">
               <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estados_EstadosMovimientos">
+          <End Role="Estados" Type="PartyIdeaModel.Store.Estados" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EstadosMovimientos" Type="PartyIdeaModel.Store.EstadosMovimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EstadosMovimientos">
+              <PropertyRef Name="EstadoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -341,7 +397,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Localidad_Clientes">
-          <End Role="Localidades" Type="PartyIdeaModel.Store.Localidades" Multiplicity="1" />
+          <End Role="Localidades" Type="PartyIdeaModel.Store.Localidades" Multiplicity="0..1" />
           <End Role="Clientes" Type="PartyIdeaModel.Store.Clientes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Localidades">
@@ -353,7 +409,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Movimientos_Clientes">
-          <End Role="Clientes" Type="PartyIdeaModel.Store.Clientes" Multiplicity="0..1" />
+          <End Role="Clientes" Type="PartyIdeaModel.Store.Clientes" Multiplicity="1" />
           <End Role="Movimientos" Type="PartyIdeaModel.Store.Movimientos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Clientes">
@@ -361,6 +417,20 @@
             </Principal>
             <Dependent Role="Movimientos">
               <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movimientos_EstadosMovimientos">
+          <End Role="Movimientos" Type="PartyIdeaModel.Store.Movimientos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EstadosMovimientos" Type="PartyIdeaModel.Store.EstadosMovimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movimientos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EstadosMovimientos">
+              <PropertyRef Name="MovimientoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -391,7 +461,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TipoDocumento_Clientes">
-          <End Role="TipoDocumentos" Type="PartyIdeaModel.Store.TipoDocumentos" Multiplicity="1" />
+          <End Role="TipoDocumentos" Type="PartyIdeaModel.Store.TipoDocumentos" Multiplicity="0..1" />
           <End Role="Clientes" Type="PartyIdeaModel.Store.Clientes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TipoDocumentos">
@@ -412,6 +482,8 @@
           <EntitySet Name="ArticulosTalleStock" EntityType="PartyIdeaModel.ArticulosTalleStock" />
           <EntitySet Name="Categorias" EntityType="PartyIdeaModel.Categorias" />
           <EntitySet Name="Clientes" EntityType="PartyIdeaModel.Clientes" />
+          <EntitySet Name="Estados" EntityType="PartyIdeaModel.Estados" />
+          <EntitySet Name="EstadosMovimientos" EntityType="PartyIdeaModel.EstadosMovimientos" />
           <EntitySet Name="Eventos" EntityType="PartyIdeaModel.Eventos" />
           <EntitySet Name="EventosMovimientos" EntityType="PartyIdeaModel.EventosMovimientos" />
           <EntitySet Name="Generos" EntityType="PartyIdeaModel.Generos" />
@@ -425,6 +497,10 @@
           <AssociationSet Name="FK_ArticulosTalleStock_Articulos" Association="PartyIdeaModel.FK_ArticulosTalleStock_Articulos">
             <End Role="Articulos" EntitySet="Articulos" />
             <End Role="ArticulosTalleStock" EntitySet="ArticulosTalleStock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Categorias_Articulos" Association="PartyIdeaModel.FK_Categorias_Articulos">
+            <End Role="Categorias" EntitySet="Categorias" />
+            <End Role="Articulos" EntitySet="Articulos" />
           </AssociationSet>
           <AssociationSet Name="FK_Generos_Articulos" Association="PartyIdeaModel.FK_Generos_Articulos">
             <End Role="Generos" EntitySet="Generos" />
@@ -445,6 +521,14 @@
           <AssociationSet Name="FK_TipoDocumento_Clientes" Association="PartyIdeaModel.FK_TipoDocumento_Clientes">
             <End Role="TipoDocumentos" EntitySet="TipoDocumentos" />
             <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estados_EstadosMovimientos" Association="PartyIdeaModel.FK_Estados_EstadosMovimientos">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="EstadosMovimientos" EntitySet="EstadosMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movimientos_EstadosMovimientos" Association="PartyIdeaModel.FK_Movimientos_EstadosMovimientos">
+            <End Role="Movimientos" EntitySet="Movimientos" />
+            <End Role="EstadosMovimientos" EntitySet="EstadosMovimientos" />
           </AssociationSet>
           <AssociationSet Name="FK_EventosMovimientos_Eventos" Association="PartyIdeaModel.FK_EventosMovimientos_Eventos">
             <End Role="Eventos" EntitySet="Eventos" />
@@ -474,7 +558,7 @@
           <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ImageUrl" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
           <Property Name="Codigo" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="CategoriaId" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CategoriaId" Type="Int64" Nullable="false" />
           <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
           <Property Name="GeneroId" Type="Byte" Nullable="false" />
           <Property Name="Procedencia" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
@@ -485,6 +569,7 @@
           <Property Name="regFechaHora" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="regTerminalId" Type="Int64" />
           <NavigationProperty Name="ArticulosTalleStock" Relationship="PartyIdeaModel.FK_ArticulosTalleStock_Articulos" FromRole="Articulos" ToRole="ArticulosTalleStock" />
+          <NavigationProperty Name="Categorias" Relationship="PartyIdeaModel.FK_Categorias_Articulos" FromRole="Articulos" ToRole="Categorias" />
           <NavigationProperty Name="Generos" Relationship="PartyIdeaModel.FK_Generos_Articulos" FromRole="Articulos" ToRole="Generos" />
         </EntityType>
         <EntityType Name="ArticulosTalleStock">
@@ -506,11 +591,11 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Codigo" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="false" />
           <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
           <Property Name="regUsuarioId" Type="Int64" Nullable="false" />
           <Property Name="regFechaHora" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="regTerminalId" Type="Int64" />
+          <NavigationProperty Name="Articulos" Relationship="PartyIdeaModel.FK_Categorias_Articulos" FromRole="Categorias" ToRole="Articulos" />
         </EntityType>
         <EntityType Name="Clientes">
           <Key>
@@ -520,20 +605,20 @@
           <Property Name="NroCliente" Type="Int64" />
           <Property Name="Apellido" Type="String" Nullable="false" MaxLength="70" Unicode="false" FixedLength="false" />
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="Sexo" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Sexo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="FecNacimiento" Type="DateTime" Precision="0" />
           <Property Name="dmCalle" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="dmAltura" Type="Int64" Nullable="false" />
           <Property Name="dmPiso" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
           <Property Name="dmDepto" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="LocalidadId" Type="Int64" Nullable="false" />
-          <Property Name="CodigoPostal" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="TelefonoLinea" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="TelefonoCelular" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="LocalidadId" Type="Int64" />
+          <Property Name="CodigoPostal" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="TelefonoLinea" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="TelefonoCelular" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="Email" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="Empresa" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="TipoDocumentoId" Type="Int64" Nullable="false" />
-          <Property Name="NroDocumento" Type="Int64" Nullable="false" />
+          <Property Name="TipoDocumentoId" Type="Int64" />
+          <Property Name="NroDocumento" Type="Int64" />
           <Property Name="Observaciones" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="regUsuarioId" Type="Int64" Nullable="false" />
           <Property Name="regFechaHora" Type="DateTime" Precision="3" />
@@ -541,6 +626,28 @@
           <NavigationProperty Name="Localidades" Relationship="PartyIdeaModel.FK_Localidad_Clientes" FromRole="Clientes" ToRole="Localidades" />
           <NavigationProperty Name="Movimientos" Relationship="PartyIdeaModel.FK_Movimientos_Clientes" FromRole="Clientes" ToRole="Movimientos" />
           <NavigationProperty Name="TipoDocumentos" Relationship="PartyIdeaModel.FK_TipoDocumento_Clientes" FromRole="Clientes" ToRole="TipoDocumentos" />
+        </EntityType>
+        <EntityType Name="Estados">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="regFechaHora" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="regUsuarioId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="EstadosMovimientos" Relationship="PartyIdeaModel.FK_Estados_EstadosMovimientos" FromRole="Estados" ToRole="EstadosMovimientos" />
+        </EntityType>
+        <EntityType Name="EstadosMovimientos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovimientoId" Type="Int64" Nullable="false" />
+          <Property Name="EstadoId" Type="Int64" Nullable="false" />
+          <Property Name="regFechaHora" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="regUsuarioId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Estados" Relationship="PartyIdeaModel.FK_Estados_EstadosMovimientos" FromRole="EstadosMovimientos" ToRole="Estados" />
+          <NavigationProperty Name="Movimientos" Relationship="PartyIdeaModel.FK_Movimientos_EstadosMovimientos" FromRole="EstadosMovimientos" ToRole="Movimientos" />
         </EntityType>
         <EntityType Name="Eventos">
           <Key>
@@ -602,17 +709,16 @@
           <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NroSolicitud" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="FecMovimiento" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="ClienteId" Type="Int64" />
+          <Property Name="ClienteId" Type="Int64" Nullable="false" />
           <Property Name="FecAnticipo" Type="DateTime" Precision="0" />
+          <Property Name="Deposito" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <Property Name="ImpAnticipo" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="flgPagado" Type="Byte" Nullable="false" />
-          <Property Name="flgEntregado" Type="Byte" Nullable="false" />
-          <Property Name="flgConcluido" Type="Byte" Nullable="false" />
           <Property Name="Observaciones" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
           <Property Name="regUsuarioId" Type="Int64" Nullable="false" />
           <Property Name="regFechaHora" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="regTerminalId" Type="Int64" />
           <NavigationProperty Name="Clientes" Relationship="PartyIdeaModel.FK_Movimientos_Clientes" FromRole="Movimientos" ToRole="Clientes" />
+          <NavigationProperty Name="EstadosMovimientos" Relationship="PartyIdeaModel.FK_Movimientos_EstadosMovimientos" FromRole="Movimientos" ToRole="EstadosMovimientos" />
           <NavigationProperty Name="EventosMovimientos" Relationship="PartyIdeaModel.FK_EventosMovimientos_Movimientos" FromRole="Movimientos" ToRole="EventosMovimientos" />
           <NavigationProperty Name="MovimientosArticulos" Relationship="PartyIdeaModel.FK_MovimientosArticulos_Movimientos" FromRole="Movimientos" ToRole="MovimientosArticulos" />
         </EntityType>
@@ -700,6 +806,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Categorias_Articulos">
+          <End Role="Categorias" Type="PartyIdeaModel.Categorias" Multiplicity="1" />
+          <End Role="Articulos" Type="PartyIdeaModel.Articulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorias">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Articulos">
+              <PropertyRef Name="CategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Generos_Articulos">
           <End Role="Generos" Type="PartyIdeaModel.Generos" Multiplicity="1" />
           <End Role="Articulos" Type="PartyIdeaModel.Articulos" Multiplicity="*" />
@@ -725,7 +843,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Localidad_Clientes">
-          <End Role="Localidades" Type="PartyIdeaModel.Localidades" Multiplicity="1" />
+          <End Role="Localidades" Type="PartyIdeaModel.Localidades" Multiplicity="0..1" />
           <End Role="Clientes" Type="PartyIdeaModel.Clientes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Localidades">
@@ -737,7 +855,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Movimientos_Clientes">
-          <End Role="Clientes" Type="PartyIdeaModel.Clientes" Multiplicity="0..1" />
+          <End Role="Clientes" Type="PartyIdeaModel.Clientes" Multiplicity="1" />
           <End Role="Movimientos" Type="PartyIdeaModel.Movimientos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Clientes">
@@ -749,7 +867,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TipoDocumento_Clientes">
-          <End Role="TipoDocumentos" Type="PartyIdeaModel.TipoDocumentos" Multiplicity="1" />
+          <End Role="TipoDocumentos" Type="PartyIdeaModel.TipoDocumentos" Multiplicity="0..1" />
           <End Role="Clientes" Type="PartyIdeaModel.Clientes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TipoDocumentos">
@@ -757,6 +875,34 @@
             </Principal>
             <Dependent Role="Clientes">
               <PropertyRef Name="TipoDocumentoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estados_EstadosMovimientos">
+          <End Role="Estados" Type="PartyIdeaModel.Estados" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EstadosMovimientos" Type="PartyIdeaModel.EstadosMovimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EstadosMovimientos">
+              <PropertyRef Name="EstadoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movimientos_EstadosMovimientos">
+          <End Role="Movimientos" Type="PartyIdeaModel.Movimientos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EstadosMovimientos" Type="PartyIdeaModel.EstadosMovimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movimientos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EstadosMovimientos">
+              <PropertyRef Name="MovimientoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -868,7 +1014,6 @@
             <EntityTypeMapping TypeName="PartyIdeaModel.Categorias">
               <MappingFragment StoreEntitySet="Categorias">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="regUsuarioId" ColumnName="regUsuarioId" />
                 <ScalarProperty Name="regFechaHora" ColumnName="regFechaHora" />
@@ -901,6 +1046,27 @@
                 <ScalarProperty Name="regUsuarioId" ColumnName="regUsuarioId" />
                 <ScalarProperty Name="regFechaHora" ColumnName="regFechaHora" />
                 <ScalarProperty Name="regTerminalId" ColumnName="regTerminalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estados">
+            <EntityTypeMapping TypeName="PartyIdeaModel.Estados">
+              <MappingFragment StoreEntitySet="Estados">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="regFechaHora" ColumnName="regFechaHora" />
+                <ScalarProperty Name="regUsuarioId" ColumnName="regUsuarioId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstadosMovimientos">
+            <EntityTypeMapping TypeName="PartyIdeaModel.EstadosMovimientos">
+              <MappingFragment StoreEntitySet="EstadosMovimientos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MovimientoId" ColumnName="MovimientoId" />
+                <ScalarProperty Name="EstadoId" ColumnName="EstadoId" />
+                <ScalarProperty Name="regFechaHora" ColumnName="regFechaHora" />
+                <ScalarProperty Name="regUsuarioId" ColumnName="regUsuarioId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -964,10 +1130,8 @@
                 <ScalarProperty Name="FecMovimiento" ColumnName="FecMovimiento" />
                 <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
                 <ScalarProperty Name="FecAnticipo" ColumnName="FecAnticipo" />
+                <ScalarProperty Name="Deposito" ColumnName="Deposito" />
                 <ScalarProperty Name="ImpAnticipo" ColumnName="ImpAnticipo" />
-                <ScalarProperty Name="flgPagado" ColumnName="flgPagado" />
-                <ScalarProperty Name="flgEntregado" ColumnName="flgEntregado" />
-                <ScalarProperty Name="flgConcluido" ColumnName="flgConcluido" />
                 <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
                 <ScalarProperty Name="regUsuarioId" ColumnName="regUsuarioId" />
                 <ScalarProperty Name="regFechaHora" ColumnName="regFechaHora" />

@@ -1,0 +1,4 @@
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Release\Shaman.exe.config
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\Shaman.exe
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\Shaman.xml
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\Shaman.pdb

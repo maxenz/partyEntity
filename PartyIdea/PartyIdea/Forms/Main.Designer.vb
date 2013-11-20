@@ -26,19 +26,6 @@ Partial Class Main
         Dim TileItemElement3 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
         Dim TileItemElement4 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
         Dim TileItemElement5 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement6 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement7 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement8 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement9 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement10 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement11 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement12 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement13 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement14 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement15 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement16 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement17 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement18 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
         Me.ribbonMain = New DevExpress.XtraBars.Ribbon.RibbonControl()
         Me.ribbonImageCollection = New DevExpress.Utils.ImageCollection(Me.components)
         Me.btnCostosContables = New DevExpress.XtraBars.BarButtonItem()
@@ -99,25 +86,25 @@ Partial Class Main
         Me.dockPanels = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.DockPanel2 = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel2_Container = New DevExpress.XtraBars.Docking.ControlContainer()
-        Me.TileControl1 = New DevExpress.XtraEditors.TileControl()
+        Me.tileGaleria = New DevExpress.XtraEditors.TileControl()
         Me.TileGroup1 = New DevExpress.XtraEditors.TileGroup()
-        Me.TileItem1 = New DevExpress.XtraEditors.TileItem()
-        Me.TileItem2 = New DevExpress.XtraEditors.TileItem()
-        Me.TileItem3 = New DevExpress.XtraEditors.TileItem()
-        Me.TileItem4 = New DevExpress.XtraEditors.TileItem()
-        Me.TileItem5 = New DevExpress.XtraEditors.TileItem()
-        Me.TileItem11 = New DevExpress.XtraEditors.TileItem()
-        Me.TileItem12 = New DevExpress.XtraEditors.TileItem()
-        Me.TileItem13 = New DevExpress.XtraEditors.TileItem()
-        Me.TileItem14 = New DevExpress.XtraEditors.TileItem()
-        Me.TileItem15 = New DevExpress.XtraEditors.TileItem()
-        Me.TileItem16 = New DevExpress.XtraEditors.TileItem()
-        Me.TileItem17 = New DevExpress.XtraEditors.TileItem()
-        Me.TileItem18 = New DevExpress.XtraEditors.TileItem()
+        Me.gpFiltros = New DevExpress.XtraEditors.GroupControl()
+        Me.lkFiltroGen = New DevExpress.XtraEditors.LookUpEdit()
+        Me.btnFiltrarDisfraces = New DevExpress.XtraEditors.SimpleButton()
+        Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
+        Me.lkFiltroCat = New DevExpress.XtraEditors.LookUpEdit()
+        Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
+        Me.dtFiltroGaleria = New DevExpress.XtraEditors.DateEdit()
         Me.DockPanel1 = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
-        Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
-        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
+        Me.grdResumenGestion = New DevExpress.XtraGrid.GridControl()
+        Me.grdViewResumenGestion = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.cmbEstadosGestion = New DevExpress.XtraEditors.ComboBoxEdit()
+        Me.grdGestion = New DevExpress.XtraGrid.GridControl()
+        Me.grdViewMovGestion = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
         Me.BackstageViewTabItem2 = New DevExpress.XtraBars.Ribbon.BackstageViewTabItem()
         Me.dlgGuardar = New System.Windows.Forms.SaveFileDialog()
         Me.TileItem6 = New DevExpress.XtraEditors.TileItem()
@@ -136,10 +123,19 @@ Partial Class Main
         CType(Me.dockPanels, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DockPanel2.SuspendLayout()
         Me.DockPanel2_Container.SuspendLayout()
+        CType(Me.gpFiltros, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gpFiltros.SuspendLayout()
+        CType(Me.lkFiltroGen.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lkFiltroCat.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtFiltroGaleria.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtFiltroGaleria.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DockPanel1.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
-        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grdResumenGestion, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grdViewResumenGestion, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cmbEstadosGestion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grdGestion, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grdViewMovGestion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ribbonMain
@@ -570,7 +566,7 @@ Partial Class Main
         '
         'RibbonStatusBar
         '
-        Me.RibbonStatusBar.Location = New System.Drawing.Point(0, 550)
+        Me.RibbonStatusBar.Location = New System.Drawing.Point(0, 716)
         Me.RibbonStatusBar.Name = "RibbonStatusBar"
         Me.RibbonStatusBar.Ribbon = Me.ribbonMain
         Me.RibbonStatusBar.Size = New System.Drawing.Size(781, 31)
@@ -628,8 +624,9 @@ Partial Class Main
         '
         Me.DockPanel2.Controls.Add(Me.DockPanel2_Container)
         Me.DockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Bottom
+        Me.DockPanel2.FloatVertical = True
         Me.DockPanel2.ID = New System.Guid("62c80690-dc56-4e5f-81ef-6e4df3ee5e01")
-        Me.DockPanel2.Location = New System.Drawing.Point(0, 373)
+        Me.DockPanel2.Location = New System.Drawing.Point(0, 539)
         Me.DockPanel2.Name = "DockPanel2"
         Me.DockPanel2.OriginalSize = New System.Drawing.Size(200, 177)
         Me.DockPanel2.Size = New System.Drawing.Size(781, 177)
@@ -637,193 +634,116 @@ Partial Class Main
         '
         'DockPanel2_Container
         '
-        Me.DockPanel2_Container.Controls.Add(Me.TileControl1)
+        Me.DockPanel2_Container.Controls.Add(Me.tileGaleria)
+        Me.DockPanel2_Container.Controls.Add(Me.gpFiltros)
         Me.DockPanel2_Container.Location = New System.Drawing.Point(4, 23)
         Me.DockPanel2_Container.Name = "DockPanel2_Container"
         Me.DockPanel2_Container.Size = New System.Drawing.Size(773, 150)
         Me.DockPanel2_Container.TabIndex = 0
         '
-        'TileControl1
+        'tileGaleria
         '
-        Me.TileControl1.AllowItemHover = True
-        Me.TileControl1.AllowSelectedItem = True
-        Me.TileControl1.BackColor = System.Drawing.Color.White
-        Me.TileControl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.TileControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TileControl1.Groups.Add(Me.TileGroup1)
-        Me.TileControl1.ItemBackgroundImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch
-        Me.TileControl1.ItemCheckMode = DevExpress.XtraEditors.TileItemCheckMode.[Single]
-        Me.TileControl1.ItemContentAnimation = DevExpress.XtraEditors.TileItemContentAnimationType.Fade
-        Me.TileControl1.Location = New System.Drawing.Point(0, 0)
-        Me.TileControl1.MaxId = 24
-        Me.TileControl1.Name = "TileControl1"
-        Me.TileControl1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TileControl1.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons
-        Me.TileControl1.SelectedItem = Me.TileItem18
-        Me.TileControl1.Size = New System.Drawing.Size(773, 150)
-        Me.TileControl1.TabIndex = 5
-        Me.TileControl1.Text = "TileControl1"
+        Me.tileGaleria.AllowItemHover = True
+        Me.tileGaleria.AllowSelectedItem = True
+        Me.tileGaleria.BackColor = System.Drawing.Color.White
+        Me.tileGaleria.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.tileGaleria.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tileGaleria.Groups.Add(Me.TileGroup1)
+        Me.tileGaleria.ItemBackgroundImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch
+        Me.tileGaleria.ItemCheckMode = DevExpress.XtraEditors.TileItemCheckMode.[Single]
+        Me.tileGaleria.ItemContentAnimation = DevExpress.XtraEditors.TileItemContentAnimationType.Fade
+        Me.tileGaleria.Location = New System.Drawing.Point(214, 0)
+        Me.tileGaleria.MaxId = 24
+        Me.tileGaleria.Name = "tileGaleria"
+        Me.tileGaleria.Padding = New System.Windows.Forms.Padding(3)
+        Me.tileGaleria.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons
+        Me.tileGaleria.Size = New System.Drawing.Size(559, 150)
+        Me.tileGaleria.TabIndex = 7
+        Me.tileGaleria.Text = "TileControl1"
         '
         'TileGroup1
         '
-        Me.TileGroup1.Items.Add(Me.TileItem1)
-        Me.TileGroup1.Items.Add(Me.TileItem2)
-        Me.TileGroup1.Items.Add(Me.TileItem3)
-        Me.TileGroup1.Items.Add(Me.TileItem4)
-        Me.TileGroup1.Items.Add(Me.TileItem5)
-        Me.TileGroup1.Items.Add(Me.TileItem11)
-        Me.TileGroup1.Items.Add(Me.TileItem12)
-        Me.TileGroup1.Items.Add(Me.TileItem13)
-        Me.TileGroup1.Items.Add(Me.TileItem14)
-        Me.TileGroup1.Items.Add(Me.TileItem15)
-        Me.TileGroup1.Items.Add(Me.TileItem16)
-        Me.TileGroup1.Items.Add(Me.TileItem17)
-        Me.TileGroup1.Items.Add(Me.TileItem18)
         Me.TileGroup1.Name = "TileGroup1"
         Me.TileGroup1.Text = "TileGroup1"
         '
-        'TileItem1
+        'gpFiltros
         '
-        TileItemElement1.Image = CType(resources.GetObject("TileItemElement1.Image"), System.Drawing.Image)
-        TileItemElement1.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch
-        TileItemElement1.Text = "TileItem1"
-        Me.TileItem1.Elements.Add(TileItemElement1)
-        Me.TileItem1.Id = 0
-        Me.TileItem1.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
-        Me.TileItem1.Name = "TileItem1"
-        Me.TileItem1.Padding = New System.Windows.Forms.Padding(0)
+        Me.gpFiltros.Controls.Add(Me.lkFiltroGen)
+        Me.gpFiltros.Controls.Add(Me.btnFiltrarDisfraces)
+        Me.gpFiltros.Controls.Add(Me.LabelControl3)
+        Me.gpFiltros.Controls.Add(Me.lkFiltroCat)
+        Me.gpFiltros.Controls.Add(Me.LabelControl2)
+        Me.gpFiltros.Controls.Add(Me.LabelControl1)
+        Me.gpFiltros.Controls.Add(Me.dtFiltroGaleria)
+        Me.gpFiltros.Dock = System.Windows.Forms.DockStyle.Left
+        Me.gpFiltros.Location = New System.Drawing.Point(0, 0)
+        Me.gpFiltros.Name = "gpFiltros"
+        Me.gpFiltros.Size = New System.Drawing.Size(214, 150)
+        Me.gpFiltros.TabIndex = 6
+        Me.gpFiltros.Text = "Filtros"
         '
-        'TileItem2
+        'lkFiltroGen
         '
-        TileItemElement2.Image = CType(resources.GetObject("TileItemElement2.Image"), System.Drawing.Image)
-        TileItemElement2.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch
-        TileItemElement2.Text = "TileItem2"
-        Me.TileItem2.Elements.Add(TileItemElement2)
-        Me.TileItem2.Id = 1
-        Me.TileItem2.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
-        Me.TileItem2.Name = "TileItem2"
-        Me.TileItem2.Padding = New System.Windows.Forms.Padding(0)
+        Me.lkFiltroGen.Location = New System.Drawing.Point(73, 91)
+        Me.lkFiltroGen.MenuManager = Me.ribbonMain
+        Me.lkFiltroGen.Name = "lkFiltroGen"
+        Me.lkFiltroGen.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.lkFiltroGen.Size = New System.Drawing.Size(135, 20)
+        Me.lkFiltroGen.TabIndex = 7
         '
-        'TileItem3
+        'btnFiltrarDisfraces
         '
-        TileItemElement3.Image = CType(resources.GetObject("TileItemElement3.Image"), System.Drawing.Image)
-        TileItemElement3.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch
-        TileItemElement3.Text = "TileItem3"
-        Me.TileItem3.Elements.Add(TileItemElement3)
-        Me.TileItem3.Id = 2
-        Me.TileItem3.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
-        Me.TileItem3.Name = "TileItem3"
-        Me.TileItem3.Padding = New System.Windows.Forms.Padding(0)
+        Me.btnFiltrarDisfraces.Location = New System.Drawing.Point(63, 122)
+        Me.btnFiltrarDisfraces.Name = "btnFiltrarDisfraces"
+        Me.btnFiltrarDisfraces.Size = New System.Drawing.Size(75, 23)
+        Me.btnFiltrarDisfraces.TabIndex = 6
+        Me.btnFiltrarDisfraces.Text = "Filtrar"
         '
-        'TileItem4
+        'LabelControl3
         '
-        TileItemElement4.Image = CType(resources.GetObject("TileItemElement4.Image"), System.Drawing.Image)
-        TileItemElement4.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch
-        TileItemElement4.Text = "TileItem4"
-        Me.TileItem4.Elements.Add(TileItemElement4)
-        Me.TileItem4.Id = 3
-        Me.TileItem4.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
-        Me.TileItem4.Name = "TileItem4"
-        Me.TileItem4.Padding = New System.Windows.Forms.Padding(0)
+        Me.LabelControl3.Location = New System.Drawing.Point(8, 98)
+        Me.LabelControl3.Name = "LabelControl3"
+        Me.LabelControl3.Size = New System.Drawing.Size(35, 13)
+        Me.LabelControl3.TabIndex = 4
+        Me.LabelControl3.Text = "Género"
         '
-        'TileItem5
+        'lkFiltroCat
         '
-        TileItemElement5.Image = CType(resources.GetObject("TileItemElement5.Image"), System.Drawing.Image)
-        TileItemElement5.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch
-        TileItemElement5.Text = "TileItem5"
-        Me.TileItem5.Elements.Add(TileItemElement5)
-        Me.TileItem5.Id = 4
-        Me.TileItem5.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
-        Me.TileItem5.Name = "TileItem5"
-        Me.TileItem5.Padding = New System.Windows.Forms.Padding(0)
+        Me.lkFiltroCat.Location = New System.Drawing.Point(73, 62)
+        Me.lkFiltroCat.MenuManager = Me.ribbonMain
+        Me.lkFiltroCat.Name = "lkFiltroCat"
+        Me.lkFiltroCat.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.lkFiltroCat.Size = New System.Drawing.Size(135, 20)
+        Me.lkFiltroCat.TabIndex = 3
         '
-        'TileItem11
+        'LabelControl2
         '
-        TileItemElement6.Image = CType(resources.GetObject("TileItemElement6.Image"), System.Drawing.Image)
-        TileItemElement6.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch
-        TileItemElement6.Text = "TileItem11"
-        Me.TileItem11.Elements.Add(TileItemElement6)
-        Me.TileItem11.Id = 10
-        Me.TileItem11.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
-        Me.TileItem11.Name = "TileItem11"
-        Me.TileItem11.Padding = New System.Windows.Forms.Padding(0)
+        Me.LabelControl2.Location = New System.Drawing.Point(8, 65)
+        Me.LabelControl2.Name = "LabelControl2"
+        Me.LabelControl2.Size = New System.Drawing.Size(47, 13)
+        Me.LabelControl2.TabIndex = 2
+        Me.LabelControl2.Text = "Categoría"
         '
-        'TileItem12
+        'LabelControl1
         '
-        TileItemElement7.Image = CType(resources.GetObject("TileItemElement7.Image"), System.Drawing.Image)
-        TileItemElement7.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch
-        TileItemElement7.Text = "TileItem12"
-        Me.TileItem12.Elements.Add(TileItemElement7)
-        Me.TileItem12.Id = 11
-        Me.TileItem12.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
-        Me.TileItem12.Name = "TileItem12"
-        Me.TileItem12.Padding = New System.Windows.Forms.Padding(0)
+        Me.LabelControl1.Location = New System.Drawing.Point(8, 30)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(29, 13)
+        Me.LabelControl1.TabIndex = 1
+        Me.LabelControl1.Text = "Fecha"
         '
-        'TileItem13
+        'dtFiltroGaleria
         '
-        TileItemElement8.Image = CType(resources.GetObject("TileItemElement8.Image"), System.Drawing.Image)
-        TileItemElement8.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch
-        TileItemElement8.Text = "TileItem13"
-        Me.TileItem13.Elements.Add(TileItemElement8)
-        Me.TileItem13.Id = 12
-        Me.TileItem13.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
-        Me.TileItem13.Name = "TileItem13"
-        Me.TileItem13.Padding = New System.Windows.Forms.Padding(0)
-        '
-        'TileItem14
-        '
-        TileItemElement9.Image = CType(resources.GetObject("TileItemElement9.Image"), System.Drawing.Image)
-        TileItemElement9.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch
-        TileItemElement9.Text = "TileItem14"
-        Me.TileItem14.Elements.Add(TileItemElement9)
-        Me.TileItem14.Id = 13
-        Me.TileItem14.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
-        Me.TileItem14.Name = "TileItem14"
-        Me.TileItem14.Padding = New System.Windows.Forms.Padding(0)
-        '
-        'TileItem15
-        '
-        TileItemElement10.Image = CType(resources.GetObject("TileItemElement10.Image"), System.Drawing.Image)
-        TileItemElement10.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch
-        TileItemElement10.Text = "TileItem15"
-        Me.TileItem15.Elements.Add(TileItemElement10)
-        Me.TileItem15.Id = 14
-        Me.TileItem15.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
-        Me.TileItem15.Name = "TileItem15"
-        Me.TileItem15.Padding = New System.Windows.Forms.Padding(0)
-        '
-        'TileItem16
-        '
-        TileItemElement11.Image = CType(resources.GetObject("TileItemElement11.Image"), System.Drawing.Image)
-        TileItemElement11.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch
-        TileItemElement11.Text = "TileItem16"
-        Me.TileItem16.Elements.Add(TileItemElement11)
-        Me.TileItem16.Id = 15
-        Me.TileItem16.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
-        Me.TileItem16.Name = "TileItem16"
-        Me.TileItem16.Padding = New System.Windows.Forms.Padding(0)
-        '
-        'TileItem17
-        '
-        TileItemElement12.Image = CType(resources.GetObject("TileItemElement12.Image"), System.Drawing.Image)
-        TileItemElement12.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch
-        TileItemElement12.Text = "TileItem17"
-        Me.TileItem17.Elements.Add(TileItemElement12)
-        Me.TileItem17.Id = 16
-        Me.TileItem17.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
-        Me.TileItem17.Name = "TileItem17"
-        Me.TileItem17.Padding = New System.Windows.Forms.Padding(0)
-        '
-        'TileItem18
-        '
-        TileItemElement13.Image = CType(resources.GetObject("TileItemElement13.Image"), System.Drawing.Image)
-        TileItemElement13.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch
-        TileItemElement13.Text = "TileItem18"
-        Me.TileItem18.Elements.Add(TileItemElement13)
-        Me.TileItem18.Id = 17
-        Me.TileItem18.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
-        Me.TileItem18.Name = "TileItem18"
-        Me.TileItem18.Padding = New System.Windows.Forms.Padding(0)
+        Me.dtFiltroGaleria.EditValue = Nothing
+        Me.dtFiltroGaleria.Location = New System.Drawing.Point(73, 27)
+        Me.dtFiltroGaleria.MenuManager = Me.ribbonMain
+        Me.dtFiltroGaleria.Name = "dtFiltroGaleria"
+        Me.dtFiltroGaleria.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.dtFiltroGaleria.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.dtFiltroGaleria.Properties.CalendarTimeProperties.CloseUpKey = New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4)
+        Me.dtFiltroGaleria.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.[Default]
+        Me.dtFiltroGaleria.Size = New System.Drawing.Size(136, 20)
+        Me.dtFiltroGaleria.TabIndex = 0
         '
         'DockPanel1
         '
@@ -833,32 +753,82 @@ Partial Class Main
         Me.DockPanel1.Location = New System.Drawing.Point(277, 144)
         Me.DockPanel1.Name = "DockPanel1"
         Me.DockPanel1.OriginalSize = New System.Drawing.Size(504, 200)
-        Me.DockPanel1.Size = New System.Drawing.Size(504, 229)
-        Me.DockPanel1.Text = "Movimiento Semanal"
+        Me.DockPanel1.Size = New System.Drawing.Size(504, 395)
+        Me.DockPanel1.Text = "Gestión de Alquileres / Reservas"
         '
         'DockPanel1_Container
         '
-        Me.DockPanel1_Container.Controls.Add(Me.GridControl1)
+        Me.DockPanel1_Container.Controls.Add(Me.LabelControl5)
+        Me.DockPanel1_Container.Controls.Add(Me.grdResumenGestion)
+        Me.DockPanel1_Container.Controls.Add(Me.cmbEstadosGestion)
+        Me.DockPanel1_Container.Controls.Add(Me.grdGestion)
+        Me.DockPanel1_Container.Controls.Add(Me.LabelControl4)
         Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 23)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(496, 202)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(496, 368)
         Me.DockPanel1_Container.TabIndex = 0
         '
-        'GridControl1
+        'LabelControl5
         '
-        Me.GridControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GridControl1.Location = New System.Drawing.Point(0, 0)
-        Me.GridControl1.MainView = Me.GridView1
-        Me.GridControl1.MenuManager = Me.ribbonMain
-        Me.GridControl1.Name = "GridControl1"
-        Me.GridControl1.Size = New System.Drawing.Size(496, 202)
-        Me.GridControl1.TabIndex = 0
-        Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
+        Me.LabelControl5.Appearance.Font = New System.Drawing.Font("Calibri", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl5.Location = New System.Drawing.Point(19, 243)
+        Me.LabelControl5.Name = "LabelControl5"
+        Me.LabelControl5.Size = New System.Drawing.Size(113, 15)
+        Me.LabelControl5.TabIndex = 5
+        Me.LabelControl5.Text = "Resumen de Gestión"
         '
-        'GridView1
+        'grdResumenGestion
         '
-        Me.GridView1.GridControl = Me.GridControl1
-        Me.GridView1.Name = "GridView1"
+        Me.grdResumenGestion.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grdResumenGestion.Location = New System.Drawing.Point(0, 264)
+        Me.grdResumenGestion.MainView = Me.grdViewResumenGestion
+        Me.grdResumenGestion.MenuManager = Me.ribbonMain
+        Me.grdResumenGestion.Name = "grdResumenGestion"
+        Me.grdResumenGestion.Size = New System.Drawing.Size(496, 104)
+        Me.grdResumenGestion.TabIndex = 4
+        Me.grdResumenGestion.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grdViewResumenGestion})
+        '
+        'grdViewResumenGestion
+        '
+        Me.grdViewResumenGestion.GridControl = Me.grdResumenGestion
+        Me.grdViewResumenGestion.Name = "grdViewResumenGestion"
+        '
+        'cmbEstadosGestion
+        '
+        Me.cmbEstadosGestion.Location = New System.Drawing.Point(63, 10)
+        Me.cmbEstadosGestion.MenuManager = Me.ribbonMain
+        Me.cmbEstadosGestion.Name = "cmbEstadosGestion"
+        Me.cmbEstadosGestion.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cmbEstadosGestion.Size = New System.Drawing.Size(161, 20)
+        Me.cmbEstadosGestion.TabIndex = 3
+        '
+        'grdGestion
+        '
+        Me.grdGestion.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grdGestion.Location = New System.Drawing.Point(0, 36)
+        Me.grdGestion.MainView = Me.grdViewMovGestion
+        Me.grdGestion.MenuManager = Me.ribbonMain
+        Me.grdGestion.Name = "grdGestion"
+        Me.grdGestion.Size = New System.Drawing.Size(500, 201)
+        Me.grdGestion.TabIndex = 2
+        Me.grdGestion.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grdViewMovGestion})
+        '
+        'grdViewMovGestion
+        '
+        Me.grdViewMovGestion.GridControl = Me.grdGestion
+        Me.grdViewMovGestion.Name = "grdViewMovGestion"
+        '
+        'LabelControl4
+        '
+        Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl4.Location = New System.Drawing.Point(19, 13)
+        Me.LabelControl4.Name = "LabelControl4"
+        Me.LabelControl4.Size = New System.Drawing.Size(40, 15)
+        Me.LabelControl4.TabIndex = 0
+        Me.LabelControl4.Text = "Estado:"
         '
         'BackstageViewTabItem2
         '
@@ -868,45 +838,45 @@ Partial Class Main
         '
         'TileItem6
         '
-        TileItemElement14.Image = CType(resources.GetObject("TileItemElement14.Image"), System.Drawing.Image)
-        TileItemElement14.Text = "TileItem6"
-        Me.TileItem6.Elements.Add(TileItemElement14)
+        TileItemElement1.Image = CType(resources.GetObject("TileItemElement1.Image"), System.Drawing.Image)
+        TileItemElement1.Text = "TileItem6"
+        Me.TileItem6.Elements.Add(TileItemElement1)
         Me.TileItem6.Id = 5
         Me.TileItem6.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
         Me.TileItem6.Name = "TileItem6"
         '
         'TileItem7
         '
-        TileItemElement15.Image = CType(resources.GetObject("TileItemElement15.Image"), System.Drawing.Image)
-        TileItemElement15.Text = "TileItem7"
-        Me.TileItem7.Elements.Add(TileItemElement15)
+        TileItemElement2.Image = CType(resources.GetObject("TileItemElement2.Image"), System.Drawing.Image)
+        TileItemElement2.Text = "TileItem7"
+        Me.TileItem7.Elements.Add(TileItemElement2)
         Me.TileItem7.Id = 6
         Me.TileItem7.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
         Me.TileItem7.Name = "TileItem7"
         '
         'TileItem8
         '
-        TileItemElement16.Image = CType(resources.GetObject("TileItemElement16.Image"), System.Drawing.Image)
-        TileItemElement16.Text = "TileItem8"
-        Me.TileItem8.Elements.Add(TileItemElement16)
+        TileItemElement3.Image = CType(resources.GetObject("TileItemElement3.Image"), System.Drawing.Image)
+        TileItemElement3.Text = "TileItem8"
+        Me.TileItem8.Elements.Add(TileItemElement3)
         Me.TileItem8.Id = 7
         Me.TileItem8.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
         Me.TileItem8.Name = "TileItem8"
         '
         'TileItem9
         '
-        TileItemElement17.Image = CType(resources.GetObject("TileItemElement17.Image"), System.Drawing.Image)
-        TileItemElement17.Text = "TileItem9"
-        Me.TileItem9.Elements.Add(TileItemElement17)
+        TileItemElement4.Image = CType(resources.GetObject("TileItemElement4.Image"), System.Drawing.Image)
+        TileItemElement4.Text = "TileItem9"
+        Me.TileItem9.Elements.Add(TileItemElement4)
         Me.TileItem9.Id = 8
         Me.TileItem9.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
         Me.TileItem9.Name = "TileItem9"
         '
         'TileItem10
         '
-        TileItemElement18.Image = CType(resources.GetObject("TileItemElement18.Image"), System.Drawing.Image)
-        TileItemElement18.Text = "TileItem10"
-        Me.TileItem10.Elements.Add(TileItemElement18)
+        TileItemElement5.Image = CType(resources.GetObject("TileItemElement5.Image"), System.Drawing.Image)
+        TileItemElement5.Text = "TileItem10"
+        Me.TileItem10.Elements.Add(TileItemElement5)
         Me.TileItem10.Id = 9
         Me.TileItem10.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
         Me.TileItem10.Name = "TileItem10"
@@ -915,7 +885,7 @@ Partial Class Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(781, 581)
+        Me.ClientSize = New System.Drawing.Size(781, 747)
         Me.Controls.Add(Me.DockPanel1)
         Me.Controls.Add(Me.DockPanel2)
         Me.Controls.Add(Me.RibbonStatusBar)
@@ -938,10 +908,21 @@ Partial Class Main
         CType(Me.dockPanels, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DockPanel2.ResumeLayout(False)
         Me.DockPanel2_Container.ResumeLayout(False)
+        CType(Me.gpFiltros, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gpFiltros.ResumeLayout(False)
+        Me.gpFiltros.PerformLayout()
+        CType(Me.lkFiltroGen.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lkFiltroCat.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtFiltroGaleria.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtFiltroGaleria.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DockPanel1.ResumeLayout(False)
         Me.DockPanel1_Container.ResumeLayout(False)
-        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.DockPanel1_Container.PerformLayout()
+        CType(Me.grdResumenGestion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grdViewResumenGestion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cmbEstadosGestion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grdGestion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grdViewMovGestion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -997,28 +978,11 @@ Partial Class Main
     Friend WithEvents DockPanel1 As DevExpress.XtraBars.Docking.DockPanel
     Friend WithEvents DockPanel1_Container As DevExpress.XtraBars.Docking.ControlContainer
     Friend WithEvents RibbonPage1 As DevExpress.XtraBars.Ribbon.RibbonPage
-    Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
-    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents TileControl1 As DevExpress.XtraEditors.TileControl
-    Friend WithEvents TileGroup1 As DevExpress.XtraEditors.TileGroup
-    Friend WithEvents TileItem1 As DevExpress.XtraEditors.TileItem
-    Friend WithEvents TileItem2 As DevExpress.XtraEditors.TileItem
-    Friend WithEvents TileItem3 As DevExpress.XtraEditors.TileItem
-    Friend WithEvents TileItem4 As DevExpress.XtraEditors.TileItem
-    Friend WithEvents TileItem5 As DevExpress.XtraEditors.TileItem
     Friend WithEvents TileItem6 As DevExpress.XtraEditors.TileItem
     Friend WithEvents TileItem7 As DevExpress.XtraEditors.TileItem
     Friend WithEvents TileItem8 As DevExpress.XtraEditors.TileItem
     Friend WithEvents TileItem9 As DevExpress.XtraEditors.TileItem
     Friend WithEvents TileItem10 As DevExpress.XtraEditors.TileItem
-    Friend WithEvents TileItem11 As DevExpress.XtraEditors.TileItem
-    Friend WithEvents TileItem12 As DevExpress.XtraEditors.TileItem
-    Friend WithEvents TileItem13 As DevExpress.XtraEditors.TileItem
-    Friend WithEvents TileItem14 As DevExpress.XtraEditors.TileItem
-    Friend WithEvents TileItem15 As DevExpress.XtraEditors.TileItem
-    Friend WithEvents TileItem16 As DevExpress.XtraEditors.TileItem
-    Friend WithEvents TileItem17 As DevExpress.XtraEditors.TileItem
-    Friend WithEvents TileItem18 As DevExpress.XtraEditors.TileItem
     Friend WithEvents RibbonPageGroup3 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BarButtonItem6 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem17 As DevExpress.XtraBars.BarButtonItem
@@ -1032,6 +996,23 @@ Partial Class Main
     Friend WithEvents BarButtonItem32 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem33 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RibbonPageGroup6 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents tileGaleria As DevExpress.XtraEditors.TileControl
+    Friend WithEvents TileGroup1 As DevExpress.XtraEditors.TileGroup
+    Friend WithEvents gpFiltros As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents dtFiltroGaleria As DevExpress.XtraEditors.DateEdit
+    Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents btnFiltrarDisfraces As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lkFiltroCat As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents lkFiltroGen As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents cmbEstadosGestion As DevExpress.XtraEditors.ComboBoxEdit
+    Friend WithEvents grdGestion As DevExpress.XtraGrid.GridControl
+    Friend WithEvents grdViewMovGestion As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents grdResumenGestion As DevExpress.XtraGrid.GridControl
+    Friend WithEvents grdViewResumenGestion As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
 
 
 End Class

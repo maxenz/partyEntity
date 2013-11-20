@@ -37,7 +37,6 @@
       <EntityTypeMapping TypeName="PartyIdeaModel.Categorias">
         <MappingFragment StoreEntitySet="Categorias">
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="regUsuarioId" ColumnName="regUsuarioId" />
           <ScalarProperty Name="regFechaHora" ColumnName="regFechaHora" />
@@ -70,6 +69,27 @@
           <ScalarProperty Name="regUsuarioId" ColumnName="regUsuarioId" />
           <ScalarProperty Name="regFechaHora" ColumnName="regFechaHora" />
           <ScalarProperty Name="regTerminalId" ColumnName="regTerminalId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estados">
+      <EntityTypeMapping TypeName="PartyIdeaModel.Estados">
+        <MappingFragment StoreEntitySet="Estados">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="regFechaHora" ColumnName="regFechaHora" />
+          <ScalarProperty Name="regUsuarioId" ColumnName="regUsuarioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstadosMovimientos">
+      <EntityTypeMapping TypeName="PartyIdeaModel.EstadosMovimientos">
+        <MappingFragment StoreEntitySet="EstadosMovimientos">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MovimientoId" ColumnName="MovimientoId" />
+          <ScalarProperty Name="EstadoId" ColumnName="EstadoId" />
+          <ScalarProperty Name="regFechaHora" ColumnName="regFechaHora" />
+          <ScalarProperty Name="regUsuarioId" ColumnName="regUsuarioId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -133,10 +153,8 @@
           <ScalarProperty Name="FecMovimiento" ColumnName="FecMovimiento" />
           <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
           <ScalarProperty Name="FecAnticipo" ColumnName="FecAnticipo" />
+          <ScalarProperty Name="Deposito" ColumnName="Deposito" />
           <ScalarProperty Name="ImpAnticipo" ColumnName="ImpAnticipo" />
-          <ScalarProperty Name="flgPagado" ColumnName="flgPagado" />
-          <ScalarProperty Name="flgEntregado" ColumnName="flgEntregado" />
-          <ScalarProperty Name="flgConcluido" ColumnName="flgConcluido" />
           <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
           <ScalarProperty Name="regUsuarioId" ColumnName="regUsuarioId" />
           <ScalarProperty Name="regFechaHora" ColumnName="regFechaHora" />

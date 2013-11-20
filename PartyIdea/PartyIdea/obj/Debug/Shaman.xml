@@ -8,29 +8,388 @@ Shaman
 <members>
 <member name="P:Shaman.My.Resources.Resources.ResourceManager">
 	<summary>
-  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+  Returns the cached ResourceManager instance used by this class.
 </summary>
 </member><member name="P:Shaman.My.Resources.Resources.Culture">
 	<summary>
-  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
-  búsquedas de recursos mediante esta clase de recurso con establecimiento inflexible de tipos.
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.aguno">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.Alicia___Tim_Burton_1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.alicia_1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.AÑOS_50">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.AUTOMOVILISTA">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.bombera1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.bucanera_1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.bucanera_oro_1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.Cacique">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.CAMARERA_50_s">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.CAN_CAN_MOD_I">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.CARNAVAL_VENECIANO">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.cazafantasma_1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.CHARLESTON_MOD_I">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.CHEFF">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.daphne__scooby_doo__1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.DETECTIVE">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.ENFERMERA_MOD_I_LARGO">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.ENFERMERA_MOD_II_CORTO">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.estatua_de_la_libertad1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.Frutillitas__2__1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.frutillitas_1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.gaisha_21_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.GANGSTER_MOD_I">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.GANGSTER_MOD_II">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.geisha_11_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.GIRL_SCOUT_MOD_I">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.GIRL_SCOUT_MOD_II">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.Marge_Simpson_1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.MARINERA_MOD_I">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.MARINERA_MOD_II">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.MARINERA_MOD_III">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.MÉDICA">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.militar_1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.minnie_1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.MUCAMA_MOD_I">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.MUCAMA_MOD_II">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.ODALISCA">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.Olivia_1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.piloto">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.Pirata__2__1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.pirata_1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.POLICIA">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.PORRISTA">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.PRESA">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.PUNK_ROJO">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.PUNK_VERDE">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.quuno">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.Rainbow_Brite_1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.Recursos">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;root&gt;
+  &lt;!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers &amp; schema ...
+    &lt;resheader name="resmimetype"&gt;text/microsoft-resx&lt;/resheader&gt;
+    &lt;resheader n [rest of string was truncated]";.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.Recursos_Designer">
+	<summary>
+  Looks up a localized string similar to '------------------------------------------------------------------------------
+' &lt;auto-generated&gt;
+'     This code was generated by a tool.
+'     Runtime Version:4.0.30319.18052
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' &lt;/auto-generated&gt;
+'------------------------------------------------------------------------------
+
+Option Strict On
+Option Explicit On
+
+Imports System
+
+Namespace My.Resources
+    
+    'This class was auto-g [rest of string was truncated]";.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.Recursos_Designer1">
+	<summary>
+  Looks up a localized string similar to '------------------------------------------------------------------------------
+' &lt;auto-generated&gt;
+'     This code was generated by a tool.
+'     Runtime Version:4.0.30319.18052
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' &lt;/auto-generated&gt;
+'------------------------------------------------------------------------------
+
+Option Strict On
+Option Explicit On
+
+Imports System
+
+Namespace My.Resources
+    
+    'This class was auto-g [rest of string was truncated]";.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.Recursos_Designer2">
+	<summary>
+  Looks up a localized string similar to '------------------------------------------------------------------------------
+' &lt;auto-generated&gt;
+'     This code was generated by a tool.
+'     Runtime Version:4.0.30319.18052
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' &lt;/auto-generated&gt;
+'------------------------------------------------------------------------------
+
+Option Strict On
+Option Explicit On
+
+Imports System
+
+Namespace My.Resources
+    
+    'This class was auto-g [rest of string was truncated]";.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.Recursos1">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;root&gt;
+  &lt;!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers &amp; schema ...
+    &lt;resheader name="resmimetype"&gt;text/microsoft-resx&lt;/resheader&gt;
+    &lt;resheader n [rest of string was truncated]";.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.Recursos2">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;root&gt;
+  &lt;!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers &amp; schema ...
+    &lt;resheader name="resmimetype"&gt;text/microsoft-resx&lt;/resheader&gt;
+    &lt;resheader n [rest of string was truncated]";.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.REFEREE">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.Reina_de_Corazones___Tim_Burton_1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.reina_de_corazones_1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.rockera1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.SFSGE_2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.SFSGE_3">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.shaman">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.SOLDADO">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.sombrerero_loco__alicia_en_el_pais_de_las_maravillas__1_01">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Shaman.My.Resources.Resources.TAXISTA">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member><member name="T:Shaman.My.Resources.Resources">
 	<summary>
-  Clase de recurso con establecimiento inflexible de tipos, para buscar cadenas traducidas, etc.
+  A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
 </member><member name="P:Shaman.My.Resources.Recursos.ResourceManager">
 	<summary>
-  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+  Returns the cached ResourceManager instance used by this class.
 </summary>
 </member><member name="P:Shaman.My.Resources.Recursos.Culture">
 	<summary>
-  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
-  búsquedas de recursos mediante esta clase de recurso con establecimiento inflexible de tipos.
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
 </summary>
 </member><member name="T:Shaman.My.Resources.Recursos">
 	<summary>
-  Clase de recurso con establecimiento inflexible de tipos, para buscar cadenas traducidas, etc.
+  A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
 </member>
 </members>

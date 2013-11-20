@@ -112,100 +112,206 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="agregar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\agregar.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="agtodos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\agtodos.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="aguno" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\aguno.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\aguno.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="archivo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\archivo.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="alicia_1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alicia 1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bajar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bajar.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Alicia___Tim_Burton_1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Alicia - Tim Burton 1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cancelar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cancelar.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AUTOMOVILISTA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AUTOMOVILISTA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="clientes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clientes.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AÑOS_50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AÑOS_50.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="colores" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\colores.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bombera1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bombera1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eliminar.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bucanera_1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bucanera 1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="estadisticas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\estadisticas.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bucanera_oro_1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bucanera oro 1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="facturacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\facturacion.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Cacique" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cacique.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="liquidaciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\liquidaciones.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CAMARERA_50_s" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CAMARERA_50's.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="modificar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\modificar.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CAN_CAN_MOD_I" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CAN_CAN_MOD_I.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="movil" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\movil.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CARNAVAL_VENECIANO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CARNAVAL_VENECIANO.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="NoMapa" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NoMapa.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cazafantasma_1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cazafantasma 1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="NoMapa1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NoMapa1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CHARLESTON_MOD_I" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CHARLESTON_MOD_I.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="NoMapaWide" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NoMapaWide.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CHEFF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CHEFF.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="NoMapaWide1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NoMapaWide1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="daphne__scooby_doo__1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\daphne (scooby doo) 1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="nooperativa" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\nooperativa.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DETECTIVE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DETECTIVE.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="operativa" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\operativa.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ENFERMERA_MOD_II_CORTO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ENFERMERA_MOD_II_CORTO.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="parametros" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\parametros.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ENFERMERA_MOD_I_LARGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ENFERMERA_MOD_I_LARGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="personal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\personal.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="estatua_de_la_libertad1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\estatua de la libertad1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="prestadores" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\prestadores.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="frutillitas_1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\frutillitas 1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="qutodos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\qutodos.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Frutillitas__2__1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Frutillitas (2) 1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gaisha_21_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gaisha 21-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GANGSTER_MOD_I" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GANGSTER_MOD_I.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GANGSTER_MOD_II" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GANGSTER_MOD_II.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="geisha_11_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\geisha 11-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GIRL_SCOUT_MOD_I" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GIRL_SCOUT_MOD_I.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GIRL_SCOUT_MOD_II" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GIRL_SCOUT_MOD_II.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Marge_Simpson_1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Marge Simpson 1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MARINERA_MOD_I" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MARINERA_MOD_I.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MARINERA_MOD_II" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MARINERA_MOD_II.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MARINERA_MOD_III" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MARINERA_MOD_III.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="militar_1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\militar 1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minnie_1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minnie 1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MUCAMA_MOD_I" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MUCAMA_MOD_I.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MUCAMA_MOD_II" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MUCAMA_MOD_II.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MÉDICA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MÉDICA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ODALISCA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ODALISCA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Olivia_1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Olivia 1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="piloto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\piloto.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pirata_1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pirata 1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pirata__2__1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pirata (2) 1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="POLICIA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\POLICIA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PORRISTA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PORRISTA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PRESA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PRESA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PUNK_ROJO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PUNK_ROJO.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PUNK_VERDE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PUNK_VERDE.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="quuno" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\quuno.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\quuno.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="refrescar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\refrescar.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Rainbow_Brite_1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rainbow Brite 1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="salir" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\salir.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Recursos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Recursos.resx;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="salvar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\salvar.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Recursos1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Recursos.resx;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="subir" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\subir.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Recursos2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Recursos.resx;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="usuarios" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\usuarios.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Recursos_Designer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Recursos.Designer.vb;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Recursos_Designer1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Recursos.Designer.vb;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Recursos_Designer2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Recursos.Designer.vb;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="REFEREE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\REFEREE.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reina_de_corazones_1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reina de corazones 1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reina_de_Corazones___Tim_Burton_1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reina de Corazones - Tim Burton 1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rockera1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rockera1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SFSGE_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SFSGE-2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SFSGE_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SFSGE-3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shaman" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shaman.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SOLDADO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SOLDADO.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sombrerero_loco__alicia_en_el_pais_de_las_maravillas__1_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sombrerero loco (alicia en el pais de las maravillas) 1-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TAXISTA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TAXISTA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+
 </root>

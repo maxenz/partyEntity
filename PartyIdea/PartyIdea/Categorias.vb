@@ -12,10 +12,11 @@ Imports System.Collections.Generic
 
 Partial Public Class Categorias
     Public Property ID As Long
-    Public Property Codigo As String
     Public Property Descripcion As String
     Public Property regUsuarioId As Long
     Public Property regFechaHora As Date
     Public Property regTerminalId As Nullable(Of Long)
+
+    Public Overridable Property Articulos As ICollection(Of Articulos) = New HashSet(Of Articulos)
 
 End Class

@@ -14,18 +14,17 @@ Partial Public Class Movimientos
     Public Property ID As Long
     Public Property NroSolicitud As String
     Public Property FecMovimiento As Date
-    Public Property ClienteId As Nullable(Of Long)
+    Public Property ClienteId As Long
     Public Property FecAnticipo As Nullable(Of Date)
+    Public Property Deposito As Decimal
     Public Property ImpAnticipo As Nullable(Of Decimal)
-    Public Property flgPagado As Byte
-    Public Property flgEntregado As Byte
-    Public Property flgConcluido As Byte
     Public Property Observaciones As String
     Public Property regUsuarioId As Long
     Public Property regFechaHora As Date
     Public Property regTerminalId As Nullable(Of Long)
 
     Public Overridable Property Clientes As Clientes
+    Public Overridable Property EstadosMovimientos As ICollection(Of EstadosMovimientos) = New HashSet(Of EstadosMovimientos)
     Public Overridable Property EventosMovimientos As ICollection(Of EventosMovimientos) = New HashSet(Of EventosMovimientos)
     Public Overridable Property MovimientosArticulos As ICollection(Of MovimientosArticulos) = New HashSet(Of MovimientosArticulos)
 

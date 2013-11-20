@@ -1,4 +1,5 @@
 Imports Microsoft.VisualBasic.FileIO.TextFieldParser
+Imports System.Linq
 
 Module modFunciones
 
@@ -305,6 +306,74 @@ Module modFunciones
         End If
 
         GetEdad = vEda
+
+    End Function
+
+    Public Function getFechaHoraActual() As String
+
+        Return DateTime.Now.ToString((" yyyy-MM-dd hh:mm:ss"))
+
+    End Function
+
+    Public Function getFechaDevolucion(ByVal fecha As DateTime) As DateTime
+
+        Return fecha.AddDays(3)
+
+    End Function
+
+    Public Function getStock(ByVal ats As ArticulosTalleStock, ByVal fechaDesde As DateTime, ByVal fechaHasta As DateTime, ByVal db As PartyIdeaEntities, Optional ByVal movArtId As Integer = 0) As Integer
+
+        Dim id As Integer = ats.ID
+        Dim stockDisponible As Integer = ats.Cantidad
+
+        Dim objMovArt = (From mArt In db.MovimientosArticulos Where _
+                        mArt.ArticuloTalleId = id And _
+                        (((fechaDesde >= mArt.FecEntrega) And (fechaDesde <= mArt.FecDevolucion)) Or _
+                        ((fechaHasta <= mArt.FecDevolucion) And (fechaHasta >= mArt.FecEntrega)))
+                        ).ToList
+
+        If (Not (IsNothing(objMovArt))) Then
+
+            For Each mov As MovimientosArticulos In objMovArt
+
+                If ((mov.ID <> movArtId)) Then
+
+                    stockDisponible = stockDisponible - mov.Cantidad
+
+                End If
+            Next
+
+        End If
+
+        Return stockDisponible
+
+    End Function
+
+    Public Function getEstadoByDesc(ByVal estado As String, ByVal db As PartyIdeaEntities) As Estados
+
+        Dim objEstado = (From est In db.Estados Where est.Descripcion = estado Select est).FirstOrDefault
+
+        Return objEstado
+
+    End Function
+
+    Public Function getOperacionByDesc(ByVal operacion As String, ByVal db As PartyIdeaEntities) As Operaciones
+
+        Dim dscOperacion As String = ""
+
+        Select Case operacion
+
+            Case "ALQUILADOS"
+                dscOperacion = "ALQUILER"
+
+            Case "RESERVADOS"
+                dscOperacion = "RESERVA"
+
+        End Select
+
+        Dim objOperacion = (From ope In db.Operaciones Where ope.Descripcion = dscOperacion Select ope).FirstOrDefault
+
+        Return objOperacion
 
     End Function
 

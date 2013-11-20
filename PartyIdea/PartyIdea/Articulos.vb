@@ -14,7 +14,7 @@ Partial Public Class Articulos
     Public Property ID As Long
     Public Property ImageUrl As String
     Public Property Codigo As String
-    Public Property CategoriaId As String
+    Public Property CategoriaId As Long
     Public Property Descripcion As String
     Public Property GeneroId As Byte
     Public Property Procedencia As String
@@ -26,6 +26,7 @@ Partial Public Class Articulos
     Public Property regTerminalId As Nullable(Of Long)
 
     Public Overridable Property ArticulosTalleStock As ICollection(Of ArticulosTalleStock) = New HashSet(Of ArticulosTalleStock)
+    Public Overridable Property Categorias As Categorias
     Public Overridable Property Generos As Generos
 
 End Class

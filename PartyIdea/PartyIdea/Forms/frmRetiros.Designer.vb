@@ -22,19 +22,20 @@ Partial Class frmRetiros
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRetiros))
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
-        Me.btnAntMov = New DevExpress.XtraEditors.SimpleButton()
         Me.btnModifAlquiler = New DevExpress.XtraEditors.SimpleButton()
-        Me.LabelControl10 = New DevExpress.XtraEditors.LabelControl()
+        Me.btnNuevoAlquiler = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnAntMov = New DevExpress.XtraEditors.SimpleButton()
         Me.btnSigMov = New DevExpress.XtraEditors.SimpleButton()
         Me.txtNroAlquiler = New DevExpress.XtraEditors.TextEdit()
         Me.dtFechaMovimiento = New DevExpress.XtraEditors.DateEdit()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.txtEventoFiesta = New DevExpress.XtraEditors.TextEdit()
-        Me.lblNuevoAlquiler = New DevExpress.XtraEditors.LabelControl()
-        Me.btnNuevoAlquiler = New DevExpress.XtraEditors.SimpleButton()
         Me.lblAlqMov = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.gpCliente = New DevExpress.XtraEditors.GroupControl()
+        Me.chkFinalizado = New DevExpress.XtraEditors.CheckEdit()
+        Me.chkPagado = New DevExpress.XtraEditors.CheckEdit()
+        Me.chkEntregado = New DevExpress.XtraEditors.CheckEdit()
         Me.cmbSexo = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.cmbTipoDoc = New DevExpress.XtraEditors.LookUpEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
@@ -68,6 +69,8 @@ Partial Class frmRetiros
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
         Me.GroupControl4 = New DevExpress.XtraEditors.GroupControl()
+        Me.txtDeposito = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl22 = New DevExpress.XtraEditors.LabelControl()
         Me.btnCancelarMov = New DevExpress.XtraEditors.SimpleButton()
         Me.btnAceptarMovimiento = New DevExpress.XtraEditors.SimpleButton()
         Me.LabelControl21 = New DevExpress.XtraEditors.LabelControl()
@@ -85,6 +88,7 @@ Partial Class frmRetiros
         Me.RepositoryItemComboBox1 = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox()
         Me.RepositoryItemComboBox2 = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox()
         Me.errorProviderCliente = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.RepositoryItemLookUpEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
         CType(Me.txtNroAlquiler.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -93,6 +97,9 @@ Partial Class frmRetiros
         CType(Me.txtEventoFiesta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gpCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gpCliente.SuspendLayout()
+        CType(Me.chkFinalizado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chkPagado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chkEntregado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmbSexo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmbTipoDoc.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtNroDoc.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -112,6 +119,7 @@ Partial Class frmRetiros
         CType(Me.txtApellidoCliente.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl4.SuspendLayout()
+        CType(Me.txtDeposito.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtTotFacturado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtTotCobrado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtTotPendiente.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -125,20 +133,19 @@ Partial Class frmRetiros
         CType(Me.RepositoryItemComboBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemComboBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.errorProviderCliente, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemLookUpEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupControl1
         '
-        Me.GroupControl1.Controls.Add(Me.btnAntMov)
         Me.GroupControl1.Controls.Add(Me.btnModifAlquiler)
-        Me.GroupControl1.Controls.Add(Me.LabelControl10)
+        Me.GroupControl1.Controls.Add(Me.btnNuevoAlquiler)
+        Me.GroupControl1.Controls.Add(Me.btnAntMov)
         Me.GroupControl1.Controls.Add(Me.btnSigMov)
         Me.GroupControl1.Controls.Add(Me.txtNroAlquiler)
         Me.GroupControl1.Controls.Add(Me.dtFechaMovimiento)
         Me.GroupControl1.Controls.Add(Me.LabelControl5)
         Me.GroupControl1.Controls.Add(Me.txtEventoFiesta)
-        Me.GroupControl1.Controls.Add(Me.lblNuevoAlquiler)
-        Me.GroupControl1.Controls.Add(Me.btnNuevoAlquiler)
         Me.GroupControl1.Controls.Add(Me.lblAlqMov)
         Me.GroupControl1.Controls.Add(Me.LabelControl2)
         Me.GroupControl1.Dock = System.Windows.Forms.DockStyle.Top
@@ -148,12 +155,30 @@ Partial Class frmRetiros
         Me.GroupControl1.TabIndex = 0
         Me.GroupControl1.Text = "Nro. Solicitud"
         '
+        'btnModifAlquiler
+        '
+        Me.btnModifAlquiler.Image = CType(resources.GetObject("btnModifAlquiler.Image"), System.Drawing.Image)
+        Me.btnModifAlquiler.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnModifAlquiler.Location = New System.Drawing.Point(240, 25)
+        Me.btnModifAlquiler.Name = "btnModifAlquiler"
+        Me.btnModifAlquiler.Size = New System.Drawing.Size(31, 25)
+        Me.btnModifAlquiler.TabIndex = 42
+        '
+        'btnNuevoAlquiler
+        '
+        Me.btnNuevoAlquiler.Image = CType(resources.GetObject("btnNuevoAlquiler.Image"), System.Drawing.Image)
+        Me.btnNuevoAlquiler.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnNuevoAlquiler.Location = New System.Drawing.Point(203, 24)
+        Me.btnNuevoAlquiler.Name = "btnNuevoAlquiler"
+        Me.btnNuevoAlquiler.Size = New System.Drawing.Size(31, 25)
+        Me.btnNuevoAlquiler.TabIndex = 41
+        '
         'btnAntMov
         '
         Me.btnAntMov.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.btnAntMov.Appearance.Options.UseBackColor = True
         Me.btnAntMov.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat
-        Me.btnAntMov.Image = Global.Shaman.My.Resources.Resources.quuno
+        Me.btnAntMov.Image = CType(resources.GetObject("btnAntMov.Image"), System.Drawing.Image)
         Me.btnAntMov.Location = New System.Drawing.Point(775, 27)
         Me.btnAntMov.LookAndFeel.SkinName = "DevExpress Dark Style"
         Me.btnAntMov.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat
@@ -162,33 +187,12 @@ Partial Class frmRetiros
         Me.btnAntMov.Size = New System.Drawing.Size(23, 20)
         Me.btnAntMov.TabIndex = 0
         '
-        'btnModifAlquiler
-        '
-        Me.btnModifAlquiler.Appearance.BackColor = System.Drawing.Color.MediumSeaGreen
-        Me.btnModifAlquiler.Appearance.Options.UseBackColor = True
-        Me.btnModifAlquiler.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat
-        Me.btnModifAlquiler.Location = New System.Drawing.Point(294, 27)
-        Me.btnModifAlquiler.LookAndFeel.SkinName = "DevExpress Dark Style"
-        Me.btnModifAlquiler.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat
-        Me.btnModifAlquiler.LookAndFeel.UseDefaultLookAndFeel = False
-        Me.btnModifAlquiler.Name = "btnModifAlquiler"
-        Me.btnModifAlquiler.Size = New System.Drawing.Size(23, 20)
-        Me.btnModifAlquiler.TabIndex = 0
-        '
-        'LabelControl10
-        '
-        Me.LabelControl10.Location = New System.Drawing.Point(258, 29)
-        Me.LabelControl10.Name = "LabelControl10"
-        Me.LabelControl10.Size = New System.Drawing.Size(30, 13)
-        Me.LabelControl10.TabIndex = 40
-        Me.LabelControl10.Text = "Modif."
-        '
         'btnSigMov
         '
         Me.btnSigMov.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.btnSigMov.Appearance.Options.UseBackColor = True
         Me.btnSigMov.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat
-        Me.btnSigMov.Image = Global.Shaman.My.Resources.Resources.aguno
+        Me.btnSigMov.Image = CType(resources.GetObject("btnSigMov.Image"), System.Drawing.Image)
         Me.btnSigMov.Location = New System.Drawing.Point(804, 27)
         Me.btnSigMov.LookAndFeel.SkinName = "DevExpress Dark Style"
         Me.btnSigMov.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat
@@ -229,31 +233,10 @@ Partial Class frmRetiros
         'txtEventoFiesta
         '
         Me.txtEventoFiesta.EnterMoveNextControl = True
-        Me.txtEventoFiesta.Location = New System.Drawing.Point(383, 27)
+        Me.txtEventoFiesta.Location = New System.Drawing.Point(345, 27)
         Me.txtEventoFiesta.Name = "txtEventoFiesta"
-        Me.txtEventoFiesta.Size = New System.Drawing.Size(191, 20)
+        Me.txtEventoFiesta.Size = New System.Drawing.Size(229, 20)
         Me.txtEventoFiesta.TabIndex = 3
-        '
-        'lblNuevoAlquiler
-        '
-        Me.lblNuevoAlquiler.Location = New System.Drawing.Point(192, 29)
-        Me.lblNuevoAlquiler.Name = "lblNuevoAlquiler"
-        Me.lblNuevoAlquiler.Size = New System.Drawing.Size(31, 13)
-        Me.lblNuevoAlquiler.TabIndex = 36
-        Me.lblNuevoAlquiler.Text = "Nuevo"
-        '
-        'btnNuevoAlquiler
-        '
-        Me.btnNuevoAlquiler.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnNuevoAlquiler.Appearance.Options.UseBackColor = True
-        Me.btnNuevoAlquiler.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat
-        Me.btnNuevoAlquiler.Location = New System.Drawing.Point(229, 27)
-        Me.btnNuevoAlquiler.LookAndFeel.SkinName = "DevExpress Dark Style"
-        Me.btnNuevoAlquiler.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat
-        Me.btnNuevoAlquiler.LookAndFeel.UseDefaultLookAndFeel = False
-        Me.btnNuevoAlquiler.Name = "btnNuevoAlquiler"
-        Me.btnNuevoAlquiler.Size = New System.Drawing.Size(23, 20)
-        Me.btnNuevoAlquiler.TabIndex = 1
         '
         'lblAlqMov
         '
@@ -265,7 +248,7 @@ Partial Class frmRetiros
         '
         'LabelControl2
         '
-        Me.LabelControl2.Location = New System.Drawing.Point(329, 29)
+        Me.LabelControl2.Location = New System.Drawing.Point(285, 29)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(48, 13)
         Me.LabelControl2.TabIndex = 3
@@ -273,6 +256,9 @@ Partial Class frmRetiros
         '
         'gpCliente
         '
+        Me.gpCliente.Controls.Add(Me.chkFinalizado)
+        Me.gpCliente.Controls.Add(Me.chkPagado)
+        Me.gpCliente.Controls.Add(Me.chkEntregado)
         Me.gpCliente.Controls.Add(Me.cmbSexo)
         Me.gpCliente.Controls.Add(Me.cmbTipoDoc)
         Me.gpCliente.Controls.Add(Me.LabelControl1)
@@ -312,6 +298,33 @@ Partial Class frmRetiros
         Me.gpCliente.TabIndex = 1
         Me.gpCliente.Text = "Cliente"
         '
+        'chkFinalizado
+        '
+        Me.chkFinalizado.Location = New System.Drawing.Point(805, 130)
+        Me.chkFinalizado.Name = "chkFinalizado"
+        Me.chkFinalizado.Properties.Caption = "Fin."
+        Me.chkFinalizado.Size = New System.Drawing.Size(44, 19)
+        Me.chkFinalizado.TabIndex = 38
+        Me.chkFinalizado.Tag = "FINALIZADO"
+        '
+        'chkPagado
+        '
+        Me.chkPagado.Location = New System.Drawing.Point(760, 130)
+        Me.chkPagado.Name = "chkPagado"
+        Me.chkPagado.Properties.Caption = "Pag."
+        Me.chkPagado.Size = New System.Drawing.Size(46, 19)
+        Me.chkPagado.TabIndex = 37
+        Me.chkPagado.Tag = "PAGADO"
+        '
+        'chkEntregado
+        '
+        Me.chkEntregado.Location = New System.Drawing.Point(715, 130)
+        Me.chkEntregado.Name = "chkEntregado"
+        Me.chkEntregado.Properties.Caption = "Ent."
+        Me.chkEntregado.Size = New System.Drawing.Size(42, 19)
+        Me.chkEntregado.TabIndex = 36
+        Me.chkEntregado.Tag = "ENTREGADO"
+        '
         'cmbSexo
         '
         Me.cmbSexo.EnterMoveNextControl = True
@@ -347,7 +360,7 @@ Partial Class frmRetiros
         Me.txtNroDoc.Name = "txtNroDoc"
         Me.txtNroDoc.Size = New System.Drawing.Size(87, 20)
         Me.txtNroDoc.TabIndex = 8
-        Me.txtNroDoc.Tag = "required"
+        Me.txtNroDoc.Tag = ""
         '
         'LabelControl18
         '
@@ -447,7 +460,7 @@ Partial Class frmRetiros
         '
         'LabelControl6
         '
-        Me.LabelControl6.Location = New System.Drawing.Point(329, 34)
+        Me.LabelControl6.Location = New System.Drawing.Point(152, 34)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(37, 13)
         Me.LabelControl6.TabIndex = 20
@@ -455,12 +468,10 @@ Partial Class frmRetiros
         '
         'txtObservaciones
         '
-        Me.txtObservaciones.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtObservaciones.EnterMoveNextControl = True
         Me.txtObservaciones.Location = New System.Drawing.Point(372, 130)
         Me.txtObservaciones.Name = "txtObservaciones"
-        Me.txtObservaciones.Size = New System.Drawing.Size(442, 20)
+        Me.txtObservaciones.Size = New System.Drawing.Size(337, 20)
         Me.txtObservaciones.TabIndex = 19
         '
         'txtEmail
@@ -496,7 +507,7 @@ Partial Class frmRetiros
         Me.txtCodPostal.Name = "txtCodPostal"
         Me.txtCodPostal.Size = New System.Drawing.Size(99, 20)
         Me.txtCodPostal.TabIndex = 16
-        Me.txtCodPostal.Tag = "required"
+        Me.txtCodPostal.Tag = ""
         '
         'txtDepto
         '
@@ -559,24 +570,24 @@ Partial Class frmRetiros
         'txtNombreCliente
         '
         Me.txtNombreCliente.EnterMoveNextControl = True
-        Me.txtNombreCliente.Location = New System.Drawing.Point(322, 50)
+        Me.txtNombreCliente.Location = New System.Drawing.Point(147, 50)
         Me.txtNombreCliente.Name = "txtNombreCliente"
         Me.txtNombreCliente.Size = New System.Drawing.Size(186, 20)
-        Me.txtNombreCliente.TabIndex = 6
+        Me.txtNombreCliente.TabIndex = 5
         Me.txtNombreCliente.Tag = "required"
         '
         'txtApellidoCliente
         '
         Me.txtApellidoCliente.EnterMoveNextControl = True
-        Me.txtApellidoCliente.Location = New System.Drawing.Point(147, 50)
+        Me.txtApellidoCliente.Location = New System.Drawing.Point(339, 50)
         Me.txtApellidoCliente.Name = "txtApellidoCliente"
         Me.txtApellidoCliente.Size = New System.Drawing.Size(169, 20)
-        Me.txtApellidoCliente.TabIndex = 5
+        Me.txtApellidoCliente.TabIndex = 6
         Me.txtApellidoCliente.Tag = "required"
         '
         'LabelControl3
         '
-        Me.LabelControl3.Location = New System.Drawing.Point(152, 34)
+        Me.LabelControl3.Location = New System.Drawing.Point(345, 34)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(37, 13)
         Me.LabelControl3.TabIndex = 3
@@ -592,6 +603,8 @@ Partial Class frmRetiros
         '
         'GroupControl4
         '
+        Me.GroupControl4.Controls.Add(Me.txtDeposito)
+        Me.GroupControl4.Controls.Add(Me.LabelControl22)
         Me.GroupControl4.Controls.Add(Me.btnCancelarMov)
         Me.GroupControl4.Controls.Add(Me.btnAceptarMovimiento)
         Me.GroupControl4.Controls.Add(Me.LabelControl21)
@@ -606,6 +619,26 @@ Partial Class frmRetiros
         Me.GroupControl4.Size = New System.Drawing.Size(821, 55)
         Me.GroupControl4.TabIndex = 3
         Me.GroupControl4.Text = "Totales"
+        '
+        'txtDeposito
+        '
+        Me.txtDeposito.Location = New System.Drawing.Point(542, 25)
+        Me.txtDeposito.Name = "txtDeposito"
+        Me.txtDeposito.Properties.Appearance.Options.UseTextOptions = True
+        Me.txtDeposito.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.txtDeposito.Properties.Mask.EditMask = "c"
+        Me.txtDeposito.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.txtDeposito.Properties.Mask.UseMaskAsDisplayFormat = True
+        Me.txtDeposito.Size = New System.Drawing.Size(68, 20)
+        Me.txtDeposito.TabIndex = 32
+        '
+        'LabelControl22
+        '
+        Me.LabelControl22.Location = New System.Drawing.Point(494, 28)
+        Me.LabelControl22.Name = "LabelControl22"
+        Me.LabelControl22.Size = New System.Drawing.Size(42, 13)
+        Me.LabelControl22.TabIndex = 31
+        Me.LabelControl22.Text = "Depósito"
         '
         'btnCancelarMov
         '
@@ -626,7 +659,7 @@ Partial Class frmRetiros
         '
         'LabelControl21
         '
-        Me.LabelControl21.Location = New System.Drawing.Point(404, 28)
+        Me.LabelControl21.Location = New System.Drawing.Point(339, 28)
         Me.LabelControl21.Name = "LabelControl21"
         Me.LabelControl21.Size = New System.Drawing.Size(75, 13)
         Me.LabelControl21.TabIndex = 28
@@ -634,7 +667,7 @@ Partial Class frmRetiros
         '
         'LabelControl20
         '
-        Me.LabelControl20.Location = New System.Drawing.Point(207, 28)
+        Me.LabelControl20.Location = New System.Drawing.Point(184, 28)
         Me.LabelControl20.Name = "LabelControl20"
         Me.LabelControl20.Size = New System.Drawing.Size(68, 13)
         Me.LabelControl20.TabIndex = 27
@@ -657,31 +690,31 @@ Partial Class frmRetiros
         Me.txtTotFacturado.Properties.Appearance.Options.UseBackColor = True
         Me.txtTotFacturado.Properties.Appearance.Options.UseTextOptions = True
         Me.txtTotFacturado.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.txtTotFacturado.Size = New System.Drawing.Size(88, 20)
+        Me.txtTotFacturado.Size = New System.Drawing.Size(73, 20)
         Me.txtTotFacturado.TabIndex = 18
         '
         'txtTotCobrado
         '
         Me.txtTotCobrado.Enabled = False
-        Me.txtTotCobrado.Location = New System.Drawing.Point(303, 25)
+        Me.txtTotCobrado.Location = New System.Drawing.Point(258, 25)
         Me.txtTotCobrado.Name = "txtTotCobrado"
         Me.txtTotCobrado.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.txtTotCobrado.Properties.Appearance.Options.UseBackColor = True
         Me.txtTotCobrado.Properties.Appearance.Options.UseTextOptions = True
         Me.txtTotCobrado.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.txtTotCobrado.Size = New System.Drawing.Size(88, 20)
+        Me.txtTotCobrado.Size = New System.Drawing.Size(75, 20)
         Me.txtTotCobrado.TabIndex = 17
         '
         'txtTotPendiente
         '
         Me.txtTotPendiente.Enabled = False
-        Me.txtTotPendiente.Location = New System.Drawing.Point(503, 25)
+        Me.txtTotPendiente.Location = New System.Drawing.Point(420, 25)
         Me.txtTotPendiente.Name = "txtTotPendiente"
         Me.txtTotPendiente.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.txtTotPendiente.Properties.Appearance.Options.UseBackColor = True
         Me.txtTotPendiente.Properties.Appearance.Options.UseTextOptions = True
         Me.txtTotPendiente.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.txtTotPendiente.Size = New System.Drawing.Size(88, 20)
+        Me.txtTotPendiente.Size = New System.Drawing.Size(68, 20)
         Me.txtTotPendiente.TabIndex = 16
         '
         'GroupControl3
@@ -700,7 +733,7 @@ Partial Class frmRetiros
         Me.grdArticulosMov.Location = New System.Drawing.Point(2, 21)
         Me.grdArticulosMov.MainView = Me.grdViewArticulosMov
         Me.grdArticulosMov.Name = "grdArticulosMov"
-        Me.grdArticulosMov.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemButtonEdit1, Me.RepositoryItemButtonEdit2, Me.RepositoryItemLookUpEdit1, Me.RepositoryItemComboBox1, Me.RepositoryItemComboBox2})
+        Me.grdArticulosMov.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemButtonEdit1, Me.RepositoryItemButtonEdit2, Me.RepositoryItemLookUpEdit1, Me.RepositoryItemComboBox1, Me.RepositoryItemComboBox2, Me.RepositoryItemLookUpEdit2})
         Me.grdArticulosMov.Size = New System.Drawing.Size(817, 132)
         Me.grdArticulosMov.TabIndex = 0
         Me.grdArticulosMov.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grdViewArticulosMov})
@@ -747,6 +780,12 @@ Partial Class frmRetiros
         Me.errorProviderCliente.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.errorProviderCliente.ContainerControl = Me
         '
+        'RepositoryItemLookUpEdit2
+        '
+        Me.RepositoryItemLookUpEdit2.AutoHeight = False
+        Me.RepositoryItemLookUpEdit2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemLookUpEdit2.Name = "RepositoryItemLookUpEdit2"
+        '
         'frmRetiros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -770,6 +809,9 @@ Partial Class frmRetiros
         CType(Me.gpCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gpCliente.ResumeLayout(False)
         Me.gpCliente.PerformLayout()
+        CType(Me.chkFinalizado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chkPagado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chkEntregado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmbSexo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmbTipoDoc.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtNroDoc.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -790,6 +832,7 @@ Partial Class frmRetiros
         CType(Me.GroupControl4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl4.ResumeLayout(False)
         Me.GroupControl4.PerformLayout()
+        CType(Me.txtDeposito.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtTotFacturado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtTotCobrado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtTotPendiente.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -803,6 +846,7 @@ Partial Class frmRetiros
         CType(Me.RepositoryItemComboBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemComboBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.errorProviderCliente, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemLookUpEdit2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -850,8 +894,6 @@ Partial Class frmRetiros
     Friend WithEvents txtTotCobrado As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtTotPendiente As DevExpress.XtraEditors.TextEdit
     Friend WithEvents lblAlqMov As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents lblNuevoAlquiler As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents btnNuevoAlquiler As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents txtNroDoc As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtEventoFiesta As DevExpress.XtraEditors.TextEdit
@@ -866,8 +908,14 @@ Partial Class frmRetiros
     Friend WithEvents RepositoryItemLookUpEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
     Friend WithEvents RepositoryItemComboBox1 As DevExpress.XtraEditors.Repository.RepositoryItemComboBox
     Friend WithEvents RepositoryItemComboBox2 As DevExpress.XtraEditors.Repository.RepositoryItemComboBox
-    Friend WithEvents btnModifAlquiler As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents LabelControl10 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents btnSigMov As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents btnAntMov As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LabelControl22 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents txtDeposito As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents chkFinalizado As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents chkPagado As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents chkEntregado As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents btnModifAlquiler As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnNuevoAlquiler As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents RepositoryItemLookUpEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
 End Class
