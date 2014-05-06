@@ -87,8 +87,9 @@ Partial Class frmRetiros
         Me.RepositoryItemLookUpEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit()
         Me.RepositoryItemComboBox1 = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox()
         Me.RepositoryItemComboBox2 = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox()
-        Me.errorProviderCliente = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.RepositoryItemLookUpEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit()
+        Me.errorProviderCliente = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.btnAgregarMovArt = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
         CType(Me.txtNroAlquiler.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -132,8 +133,8 @@ Partial Class frmRetiros
         CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemComboBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemComboBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.errorProviderCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemLookUpEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.errorProviderCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupControl1
@@ -159,10 +160,10 @@ Partial Class frmRetiros
         '
         Me.btnModifAlquiler.Image = CType(resources.GetObject("btnModifAlquiler.Image"), System.Drawing.Image)
         Me.btnModifAlquiler.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
-        Me.btnModifAlquiler.Location = New System.Drawing.Point(240, 25)
+        Me.btnModifAlquiler.Location = New System.Drawing.Point(240, 24)
         Me.btnModifAlquiler.Name = "btnModifAlquiler"
         Me.btnModifAlquiler.Size = New System.Drawing.Size(31, 25)
-        Me.btnModifAlquiler.TabIndex = 42
+        Me.btnModifAlquiler.TabIndex = 0
         '
         'btnNuevoAlquiler
         '
@@ -171,7 +172,7 @@ Partial Class frmRetiros
         Me.btnNuevoAlquiler.Location = New System.Drawing.Point(203, 24)
         Me.btnNuevoAlquiler.Name = "btnNuevoAlquiler"
         Me.btnNuevoAlquiler.Size = New System.Drawing.Size(31, 25)
-        Me.btnNuevoAlquiler.TabIndex = 41
+        Me.btnNuevoAlquiler.TabIndex = 0
         '
         'btnAntMov
         '
@@ -256,6 +257,7 @@ Partial Class frmRetiros
         '
         'gpCliente
         '
+        Me.gpCliente.Controls.Add(Me.btnAgregarMovArt)
         Me.gpCliente.Controls.Add(Me.chkFinalizado)
         Me.gpCliente.Controls.Add(Me.chkPagado)
         Me.gpCliente.Controls.Add(Me.chkEntregado)
@@ -471,7 +473,7 @@ Partial Class frmRetiros
         Me.txtObservaciones.EnterMoveNextControl = True
         Me.txtObservaciones.Location = New System.Drawing.Point(372, 130)
         Me.txtObservaciones.Name = "txtObservaciones"
-        Me.txtObservaciones.Size = New System.Drawing.Size(337, 20)
+        Me.txtObservaciones.Size = New System.Drawing.Size(238, 20)
         Me.txtObservaciones.TabIndex = 19
         '
         'txtEmail
@@ -774,17 +776,26 @@ Partial Class frmRetiros
         Me.RepositoryItemComboBox2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.RepositoryItemComboBox2.Name = "RepositoryItemComboBox2"
         '
+        'RepositoryItemLookUpEdit2
+        '
+        Me.RepositoryItemLookUpEdit2.AutoHeight = False
+        Me.RepositoryItemLookUpEdit2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemLookUpEdit2.Name = "RepositoryItemLookUpEdit2"
+        '
         'errorProviderCliente
         '
         Me.errorProviderCliente.BlinkRate = 0
         Me.errorProviderCliente.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.errorProviderCliente.ContainerControl = Me
         '
-        'RepositoryItemLookUpEdit2
+        'btnAgregarMovArt
         '
-        Me.RepositoryItemLookUpEdit2.AutoHeight = False
-        Me.RepositoryItemLookUpEdit2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemLookUpEdit2.Name = "RepositoryItemLookUpEdit2"
+        Me.btnAgregarMovArt.Image = CType(resources.GetObject("btnAgregarMovArt.Image"), System.Drawing.Image)
+        Me.btnAgregarMovArt.Location = New System.Drawing.Point(616, 128)
+        Me.btnAgregarMovArt.Name = "btnAgregarMovArt"
+        Me.btnAgregarMovArt.Size = New System.Drawing.Size(93, 23)
+        Me.btnAgregarMovArt.TabIndex = 39
+        Me.btnAgregarMovArt.Text = "Agregar Art."
         '
         'frmRetiros
         '
@@ -845,8 +856,8 @@ Partial Class frmRetiros
         CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemComboBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemComboBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.errorProviderCliente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemLookUpEdit2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.errorProviderCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -918,4 +929,5 @@ Partial Class frmRetiros
     Friend WithEvents btnModifAlquiler As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents btnNuevoAlquiler As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents RepositoryItemLookUpEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
+    Friend WithEvents btnAgregarMovArt As DevExpress.XtraEditors.SimpleButton
 End Class

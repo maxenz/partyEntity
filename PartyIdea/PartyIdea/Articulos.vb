@@ -12,6 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class Articulos
     Public Property ID As Long
+    Public Property Imagen As Byte()
     Public Property ImageUrl As String
     Public Property Codigo As String
     Public Property CategoriaId As Long

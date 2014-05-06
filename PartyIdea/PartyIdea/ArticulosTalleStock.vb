@@ -12,7 +12,7 @@ Imports System.Collections.Generic
 
 Partial Public Class ArticulosTalleStock
     Public Property ID As Long
-    Public Property Talle As String
+    Public Property TalleId As Nullable(Of Long)
     Public Property Cantidad As Long
     Public Property IdArticulo As Long
     Public Property regUsuarioId As Long
@@ -21,5 +21,6 @@ Partial Public Class ArticulosTalleStock
 
     Public Overridable Property Articulos As Articulos
     Public Overridable Property MovimientosArticulos As ICollection(Of MovimientosArticulos) = New HashSet(Of MovimientosArticulos)
+    Public Overridable Property Talles As Talles
 
 End Class

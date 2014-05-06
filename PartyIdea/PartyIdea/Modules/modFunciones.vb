@@ -1,7 +1,38 @@
 Imports Microsoft.VisualBasic.FileIO.TextFieldParser
 Imports System.Linq
+Imports System.Drawing.Imaging
+Imports System.IO
+Imports DevExpress.XtraBars.Alerter
 
 Module modFunciones
+
+    Public Sub alertStockBajo(ByVal db As PartyIdeaEntities)
+
+        Dim prodAlerts As New Collection
+        Dim lstLowStock = (From a In db.ArticulosTalleStock _
+                           Where a.Articulos.CategoriaId = 65 _
+                           And a.Cantidad < 6 _
+                           Select a.Articulos.Descripcion, a.Cantidad).ToList()
+        If (lstLowStock.Count() > 0) Then
+
+            For Each prod In lstLowStock
+                prodAlerts.Add(prod.Descripcion & "^" & prod.Cantidad)
+            Next
+
+            Dim strAlertProd As String = ""
+            For Each p As String In prodAlerts
+                Dim vProd() As String = p.Split("^")
+                Dim desc As String = vProd(0)
+                Dim cant As Integer = vProd(1)
+                strAlertProd &= desc & " --> Cantidad Disponible: " & cant & Environment.NewLine
+            Next
+
+            Dim info As AlertInfo = New AlertInfo("ALERTA DE STOCK!", strAlertProd)
+            Main.alertStock.Show(Main, info)
+        End If
+
+    End Sub
+
 
     Public Sub SetFormatGroupBox(ByVal pGrp As GroupBox)
         Dim Control As Control
@@ -376,5 +407,6 @@ Module modFunciones
         Return objOperacion
 
     End Function
+
 
 End Module

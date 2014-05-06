@@ -16,6 +16,7 @@ Imports System.Reflection
 Imports DevExpress.Utils
 Imports DevExpress.XtraGrid.Views.Grid
 Imports DevExpress.XtraGrid.Views.Grid.ViewInfo
+Imports System.IO
 
 Public Class Main
 
@@ -42,17 +43,22 @@ Public Class Main
 
         db = New PartyIdeaEntities
 
-        Try       
-            ShowDocument(frmRetiros)
-            'ShowDocument(frmAlquileres)
-            setFilterDisfraces()
-            setItemsGalleryDisfraces()
+        Try
+
             UserLookAndFeel.Default.SetSkinStyle("Office 2007 Green")
+
+            'ShowDocument(frmAlquileres)
+
             formatTooltipGallery()
             setComboEstGestion()
             formatGridGestion()
             formatGridResumenGestion()
             setResumenGestion()
+            alertStockBajo(db)
+            ShowDocument(frmRetiros)
+            setFilterDisfraces()
+            setItemsGalleryDisfraces()
+            ' Construct a new image from the GIF file. 
 
         Catch ex As Exception
             'HandleError(Me.Name, "Main_Load", ex)
@@ -79,7 +85,6 @@ Public Class Main
 
         InitSkins()
         InitializeComponent()
-        Me.InitSkinGallery()
 
     End Sub
 
@@ -88,22 +93,18 @@ Public Class Main
         DevExpress.Skins.SkinManager.EnableFormSkins()
         DevExpress.UserSkins.BonusSkins.Register()
 
-
     End Sub
-    Private Sub InitSkinGallery()
-        SkinHelper.InitSkinGallery(rgbiSkins, True)
 
-    End Sub
 
     Private Sub btnCerrar_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnCerrar.ItemClick
         Me.Close()
     End Sub
 
-    Private Sub btnEntidadesPrestacion_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnEntidadesPrestacion.ItemClick
+    Private Sub btnEntidadesPrestacion_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs)
         'ShowDocument(frmTabPrestaciones)
     End Sub
 
-    Private Sub btnDespacho_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnDespacho.ItemClick
+    Private Sub btnDespacho_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs)
         'ShowDocument(frmIncidentes)
     End Sub
 
@@ -124,13 +125,13 @@ Public Class Main
         'End Try
     End Sub
 
-    Private Sub btnOfertaDemanda_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnOfertaDemanda.ItemClick
+    Private Sub btnOfertaDemanda_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs)
         'ShowDocument(frmTabOfertaDemanda)
     End Sub
 
 
 
-    Private Sub BarButtonItem31_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem31.ItemClick
+    Private Sub BarButtonItem31_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs)
 
         frmEstadisticas.ChartControl1.Visible = True
         frmEstadisticas.ChartControl3.Visible = False
@@ -138,7 +139,7 @@ Public Class Main
 
     End Sub
 
-    Private Sub BarButtonItem32_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem32.ItemClick
+    Private Sub BarButtonItem32_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs)
 
         frmEstadisticas.ChartControl1.Visible = False
         frmEstadisticas.ChartControl3.Visible = False
@@ -146,33 +147,33 @@ Public Class Main
 
     End Sub
 
-    Private Sub BarButtonItem33_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem33.ItemClick
+    Private Sub BarButtonItem33_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs)
         frmEstadisticas.ChartControl1.Visible = False
         frmEstadisticas.ChartControl3.Visible = True
         frmEstadisticas.ChartControl2.Visible = False
     End Sub
 
-    Private Sub ribbonMain_SelectedPageChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ribbonMain.SelectedPageChanged
+    'Private Sub ribbonMain_SelectedPageChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ribbonMain.SelectedPageChanged
 
-        Dim vPage As RibbonControl = CType(sender, RibbonControl)
+    'Dim vPage As RibbonControl = CType(sender, RibbonControl)
 
-        If vPage.SelectedPage.Name = "RibbonPage1" Then
-            frmEstadisticas.Visible = True
-            frmRetiros.Visible = False
-        Else
-            frmEstadisticas.Visible = False
-            frmRetiros.Visible = True
-        End If
+    'If vPage.SelectedPage.Name = "RibbonPage1" Then
+    '    frmEstadisticas.Visible = True
+    '    frmRetiros.Visible = False
+    'Else
+    '    frmEstadisticas.Visible = False
+    '    frmRetiros.Visible = True
+    'End If
 
 
-    End Sub
+    'End Sub
 
     Private Sub setFilterDisfraces()
 
         Dim qCat = (From c In db.Categorias Select c.ID, c.Descripcion).ToList
         lkFiltroCat.Properties.DataSource = qCat
         setLookupProperties(lkFiltroCat)
-        lkFiltroCat.Text = "DISFRAZ MUJER"
+        lkFiltroCat.EditValue = lkFiltroCat.Properties.GetKeyValueByDisplayText("DISFRAZ MUJER")
 
         dtFiltroGaleria.Properties.ShowClear = False
         dtFiltroGaleria.DateTime = Date.Today
@@ -208,9 +209,9 @@ Public Class Main
 
         For Each art In qArt
 
-            Dim img = My.Resources.ResourceManager.GetObject(art.ImageUrl)
+            If (Not IsNothing(art.Imagen)) Then
 
-            If (Not IsNothing(img)) Then
+                Dim img = byteArrayToImage(art.Imagen)
 
                 Dim tItem As TileItem = New TileItem()
 
@@ -232,30 +233,35 @@ Public Class Main
 
     Private Sub tileGaleria_Click(sender As Object, e As MouseEventArgs) Handles tileGaleria.MouseClick
 
-        Dim control As TileControl = TryCast(sender, TileControl)
-        Dim item As TileItem = control.SelectedItem
+        Try
+            Dim control As TileControl = TryCast(sender, TileControl)
+            Dim item As TileItem = control.SelectedItem
 
-        Dim id_art As Integer = item.Id
-        Dim qItem = db.Articulos.Find(id_art)
-        Dim fechaDesde As DateTime = dtFiltroGaleria.DateTime
-        Dim fechaHasta As DateTime = getFechaDevolucion(fechaDesde)
-        Dim hi As TileControlHitInfo = control.CalcHitInfo(control.PointToClient(MousePosition))
-        If hi.InItem Then
-            Dim msj As String = ""
-            For Each ats In qItem.ArticulosTalleStock.ToList
-                Dim strCant As String = ""
-                Dim cant As Integer = getStock(ats, fechaDesde, fechaHasta, db)
-                If cant = 0 Then
-                    strCant = ", Stock: " & "<color=red><b>" & cant & "</b></color>"
-                Else
-                    strCant = ", Stock: " & cant
-                End If
-                msj = msj & "<size=12>Talle: " & ats.Talle & strCant & "</size>" & Environment.NewLine
-            Next
-            defController.ShowHint(msj, MousePosition)
-        Else
-            defController.HideHint()
-        End If
+            Dim id_art As Integer = item.Id
+            Dim qItem = db.Articulos.Find(id_art)
+            Dim fechaDesde As DateTime = dtFiltroGaleria.DateTime
+            Dim fechaHasta As DateTime = getFechaDevolucion(fechaDesde)
+            Dim hi As TileControlHitInfo = control.CalcHitInfo(control.PointToClient(MousePosition))
+            If hi.InItem Then
+                Dim msj As String = ""
+                For Each ats In qItem.ArticulosTalleStock.ToList
+                    Dim strCant As String = ""
+                    Dim cant As Integer = getStock(ats, fechaDesde, fechaHasta, db)
+                    If cant = 0 Then
+                        strCant = ", Stock: " & "<color=red><b>" & cant & "</b></color>"
+                    Else
+                        strCant = ", Stock: " & cant
+                    End If
+                    msj = msj & "<size=12>Talle: " & ats.Talles.Descripcion & strCant & "</size>" & Environment.NewLine
+                Next
+                defController.ShowHint(msj, MousePosition)
+            Else
+                defController.HideHint()
+            End If
+        Catch ex As Exception
+
+        End Try
+
 
     End Sub
 
@@ -319,7 +325,6 @@ Public Class Main
 
         grdGestion.DataSource = New DataView(dtMovGestion)
 
-
     End Sub
 
     Private Function getListMovGestion() As List(Of MovimientosGestion)
@@ -363,7 +368,6 @@ Public Class Main
                             .Estado = movArt.Movimientos.EstadosMovimientos.FirstOrDefault.Estados.Descripcion
                         }).ToList()
 
-
             For Each movArt As MovimientosGestion In qMov
 
                 lstMovGestion.Add(movArt)
@@ -396,6 +400,7 @@ Public Class Main
         grdViewResumenGestion.OptionsView.ShowGroupPanel = False
         grdViewResumenGestion.OptionsBehavior.Editable = False
         grdViewResumenGestion.OptionsBehavior.ReadOnly = True
+
 
     End Sub
 
@@ -497,5 +502,36 @@ Public Class Main
 
     End Sub
 
+    Private Sub BarButtonItem6_ItemClick(sender As Object, e As ItemClickEventArgs) Handles barBtnArticulos.ItemClick
+
+        ShowDocument(frmArticulos)
+
+    End Sub
+
+    Public Function byteArrayToImage(byteArrayIn As Byte()) As Image
+        Dim ms As New MemoryStream(byteArrayIn)
+        Dim returnImage As Image = Image.FromStream(ms)
+        Return returnImage
+    End Function
+
+    Private Sub barBtnMovimientos_ItemClick(sender As Object, e As ItemClickEventArgs) Handles barBtnMovimientos.ItemClick
+        ShowDocument(frmRetiros)
+    End Sub
+
+    Private Sub BarButtonItem30_ItemClick(sender As Object, e As ItemClickEventArgs) Handles BarButtonItem30.ItemClick
+        RadialMenu1.ShowPopup(New Point(500, 300))
+    End Sub
+
+    Private Sub btnCategorias_Click(sender As Object, e As ItemClickEventArgs) Handles btnCategorias.ItemClick
+
+        frmCategorias.StartPosition = FormStartPosition.CenterScreen
+        frmCategorias.Show()
+        RadialMenu1.HidePopup()
+
+    End Sub
+
+    Private Sub BarButtonItem27_ItemClick(sender As Object, e As ItemClickEventArgs) Handles BarButtonItem27.ItemClick
+        alertStockBajo(db)
+    End Sub
 
 End Class

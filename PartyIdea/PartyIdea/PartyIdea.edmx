@@ -19,6 +19,7 @@
           <EntitySet Name="Movimientos" EntityType="PartyIdeaModel.Store.Movimientos" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MovimientosArticulos" EntityType="PartyIdeaModel.Store.MovimientosArticulos" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Operaciones" EntityType="PartyIdeaModel.Store.Operaciones" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Talles" EntityType="PartyIdeaModel.Store.Talles" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TipoDocumentos" EntityType="PartyIdeaModel.Store.TipoDocumentos" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TipoEventos" EntityType="PartyIdeaModel.Store.TipoEventos" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Usuarios" EntityType="PartyIdeaModel.Store.Usuarios" store:Type="Tables" Schema="dbo" />
@@ -74,6 +75,10 @@
             <End Role="Operaciones" EntitySet="Operaciones" />
             <End Role="MovimientosArticulos" EntitySet="MovimientosArticulos" />
           </AssociationSet>
+          <AssociationSet Name="FK_Talles_ArticulosTalleStock" Association="PartyIdeaModel.Store.FK_Talles_ArticulosTalleStock">
+            <End Role="Talles" EntitySet="Talles" />
+            <End Role="ArticulosTalleStock" EntitySet="ArticulosTalleStock" />
+          </AssociationSet>
           <AssociationSet Name="FK_TipoDocumento_Clientes" Association="PartyIdeaModel.Store.FK_TipoDocumento_Clientes">
             <End Role="TipoDocumentos" EntitySet="TipoDocumentos" />
             <End Role="Clientes" EntitySet="Clientes" />
@@ -84,6 +89,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Imagen" Type="image" />
           <Property Name="ImageUrl" Type="varchar" MaxLength="150" />
           <Property Name="Codigo" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="CategoriaId" Type="bigint" Nullable="false" />
@@ -102,7 +108,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Talle" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="TalleId" Type="bigint" />
           <Property Name="Cantidad" Type="bigint" Nullable="false" />
           <Property Name="IdArticulo" Type="bigint" Nullable="false" />
           <Property Name="regUsuarioId" Type="bigint" Nullable="false" />
@@ -254,6 +260,15 @@
           </Key>
           <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Talles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="regUsuarioId" Type="bigint" Nullable="false" />
+          <Property Name="regFechaHora" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="TipoDocumentos">
           <Key>
@@ -460,6 +475,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Talles_ArticulosTalleStock">
+          <End Role="Talles" Type="PartyIdeaModel.Store.Talles" Multiplicity="0..1" />
+          <End Role="ArticulosTalleStock" Type="PartyIdeaModel.Store.ArticulosTalleStock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Talles">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ArticulosTalleStock">
+              <PropertyRef Name="TalleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TipoDocumento_Clientes">
           <End Role="TipoDocumentos" Type="PartyIdeaModel.Store.TipoDocumentos" Multiplicity="0..1" />
           <End Role="Clientes" Type="PartyIdeaModel.Store.Clientes" Multiplicity="*" />
@@ -491,6 +518,7 @@
           <EntitySet Name="Movimientos" EntityType="PartyIdeaModel.Movimientos" />
           <EntitySet Name="MovimientosArticulos" EntityType="PartyIdeaModel.MovimientosArticulos" />
           <EntitySet Name="Operaciones" EntityType="PartyIdeaModel.Operaciones" />
+          <EntitySet Name="Talles" EntityType="PartyIdeaModel.Talles" />
           <EntitySet Name="TipoDocumentos" EntityType="PartyIdeaModel.TipoDocumentos" />
           <EntitySet Name="TipoEventos" EntityType="PartyIdeaModel.TipoEventos" />
           <EntitySet Name="Usuarios" EntityType="PartyIdeaModel.Usuarios" />
@@ -509,6 +537,10 @@
           <AssociationSet Name="FK_ArticulosTalleStock_MovimientosArticulos" Association="PartyIdeaModel.FK_ArticulosTalleStock_MovimientosArticulos">
             <End Role="ArticulosTalleStock" EntitySet="ArticulosTalleStock" />
             <End Role="MovimientosArticulos" EntitySet="MovimientosArticulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Talles_ArticulosTalleStock" Association="PartyIdeaModel.FK_Talles_ArticulosTalleStock">
+            <End Role="Talles" EntitySet="Talles" />
+            <End Role="ArticulosTalleStock" EntitySet="ArticulosTalleStock" />
           </AssociationSet>
           <AssociationSet Name="FK_Localidad_Clientes" Association="PartyIdeaModel.FK_Localidad_Clientes">
             <End Role="Localidades" EntitySet="Localidades" />
@@ -556,6 +588,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ImageUrl" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
           <Property Name="Codigo" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="CategoriaId" Type="Int64" Nullable="false" />
@@ -577,7 +610,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Talle" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="TalleId" Type="Int64" />
           <Property Name="Cantidad" Type="Int64" Nullable="false" />
           <Property Name="IdArticulo" Type="Int64" Nullable="false" />
           <Property Name="regUsuarioId" Type="Int64" Nullable="false" />
@@ -585,6 +618,7 @@
           <Property Name="regTerminalId" Type="Int64" />
           <NavigationProperty Name="Articulos" Relationship="PartyIdeaModel.FK_ArticulosTalleStock_Articulos" FromRole="ArticulosTalleStock" ToRole="Articulos" />
           <NavigationProperty Name="MovimientosArticulos" Relationship="PartyIdeaModel.FK_ArticulosTalleStock_MovimientosArticulos" FromRole="ArticulosTalleStock" ToRole="MovimientosArticulos" />
+          <NavigationProperty Name="Talles" Relationship="PartyIdeaModel.FK_Talles_ArticulosTalleStock" FromRole="ArticulosTalleStock" ToRole="Talles" />
         </EntityType>
         <EntityType Name="Categorias">
           <Key>
@@ -752,6 +786,16 @@
           <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="MovimientosArticulos" Relationship="PartyIdeaModel.FK_Operaciones_MovimientosArticulos" FromRole="Operaciones" ToRole="MovimientosArticulos" />
         </EntityType>
+        <EntityType Name="Talles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="regUsuarioId" Type="Int64" Nullable="false" />
+          <Property Name="regFechaHora" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ArticulosTalleStock" Relationship="PartyIdeaModel.FK_Talles_ArticulosTalleStock" FromRole="Talles" ToRole="ArticulosTalleStock" />
+        </EntityType>
         <EntityType Name="TipoDocumentos">
           <Key>
             <PropertyRef Name="ID" />
@@ -839,6 +883,18 @@
             </Principal>
             <Dependent Role="MovimientosArticulos">
               <PropertyRef Name="ArticuloTalleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Talles_ArticulosTalleStock">
+          <End Role="Talles" Type="PartyIdeaModel.Talles" Multiplicity="0..1" />
+          <End Role="ArticulosTalleStock" Type="PartyIdeaModel.ArticulosTalleStock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Talles">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ArticulosTalleStock">
+              <PropertyRef Name="TalleId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -982,6 +1038,7 @@
             <EntityTypeMapping TypeName="PartyIdeaModel.Articulos">
               <MappingFragment StoreEntitySet="Articulos">
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
                 <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
@@ -1001,7 +1058,7 @@
             <EntityTypeMapping TypeName="PartyIdeaModel.ArticulosTalleStock">
               <MappingFragment StoreEntitySet="ArticulosTalleStock">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Talle" ColumnName="Talle" />
+                <ScalarProperty Name="TalleId" ColumnName="TalleId" />
                 <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
                 <ScalarProperty Name="IdArticulo" ColumnName="IdArticulo" />
                 <ScalarProperty Name="regUsuarioId" ColumnName="regUsuarioId" />
@@ -1164,6 +1221,16 @@
               <MappingFragment StoreEntitySet="Operaciones">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Talles">
+            <EntityTypeMapping TypeName="PartyIdeaModel.Talles">
+              <MappingFragment StoreEntitySet="Talles">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="regUsuarioId" ColumnName="regUsuarioId" />
+                <ScalarProperty Name="regFechaHora" ColumnName="regFechaHora" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

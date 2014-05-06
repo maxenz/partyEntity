@@ -1,6 +1,8 @@
 ﻿Public Class frmSplash
     Sub New()
+
         InitializeComponent()
+
     End Sub
 
     Public Overrides Sub ProcessCommand(ByVal cmd As System.Enum, ByVal arg As Object)

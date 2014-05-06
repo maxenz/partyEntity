@@ -35,6 +35,7 @@ Partial Public Class PartyIdeaEntities
     Public Property Movimientos() As DbSet(Of Movimientos)
     Public Property MovimientosArticulos() As DbSet(Of MovimientosArticulos)
     Public Property Operaciones() As DbSet(Of Operaciones)
+    Public Property Talles() As DbSet(Of Talles)
     Public Property TipoDocumentos() As DbSet(Of TipoDocumentos)
     Public Property TipoEventos() As DbSet(Of TipoEventos)
     Public Property Usuarios() As DbSet(Of Usuarios)

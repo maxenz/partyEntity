@@ -1,4 +1,22 @@
-C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Release\Shaman.exe.config
-C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\Shaman.exe
-C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\Shaman.xml
-C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\Shaman.pdb
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Release\Party Idea.exe.config
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Release\Party Idea.exe
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Release\Party Idea.pdb
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Release\Party Idea.xml
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Release\EntityFramework.dll
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Release\EntityFramework.xml
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\PartyIdea.frmArticulos.resources
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\PartyIdea.frmArticulosEditar.resources
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\PartyIdea.frmCategorias.resources
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\PartyIdea.frmCategoriasEditar.resources
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\PartyIdea.frmEstadisticas.resources
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\PartyIdea.frmMovimientoArticulo.resources
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\PartyIdea.frmRetiros.resources
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\PartyIdea.Main.resources
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\PartyIdea.Resources.resources
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\PartyIdea.frmSplash.resources
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\PartyIdea.Recursos.resources
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\PartyIdea.vbproj.GenerateResource.Cache
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\Party Idea.exe.licenses
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\Party Idea.exe
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\Party Idea.xml
+C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\obj\Release\Party Idea.pdb

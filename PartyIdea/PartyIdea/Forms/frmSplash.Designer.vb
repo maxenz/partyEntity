@@ -22,30 +22,12 @@ Partial Class frmSplash
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSplash))
-        Me.pictureEdit1 = New DevExpress.XtraEditors.PictureEdit()
         Me.labelControl2 = New DevExpress.XtraEditors.LabelControl()
-        Me.labelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.marqueeProgressBarControl1 = New DevExpress.XtraEditors.MarqueeProgressBarControl()
         Me.pictureEdit2 = New DevExpress.XtraEditors.PictureEdit()
-        CType(Me.pictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.marqueeProgressBarControl1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pictureEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'pictureEdit1
-        '
-        Me.pictureEdit1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.pictureEdit1.EditValue = CType(resources.GetObject("pictureEdit1.EditValue"), Object)
-        Me.pictureEdit1.Location = New System.Drawing.Point(267, 266)
-        Me.pictureEdit1.Name = "pictureEdit1"
-        Me.pictureEdit1.Properties.AllowFocused = False
-        Me.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.pictureEdit1.Properties.Appearance.Options.UseBackColor = True
-        Me.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.pictureEdit1.Properties.ShowMenu = False
-        Me.pictureEdit1.Size = New System.Drawing.Size(171, 48)
-        Me.pictureEdit1.TabIndex = 13
         '
         'labelControl2
         '
@@ -54,15 +36,6 @@ Partial Class frmSplash
         Me.labelControl2.Size = New System.Drawing.Size(70, 13)
         Me.labelControl2.TabIndex = 12
         Me.labelControl2.Text = "Inicializando..."
-        '
-        'labelControl1
-        '
-        Me.labelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.labelControl1.Location = New System.Drawing.Point(23, 286)
-        Me.labelControl1.Name = "labelControl1"
-        Me.labelControl1.Size = New System.Drawing.Size(115, 13)
-        Me.labelControl1.TabIndex = 11
-        Me.labelControl1.Text = "Copyright © 2004-2013"
         '
         'marqueeProgressBarControl1
         '
@@ -75,7 +48,7 @@ Partial Class frmSplash
         'pictureEdit2
         '
         Me.pictureEdit2.Cursor = System.Windows.Forms.Cursors.Default
-        Me.pictureEdit2.EditValue = CType(resources.GetObject("pictureEdit2.EditValue"), Object)
+        Me.pictureEdit2.EditValue = Global.PartyIdea.My.Resources.Resources.party_splash
         Me.pictureEdit2.Location = New System.Drawing.Point(12, 12)
         Me.pictureEdit2.Name = "pictureEdit2"
         Me.pictureEdit2.Properties.AllowFocused = False
@@ -90,24 +63,19 @@ Partial Class frmSplash
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(450, 320)
+        Me.ClientSize = New System.Drawing.Size(450, 261)
         Me.Controls.Add(Me.pictureEdit2)
-        Me.Controls.Add(Me.pictureEdit1)
         Me.Controls.Add(Me.labelControl2)
-        Me.Controls.Add(Me.labelControl1)
         Me.Controls.Add(Me.marqueeProgressBarControl1)
         Me.Name = "frmSplash"
         Me.Text = "Form1"
-        CType(Me.pictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.marqueeProgressBarControl1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pictureEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Private WithEvents pictureEdit1 As DevExpress.XtraEditors.PictureEdit
     Private WithEvents labelControl2 As DevExpress.XtraEditors.LabelControl
-    Private WithEvents labelControl1 As DevExpress.XtraEditors.LabelControl
     Private WithEvents marqueeProgressBarControl1 As DevExpress.XtraEditors.MarqueeProgressBarControl
     Private WithEvents pictureEdit2 As DevExpress.XtraEditors.PictureEdit
 End Class

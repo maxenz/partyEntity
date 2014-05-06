@@ -16,7 +16,9 @@ Public Class frmRetiros
     Private db As PartyIdeaEntities
     Dim ciUSA As CultureInfo = New CultureInfo("en-US")
     Dim global_cliente_id As Integer = 0
-
+    Private frmMovArt As frmMovimientoArticulo
+    Private mArt As MovimientosArticulos
+    Private bGridClick As Boolean
 
     Public Sub New()
 
@@ -33,6 +35,7 @@ Public Class frmRetiros
             setMovArtDatasource(0)
         End If
 
+        grdViewArticulosMov.OptionsBehavior.Editable = False
 
         ' Seteo columna unbound Restan ->
         Dim columnExtPrice As GridColumn = New GridColumn()
@@ -46,55 +49,14 @@ Public Class frmRetiros
         columnExtPrice.AppearanceCell.BackColor = Color.Pink
         columnExtPrice.OptionsColumn.AllowEdit = False
 
-        ' Seteo lookupedit para CODIGO DE ARTICULO (valido el otro lookup de DESCRIPCION con este)
-        Dim lkCodArt As New RepositoryItemLookUpEdit()
-        lkCodArt.DisplayMember = "Codigo"
-        lkCodArt.ValueMember = "Codigo"
-        lkCodArt.NullText = "Sel. Código ..."
-        Dim codArtLookup = (From a In db.Articulos Select a.Descripcion, a.Codigo).ToList
-        lkCodArt.Columns.Add(New LookUpColumnInfo("Codigo", 40, "Codigo"))
-        lkCodArt.Columns.Add(New LookUpColumnInfo("Descripcion", 150, "Descripcion"))
-        lkCodArt.PopupWidth = 300
-        lkCodArt.DataSource = codArtLookup
-        grdViewArticulosMov.Columns("Codigo").ColumnEdit = lkCodArt
-
-        ' Seteo lookupedit para DESCRIPCION DE ARTICULO (valido el otro lookup de CODIGO con este)
-        Dim lkDescrArt As New RepositoryItemLookUpEdit()
-        lkDescrArt.DisplayMember = "Descripcion"
-        lkDescrArt.ValueMember = "Descripcion"
-        lkDescrArt.NullText = "Sel. Disfraz..."
-        Dim descArtLookup = (From a In db.Articulos Select a.Descripcion, a.Codigo).ToList
-        lkDescrArt.Columns.Add(New LookUpColumnInfo("Descripcion", 150, "Descripcion"))
-        lkDescrArt.Columns.Add(New LookUpColumnInfo("Codigo", 40, "Codigo"))
-        lkDescrArt.PopupWidth = 300
-        lkDescrArt.DataSource = descArtLookup
-        grdViewArticulosMov.Columns("Descripcion").ColumnEdit = lkDescrArt
-
-        'Seteo combobox de cantidades
-        Dim cmbCantidad = RepositoryItemComboBox2
-        For i As Integer = 0 To 20
-            cmbCantidad.Items.Add(i)
-        Next
-        grdViewArticulosMov.Columns("Cantidad").ColumnEdit = cmbCantidad
-        cmbCantidad.TextEditStyle = TextEditStyles.DisableTextEditor
-
-        'Seteo lookupedit de operaciones
-        Dim lkOperacion As RepositoryItemLookUpEdit = RepositoryItemLookUpEdit2
-        lkOperacion.DisplayMember = "Descripcion"
-        lkOperacion.ValueMember = "ID"
-        lkOperacion.AllowNullInput = DefaultBoolean.False
-        lkOperacion.NullText = "Sel. Operacion..."
-        Dim opeLookup = (From a In db.Operaciones Select a.ID, a.Descripcion).ToList
-        lkOperacion.Columns.Add(New LookUpColumnInfo("Descripcion", 20, "Descripcion"))
-        lkOperacion.DataSource = opeLookup
-
         'Seteo configuraciones generales grilla movArt
-        grdViewArticulosMov.Columns("OperacionId").ColumnEdit = lkOperacion
-        grdViewArticulosMov.Columns("OperacionId").Caption = "Operación"
+        'grdViewArticulosMov.Columns("OperacionId").ColumnEdit = lkOperacion
+        grdViewArticulosMov.Columns("Operacion").Caption = "Operación"
         grdViewArticulosMov.Columns("Importe").OptionsColumn.AllowEdit = False
         grdViewArticulosMov.Columns("Codigo").Width = 50
         grdViewArticulosMov.Columns("Descripcion").Width = 100
-        grdViewArticulosMov.Columns("OperacionId").Width = 50
+        grdViewArticulosMov.Columns("Operacion").Width = 50
+        grdViewArticulosMov.Columns("Talle").Caption = "Talle"
         grdViewArticulosMov.Columns("Talle").Width = 50
         grdViewArticulosMov.Columns("Talle").AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center
         grdViewArticulosMov.Columns("Cantidad").Width = 25
@@ -113,7 +75,6 @@ Public Class frmRetiros
         'Setos generales de controles
         dtFechaMovimiento.DateTime = Date.Today
         btnNuevoAlquiler.Focus()
-        createCmbTalle()
         setAutocompleteEventos()
         setLookupTipoDoc()
         setFormatTextEdit()
@@ -122,12 +83,12 @@ Public Class frmRetiros
         setLocationErrorProviders()
         blockClientControls()
 
-
     End Sub
     Public Sub setMovimiento(ByVal mov As Movimientos)
 
         'Seteo movimiento en pantalla
 
+        bGridClick = False
 
         txtNroAlquiler.Text = mov.NroSolicitud
         dtFechaMovimiento.DateTime = mov.FecMovimiento
@@ -184,7 +145,6 @@ Public Class frmRetiros
 
         Next
 
-
     End Sub
 
     Public Sub setMovArtDatasource(ByVal movId As Integer)
@@ -193,17 +153,22 @@ Public Class frmRetiros
 
         Dim movArt = (From m In db.MovimientosArticulos _
                       Where m.MovimientoId = movId _
-                      Select m.ArticulosTalleStock.Articulos.Codigo, _
-                      m.ArticulosTalleStock.Articulos.Descripcion, _
-                      m.OperacionId, _
-                      m.FecEntrega, m.FecDevolucion, _
-                      m.ArticulosTalleStock.Talle, _
-                      m.ArticulosTalleStock.Cantidad, _
-                      m.Importe, m.Abona, m.ID).ToList
+                      Select New With {
+                        .ID = m.ID,
+                        .Codigo = m.ArticulosTalleStock.Articulos.Codigo,
+                        .Descripcion = m.ArticulosTalleStock.Articulos.Descripcion,
+                        .Operacion = m.Operaciones.Descripcion,
+                        .FecEntrega = m.FecEntrega,
+                        .FecDevolucion = m.FecDevolucion,
+                        .Talle = m.ArticulosTalleStock.Talles.Descripcion,
+                        .Cantidad = m.Cantidad,
+                        .Importe = m.Importe,
+                        .Abona = m.Abona
+                        }).ToList()
 
         Dim dtMovArt As DataTable = ListToDataTable(movArt)
 
-        grdArticulosMov.DataSource = New DataView(dtMovArt)
+        grdArticulosMov.DataSource = dtMovArt
 
     End Sub
 
@@ -218,7 +183,6 @@ Public Class frmRetiros
         txtTelefonoPrincipal.Enabled = True
         btnAntMov.Enabled = False
         btnSigMov.Enabled = False
-        grdViewArticulosMov.OptionsBehavior.Editable = True
         txtEventoFiesta.Enabled = True
         txtDeposito.Enabled = True
         txtEventoFiesta.Text = ""
@@ -227,8 +191,13 @@ Public Class frmRetiros
         txtNroAlquiler.Text = getMovimientoNro()
         grdArticulosMov.DataSource = Nothing
         setMovArtDatasource(0)
-        grdViewArticulosMov.AddNewRow()
-        grdViewArticulosMov.UpdateCurrentRow()
+
+        txtTotCobrado.EditValue = 0D
+        txtTotFacturado.EditValue = 0D
+        txtTotPendiente.EditValue = 0D
+        txtDeposito.EditValue = 0D
+
+        bGridClick = True
 
     End Sub
 
@@ -356,6 +325,11 @@ Public Class frmRetiros
 
         'Uso transacción para mantener consistencia
 
+        If (grdViewArticulosMov.RowCount = 0) Then
+            MsgBox("Debe agregar por lo menos un movimiento!", MsgBoxStyle.Critical)
+            Return
+        End If
+
         Using transaction As New TransactionScope()
 
             Try
@@ -431,15 +405,10 @@ Public Class frmRetiros
                 Do While i < grdViewArticulosMov.RowCount
                     Dim row As DataRow = grdViewArticulosMov.GetDataRow(i)
                     If Not row Is Nothing Then
-                        If (Not (validoRow(row))) Then
-                            Return
-                        Else
-                            Dim movArtId As Integer = 0
-                            If (Not (IsDBNull(row("ID")))) Then movArtId = row("ID")
-
-                            Dim movArt As MovimientosArticulos = db.MovimientosArticulos.Find(movArtId)
-                            createOrModifyMovArt(row, movimiento_id, movArt)
-                        End If
+                        Dim movArtId As Integer = 0
+                        If (Not (IsDBNull(row("ID")))) Then movArtId = row("ID")
+                        Dim movArt As MovimientosArticulos = db.MovimientosArticulos.Find(movArtId)
+                        createOrModifyMovArt(row, movimiento_id, movArt)
                     End If
                     i += 1
                 Loop
@@ -456,7 +425,7 @@ Public Class frmRetiros
 
         End Using
 
-        MsgBox("El proceso se realizó correctamente.", MsgBoxStyle.Exclamation)
+        MsgBox("El proceso se realizó correctamente.", MsgBoxStyle.Information)
 
         Dim ultMov = getLastMov()
         setMovimiento(ultMov)
@@ -479,19 +448,45 @@ Public Class frmRetiros
 
         Try
 
-            Dim codArt As String = row("Codigo")
-            Dim talle As String = row("Talle")
+            Dim cantArt As Integer
+            Dim cantRow As Integer = Convert.ToInt32(row("Cantidad"))
+            If (movArt.ID <> 0) Then
+                cantArt = movArt.Cantidad
+            End If
 
+            Dim codArt As String = row("Codigo")
+            Dim strTalle As String = row("Talle")
+            Dim strOpe As String = row("Operacion")
+            Dim talleId As Integer = (From t In db.Talles Where t.Descripcion = strTalle Select t.ID).FirstOrDefault()
+            Dim operacionID As Integer = (From t In db.Operaciones Where t.Descripcion = strOpe Select t.ID).FirstOrDefault()
             Dim idArt = (From a In db.Articulos Where a.Codigo = codArt Select a.ID).FirstOrDefault
 
             Dim aTStock = (From ats In db.ArticulosTalleStock _
-                          Where ats.Talle = talle And ats.IdArticulo = idArt
+                          Where ats.TalleId = talleId And ats.IdArticulo = idArt
                           Select ats).FirstOrDefault
+
+            If (strOpe = "VENTA") Then
+                movArt.Descripcion = "VENTA"
+                If (movArt.ID = 0) Then
+                    aTStock.Cantidad = aTStock.Cantidad - cantRow
+                Else
+                    If (cantArt > cantRow) Then
+                        aTStock.Cantidad = aTStock.Cantidad + (cantArt - cantRow)
+                    Else
+                        aTStock.Cantidad = aTStock.Cantidad - (cantRow - cantArt)
+                    End If
+                End If
+
+                db.Entry(aTStock).State = EntityState.Modified
+
+            Else
+                movArt.Descripcion = "ALQUILER DE DISFRAZ"
+            End If
 
             movArt.MovimientoId = mov_id
             movArt.ArticuloTalleId = aTStock.ID
             movArt.FecEntrega = row("FecEntrega")
-            movArt.OperacionId = row("OperacionId")
+            movArt.OperacionId = operacionID
             movArt.FecDevolucion = row("FecDevolucion")
             movArt.Abona = row("Abona")
             movArt.Cantidad = row("Cantidad")
@@ -499,9 +494,9 @@ Public Class frmRetiros
             movArt.flgDevuelto = 0
             movArt.regUsuarioId = 1
             movArt.regFechaHora = getFechaHoraActual()
-            movArt.Descripcion = "ALQUILER NORMAL"
 
             db.Entry(movArt).State = If(movArt.ID = 0, EntityState.Added, EntityState.Modified)
+
             db.SaveChanges()
 
         Catch ex As Exception
@@ -535,6 +530,14 @@ Public Class frmRetiros
 
             'Si algun control falla la validacion, seteo los errorProviders y no avanzo
 
+            Dim nroDoc As Long
+            Dim stDoc As String = txtNroDoc.Text
+            If (stDoc = "") Then
+                nroDoc = 0
+            Else
+                nroDoc = Convert.ToDouble(stDoc)
+            End If
+
             cliente.Apellido = txtApellidoCliente.Text
             cliente.CodigoPostal = txtCodPostal.Text
             cliente.dmAltura = txtAltura.Text
@@ -545,7 +548,7 @@ Public Class frmRetiros
             cliente.FecNacimiento = dtFecNac.DateTime
             cliente.LocalidadId = cmbLocalidad.EditValue
             cliente.Nombre = txtNombreCliente.Text
-            cliente.NroDocumento = txtNroDoc.Text
+            cliente.NroDocumento = nroDoc
             cliente.Observaciones = txtObservaciones.Text
             cliente.Sexo = cmbSexo.Text
             cliente.TelefonoCelular = txtTelefonoPrincipal.Text
@@ -588,23 +591,6 @@ Public Class frmRetiros
                     errorProviderCliente.SetError(ctrl, "")
                 End If
 
-                'ElseIf typeCtrl = "ComboBoxEdit" Then
-                '    If ctrl.SelectedIndex = -1 Then
-                '        errorProviderCliente.SetIconPadding(ctrl, -30)
-                '        errorProviderCliente.SetError(ctrl, "Debe seleccionar una opción.")
-                '        vBoolValidation = False
-                '    Else
-                '        errorProviderCliente.SetError(ctrl, "")
-                '    End If
-
-                'ElseIf typeCtrl = "LookUpEdit" Then
-                '    If ctrl.ItemIndex = -1 Then
-                '        errorProviderCliente.SetIconPadding(ctrl, -30)
-                '        errorProviderCliente.SetError(ctrl, "Debe seleccionar una opción.")
-                '        vBoolValidation = False
-                '    Else
-                '        errorProviderCliente.SetError(ctrl, "")
-                '    End If
             End If
 
         Next
@@ -753,94 +739,6 @@ Public Class frmRetiros
 
     End Sub
 
-    Private Sub grdViewArticulosMov_CellValueChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs) Handles grdViewArticulosMov.CellValueChanged
-        Dim fieldName As String = e.Column.FieldName
-        Select Case fieldName
-            Case "Abona"
-
-                calculoTotales()
-
-        End Select
-    End Sub
-
-    Private Sub grdViewArticulosMov_CellValueChanging(sender As Object, e As DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs) Handles grdViewArticulosMov.CellValueChanging
-
-        Dim fieldName As String = e.Column.FieldName
-        Select Case fieldName
-
-            Case "Codigo"
-
-                Dim cod As String = e.Value
-
-                'createLookupTalle()
-
-                Dim disfraz = (From a In db.Articulos Where a.Codigo = cod Select a.Descripcion).FirstOrDefault
-
-                validarDisfrazDatagrid("Descripcion", disfraz, e.RowHandle)
-
-                setDefaultValuesInGrid(e.RowHandle)
-
-                grdViewArticulosMov.SetRowCellValue(e.RowHandle, "Codigo", e.Value)
-
-                grdViewArticulosMov.SetRowCellValue(e.RowHandle, "Talle", Nothing)
-
-            Case "Talle"
-
-                setDefaultValuesInGrid(e.RowHandle)
-
-            Case "Descripcion"
-
-                Dim desc As String = e.Value
-
-                Dim disfraz = (From a In db.Articulos Where a.Descripcion = desc Select a.Codigo).FirstOrDefault
-
-                'createLookupTalle()
-
-                validarDisfrazDatagrid("Codigo", disfraz, e.RowHandle)
-
-                setDefaultValuesInGrid(e.RowHandle)
-
-                grdViewArticulosMov.SetRowCellValue(e.RowHandle, "Descripcion", e.Value)
-
-                grdViewArticulosMov.SetRowCellValue(e.RowHandle, "Talle", Nothing)
-
-            Case "Abona"
-
-                calculoTotales()
-
-            Case "FecEntrega"
-
-                Dim dateDevolucion As DateTime = getFechaDevolucion(e.Value)
-                grdViewArticulosMov.SetRowCellValue(e.RowHandle, "FecDevolucion", dateDevolucion)
-                grdViewArticulosMov.SetRowCellValue(e.RowHandle, "Talle", Nothing)
-                setDefaultValuesInGrid(e.RowHandle)
-
-            Case "FecDevolucion"
-
-                grdViewArticulosMov.SetRowCellValue(e.RowHandle, "Talle", Nothing)
-                setDefaultValuesInGrid(e.RowHandle)
-
-            Case "OperacionId"
-
-                Dim rowHandle As Integer = grdViewArticulosMov.FocusedRowHandle
-
-                If (e.Value = 3) Then
-
-                    grdViewArticulosMov.SetRowCellValue(rowHandle, "FecEntrega", Date.Today)
-                    grdViewArticulosMov.SetRowCellValue(rowHandle, "FecDevolucion", Date.Today)
-                    grdViewArticulosMov.SetRowCellValue(rowHandle, "Talle", "UNICO")
-                Else
-                    grdViewArticulosMov.SetRowCellValue(rowHandle, "Talle", Nothing)
-                    grdViewArticulosMov.SetRowCellValue(rowHandle, "FecEntrega", Nothing)
-                    grdViewArticulosMov.SetRowCellValue(rowHandle, "FecDevolucion", Nothing)
-                End If
-
-                grdViewArticulosMov.SetRowCellValue(rowHandle, "OperacionId", e.Value)
-
-        End Select
-
-    End Sub
-
     Private Sub validarDisfrazDatagrid(ByVal campo As String, ByVal disfraz As String, ByVal rowHandle As Integer)
 
         If IsNothing(disfraz) Then
@@ -848,18 +746,6 @@ Public Class frmRetiros
         Else
             grdViewArticulosMov.SetRowCellValue(rowHandle, campo, disfraz)
         End If
-
-    End Sub
-    Private Sub createCmbTalle()
-
-        Dim cmbTalle As New RepositoryItemComboBox
-        Dim qTalle = (From ats In db.ArticulosTalleStock Select ats.Talle).Distinct.ToList
-
-        For Each talle In qTalle
-            cmbTalle.Items.Add(talle.ToString)
-        Next
-        cmbTalle.TextEditStyle = TextEditStyles.DisableTextEditor
-        grdViewArticulosMov.Columns("Talle").ColumnEdit = cmbTalle
 
     End Sub
 
@@ -878,7 +764,7 @@ Public Class frmRetiros
         End If
     End Sub
 
-    Private Sub calculoTotales()
+    Public Sub calculoTotales()
 
         'Calculo los totales de los articulos seleccionados para el movimiento
 
@@ -898,14 +784,8 @@ Public Class frmRetiros
         txtTotFacturado.Text = String.Format(ciUSA, "{0:c}", acFacturado)
         txtTotCobrado.Text = String.Format(ciUSA, "{0:c}", acCobrado)
         txtTotPendiente.Text = String.Format(ciUSA, "{0:c}", totPendiente)
-        txtDeposito.Text = acFacturado
-
-    End Sub
-
-    Private Sub grdViewArticulosMov_InitNewRow(sender As Object, e As DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs) Handles grdViewArticulosMov.InitNewRow
-
-        setDefaultValuesInGrid(e.RowHandle)
-        grdViewArticulosMov.SetRowCellValue(e.RowHandle, "Talle", Nothing)
+        'el deposito que lo ponga ella manualmente o ver que quiere.
+        'txtDeposito.Text = acFacturado
 
     End Sub
 
@@ -916,174 +796,6 @@ Public Class frmRetiros
         grdViewArticulosMov.SetRowCellValue(rowHandle, "Cantidad", 0)
 
     End Sub
-
-    Private Sub RepositoryItemComboBox2_SelectedValueChanged(sender As Object, e As EventArgs) Handles RepositoryItemComboBox2.SelectedValueChanged
-
-        'Aca veo si hay stock, si hay, calculo el importe
-
-        Dim edit As ComboBoxEdit = DirectCast(sender, ComboBoxEdit)
-        Dim editValue As Object = edit.EditValue
-
-        'Cálculo de importe ->
-        Dim rowHandle = grdViewArticulosMov.FocusedRowHandle
-        Dim dataRow = grdViewArticulosMov.GetDataRow(rowHandle)
-        Dim objCodArt = dataRow("Codigo")
-        Dim objTalle = dataRow("Talle")
-        Dim objFecEntrega = dataRow("FecEntrega")
-        Dim objFecDevolucion = dataRow("FecDevolucion")
-        Dim cant = editValue
-        Dim stockDisponible As Integer
-
-        If (cant > 0) Then
-
-            cant = CInt(cant)
-
-            If (Not (IsDBNull(objCodArt)) And Not (IsDBNull(objTalle)) And Not (IsDBNull(objFecEntrega)) And Not (IsDBNull(objFecDevolucion))) Then
-
-                Dim talle As String = CStr(objTalle)
-                Dim codArt As String = CStr(objCodArt)
-
-                Dim ats = (From a In db.ArticulosTalleStock Where a.Articulos.Codigo = codArt _
-                              And a.Talle = talle Select a).FirstOrDefault
-
-                If (Not (IsNothing(ats))) Then
-
-                    If (IsDBNull(dataRow("ID"))) Then
-                        stockDisponible = getStock(ats, objFecEntrega, objFecDevolucion, db)
-                    Else
-                        stockDisponible = getStock(ats, objFecEntrega, objFecDevolucion, db, dataRow("ID"))
-                    End If
-
-                    If (cant > stockDisponible) Then
-
-                        MsgBox("No hay stock.", MsgBoxStyle.Critical)
-                        grdViewArticulosMov.SetRowCellValue(rowHandle, "Cantidad", 0)
-
-                    Else
-
-                        Dim importe As Double = ats.Articulos.Precio
-                        Dim impTotal As Double = importe * cant
-                        dataRow("Importe") = impTotal
-
-                        Dim operacionId = grdViewArticulosMov.GetRowCellValue(rowHandle, "OperacionId")
-                        If operacionId = 3 Then
-                            dataRow("Abona") = impTotal
-                        End If
-
-
-                    End If
-
-                Else
-
-                    MsgBox("No hay stock.", MsgBoxStyle.Critical)
-                    grdViewArticulosMov.SetRowCellValue(rowHandle, "Cantidad", 0)
-
-                End If
-
-            Else
-                grdViewArticulosMov.SetRowCellValue(rowHandle, "Cantidad", 0)
-                MsgBox("Ingrese código, talle y fechas antes de ingresar la cantidad", MsgBoxStyle.Critical)
-
-            End If
-
-        Else
-
-            grdViewArticulosMov.SetRowCellValue(rowHandle, "Importe", 0)
-            grdViewArticulosMov.SetRowCellValue(rowHandle, "Cantidad", 0)
-
-        End If
-
-    End Sub
-
-    Private Function validateCompleteRows() As Boolean
-
-        Dim i As Integer = 0
-        Do While i < grdViewArticulosMov.RowCount
-            Dim row As DataRow = grdViewArticulosMov.GetDataRow(i)
-            If Not row Is Nothing Then
-                If (Not (validoRow(row))) Then
-                    Return False
-                End If
-            End If
-            i += 1
-        Loop
-
-        Return True
-
-    End Function
-
-    Public Function validoRow(ByVal row As DataRow) As Boolean
-
-        'Valido que todos los campos tenga un valor correcto
-
-        For i As Integer = 0 To 5
-
-            If (IsDBNull(row.ItemArray.GetValue(i))) Then
-
-                Dim col As String = row.Table.Columns(i).ColumnName
-
-                makeErrorInvalidColumn(col)
-
-                Return False
-
-            End If
-
-        Next
-
-        If (row.ItemArray.GetValue(6) = 0) Then
-
-            Dim col As String = row.Table.Columns(4).ColumnName
-
-            makeErrorInvalidColumn(col)
-
-            Return False
-
-        End If
-
-
-        For i As Integer = 7 To 8
-
-            If (row.ItemArray.GetValue(i) = 0D) Then
-
-                Dim col As String = row.Table.Columns(i).ColumnName
-
-                makeErrorInvalidColumn(col)
-
-                Return False
-
-            End If
-
-        Next
-
-
-        Return True
-
-    End Function
-
-    Public Sub makeErrorInvalidColumn(ByVal col As String)
-
-        Dim msjError = "Para agregar un nuevo artículo, complete el campo " & col & "."
-
-        MsgBox(msjError, MsgBoxStyle.Critical)
-
-    End Sub
-
-    Private Sub frmRetiros_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-
-        If e.KeyCode = Keys.F2 Then
-            If (grdViewArticulosMov.OptionsBehavior.Editable) Then
-                If Not (IsNothing(grdViewArticulosMov.DataSource)) Then
-                    If validateCompleteRows() Then
-
-                        grdViewArticulosMov.AddNewRow()
-                        grdViewArticulosMov.UpdateCurrentRow()
-
-                    End If
-                End If
-            End If
-        End If
-    End Sub
-
 
     Private Sub btnCancelarMov_Click(sender As Object, e As EventArgs) Handles btnCancelarMov.Click
 
@@ -1139,7 +851,6 @@ Public Class frmRetiros
 
             End If
         Next
-
 
     End Sub
 
@@ -1199,11 +910,13 @@ Public Class frmRetiros
             unblockClientControls()
             btnAceptarMovimiento.Enabled = True
             txtTelefonoPrincipal.Enabled = True
-            grdViewArticulosMov.OptionsBehavior.Editable = True
+            ' grdViewArticulosMov.OptionsBehavior.Editable = True
             txtEventoFiesta.Enabled = True
             txtDeposito.Enabled = True
 
         End If
+
+        bGridClick = True
 
     End Sub
 
@@ -1284,4 +997,135 @@ Public Class frmRetiros
 
     End Sub
 
+    Private Sub btnAgregarMovArt_Click(sender As Object, e As EventArgs) Handles btnAgregarMovArt.Click
+        mArt = New MovimientosArticulos()
+        InsertMovArt(mArt, "Nuevo Movimiento")
+    End Sub
+
+
+
+    Private Sub InsertMovArt(ByVal mArt As MovimientosArticulos, ByVal windowTitle As String)
+
+        frmMovArt = New frmMovimientoArticulo(mArt, True) With {.Text = windowTitle}
+        frmMovArt.StartPosition = FormStartPosition.CenterScreen
+        frmMovArt.ShowDialog()
+
+    End Sub
+
+    Private Sub grdViewArticulosMov_DoubleClick(sender As Object, e As EventArgs) Handles grdViewArticulosMov.DoubleClick
+
+        If (bGridClick) Then
+
+            If grdViewArticulosMov.FocusedRowHandle < 0 Then
+                MsgBox("No seleccionaste ningun artículo para editar.", MsgBoxStyle.Critical)
+                Return
+            End If
+            mArt = Nothing
+            mArt = GetCurrentMovArt()
+            EditMovArt(mArt, "Editar Movimiento")
+
+        End If
+
+    End Sub
+
+    Private Sub EditMovArt(ByVal mArt As MovimientosArticulos, ByVal windowTitle As String)
+
+        Dim row As Integer = grdViewArticulosMov.FocusedRowHandle
+        frmMovArt = New frmMovimientoArticulo(mArt, False, row) With {.Text = windowTitle}
+        frmMovArt.StartPosition = FormStartPosition.CenterScreen
+        frmMovArt.ShowDialog()
+
+    End Sub
+
+    Private Function GetCurrentMovArt() As MovimientosArticulos
+
+        Dim cod As String = grdViewArticulosMov.GetRowCellValue(grdViewArticulosMov.FocusedRowHandle, "Codigo")
+        Dim desc As String = grdViewArticulosMov.GetRowCellValue(grdViewArticulosMov.FocusedRowHandle, "Descripcion")
+        Dim operacion As String = grdViewArticulosMov.GetRowCellValue(grdViewArticulosMov.FocusedRowHandle, "Operacion")
+        Dim fecEntrega As Date = grdViewArticulosMov.GetRowCellValue(grdViewArticulosMov.FocusedRowHandle, "FecEntrega")
+        Dim fecDevolucion As Date = grdViewArticulosMov.GetRowCellValue(grdViewArticulosMov.FocusedRowHandle, "FecDevolucion")
+        Dim Talle As String = grdViewArticulosMov.GetRowCellValue(grdViewArticulosMov.FocusedRowHandle, "Talle")
+        Dim Cantidad As Integer = grdViewArticulosMov.GetRowCellValue(grdViewArticulosMov.FocusedRowHandle, "Cantidad")
+        Dim Importe As Double = grdViewArticulosMov.GetRowCellValue(grdViewArticulosMov.FocusedRowHandle, "Importe")
+        Dim Abona As Double = grdViewArticulosMov.GetRowCellValue(grdViewArticulosMov.FocusedRowHandle, "Abona")
+        Dim id_mov_art As Integer = grdViewArticulosMov.GetRowCellValue(grdViewArticulosMov.FocusedRowHandle, "ID")
+
+        Dim op_id As Integer = (From o In db.Operaciones Where o.Descripcion = operacion Select o.ID).FirstOrDefault
+
+        mArt = New MovimientosArticulos
+        mArt.FecEntrega = fecEntrega
+        mArt.FecDevolucion = fecDevolucion
+        mArt.Cantidad = Cantidad
+        mArt.Importe = Importe
+        mArt.Abona = Abona
+        mArt.ID = id_mov_art
+        mArt.OperacionId = op_id
+        mArt.ArticuloTalleId = getATID(cod, Talle)
+
+        Return mArt
+
+    End Function
+
+    Private Function getATID(ByVal cod As String, ByVal talle As String) As Integer
+
+        Dim idArt As Integer = (From a In db.Articulos Where a.Codigo = cod Select a.ID).FirstOrDefault()
+        Dim talleId As Integer = (From t In db.Talles Where t.Descripcion = talle Select t.ID).FirstOrDefault()
+
+        Dim atid As Integer = (From s In db.ArticulosTalleStock Where s.IdArticulo = idArt _
+                                Where s.TalleId = talleId Select s.ID).FirstOrDefault()
+
+        Return atid
+
+    End Function
+
+    Private Sub grdViewArticulosMov_KeyDown(sender As Object, e As KeyEventArgs) Handles grdViewArticulosMov.KeyDown
+
+        If (bGridClick) Then
+
+            If (e.KeyCode = Keys.Delete) Then
+
+                Dim result = MessageBox.Show("¿Está seguro que desea borrar el movimiento?", "Atención!", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                If result = DialogResult.Yes Then
+                    Dim rowHandle = grdViewArticulosMov.FocusedRowHandle
+
+                    Dim idMov = grdViewArticulosMov.GetRowCellValue(rowHandle, "ID")
+
+                    If (idMov <> 0) Then
+                        Try
+                            Dim mArt As MovimientosArticulos = db.MovimientosArticulos.Find(idMov)
+                            If (mArt.OperacionId = 3) Then
+                                Dim ats As ArticulosTalleStock = mArt.ArticulosTalleStock
+                                ats.Cantidad = ats.Cantidad + mArt.Cantidad
+                                db.Entry(ats).State = EntityState.Modified                              
+                            End If
+                            db.MovimientosArticulos.Remove(mArt)
+                            db.SaveChanges()
+                        Catch ex As Exception
+                            MsgBox("Error! No se pudo borrar el movimiento", MsgBoxStyle.Critical)
+                        End Try
+                    End If
+
+                    Dim dt As DataTable = grdArticulosMov.DataSource
+                    dt.Rows.RemoveAt(rowHandle)
+                    grdArticulosMov.DataSource = dt
+
+                End If
+            End If
+        End If
+
+    End Sub
+
+    Private Sub frmRetiros_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+
+        If (bGridClick) Then
+
+            If (e.KeyCode = Keys.F2) Then
+
+                mArt = New MovimientosArticulos()
+                InsertMovArt(mArt, "Nuevo Movimiento")
+
+            End If
+        End If
+
+    End Sub
 End Class

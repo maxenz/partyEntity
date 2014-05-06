@@ -339,12 +339,12 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
-		<row><td>EntityFramework.dll</td><td>{04D9ED78-8BC9-48D1-869B-30C03587307E}</td><td>INSTALLDIR</td><td>2</td><td/><td>entityframework.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>EntityFramework.dll</td><td>{E42FDEC1-B570-4E44-ABAD-E9A857DA76DC}</td><td>INSTALLDIR</td><td>2</td><td/><td>entityframework.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{6EFF67F6-3955-4329-A98B-904341CBC026}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Shaman.exe</td><td>{CEC0C78C-CA79-40C2-AD70-2843E238D511}</td><td>INSTALLDIR</td><td>2</td><td/><td>shaman.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Shaman.vshost.exe</td><td>{85FE272C-C624-477A-BC5B-67847985EC13}</td><td>INSTALLDIR</td><td>2</td><td/><td>shaman.vshost.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ShamanClases.dll</td><td>{36316698-ED06-445C-B79A-604B4147EDCD}</td><td>INSTALLDIR</td><td>2</td><td/><td>shamanclases.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>WeifenLuo.WinFormsUI.Docking.dll</td><td>{F938B99F-69D2-408F-ACDA-DA8618731FD0}</td><td>INSTALLDIR</td><td>2</td><td/><td>weifenluo.winformsui.docking</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Party_Idea.exe</td><td>{0FD481CE-1ECF-4A8A-926B-52405B8B8CB7}</td><td>INSTALLDIR</td><td>2</td><td/><td>party_idea.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Party_Idea.vshost.exe</td><td>{1AE096CE-BB94-466E-995C-A947F8CBE5F5}</td><td>INSTALLDIR</td><td>2</td><td/><td>party_idea.vshost.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ShamanClases.dll</td><td>{9F91E1BA-7831-4744-A8F7-DD9D6AA1CE49}</td><td>INSTALLDIR</td><td>2</td><td/><td>shamanclases.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>WeifenLuo.WinFormsUI.Docking.dll</td><td>{26443266-6820-45AD-9991-E4A364C52AF5}</td><td>INSTALLDIR</td><td>2</td><td/><td>weifenluo.winformsui.docking</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1867,8 +1867,8 @@
 		<col key="yes" def="s72">Component_</col>
 		<row><td>AlwaysInstall</td><td>EntityFramework.dll</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
-		<row><td>AlwaysInstall</td><td>Shaman.exe</td></row>
-		<row><td>AlwaysInstall</td><td>Shaman.vshost.exe</td></row>
+		<row><td>AlwaysInstall</td><td>Party_Idea.exe</td></row>
+		<row><td>AlwaysInstall</td><td>Party_Idea.vshost.exe</td></row>
 		<row><td>AlwaysInstall</td><td>ShamanClases.dll</td></row>
 		<row><td>AlwaysInstall</td><td>WeifenLuo.WinFormsUI.Docking.dll</td></row>
 	</table>
@@ -1887,12 +1887,13 @@
 		<col def="S72">ISComponentSubFolder_</col>
 		<row><td>entityframework.dll</td><td>EntityFramework.dll</td><td>ENTITY~1.DLL|EntityFramework.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\EntityFramework.dll</td><td>1</td><td/></row>
 		<row><td>entityframework.xml</td><td>ISX_DEFAULTCOMPONENT</td><td>ENTITY~1.XML|EntityFramework.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\EntityFramework.xml</td><td>1</td><td/></row>
-		<row><td>shaman.exe</td><td>Shaman.exe</td><td>Shaman.exe</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Shaman.exe</td><td>1</td><td/></row>
-		<row><td>shaman.exe.config</td><td>ISX_DEFAULTCOMPONENT</td><td>SHAMAN~1.CON|Shaman.exe.config</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Shaman.exe.config</td><td>1</td><td/></row>
-		<row><td>shaman.pdb</td><td>ISX_DEFAULTCOMPONENT</td><td>Shaman.pdb</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Shaman.pdb</td><td>1</td><td/></row>
-		<row><td>shaman.vshost.exe</td><td>Shaman.vshost.exe</td><td>SHAMAN~1.EXE|Shaman.vshost.exe</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Shaman.vshost.exe</td><td>1</td><td/></row>
+		<row><td>party_idea.exe</td><td>Party_Idea.exe</td><td>PARTYI~1.EXE|Party Idea.exe</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Party Idea.exe</td><td>1</td><td/></row>
+		<row><td>party_idea.exe.config</td><td>ISX_DEFAULTCOMPONENT</td><td>PARTYI~1.CON|Party Idea.exe.config</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Party Idea.exe.config</td><td>1</td><td/></row>
+		<row><td>party_idea.pdb</td><td>ISX_DEFAULTCOMPONENT</td><td>PARTYI~1.PDB|Party Idea.pdb</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Party Idea.pdb</td><td>1</td><td/></row>
+		<row><td>party_idea.vshost.exe</td><td>Party_Idea.vshost.exe</td><td>PARTYI~1.EXE|Party Idea.vshost.exe</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Party Idea.vshost.exe</td><td>1</td><td/></row>
+		<row><td>party_idea.vshost.exe.config</td><td>ISX_DEFAULTCOMPONENT</td><td>PARTYI~1.CON|Party Idea.vshost.exe.config</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Party Idea.vshost.exe.config</td><td>1</td><td/></row>
+		<row><td>party_idea.xml</td><td>ISX_DEFAULTCOMPONENT</td><td>PARTYI~1.XML|Party Idea.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Party Idea.xml</td><td>1</td><td/></row>
 		<row><td>shaman.vshost.exe.config</td><td>ISX_DEFAULTCOMPONENT</td><td>SHAMAN~1.CON|Shaman.vshost.exe.config</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Shaman.vshost.exe.config</td><td>1</td><td/></row>
-		<row><td>shaman.xml</td><td>ISX_DEFAULTCOMPONENT</td><td>Shaman.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Shaman.xml</td><td>1</td><td/></row>
 		<row><td>shamanclases.dll</td><td>ShamanClases.dll</td><td>SHAMAN~1.DLL|ShamanClases.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\ShamanClases.dll</td><td>1</td><td/></row>
 		<row><td>shamanclases.pdb</td><td>ISX_DEFAULTCOMPONENT</td><td>SHAMAN~1.PDB|ShamanClases.pdb</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\ShamanClases.pdb</td><td>1</td><td/></row>
 		<row><td>shamanclases.xml</td><td>ISX_DEFAULTCOMPONENT</td><td>SHAMAN~1.XML|ShamanClases.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\ShamanClases.xml</td><td>1</td><td/></row>
@@ -2040,12 +2041,12 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
-		<row><td>EntityFramework.dll</td><td/><td/><td>_ABD0DCA1_5064_4E3B_8D0E_C149345B4644_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>EntityFramework.dll</td><td/><td/><td>_75C50996_DB47_42E9_BE29_D554C03725F8_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_596408EE_3857_413D_A28E_0F708008108F_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Shaman.exe</td><td/><td/><td>_BFBAB041_00E7_41A0_B0DD_CB56BE90BC5F_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Shaman.vshost.exe</td><td/><td/><td>_B6D558F0_0CBF_48A4_924A_1B85A55E8FF2_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ShamanClases.dll</td><td/><td/><td>_851F0F13_C808_4A66_BDA0_6F22260D7473_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>WeifenLuo.WinFormsUI.Docking.dll</td><td/><td/><td>_2FCFD5C1_4272_4B97_AB19_07BD76ED4EA0_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Party_Idea.exe</td><td/><td/><td>_8672BAA1_1B69_45E1_B8BF_D108891DCF21_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Party_Idea.vshost.exe</td><td/><td/><td>_579BBE06_536B_4E89_9499_F3A1AC5AB34F_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ShamanClases.dll</td><td/><td/><td>_720CF6FF_8181_4E9A_9090_A7AED01FEF45_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>WeifenLuo.WinFormsUI.Docking.dll</td><td/><td/><td>_D6D7A8D1_BB03_4497_BC5C_F61470BFA244_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -3477,6 +3478,8 @@
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td>LAUNCH~1.EXE|Launch Shaman.exe</td><td>0</td><td/><td>1705105647</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>1033</td><td>LAUNCH~1.EXE|Launch Shaman.exe</td><td>0</td><td/><td>1705109967</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>1033</td><td>LAUNCH~1.EXE|Launch Shaman.vshost.exe</td><td>0</td><td/><td>1705109967</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME4</td><td>1033</td><td>LAUNCH~1.EXE|Launch Party Idea.exe</td><td>0</td><td/><td>-1247710448</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME5</td><td>1033</td><td>LAUNCH~1.EXE|Launch Party Idea.vshost.exe</td><td>0</td><td/><td>-1247710448</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>1033</td><td>From the list of servers below, select the database server you would like to target.</td><td>0</td><td/><td>1705064655</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>1033</td><td>From the list of catalog names below, select the database catalog you would like to target.</td><td>0</td><td/><td>1705064655</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>1033</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>1705064655</td></row>
@@ -3768,6 +3771,7 @@
 		<row><td>ID_STRING1</td><td>1033</td><td>http://www.partyidea.com.ar</td><td>0</td><td/><td>1705089231</td></row>
 		<row><td>ID_STRING2</td><td>1033</td><td>PARAMEDIC</td><td>0</td><td/><td>1705064655</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>LAUNCH~1.EXE|Launch Shaman.exe</td><td>0</td><td/><td>1705052431</td></row>
+		<row><td>ID_STRING4</td><td>1033</td><td>LAUNCH~1.EXE|Launch Party Idea.exe</td><td>0</td><td/><td>-1247704304</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>1705064655</td></row>
 	</table>
 
@@ -3876,6 +3880,8 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
+		<row><td>Party_Idea.exe1_9578EE4B9960434196BC2259C82AF57D.exe</td><td/><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Party Idea.exe</td><td>0</td></row>
+		<row><td>Party_Idea.exe_D7387C287FA94DEFA6A534DD427C7E53.exe</td><td/><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Party Idea.exe</td><td>0</td></row>
 		<row><td>Shaman.exe1_69E28CD5BAAE4785984F0D9BA8EA5A39.exe</td><td/><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Shaman.exe</td><td>0</td></row>
 		<row><td>Shaman.exe_E1D3BBB085394621AC271542C52EF60A.exe</td><td/><td>C:\Users\soporte\Desktop\Proyectos .NET\partyEntity\PartyIdea\PartyIdea\bin\Debug\Shaman.exe</td><td>0</td></row>
 		<row><td>Shaman.vshost.exe_12F30477ED6942B19150772744269FC7.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
@@ -4011,7 +4017,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{CA3B1F61-C212-4715-8FCB-248C8067D9A9}</td></row>
 		<row><td>ISUSSignature</td><td>{420ABCFE-FDBD-4542-A7D4-4481003C5C8B}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewAppFiles,viewUI,viewBillboards,viewTextMessages,viewRelease</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewAppFiles,viewUI,viewBillboards,viewTextMessages,viewRelease,viewISToday</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4460,8 +4466,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L255">FileName</col>
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
-		<row><td>Shaman.exe</td><td>Shaman.exe</td><td/><td>partyi_1_partyidea</td><td>2</td></row>
-		<row><td>Shaman.vshost.exe</td><td>Shaman.vshost.exe</td><td/><td>partyi_1_partyidea</td><td>2</td></row>
+		<row><td>Party_Idea.exe</td><td>Party_Idea.exe</td><td/><td>partyi_1_partyidea</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4547,8 +4552,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>Shaman.exe</td><td>partyi_1_partyidea</td><td>##IDS_SHORTCUT_DISPLAY_NAME2##</td><td>Shaman.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>Shaman.exe_E1D3BBB085394621AC271542C52EF60A.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>Shaman.vshost.exe</td><td>partyi_1_partyidea</td><td>##IDS_SHORTCUT_DISPLAY_NAME3##</td><td>Shaman.vshost.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>Shaman.vshost.exe_12F30477ED6942B19150772744269FC7.exe</td><td>0</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>Party_Idea.exe</td><td>partyi_1_partyidea</td><td>##IDS_SHORTCUT_DISPLAY_NAME4##</td><td>Party_Idea.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>Party_Idea.exe_D7387C287FA94DEFA6A534DD427C7E53.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>Party_Idea.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME4##</td><td>Party_Idea.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>Party_Idea.exe1_9578EE4B9960434196BC2259C82AF57D.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">

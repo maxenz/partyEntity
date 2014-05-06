@@ -20,56 +20,30 @@ Partial Class Main
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim SplashScreenManager1 As DevExpress.XtraSplashScreen.SplashScreenManager = New DevExpress.XtraSplashScreen.SplashScreenManager(Me, GetType(Global.PartyIdea.frmSplash), True, True)
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
-        Dim TileItemElement1 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement2 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement3 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement4 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
-        Dim TileItemElement5 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
+        Dim TileItemElement6 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
+        Dim TileItemElement7 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
+        Dim TileItemElement8 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
+        Dim TileItemElement9 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
+        Dim TileItemElement10 As DevExpress.XtraEditors.TileItemElement = New DevExpress.XtraEditors.TileItemElement()
         Me.ribbonMain = New DevExpress.XtraBars.Ribbon.RibbonControl()
         Me.ribbonImageCollection = New DevExpress.Utils.ImageCollection(Me.components)
-        Me.btnCostosContables = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem5 = New DevExpress.XtraBars.BarButtonItem()
-        Me.btnOfertaDemanda = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem7 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem8 = New DevExpress.XtraBars.BarButtonItem()
-        Me.rgbiSkins = New DevExpress.XtraBars.RibbonGalleryBarItem()
         Me.BarButtonItem9 = New DevExpress.XtraBars.BarButtonItem()
         Me.btnCerrar = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem12 = New DevExpress.XtraBars.BarButtonItem()
-        Me.btnEntidadesPrestacion = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem10 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem13 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem14 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem15 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem16 = New DevExpress.XtraBars.BarButtonItem()
-        Me.btnDespacho = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem18 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem19 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem20 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem21 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem22 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem23 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem24 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem6 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem17 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem25 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem26 = New DevExpress.XtraBars.BarButtonItem()
+        Me.barBtnArticulos = New DevExpress.XtraBars.BarButtonItem()
+        Me.barBtnMovimientos = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem27 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem28 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem29 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem30 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem31 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem32 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem33 = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnGeneros = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnCategorias = New DevExpress.XtraBars.BarButtonItem()
         Me.ribbonImageCollectionLarge = New DevExpress.Utils.ImageCollection(Me.components)
         Me.rbnPageShaman = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup5 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
-        Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup3 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup4 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -98,7 +72,6 @@ Partial Class Main
         Me.dtFiltroGaleria = New DevExpress.XtraEditors.DateEdit()
         Me.DockPanel1 = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
-        Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.grdResumenGestion = New DevExpress.XtraGrid.GridControl()
         Me.grdViewResumenGestion = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.cmbEstadosGestion = New DevExpress.XtraEditors.ComboBoxEdit()
@@ -112,6 +85,8 @@ Partial Class Main
         Me.TileItem8 = New DevExpress.XtraEditors.TileItem()
         Me.TileItem9 = New DevExpress.XtraEditors.TileItem()
         Me.TileItem10 = New DevExpress.XtraEditors.TileItem()
+        Me.RadialMenu1 = New DevExpress.XtraBars.Ribbon.RadialMenu()
+        Me.alertStock = New DevExpress.XtraBars.Alerter.AlertControl(Me.components)
         CType(Me.ribbonMain, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ribbonImageCollection, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ribbonImageCollectionLarge, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -136,6 +111,7 @@ Partial Class Main
         CType(Me.cmbEstadosGestion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdGestion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdViewMovGestion, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RadialMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ribbonMain
@@ -143,10 +119,10 @@ Partial Class Main
         Me.ribbonMain.ApplicationCaption = "Party Idea"
         Me.ribbonMain.ExpandCollapseItem.Id = 0
         Me.ribbonMain.Images = Me.ribbonImageCollection
-        Me.ribbonMain.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonMain.ExpandCollapseItem, Me.btnCostosContables, Me.BarButtonItem2, Me.BarButtonItem3, Me.BarButtonItem4, Me.BarButtonItem5, Me.btnOfertaDemanda, Me.BarButtonItem7, Me.BarButtonItem8, Me.rgbiSkins, Me.BarButtonItem9, Me.btnCerrar, Me.BarButtonItem12, Me.btnEntidadesPrestacion, Me.BarButtonItem10, Me.BarButtonItem13, Me.BarButtonItem14, Me.BarButtonItem15, Me.BarButtonItem16, Me.btnDespacho, Me.BarButtonItem1, Me.BarButtonItem18, Me.BarButtonItem19, Me.BarButtonItem20, Me.BarButtonItem21, Me.BarButtonItem22, Me.BarButtonItem23, Me.BarButtonItem24, Me.BarButtonItem6, Me.BarButtonItem17, Me.BarButtonItem25, Me.BarButtonItem26, Me.BarButtonItem27, Me.BarButtonItem28, Me.BarButtonItem29, Me.BarButtonItem30, Me.BarButtonItem31, Me.BarButtonItem32, Me.BarButtonItem33})
+        Me.ribbonMain.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonMain.ExpandCollapseItem, Me.BarButtonItem9, Me.btnCerrar, Me.BarButtonItem12, Me.BarButtonItem15, Me.BarButtonItem16, Me.barBtnArticulos, Me.barBtnMovimientos, Me.BarButtonItem27, Me.BarButtonItem28, Me.BarButtonItem30, Me.btnGeneros, Me.btnCategorias})
         Me.ribbonMain.LargeImages = Me.ribbonImageCollectionLarge
         Me.ribbonMain.Location = New System.Drawing.Point(0, 0)
-        Me.ribbonMain.MaxItemId = 45
+        Me.ribbonMain.MaxItemId = 50
         Me.ribbonMain.Name = "ribbonMain"
         Me.ribbonMain.PageHeaderItemLinks.Add(Me.BarButtonItem9)
         Me.ribbonMain.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.rbnPageShaman, Me.RibbonPage1})
@@ -183,73 +159,6 @@ Partial Class Main
         Me.ribbonImageCollection.InsertGalleryImage("cards_16x16.png", "images/grid/cards_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/grid/cards_16x16.png"), 19)
         Me.ribbonImageCollection.Images.SetKeyName(19, "cards_16x16.png")
         '
-        'btnCostosContables
-        '
-        Me.btnCostosContables.Caption = "Costos Contables"
-        Me.btnCostosContables.Id = 1
-        Me.btnCostosContables.LargeImageIndex = 9
-        Me.btnCostosContables.Name = "btnCostosContables"
-        '
-        'BarButtonItem2
-        '
-        Me.BarButtonItem2.Caption = "Coeficiente de Costos"
-        Me.BarButtonItem2.Enabled = False
-        Me.BarButtonItem2.Id = 2
-        Me.BarButtonItem2.ImageIndex = 15
-        Me.BarButtonItem2.Name = "BarButtonItem2"
-        '
-        'BarButtonItem3
-        '
-        Me.BarButtonItem3.Caption = "Censo de Prestaciones"
-        Me.BarButtonItem3.Enabled = False
-        Me.BarButtonItem3.Id = 3
-        Me.BarButtonItem3.ImageIndex = 15
-        Me.BarButtonItem3.Name = "BarButtonItem3"
-        '
-        'BarButtonItem4
-        '
-        Me.BarButtonItem4.Caption = "Ver mas tableros..."
-        Me.BarButtonItem4.Enabled = False
-        Me.BarButtonItem4.Id = 4
-        Me.BarButtonItem4.ImageIndex = 15
-        Me.BarButtonItem4.Name = "BarButtonItem4"
-        '
-        'BarButtonItem5
-        '
-        Me.BarButtonItem5.Caption = "Productividad de Móviles"
-        Me.BarButtonItem5.Enabled = False
-        Me.BarButtonItem5.Id = 5
-        Me.BarButtonItem5.LargeImageIndex = 10
-        Me.BarButtonItem5.Name = "BarButtonItem5"
-        '
-        'btnOfertaDemanda
-        '
-        Me.btnOfertaDemanda.Caption = "Oferta y Demanda"
-        Me.btnOfertaDemanda.Id = 6
-        Me.btnOfertaDemanda.ImageIndex = 16
-        Me.btnOfertaDemanda.Name = "btnOfertaDemanda"
-        '
-        'BarButtonItem7
-        '
-        Me.BarButtonItem7.Caption = "Tiempos Operativos"
-        Me.BarButtonItem7.Enabled = False
-        Me.BarButtonItem7.Id = 7
-        Me.BarButtonItem7.ImageIndex = 16
-        Me.BarButtonItem7.Name = "BarButtonItem7"
-        '
-        'BarButtonItem8
-        '
-        Me.BarButtonItem8.Caption = "Ver mas tableros..."
-        Me.BarButtonItem8.Enabled = False
-        Me.BarButtonItem8.Id = 8
-        Me.BarButtonItem8.ImageIndex = 16
-        Me.BarButtonItem8.Name = "BarButtonItem8"
-        '
-        'rgbiSkins
-        '
-        Me.rgbiSkins.Id = 9
-        Me.rgbiSkins.Name = "rgbiSkins"
-        '
         'BarButtonItem9
         '
         Me.BarButtonItem9.Caption = "Acerca de..."
@@ -274,38 +183,6 @@ Partial Class Main
         Me.BarButtonItem12.ImageIndex = 8
         Me.BarButtonItem12.Name = "BarButtonItem12"
         '
-        'btnEntidadesPrestacion
-        '
-        Me.btnEntidadesPrestacion.Caption = "Entidades por Prestación"
-        Me.btnEntidadesPrestacion.Id = 16
-        Me.btnEntidadesPrestacion.LargeImageIndex = 11
-        Me.btnEntidadesPrestacion.Name = "btnEntidadesPrestacion"
-        Me.btnEntidadesPrestacion.Tag = 12
-        '
-        'BarButtonItem10
-        '
-        Me.BarButtonItem10.Caption = "Entidades por Cápita"
-        Me.BarButtonItem10.Enabled = False
-        Me.BarButtonItem10.Id = 17
-        Me.BarButtonItem10.ImageIndex = 17
-        Me.BarButtonItem10.Name = "BarButtonItem10"
-        '
-        'BarButtonItem13
-        '
-        Me.BarButtonItem13.Caption = "Centros de Venta"
-        Me.BarButtonItem13.Enabled = False
-        Me.BarButtonItem13.Id = 18
-        Me.BarButtonItem13.ImageIndex = 17
-        Me.BarButtonItem13.Name = "BarButtonItem13"
-        '
-        'BarButtonItem14
-        '
-        Me.BarButtonItem14.Caption = "Ver mas tableros..."
-        Me.BarButtonItem14.Enabled = False
-        Me.BarButtonItem14.Id = 19
-        Me.BarButtonItem14.ImageIndex = 17
-        Me.BarButtonItem14.Name = "BarButtonItem14"
-        '
         'BarButtonItem15
         '
         Me.BarButtonItem15.Caption = "Cambiar Contraseña"
@@ -322,108 +199,33 @@ Partial Class Main
         Me.BarButtonItem16.ImageIndex = 18
         Me.BarButtonItem16.Name = "BarButtonItem16"
         '
-        'btnDespacho
+        'barBtnArticulos
         '
-        Me.btnDespacho.Caption = "Despacho"
-        Me.btnDespacho.Id = 23
-        Me.btnDespacho.LargeImageIndex = 12
-        Me.btnDespacho.Name = "btnDespacho"
+        Me.barBtnArticulos.Caption = "Artículos"
+        Me.barBtnArticulos.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
+        Me.barBtnArticulos.Glyph = CType(resources.GetObject("barBtnArticulos.Glyph"), System.Drawing.Image)
+        Me.barBtnArticulos.Id = 34
+        Me.barBtnArticulos.ImageIndex = 6
+        Me.barBtnArticulos.LargeGlyph = CType(resources.GetObject("barBtnArticulos.LargeGlyph"), System.Drawing.Image)
+        Me.barBtnArticulos.LargeImageIndex = 1
+        Me.barBtnArticulos.Name = "barBtnArticulos"
         '
-        'BarButtonItem1
+        'barBtnMovimientos
         '
-        Me.BarButtonItem1.Caption = "Recepción"
-        Me.BarButtonItem1.Id = 24
-        Me.BarButtonItem1.LargeImageIndex = 13
-        Me.BarButtonItem1.Name = "BarButtonItem1"
-        '
-        'BarButtonItem18
-        '
-        Me.BarButtonItem18.Caption = "Traslados"
-        Me.BarButtonItem18.Id = 25
-        Me.BarButtonItem18.LargeImageIndex = 14
-        Me.BarButtonItem18.Name = "BarButtonItem18"
-        '
-        'BarButtonItem19
-        '
-        Me.BarButtonItem19.Caption = "Eventos"
-        Me.BarButtonItem19.Id = 26
-        Me.BarButtonItem19.LargeImageIndex = 15
-        Me.BarButtonItem19.Name = "BarButtonItem19"
-        '
-        'BarButtonItem20
-        '
-        Me.BarButtonItem20.Caption = "En Curso"
-        Me.BarButtonItem20.Id = 27
-        Me.BarButtonItem20.ImageIndex = 19
-        Me.BarButtonItem20.Name = "BarButtonItem20"
-        '
-        'BarButtonItem21
-        '
-        Me.BarButtonItem21.Caption = "Pendientes"
-        Me.BarButtonItem21.Id = 28
-        Me.BarButtonItem21.ImageIndex = 19
-        Me.BarButtonItem21.Name = "BarButtonItem21"
-        '
-        'BarButtonItem22
-        '
-        Me.BarButtonItem22.Caption = "Tercerizados"
-        Me.BarButtonItem22.Id = 29
-        Me.BarButtonItem22.ImageIndex = 19
-        Me.BarButtonItem22.Name = "BarButtonItem22"
-        '
-        'BarButtonItem23
-        '
-        Me.BarButtonItem23.Caption = "BarButtonItem23"
-        Me.BarButtonItem23.Id = 31
-        Me.BarButtonItem23.LargeImageIndex = 16
-        Me.BarButtonItem23.Name = "BarButtonItem23"
-        '
-        'BarButtonItem24
-        '
-        Me.BarButtonItem24.Caption = "BarButtonItem24"
-        Me.BarButtonItem24.Id = 32
-        Me.BarButtonItem24.LargeImageIndex = 17
-        Me.BarButtonItem24.Name = "BarButtonItem24"
-        '
-        'BarButtonItem6
-        '
-        Me.BarButtonItem6.Caption = "Artículos"
-        Me.BarButtonItem6.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
-        Me.BarButtonItem6.Id = 34
-        Me.BarButtonItem6.ImageIndex = 6
-        Me.BarButtonItem6.LargeImageIndex = 1
-        Me.BarButtonItem6.Name = "BarButtonItem6"
-        '
-        'BarButtonItem17
-        '
-        Me.BarButtonItem17.Caption = "Clientes"
-        Me.BarButtonItem17.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
-        Me.BarButtonItem17.Id = 35
-        Me.BarButtonItem17.LargeImageIndex = 7
-        Me.BarButtonItem17.Name = "BarButtonItem17"
-        '
-        'BarButtonItem25
-        '
-        Me.BarButtonItem25.Caption = "Stock"
-        Me.BarButtonItem25.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
-        Me.BarButtonItem25.Id = 36
-        Me.BarButtonItem25.LargeImageIndex = 12
-        Me.BarButtonItem25.Name = "BarButtonItem25"
-        '
-        'BarButtonItem26
-        '
-        Me.BarButtonItem26.Caption = "Alquileres"
-        Me.BarButtonItem26.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
-        Me.BarButtonItem26.Id = 37
-        Me.BarButtonItem26.LargeImageIndex = 11
-        Me.BarButtonItem26.Name = "BarButtonItem26"
+        Me.barBtnMovimientos.Caption = "Alquileres"
+        Me.barBtnMovimientos.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
+        Me.barBtnMovimientos.Id = 37
+        Me.barBtnMovimientos.LargeImageIndex = 11
+        Me.barBtnMovimientos.Name = "barBtnMovimientos"
         '
         'BarButtonItem27
         '
-        Me.BarButtonItem27.Caption = "Usuarios"
+        Me.BarButtonItem27.Caption = "Alertas"
         Me.BarButtonItem27.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
+        Me.BarButtonItem27.Glyph = CType(resources.GetObject("BarButtonItem27.Glyph"), System.Drawing.Image)
         Me.BarButtonItem27.Id = 38
-        Me.BarButtonItem27.LargeImageIndex = 3
+        Me.BarButtonItem27.LargeGlyph = CType(resources.GetObject("BarButtonItem27.LargeGlyph"), System.Drawing.Image)
+        Me.BarButtonItem27.LargeImageIndex = 8
         Me.BarButtonItem27.Name = "BarButtonItem27"
         '
         'BarButtonItem28
@@ -434,45 +236,29 @@ Partial Class Main
         Me.BarButtonItem28.LargeImageIndex = 16
         Me.BarButtonItem28.Name = "BarButtonItem28"
         '
-        'BarButtonItem29
-        '
-        Me.BarButtonItem29.Caption = "Galería"
-        Me.BarButtonItem29.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
-        Me.BarButtonItem29.Id = 40
-        Me.BarButtonItem29.LargeImageIndex = 8
-        Me.BarButtonItem29.Name = "BarButtonItem29"
-        '
         'BarButtonItem30
         '
         Me.BarButtonItem30.Caption = "Maestro"
         Me.BarButtonItem30.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
+        Me.BarButtonItem30.Glyph = CType(resources.GetObject("BarButtonItem30.Glyph"), System.Drawing.Image)
         Me.BarButtonItem30.Id = 41
+        Me.BarButtonItem30.LargeGlyph = CType(resources.GetObject("BarButtonItem30.LargeGlyph"), System.Drawing.Image)
         Me.BarButtonItem30.LargeImageIndex = 4
         Me.BarButtonItem30.Name = "BarButtonItem30"
         '
-        'BarButtonItem31
+        'btnGeneros
         '
-        Me.BarButtonItem31.Caption = "Ventas"
-        Me.BarButtonItem31.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
-        Me.BarButtonItem31.Id = 42
-        Me.BarButtonItem31.LargeImageIndex = 9
-        Me.BarButtonItem31.Name = "BarButtonItem31"
+        Me.btnGeneros.Caption = "Géneros"
+        Me.btnGeneros.Id = 47
+        Me.btnGeneros.ImageIndex = 1
+        Me.btnGeneros.Name = "btnGeneros"
         '
-        'BarButtonItem32
+        'btnCategorias
         '
-        Me.BarButtonItem32.Caption = "Stock Actual"
-        Me.BarButtonItem32.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
-        Me.BarButtonItem32.Id = 43
-        Me.BarButtonItem32.LargeImageIndex = 13
-        Me.BarButtonItem32.Name = "BarButtonItem32"
-        '
-        'BarButtonItem33
-        '
-        Me.BarButtonItem33.Caption = "Pedidos"
-        Me.BarButtonItem33.CategoryGuid = New System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537")
-        Me.BarButtonItem33.Id = 44
-        Me.BarButtonItem33.LargeImageIndex = 10
-        Me.BarButtonItem33.Name = "BarButtonItem33"
+        Me.btnCategorias.Caption = "Categorías"
+        Me.btnCategorias.Id = 48
+        Me.btnCategorias.ImageIndex = 3
+        Me.btnCategorias.Name = "btnCategorias"
         '
         'ribbonImageCollectionLarge
         '
@@ -507,7 +293,7 @@ Partial Class Main
         '
         'rbnPageShaman
         '
-        Me.rbnPageShaman.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup5, Me.RibbonPageGroup1, Me.RibbonPageGroup3, Me.RibbonPageGroup4, Me.RibbonPageGroup2})
+        Me.rbnPageShaman.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup5, Me.RibbonPageGroup3, Me.RibbonPageGroup4, Me.RibbonPageGroup2})
         Me.rbnPageShaman.Name = "rbnPageShaman"
         Me.rbnPageShaman.Text = "Menú Principal"
         '
@@ -518,21 +304,12 @@ Partial Class Main
         Me.RibbonPageGroup5.Name = "RibbonPageGroup5"
         Me.RibbonPageGroup5.Text = "Acciones"
         '
-        'RibbonPageGroup1
-        '
-        Me.RibbonPageGroup1.ItemLinks.Add(Me.rgbiSkins)
-        Me.RibbonPageGroup1.Name = "RibbonPageGroup1"
-        Me.RibbonPageGroup1.Text = "Skins"
-        '
         'RibbonPageGroup3
         '
-        Me.RibbonPageGroup3.ItemLinks.Add(Me.BarButtonItem6)
-        Me.RibbonPageGroup3.ItemLinks.Add(Me.BarButtonItem17)
-        Me.RibbonPageGroup3.ItemLinks.Add(Me.BarButtonItem25)
-        Me.RibbonPageGroup3.ItemLinks.Add(Me.BarButtonItem26)
+        Me.RibbonPageGroup3.ItemLinks.Add(Me.barBtnArticulos)
+        Me.RibbonPageGroup3.ItemLinks.Add(Me.barBtnMovimientos)
         Me.RibbonPageGroup3.ItemLinks.Add(Me.BarButtonItem27)
         Me.RibbonPageGroup3.ItemLinks.Add(Me.BarButtonItem28)
-        Me.RibbonPageGroup3.ItemLinks.Add(Me.BarButtonItem29)
         Me.RibbonPageGroup3.ItemLinks.Add(Me.BarButtonItem30)
         Me.RibbonPageGroup3.Name = "RibbonPageGroup3"
         Me.RibbonPageGroup3.ShowCaptionButton = False
@@ -558,9 +335,6 @@ Partial Class Main
         '
         'RibbonPageGroup6
         '
-        Me.RibbonPageGroup6.ItemLinks.Add(Me.BarButtonItem31)
-        Me.RibbonPageGroup6.ItemLinks.Add(Me.BarButtonItem32)
-        Me.RibbonPageGroup6.ItemLinks.Add(Me.BarButtonItem33)
         Me.RibbonPageGroup6.Name = "RibbonPageGroup6"
         Me.RibbonPageGroup6.ShowCaptionButton = False
         '
@@ -758,7 +532,6 @@ Partial Class Main
         '
         'DockPanel1_Container
         '
-        Me.DockPanel1_Container.Controls.Add(Me.LabelControl5)
         Me.DockPanel1_Container.Controls.Add(Me.grdResumenGestion)
         Me.DockPanel1_Container.Controls.Add(Me.cmbEstadosGestion)
         Me.DockPanel1_Container.Controls.Add(Me.grdGestion)
@@ -768,20 +541,8 @@ Partial Class Main
         Me.DockPanel1_Container.Size = New System.Drawing.Size(496, 368)
         Me.DockPanel1_Container.TabIndex = 0
         '
-        'LabelControl5
-        '
-        Me.LabelControl5.Appearance.Font = New System.Drawing.Font("Calibri", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl5.Location = New System.Drawing.Point(19, 243)
-        Me.LabelControl5.Name = "LabelControl5"
-        Me.LabelControl5.Size = New System.Drawing.Size(113, 15)
-        Me.LabelControl5.TabIndex = 5
-        Me.LabelControl5.Text = "Resumen de Gestión"
-        '
         'grdResumenGestion
         '
-        Me.grdResumenGestion.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grdResumenGestion.Location = New System.Drawing.Point(0, 264)
         Me.grdResumenGestion.MainView = Me.grdViewResumenGestion
         Me.grdResumenGestion.MenuManager = Me.ribbonMain
@@ -838,48 +599,64 @@ Partial Class Main
         '
         'TileItem6
         '
-        TileItemElement1.Image = CType(resources.GetObject("TileItemElement1.Image"), System.Drawing.Image)
-        TileItemElement1.Text = "TileItem6"
-        Me.TileItem6.Elements.Add(TileItemElement1)
+        TileItemElement6.Image = CType(resources.GetObject("TileItemElement6.Image"), System.Drawing.Image)
+        TileItemElement6.Text = "TileItem6"
+        Me.TileItem6.Elements.Add(TileItemElement6)
         Me.TileItem6.Id = 5
         Me.TileItem6.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
         Me.TileItem6.Name = "TileItem6"
         '
         'TileItem7
         '
-        TileItemElement2.Image = CType(resources.GetObject("TileItemElement2.Image"), System.Drawing.Image)
-        TileItemElement2.Text = "TileItem7"
-        Me.TileItem7.Elements.Add(TileItemElement2)
+        TileItemElement7.Image = CType(resources.GetObject("TileItemElement7.Image"), System.Drawing.Image)
+        TileItemElement7.Text = "TileItem7"
+        Me.TileItem7.Elements.Add(TileItemElement7)
         Me.TileItem7.Id = 6
         Me.TileItem7.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
         Me.TileItem7.Name = "TileItem7"
         '
         'TileItem8
         '
-        TileItemElement3.Image = CType(resources.GetObject("TileItemElement3.Image"), System.Drawing.Image)
-        TileItemElement3.Text = "TileItem8"
-        Me.TileItem8.Elements.Add(TileItemElement3)
+        TileItemElement8.Image = CType(resources.GetObject("TileItemElement8.Image"), System.Drawing.Image)
+        TileItemElement8.Text = "TileItem8"
+        Me.TileItem8.Elements.Add(TileItemElement8)
         Me.TileItem8.Id = 7
         Me.TileItem8.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
         Me.TileItem8.Name = "TileItem8"
         '
         'TileItem9
         '
-        TileItemElement4.Image = CType(resources.GetObject("TileItemElement4.Image"), System.Drawing.Image)
-        TileItemElement4.Text = "TileItem9"
-        Me.TileItem9.Elements.Add(TileItemElement4)
+        TileItemElement9.Image = CType(resources.GetObject("TileItemElement9.Image"), System.Drawing.Image)
+        TileItemElement9.Text = "TileItem9"
+        Me.TileItem9.Elements.Add(TileItemElement9)
         Me.TileItem9.Id = 8
         Me.TileItem9.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
         Me.TileItem9.Name = "TileItem9"
         '
         'TileItem10
         '
-        TileItemElement5.Image = CType(resources.GetObject("TileItemElement5.Image"), System.Drawing.Image)
-        TileItemElement5.Text = "TileItem10"
-        Me.TileItem10.Elements.Add(TileItemElement5)
+        TileItemElement10.Image = CType(resources.GetObject("TileItemElement10.Image"), System.Drawing.Image)
+        TileItemElement10.Text = "TileItem10"
+        Me.TileItem10.Elements.Add(TileItemElement10)
         Me.TileItem10.Id = 9
         Me.TileItem10.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium
         Me.TileItem10.Name = "TileItem10"
+        '
+        'RadialMenu1
+        '
+        Me.RadialMenu1.ItemLinks.Add(Me.btnGeneros)
+        Me.RadialMenu1.ItemLinks.Add(Me.btnCategorias)
+        Me.RadialMenu1.Name = "RadialMenu1"
+        Me.RadialMenu1.Ribbon = Me.ribbonMain
+        '
+        'alertStock
+        '
+        Me.alertStock.AppearanceCaption.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.alertStock.AppearanceCaption.Options.UseFont = True
+        Me.alertStock.AppearanceCaption.Options.UseTextOptions = True
+        Me.alertStock.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.alertStock.AppearanceText.ForeColor = System.Drawing.Color.Red
+        Me.alertStock.AppearanceText.Options.UseForeColor = True
         '
         'Main
         '
@@ -923,30 +700,21 @@ Partial Class Main
         CType(Me.cmbEstadosGestion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdGestion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdViewMovGestion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RadialMenu1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents ribbonMain As DevExpress.XtraBars.Ribbon.RibbonControl
     Friend WithEvents rbnPageShaman As DevExpress.XtraBars.Ribbon.RibbonPage
-    Friend WithEvents RibbonPageGroup1 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents RibbonStatusBar As DevExpress.XtraBars.Ribbon.RibbonStatusBar
     Private WithEvents ribbonImageCollection As DevExpress.Utils.ImageCollection
     Private WithEvents ribbonImageCollectionLarge As DevExpress.Utils.ImageCollection
     Private WithEvents appMenu As DevExpress.XtraBars.Ribbon.ApplicationMenu
     Private WithEvents navbarImageCollectionLarge As DevExpress.Utils.ImageCollection
     Private WithEvents navbarImageCollection As DevExpress.Utils.ImageCollection
-    Friend WithEvents btnCostosContables As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem2 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem3 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem5 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents btnOfertaDemanda As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem7 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem8 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents rgbiSkins As DevExpress.XtraBars.RibbonGalleryBarItem
     Friend WithEvents BarButtonItem9 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RibbonPageGroup4 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
-    Friend WithEvents BarButtonItem4 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnCerrar As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem12 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem11 As DevExpress.XtraBars.BarButtonItem
@@ -956,23 +724,10 @@ Partial Class Main
     Friend WithEvents dockPanels As DevExpress.XtraBars.Docking.DockManager
     Friend WithEvents RibbonPageGroup5 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BackstageViewTabItem2 As DevExpress.XtraBars.Ribbon.BackstageViewTabItem
-    Friend WithEvents btnEntidadesPrestacion As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem10 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem13 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem14 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem15 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem16 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RibbonPageGroup2 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
-    Friend WithEvents btnDespacho As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents dlgGuardar As System.Windows.Forms.SaveFileDialog
-    Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem18 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem19 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem20 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem21 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem22 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem23 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem24 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents DockPanel2 As DevExpress.XtraBars.Docking.DockPanel
     Friend WithEvents DockPanel2_Container As DevExpress.XtraBars.Docking.ControlContainer
     Friend WithEvents DockPanel1 As DevExpress.XtraBars.Docking.DockPanel
@@ -984,17 +739,11 @@ Partial Class Main
     Friend WithEvents TileItem9 As DevExpress.XtraEditors.TileItem
     Friend WithEvents TileItem10 As DevExpress.XtraEditors.TileItem
     Friend WithEvents RibbonPageGroup3 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
-    Friend WithEvents BarButtonItem6 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem17 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem25 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem26 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents barBtnArticulos As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents barBtnMovimientos As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem27 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem28 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem29 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem30 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem31 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem32 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem33 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RibbonPageGroup6 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents tileGaleria As DevExpress.XtraEditors.TileControl
     Friend WithEvents TileGroup1 As DevExpress.XtraEditors.TileGroup
@@ -1012,7 +761,10 @@ Partial Class Main
     Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents grdResumenGestion As DevExpress.XtraGrid.GridControl
     Friend WithEvents grdViewResumenGestion As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents RadialMenu1 As DevExpress.XtraBars.Ribbon.RadialMenu
+    Friend WithEvents btnGeneros As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btnCategorias As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents alertStock As DevExpress.XtraBars.Alerter.AlertControl
 
 
 End Class

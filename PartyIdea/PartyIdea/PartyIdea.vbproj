@@ -7,9 +7,9 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{4A37A1D0-39E3-4B99-BA34-FEB426103471}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Shaman.My.MyApplication</StartupObject>
-    <RootNamespace>Shaman</RootNamespace>
-    <AssemblyName>Shaman</AssemblyName>
+    <StartupObject>PartyIdea.My.MyApplication</StartupObject>
+    <RootNamespace>PartyIdea</RootNamespace>
+    <AssemblyName>Party Idea</AssemblyName>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileUpgradeFlags>
@@ -44,7 +44,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Shaman.xml</DocumentationFile>
+    <DocumentationFile>Party Idea.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <PlatformTarget>x86</PlatformTarget>
@@ -55,12 +55,12 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Shaman.xml</DocumentationFile>
+    <DocumentationFile>Party Idea.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Tatice-Cristal-Intense-Java.ico</ApplicationIcon>
+    <ApplicationIcon>party.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
@@ -158,6 +158,9 @@
     </Compile>
     <Compile Include="Classes\MovimientosGestion.vb" />
     <Compile Include="Classes\MovimientosResumen.vb" />
+    <Compile Include="Classes\Clientes.methods.vb" />
+    <Compile Include="Classes\Movimientos.methods.vb" />
+    <Compile Include="Classes\Stock.vb" />
     <Compile Include="Clientes.vb">
       <DependentUpon>PartyIdea.tt</DependentUpon>
     </Compile>
@@ -173,18 +176,40 @@
     <Compile Include="EventosMovimientos.vb">
       <DependentUpon>PartyIdea.tt</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Clientes.methods.vb" />
-    <Compile Include="Classes\Movimientos.methods.vb" />
-    <Compile Include="Forms\frmAlquileres.Designer.vb">
-      <DependentUpon>frmAlquileres.vb</DependentUpon>
+    <Compile Include="Forms\frmArticulos.Designer.vb">
+      <DependentUpon>frmArticulos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmAlquileres.vb">
+    <Compile Include="Forms\frmArticulos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmArticulosEditar.Designer.vb">
+      <DependentUpon>frmArticulosEditar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmArticulosEditar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCategorias.Designer.vb">
+      <DependentUpon>frmCategorias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCategorias.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCategoriasEditar.Designer.vb">
+      <DependentUpon>frmCategoriasEditar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCategoriasEditar.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmEstadisticas.Designer.vb">
       <DependentUpon>frmEstadisticas.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmEstadisticas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMovimientoArticulo.Designer.vb">
+      <DependentUpon>frmMovimientoArticulo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMovimientoArticulo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmRetiros.Designer.vb">
@@ -255,6 +280,9 @@
       <DependentUpon>PartyIdea.tt</DependentUpon>
     </Compile>
     <Compile Include="Resources\Recursos.Designer.vb" />
+    <Compile Include="Talles.vb">
+      <DependentUpon>PartyIdea.tt</DependentUpon>
+    </Compile>
     <Compile Include="TipoDocumentos.vb">
       <DependentUpon>PartyIdea.tt</DependentUpon>
     </Compile>
@@ -266,17 +294,31 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\frmAlquileres.resx">
-      <DependentUpon>frmAlquileres.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\frmArticulos.resx">
+      <DependentUpon>frmArticulos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmArticulosEditar.resx">
+      <DependentUpon>frmArticulosEditar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCategorias.resx">
+      <DependentUpon>frmCategorias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCategoriasEditar.resx">
+      <DependentUpon>frmCategoriasEditar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmEstadisticas.resx">
       <DependentUpon>frmEstadisticas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMovimientoArticulo.resx">
+      <DependentUpon>frmMovimientoArticulo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmRetiros.resx">
       <DependentUpon>frmRetiros.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -371,66 +413,14 @@
     <Content Include="Images\splah9.jpg" />
     <Content Include="Images\Tasks_16x16.png" />
     <Content Include="Images\Trash_16x16.png" />
+    <Content Include="party.ico" />
     <Content Include="PartyIdea.ico" />
     <Content Include="Resources\aguno.ico" />
-    <Content Include="Resources\Alicia - Tim Burton 1-01.jpg" />
-    <Content Include="Resources\alicia 1-01.jpg" />
-    <Content Include="Resources\AUTOMOVILISTA.jpg" />
-    <Content Include="Resources\AÑOS_50.jpg" />
-    <Content Include="Resources\bombera1-01.jpg" />
-    <Content Include="Resources\bucanera 1-01.jpg" />
-    <Content Include="Resources\bucanera oro 1-01.jpg" />
-    <Content Include="Resources\Cacique.jpg" />
-    <Content Include="Resources\CAMARERA_50%27s.jpg" />
-    <Content Include="Resources\CAN_CAN_MOD_I.jpg" />
-    <Content Include="Resources\CARNAVAL_VENECIANO.jpg" />
-    <Content Include="Resources\cazafantasma 1-01.jpg" />
-    <Content Include="Resources\CHARLESTON_MOD_I.jpg" />
-    <Content Include="Resources\CHEFF.jpg" />
-    <Content Include="Resources\daphne %28scooby doo%29 1-01.jpg" />
-    <Content Include="Resources\DETECTIVE.jpg" />
-    <Content Include="Resources\ENFERMERA_MOD_II_CORTO.jpg" />
-    <Content Include="Resources\ENFERMERA_MOD_I_LARGO.jpg" />
-    <Content Include="Resources\estatua de la libertad1-01.jpg" />
-    <Content Include="Resources\Frutillitas %282%29 1-01.jpg" />
-    <Content Include="Resources\frutillitas 1-01.jpg" />
-    <Content Include="Resources\gaisha 21-01.jpg" />
-    <Content Include="Resources\GANGSTER_MOD_I.jpg" />
-    <Content Include="Resources\GANGSTER_MOD_II.jpg" />
-    <Content Include="Resources\geisha 11-01.jpg" />
-    <Content Include="Resources\GIRL_SCOUT_MOD_I.jpg" />
-    <Content Include="Resources\GIRL_SCOUT_MOD_II.jpg" />
-    <Content Include="Resources\Marge Simpson 1-01.jpg" />
-    <Content Include="Resources\MARINERA_MOD_I.jpg" />
-    <Content Include="Resources\MARINERA_MOD_II.jpg" />
-    <Content Include="Resources\MARINERA_MOD_III.jpg" />
-    <Content Include="Resources\militar 1-01.jpg" />
-    <Content Include="Resources\minnie 1-01.jpg" />
-    <Content Include="Resources\MUCAMA_MOD_I.jpg" />
-    <Content Include="Resources\MUCAMA_MOD_II.jpg" />
-    <Content Include="Resources\MÉDICA.jpg" />
-    <Content Include="Resources\ODALISCA.jpg" />
-    <Content Include="Resources\Olivia 1-01.jpg" />
-    <Content Include="Resources\piloto.jpg" />
-    <Content Include="Resources\Pirata %282%29 1-01.jpg" />
-    <Content Include="Resources\pirata 1-01.jpg" />
-    <Content Include="Resources\POLICIA.jpg" />
-    <Content Include="Resources\PORRISTA.jpg" />
-    <Content Include="Resources\PRESA.jpg" />
-    <Content Include="Resources\PUNK_ROJO.jpg" />
-    <Content Include="Resources\PUNK_VERDE.jpg" />
+    <None Include="Resources\party_splash.jpg" />
     <Content Include="Resources\quuno.ico" />
-    <Content Include="Resources\Rainbow Brite 1-01.jpg" />
-    <Content Include="Resources\REFEREE.jpg" />
-    <Content Include="Resources\Reina de Corazones - Tim Burton 1-01.jpg" />
-    <Content Include="Resources\reina de corazones 1-01.jpg" />
-    <Content Include="Resources\rockera1-01.jpg" />
     <Content Include="Resources\SFSGE-2.jpg" />
     <Content Include="Resources\SFSGE-3.jpg" />
     <Content Include="Resources\shaman.ico" />
-    <Content Include="Resources\SOLDADO.jpg" />
-    <Content Include="Resources\sombrerero loco %28alicia en el pais de las maravillas%29 1-01.jpg" />
-    <Content Include="Resources\TAXISTA.jpg" />
     <Content Include="Tatice-Cristal-Intense-Java.ico" />
   </ItemGroup>
   <ItemGroup>

@@ -4,4 +4,5 @@ Module modDeclares
     Public pathReports As String
     '----> Calls
     Public callInfo As String
+    Public editCategoria As Integer
 End Module
